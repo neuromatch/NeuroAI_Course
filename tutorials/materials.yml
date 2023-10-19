@@ -1,5 +1,5 @@
 #- day: W*number of week*D*number of day*                    #e.g., W1D1
-- DAY: W1D1
+- day: W1D1
   category: Insert category name here                 #e.g.,Intro to Modeling
   intro: https://www.youtube.com/watch?v=KxldhMR5PxA
   intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
