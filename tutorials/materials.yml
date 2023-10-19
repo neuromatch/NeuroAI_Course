@@ -1,97 +1,51 @@
-- day: W*number of week*D*number of day*                    #e.g., W1D1
-  category: Insert category/topic name here                 #e.g.,Intro to Modeling
-  intro: Insert intro video link here                       #e.g., https://www.youtube.com/watch?v=KxldhMR5PxA
-  intro_bilibili: Insert intro video link for bilibili here #e.g., https://www.bilibili.com/video/BV1HT4y1E7U4/
-  name: Insert session name here                            #e.g., Model Types
-  outro: Insert outro video link here                       #e.g., https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: Insert outro video link for bilibili here #e.g., https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: Insert playlist link here                       #e.g., https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI
+#- day: W*number of week*D*number of day*                    #e.g., W1D1
+- DAY: W1D1
+  category: Insert category name here                 #e.g.,Intro to Modeling
+  intro: https://www.youtube.com/watch?v=KxldhMR5PxA
+  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  name: [TOPIC_NAME]                            #e.g., Model Types
+  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
+  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI
 
-  qa: #insert as many as Q&A video links as needed
-  - Insert Q&A video link 1 here                            #e.g., https://www.youtube.com/watch?v=FwsKmunwzUA
-  - Insert Q&A video link 2 here                            #e.g., https://www.youtube.com/watch?v=h63bKG0-h_w
-  - Insert Q&A video link 3 here                            #e.g., https://www.youtube.com/watch?v=8h0X9lxY8Bs
+  #qa: #insert as many as Q&A video links as needed
+  #- Insert Q&A video link 1 here                            #e.g., https://www.youtube.com/watch?v=FwsKmunwzUA
+  #- Insert Q&A video link 2 here                            #e.g., https://www.youtube.com/watch?v=h63bKG0-h_w
+  #- Insert Q&A video link 3 here                            #e.g., https://www.youtube.com/watch?v=8h0X9lxY8Bs
   
   
   slides: #insert as many as slides links and titles as needed
-  - link: Insert slide link 1 here                          #e.g., https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render
-    title: Insert slide title here                          #e.g., Intro
-  - link: Continue adding slide links and titles as needed  #e.g.,https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
-    title: #...
-    
-  tutorials: Insert number of tutorials here                #e.g., 4
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render
+    title: Intro
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorials
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render
+    title: DaySummary
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render
+    title: Outro
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render
+    title: Reading
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
+    title: TA
+  tutorials: 1
   
   
   
-#Do the same for all other week/day  
-- day: W1D2
-  category: 
-  intro: 
-  intro_bilibili: 
-  name: 
-  outro: 
-  outro_bilibili: 
-  playlist: 
-  qa:
-  - https://
-  slides:
-  - link: 
-    title: 
-  - link: 
-    title: 
+# #Do the same for all other week/day  
+# - day: W1D2
+#   category: 
+#   intro: 
+#   intro_bilibili: 
+#   name: 
+#   outro: 
+#   outro_bilibili: 
+#   playlist: 
+#   qa:
+#   - https://
+#   slides:
+#   - link: 
+#     title: 
+#   - link: 
+#     title: 
 
-  tutorials:
-  
-  - day: W1D3
-  category: 
-  intro: 
-  intro_bilibili: 
-  name: 
-  outro: 
-  outro_bilibili: 
-  playlist: 
-  qa:
-  - https://
-  slides:
-  - link: 
-    title: 
-  - link: 
-    title: 
-
-  tutorials: 
-  
-  - day: W1D4
-  category: 
-  intro: 
-  intro_bilibili: 
-  name: 
-  outro: 
-  outro_bilibili: 
-  playlist: 
-  qa:
-  - https://
-  slides:
-  - link: 
-    title: 
-  - link: 
-    title: 
-
-  tutorials: 
-
-- day: W1D5
-  category: 
-  intro: 
-  intro_bilibili: 
-  name: 
-  outro: 
-  outro_bilibili: 
-  playlist: 
-  qa:
-  - https://
-  slides:
-  - link: 
-    title: 
-  - link: 
-    title: 
-
-  tutorials: 
+#   tutorials:
