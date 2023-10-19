@@ -3,7 +3,7 @@
   category: Insert category name here                 #e.g.,Intro to Modeling
   intro: https://www.youtube.com/watch?v=KxldhMR5PxA
   intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
-  name: [TOPIC_NAME]                            #e.g., Model Types
+  name: Template                         #e.g., Model Types
   outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
   outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
   playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI
