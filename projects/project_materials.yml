@@ -1,13 +1,14 @@
+- categories: [example_dataset]
 - title: Insert dataset title here
   category: Insert category here #e.g., neurons
   link: Insert link to the dataset #e.g., projects/neurons/your_dataset_file.ipynb
 
 
-#Continue with other projects
-
-- title: Insert dataset title here
-  category: Insert category here #e.g., neurons
-  link: Insert link to the dataset
-- title: Insert dataset title here
-  category: Insert category here #e.g., neurons
-  link: Insert link to the dataset
+# #Continue with other projects
+#
+# - title: Insert dataset title here
+#   category: Insert category here #e.g., neurons
+#   link: Insert link to the dataset
+# - title: Insert dataset title here
+#   category: Insert category here #e.g., neurons
+#   link: Insert link to the dataset
