@@ -1,7 +1,9 @@
 - categories: [example_dataset]
-- title: Insert dataset title here
-  category: Insert category here #e.g., neurons
-  link: Insert link to the dataset #e.g., projects/neurons/your_dataset_file.ipynb
+- past_categories: [neurons, theory, behavior, fMRI, eeg] # TODO: replace with example
+  year: 2020
+# - title: Insert dataset title here
+#   category: Insert category here #e.g., neurons
+#   link: Insert link to the dataset #e.g., projects/neurons/your_dataset_file.ipynb
 
 
 # #Continue with other projects
