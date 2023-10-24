@@ -1,6 +1,6 @@
   # Daily guide for projects
 
-[Here you can find the daily guide for projects the CN uses. Please use the same structure but change the content.]
+[Here you can find the daily guide for projects the CN uses. Please use the same structure but change the content if needed.]
 ## Summary
 
 This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (list datasets names here). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.

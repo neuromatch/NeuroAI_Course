@@ -1,3 +1,3 @@
-# Projects 2020
+# Projects Examples
 
-This pages contain a example projects from ....
+[Insert project examples here]
