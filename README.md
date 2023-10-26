@@ -1,12 +1,33 @@
-# NeuroMatch Academy (NMA) Computational Neuroscience syllabus
+This is a template for Neuromatch & Climatematch Course Template
 
-*July 10-28, 2023*
+When creating a book for these courses, kindly adhere to the structure provided in this template.
+
+You'll find a template for both projects and tutorial.
+
+Please ensure you replace all placeholders with the relevant content before finalizing your book.
+
+
+In the README file for the course please specify:
+1. title of the course
+2. Provide links for accessing the content and the structure of the days.
+
+
+
+# [COURSE TITLE] syllabus
+
+
+**Replace the below links with the appropriate one
+
+
+
+*INSERT COURSE DATE. Format: Month start-end CourseDates, 2024*
+
 
 Please check out [expected prerequisites here](https://github.com/NeuromatchAcademy/precourse/blob/main/prereqs/ComputationalNeuroscience.md)!
 
-**The content should primarily be accessed from our ebook: https://compneuro.neuromatch.io/ [under continuous development]**
+**The content should primarily be accessed from our ebook: https://compneuro.neuromatch.io/ [under continuous development**
 
-**Schedule for 2023: https://github.com/NeuromatchAcademy/course-content/blob/main/tutorials/Schedule/daily_schedules.md**
+**Schedule for 2024: E.g., https://github.com/NeuromatchAcademy/course-content/blob/main/tutorials/Schedule/daily_schedules.md**
 
 ---
 
