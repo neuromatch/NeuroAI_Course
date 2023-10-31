@@ -4,6 +4,7 @@ scipy
 matplotlib
 scikit-learn
 torch
+jupyter
 ipywidgets
 tqdm
 pathlib
