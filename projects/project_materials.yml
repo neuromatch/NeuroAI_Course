@@ -18,7 +18,8 @@
 - file: projects/docs/past_projects_overview.md
   title: Past projects
   sections:
-  # TODO: add a template
+  - file: projects/past-projects/example_past_project.ipynb
+    title: Example Past Project
   # You should add your past pojects here using the following:
   # - file: point to the file
   #   title: name the project
