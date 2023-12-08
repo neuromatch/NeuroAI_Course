@@ -1,16 +1,24 @@
-- categories: [example_dataset]
-- past_categories: [neurons, theory, behavior, fMRI, eeg] # TODO: replace with example
-  year: 2020
-# - title: Insert dataset title here
-#   category: Insert category here #e.g., neurons
-#   link: Insert link to the dataset #e.g., projects/neurons/your_dataset_file.ipynb
+- file: projects/README.md
+  title: Introduction
+- file: projects/keynote.ipynb
+  title: Project Day keynote (W2D2)
+- file: projects/docs/project_guidance.md
+  title: Daily guide for projects
+- file: projects/docs/datasets_overview.md
+  title: Project materials
+  sections:
+  - file: projects/project-notebooks/Example_project.ipynb
+    title: Example Project
+  # You should add your pojects here using the following:
+  # - file: point to the file
+  #   title: name the project
 
-
-# #Continue with other projects
-#
-# - title: Insert dataset title here
-#   category: Insert category here #e.g., neurons
-#   link: Insert link to the dataset
-# - title: Insert dataset title here
-#   category: Insert category here #e.g., neurons
-#   link: Insert link to the dataset
+- file: projects/docs/continuing_your_project_after_the_course.md
+  title: Continuing your project after the course
+- file: projects/docs/past_projects_overview.md
+  title: Past projects
+  sections:
+  # TODO: add a template
+  # You should add your past pojects here using the following:
+  # - file: point to the file
+  #   title: name the project
