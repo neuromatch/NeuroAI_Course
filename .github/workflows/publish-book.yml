@@ -8,6 +8,8 @@ env:
   ORG: neuromatch
   NMA_REPO: course-content-template
   NMA_MAIN_BRANCH: main
+  PREREQ_REPO: precourse
+  PREREQ_INTRO: ComputationalNeuroscience
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
@@ -36,7 +38,7 @@ jobs:
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
           # NOTE: might enventually change this back if we integrate changes
-          wget https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
+          wget https://github.com/$ORG/nmaci/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
           pip install --upgrade pip
           pip install -r nmaci-$BRANCH/requirements.txt
@@ -64,7 +66,7 @@ jobs:
         if: "!contains(env.COMMIT_MESSAGE, 'skip precourse')"
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"precourse:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
-          wget https://github.com/NeuromatchAcademy/precourse/archive/refs/heads/$BRANCH.tar.gz
+          wget https://github.com/$ORG/$PREREQ_REPO/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
           mv precourse-$BRANCH/tutorials/W0D* tutorials/
           cat precourse-main/tutorials/materials.yml tutorials/materials.yml > out.yml
