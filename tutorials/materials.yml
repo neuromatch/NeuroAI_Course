@@ -26,11 +26,11 @@
     title: Reading
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
     title: TA
-  tutorials: 3
+  tutorials: 4
 
 #- day: W*number of week*D*number of day*                    #e.g., W1D1
 - day: W1D2
-  category: Insert category name here                 #e.g.,Intro to Modeling
+  category: Insert Category Name Here                 #e.g.,Intro to Modeling
   intro: https://www.youtube.com/watch?v=KxldhMR5PxA
   intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
   name: Template                         #e.g., Model Types
