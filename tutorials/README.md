@@ -8,6 +8,9 @@
 
 ## W1D1 - Instructions
 
+
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render) | [DaySummary](https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render) | [Outro](https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render) | [Reading](https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render) | [TA](https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render)
+
 |   | Run | Run | View |
 | - | --- | --- | ---- |
 | Intro | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/course-content-template/blob/main/tutorials/W1D1_Instructions/W1D1_Intro.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/course-content-template/main/tutorials/W1D1_Instructions/W1D1_Intro.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/course-content-template/blob/main/tutorials/W1D1_Instructions/W1D1_Intro.ipynb?flush_cache=true) |
@@ -24,6 +27,9 @@
 
 
 ## W1D2 - Template
+
+
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render) | [DaySummary](https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render) | [Outro](https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render) | [Reading](https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render) | [TA](https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |

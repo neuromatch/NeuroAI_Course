@@ -29,8 +29,8 @@
   tutorials: 4
 
 - day: Bonus
-    category: Course Content Template Instructions
-    name: Bonus Content
+  category: Course Content Template Instructions
+  name: Bonus Content
   tutorials: 3
 
 #- day: W*number of week*D*number of day*                    #e.g., W1D1
