@@ -2,37 +2,31 @@
 
 ## Course overview
 
-* Sun, July 9: Opening Ceremonies
+* Sun, July 7: Opening Ceremonies
     * 8:30 am UTC
     * 5:30 pm UTC
     
 * Week 1
-    * Mon, July 10: Model Types
-    * Tue, July 11: Model Fitting
-    * Wed, July 12: Generalized Linear Models  
-    * Thu, July 13: Dimensionality Reduction
-    * Fri, July 14: Deep Learning
+    * Mon, July 15: 
+    * Tue, July 16: 
+    * Wed, July 17: 
+    * Thu, July 18: 
+    * Fri, July 19: 
      
 * Week 2
-    * Mon, July 17: Modeling Practice & Half Project Day (Projects Proposal)
-    * Tue, July 18: Linear Systems
-    * Wed, July 19: Biological Neuron Models
-    * Thu, July 20: Dynamic Networks
-    * Fri, July 21: Project day (Abstract Writing)
+    * Mon, July 22: 
+    * Tue, July 23: 
+    * Wed, July 24: 
+    * Thu, July 25: 
+    * Fri, July 26: & Graduation 
     
-* Week 3
-    * Mon, July 24: Bayesian Decisions
-    * Tue, July 25: Hidden Dynamics
-    * Wed, July 26: Optimal Control
-    * Thu, July 27: Reinforcement Learning
-    * Fri, July 28: Network Causality & Graduation
 ----
 
 ## Daily coursework schedule
 These schedules refer to the coursework time.
 
 ### General schedule
-All days except W2D1, W2D5, and W3D5 will follow this schedule for course time:
+All days except W2D1 and W2D5 will follow this schedule for course time:
  
 |    Time (Hour)   |    Component                          |
 |------------------|---------------------------------------|
@@ -54,7 +48,7 @@ In addition to course time, each day will have 3 hours of project time. Check th
 *Note: Slots 1, 3, and 4 **will not** have project time on W1D1.* 
 
 ### Schedule of specific days
-
+<!--
 #### W2D1: Modeling Practice & Half Project Day (Project Proposals)
 *For more info on the components of this day, please see the daily guide for projects [here](https://compneuro.neuromatch.io/projects/docs/project_guidance.html#w1d2-coursework-tuesday-project-block-2-tuesday-for-slot-1-3-5-wednesday-for-slot-2-4)*
 
@@ -127,8 +121,8 @@ During project time:
 \* : Note that this refers to the start of the projects time, not the coursework time like usual
 
 \** : Timing of this mentor meeting may need to vary based on mentor availability
-
-#### W3D5: Final Day of Course
+-->
+#### W2D5: Final Day of Course
 
 **Slots 1/2/4/5:**
 |    Time (Hour)   |    Lecture                               |
@@ -151,7 +145,7 @@ During project time:
 
 \** : Note that these events occur after the normal coursework time.
  
-Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time!
+Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time! Completion of the final course survey is required to access your certificate in the portal. 
 
 Pod farewell: This is just a chance for your pod to say goodbye to each other. No structure imposed or requirements here!
 
@@ -178,7 +172,7 @@ Closing Ceremony/Graduation: We will do this all together on crowdcast.
 
 \** : Note that these events occur after the normal coursework time.
 
-Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time!
+Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time! Completion of the final course survey is required to access your certificate in the portal. 
 
 Pod farewell: This is just a chance for your pod to say goodbye to each other. No structure imposed or requirements here!
 
@@ -186,6 +180,5 @@ Closing Ceremony/Graduation: We will do this all together on crowdcast.
 
 
 ### Professional Development Panels
-*Note that these have been scheduled to be before or after the coursework time for each time slot. In some cases, they overlap by 15 - 30 minutes with projects time - please start on projects time late or end early in order to attend these events*
 
 Course live events: TBD — will update
