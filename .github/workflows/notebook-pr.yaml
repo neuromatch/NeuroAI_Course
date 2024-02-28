@@ -55,6 +55,7 @@ jobs:
           python -m pip install --upgrade pip wheel
           pip install -r requirements.txt
           pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
+          pip install jinja2==3.1.2 # to fix pandas dep
 
       - name: Install XKCD fonts
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
