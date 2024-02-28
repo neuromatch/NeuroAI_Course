@@ -9,5 +9,12 @@ ipywidgets
 tqdm
 pathlib
 pandas
-xkcd
 decorator==5.0.9
+Pillow
+transformers
+gradio
+torchvision
+networkx
+trdg
+git+https://github.com/neuromatch/GNS-Modeling#egg=gns
+git+https://github.com/neuromatch/pyBPL#egg=pybpl
