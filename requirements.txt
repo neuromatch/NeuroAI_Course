@@ -13,6 +13,7 @@ scikit-learn==1.4.1.post1
 scikit-image==0.19.2
 tqdm==4.66.2
 protobuf==4.25.3
+numba==0.59.0
 sentencepiece==0.2.0
 git+https://github.com/Belval/TextRecognitionDataGenerator#egg=trdg
 git+https://github.com/neuromatch/GNS-Modeling#egg=gns
