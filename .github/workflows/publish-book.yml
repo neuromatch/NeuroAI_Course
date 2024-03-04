@@ -6,7 +6,7 @@ on:
 env:
   NB_KERNEL: python
   ORG: neuromatch
-  NMA_REPO: course-content-template
+  NMA_REPO: NeuroAI_Course
   NMA_MAIN_BRANCH: main
   PREREQ_REPO: precourse
   PREREQ_INTRO: ComputationalNeuroscience
