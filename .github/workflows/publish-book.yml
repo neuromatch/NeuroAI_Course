@@ -6,7 +6,7 @@ on:
 env:
   NB_KERNEL: python
   ORG: neuromatch
-  NMA_REPO: course-content-template
+  NMA_REPO: NeuroAI_Course
   NMA_MAIN_BRANCH: main
   PREREQ_REPO: precourse
   PREREQ_INTRO: ComputationalNeuroscience
@@ -50,8 +50,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install jupyter-book==0.10.2 ghp-import
-          pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
+          pip install jupyter-book==0.14.0 ghp-import
+          # pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
 
       - name: Install XKCD fonts
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
@@ -78,6 +78,7 @@ jobs:
       - name: Build student book
         run: |
           python ci/generate_book.py student
+          jupyter-book toc migrate /home/runner/work/NeuroAI_Course/NeuroAI_Course/book/_toc.yml -o /home/runner/work/NeuroAI_Course/NeuroAI_Course/book/_toc.yml
           ln -s ../tutorials book/tutorials
           ln -s ../projects book/projects
           ln -s ../prereqs book/prereqs
