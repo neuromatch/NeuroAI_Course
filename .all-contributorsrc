@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "courtneydean33",
+      "name": "courtneydean33",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114959284?v=4",
+      "profile": "https://github.com/courtneydean33",
+      "contributions": [
+        "projectManagement"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "NeuroAI_Course",
+  "projectOwner": "neuromatch"
+}
