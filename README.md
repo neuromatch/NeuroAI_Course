@@ -1,6 +1,6 @@
 This is a template for Neuromatch & Climatematch Course Template
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 When creating a book for these courses, kindly adhere to the structure provided in this template.
@@ -84,6 +84,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SamueleBolotta"><img src="https://avatars.githubusercontent.com/u/57507442?v=4?s=100" width="100px;" alt="Samuele "/><br /><sub><b>Samuele </b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=SamueleBolotta" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://xcorr.dev"><img src="https://avatars.githubusercontent.com/u/3516539?v=4?s=100" width="100px;" alt="Patrick Mineault"/><br /><sub><b>Patrick Mineault</b></sub></a><br /><a href="#content-patrickmineault" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
