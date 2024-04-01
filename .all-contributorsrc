@@ -1,0 +1,55 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "iamzoltan",
+      "name": "Zoltan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21369773?v=4",
+      "profile": "https://github.com/iamzoltan",
+      "contributions": [
+        "infra",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "courtneydean33",
+      "name": "courtneydean33",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114959284?v=4",
+      "profile": "https://github.com/courtneydean33",
+      "contributions": [
+        "projectManagement"
+      ]
+    },
+    {
+      "login": "SamueleBolotta",
+      "name": "Samuele ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57507442?v=4",
+      "profile": "https://github.com/SamueleBolotta",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "patrickmineault",
+      "name": "Patrick Mineault",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3516539?v=4",
+      "profile": "http://xcorr.dev",
+      "contributions": [
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "NeuroAI_Course",
+  "projectOwner": "neuromatch"
+}
