@@ -62,6 +62,7 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 <table>
   <tbody>
     <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/courtneydean33"><img src="https://avatars.githubusercontent.com/u/114959284?v=4?s=100" width="100px;" alt="courtneydean33"/><br /><sub><b>courtneydean33</b></sub></a><br /><a href="#projectManagement-courtneydean33" title="Project Management">📆</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SamueleBolotta"><img src="https://avatars.githubusercontent.com/u/57507442?v=4?s=100" width="100px;" alt="Samuele "/><br /><sub><b>Samuele </b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=SamueleBolotta" title="Code">💻</a></td>
     </tr>
   </tbody>
