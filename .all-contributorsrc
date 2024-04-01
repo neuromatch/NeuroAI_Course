@@ -15,6 +15,23 @@
       "contributions": [
         "infra",
         "maintenance"
+    },
+    {
+      "login": "courtneydean33",
+      "name": "courtneydean33",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114959284?v=4",
+      "profile": "https://github.com/courtneydean33",
+      "contributions": [
+        "projectManagement"
+    },
+    {
+      "login": "SamueleBolotta",
+      "name": "Samuele ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57507442?v=4",
+      "profile": "https://github.com/SamueleBolotta",
+      "contributions": [
+        "code"
+
       ]
     }
   ],
