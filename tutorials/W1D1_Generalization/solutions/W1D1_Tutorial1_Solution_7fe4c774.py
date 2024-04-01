@@ -23,24 +23,3 @@ def calculate_writing_time(total_words, words_per_day, days_per_week, weeks_per_
     time_to_write_lifetimes = time_to_write_years / average_human_lifespan
 
     return time_to_write_lifetimes
-
-# Example values
-total_words = 5e9
-words_per_day = 1500
-days_per_week = 6
-weeks_per_year = 50
-average_human_lifespan = 80
-
-# Uncomment the code below to test your function
-
-# Test the function
-#time_to_write_lifetimes_roberta = calculate_writing_time(
-    #total_words,
-    #words_per_day,
-    #days_per_week,
-    #weeks_per_year,
-    #average_human_lifespan
-#)
-
-# Print the result
-#print(f"Time to write {total_words} words in lifetimes: {time_to_write_lifetimes_roberta} lifetimes")
