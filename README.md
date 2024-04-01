@@ -51,6 +51,19 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 
 ---
 
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
+
 ## Licensing
 
 [![CC BY 4.0][cc-by-image]][cc-by]
