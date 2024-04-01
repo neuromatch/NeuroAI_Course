@@ -1,6 +1,6 @@
 This is a template for Neuromatch & Climatematch Course Template
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 When creating a book for these courses, kindly adhere to the structure provided in this template.
@@ -85,6 +85,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SamueleBolotta"><img src="https://avatars.githubusercontent.com/u/57507442?v=4?s=100" width="100px;" alt="Samuele "/><br /><sub><b>Samuele </b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=SamueleBolotta" title="Code">💻</a> <a href="https://github.com/neuromatch/NeuroAI_Course/issues?q=author%3ASamueleBolotta" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/courtneydean33"><img src="https://avatars.githubusercontent.com/u/114959284?v=4?s=100" width="100px;" alt="courtneydean33"/><br /><sub><b>courtneydean33</b></sub></a><br /><a href="#projectManagement-courtneydean33" title="Project Management">📆</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/iamzoltan"><img src="https://avatars.githubusercontent.com/u/21369773?v=4?s=100" width="100px;" alt="Zoltan"/><br /><sub><b>Zoltan</b></sub></a><br /><a href="#infra-iamzoltan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-iamzoltan" title="Maintenance">🚧</a> <a href="https://github.com/neuromatch/NeuroAI_Course/pulls?q=is%3Apr+reviewed-by%3Aiamzoltan" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
 </table>
