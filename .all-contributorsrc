@@ -35,6 +35,15 @@
         "code",
         "bug"
       ]
+    },
+    {
+      "login": "patrickmineault",
+      "name": "Patrick Mineault",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3516539?v=4",
+      "profile": "http://xcorr.dev",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
