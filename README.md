@@ -1,6 +1,6 @@
 This is a template for Neuromatch & Climatematch Course Template
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 When creating a book for these courses, kindly adhere to the structure provided in this template.
@@ -87,6 +87,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/courtneydean33"><img src="https://avatars.githubusercontent.com/u/114959284?v=4?s=100" width="100px;" alt="courtneydean33"/><br /><sub><b>courtneydean33</b></sub></a><br /><a href="#projectManagement-courtneydean33" title="Project Management">📆</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/iamzoltan"><img src="https://avatars.githubusercontent.com/u/21369773?v=4?s=100" width="100px;" alt="Zoltan"/><br /><sub><b>Zoltan</b></sub></a><br /><a href="#infra-iamzoltan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-iamzoltan" title="Maintenance">🚧</a> <a href="https://github.com/neuromatch/NeuroAI_Course/pulls?q=is%3Apr+reviewed-by%3Aiamzoltan" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://xcorr.dev"><img src="https://avatars.githubusercontent.com/u/3516539?v=4?s=100" width="100px;" alt="Patrick Mineault"/><br /><sub><b>Patrick Mineault</b></sub></a><br /><a href="#content-patrickmineault" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=patrickmineault" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/glibesyck"><img src="https://avatars.githubusercontent.com/u/71762371?v=4?s=100" width="100px;" alt="glibesyck"/><br /><sub><b>glibesyck</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=glibesyck" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
