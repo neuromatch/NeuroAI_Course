@@ -1,0 +1,7 @@
+ipython
+ipykernel
+ipywidgets
+nbformat
+rsatoolbox
+plotly
+torchvision
