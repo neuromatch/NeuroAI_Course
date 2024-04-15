@@ -5,7 +5,7 @@ on:
 
 env:
   NB_KERNEL: python
-  NMA_REPO: course-content
+  NMA_REPO: NeuroAI_Course
   NMA_MAIN_BRANCH: main
 
 jobs:

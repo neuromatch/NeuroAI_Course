@@ -25,6 +25,11 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%
 
 ## W2D2 - Cognitive Structures
 
+
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI)
+
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render) | [DaySummary](https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render) | [Outro](https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render) | [Reading](https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render) | [TA](https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render)
+
 |   | Run | Run | View |
 | - | --- | --- | ---- |
 | Intro | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D2_CognitiveStructures/W2D2_Intro.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D2_CognitiveStructures/W2D2_Intro.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D2_CognitiveStructures/W2D2_Intro.ipynb?flush_cache=true) |
