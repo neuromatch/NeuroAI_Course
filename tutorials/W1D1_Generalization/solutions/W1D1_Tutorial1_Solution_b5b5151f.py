@@ -40,7 +40,3 @@ def calculate_mismatch(estimated_text, reference_text):
     cer = fm.char_error_rate(estimated_text, reference_text).item()
     wer = fm.word_error_rate(estimated_text, reference_text).item()
     return (cer, wer)
-
-cer, wer = calculate_mismatch(transcribed_text, true_transcripts)
-assert isinstance(cer, float)
-cer, wer

@@ -15,6 +15,3 @@ def calculate_mean_max_cer(df_results):
     # Calculate the max CER across test subjects.
     max_subjects = df_results.cer.max()
     return mean_subjects, max_subjects
-
-mean_subjects, max_subjects = calculate_mean_max_cer(df_results)
-mean_subjects, max_subjects
