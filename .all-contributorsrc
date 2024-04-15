@@ -8,6 +8,15 @@
   "commitConvention": "angular",
   "contributors": [
     {
+<<<<<<< HEAD
+      "login": "iamzoltan",
+      "name": "Zoltan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21369773?v=4",
+      "profile": "https://github.com/iamzoltan",
+      "contributions": [
+        "infra",
+        "maintenance"
+=======
       "login": "SamueleBolotta",
       "name": "Samuele ",
       "avatar_url": "https://avatars.githubusercontent.com/u/57507442?v=4",
@@ -15,6 +24,7 @@
       "contributions": [
         "code",
         "bug"
+>>>>>>> 5b284f186f1a63cc513dcd8a86342e7cce901ebf
       ]
     },
     {
@@ -27,6 +37,15 @@
       ]
     },
     {
+<<<<<<< HEAD
+      "login": "SamueleBolotta",
+      "name": "Samuele ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57507442?v=4",
+      "profile": "https://github.com/SamueleBolotta",
+      "contributions": [
+        "code",
+        "bug"
+=======
       "login": "iamzoltan",
       "name": "Zoltan",
       "avatar_url": "https://avatars.githubusercontent.com/u/21369773?v=4",
@@ -35,6 +54,7 @@
         "infra",
         "maintenance",
         "review"
+>>>>>>> 5b284f186f1a63cc513dcd8a86342e7cce901ebf
       ]
     },
     {
@@ -43,7 +63,20 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/3516539?v=4",
       "profile": "http://xcorr.dev",
       "contributions": [
+<<<<<<< HEAD
+        "content"
+=======
         "content",
+        "code"
+>>>>>>> 5b284f186f1a63cc513dcd8a86342e7cce901ebf
+      ]
+    },
+    {
+      "login": "glibesyck",
+      "name": "glibesyck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71762371?v=4",
+      "profile": "https://github.com/glibesyck",
+      "contributions": [
         "code"
       ]
     }
