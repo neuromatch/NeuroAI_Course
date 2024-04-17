@@ -44,7 +44,8 @@
       "profile": "http://xcorr.dev",
       "contributions": [
         "content",
-        "code"
+        "code",
+        "design"
       ]
     }
   ],
