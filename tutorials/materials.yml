@@ -18,17 +18,8 @@
     title: Intro
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render
-    title: DaySummary
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render
-    title: Outro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render
-    title: Reading
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
-    title: TA
   tutorials: 3
 
-#- day: W*number of week*D*number of day*                    #e.g., W1D1
 - day: W2D1
   category: Architectures             
   intro: https://www.youtube.com/watch?v=KxldhMR5PxA
@@ -36,59 +27,33 @@
   name: Macrocircuits                       
   outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
   outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OmP5qLaOdatjnPvbeOAyZO
 
-  #qa: #insert as many as Q&A video links as needed
-  #- Insert Q&A video link 1 here                            #e.g., https://www.youtube.com/watch?v=FwsKmunwzUA
-  #- Insert Q&A video link 2 here                            #e.g., https://www.youtube.com/watch?v=h63bKG0-h_w
-  #- Insert Q&A video link 3 here                            #e.g., https://www.youtube.com/watch?v=8h0X9lxY8Bs
-
-  slides: #insert as many as slides links and titles as needed
+  slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render
     title: Intro
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render
-    title: DaySummary
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render
-    title: Outro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render
-    title: Reading
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
-    title: TA
   tutorials: 1
 
-#- day: W*number of week*D*number of day*                    #e.g., W1D1
 - day: W2D2
   category: Architectures             
-  intro: https://www.youtube.com/watch?v=KxldhMR5PxA
+  intro: https://www.youtube.com/watch?v=zxkHFYCEKaQ
   intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
   name: Cognitive Structures                        
   outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
   outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18O0Uex2OsJ8IwNGJJ7k1f5M
 
-  #qa: #insert as many as Q&A video links as needed
-  #- Insert Q&A video link 1 here                            #e.g., https://www.youtube.com/watch?v=FwsKmunwzUA
-  #- Insert Q&A video link 2 here                            #e.g., https://www.youtube.com/watch?v=h63bKG0-h_w
-  #- Insert Q&A video link 3 here                            #e.g., https://www.youtube.com/watch?v=8h0X9lxY8Bs
-
-  slides: #insert as many as slides links and titles as needed
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/e357f/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/kj6p3/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render
-    title: DaySummary
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render
-    title: Outro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render
-    title: Reading
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
-    title: TA
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/y3zua/?direct%26mode=render%26action=download%26mode=render
+    title: Conclusion
   tutorials: 1
 
- #- day: W*number of week*D*number of day*                    #e.g., W1D1
 - day: W2D3
   category: Learning           
   intro: https://www.youtube.com/watch?v=jzttrJrr8qk
@@ -98,54 +63,27 @@
   outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
   playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18MxDC_0OMdBefQz1fZvrWfu
 
-  #qa: #insert as many as Q&A video links as needed
-  #- Insert Q&A video link 1 here                            #e.g., https://www.youtube.com/watch?v=FwsKmunwzUA
-  #- Insert Q&A video link 2 here                            #e.g., https://www.youtube.com/watch?v=h63bKG0-h_w
-  #- Insert Q&A video link 3 here                            #e.g., https://www.youtube.com/watch?v=8h0X9lxY8Bs
-
-  slides: #insert as many as slides links and titles as needed
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render
+  slides: 
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/vrb5p/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mze3x/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render
-    title: DaySummary
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render
-    title: Outro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render
-    title: Reading
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
-    title: TA
   tutorials: 1
  
-#- day: W*number of week*D*number of day*                    #e.g., W1D1
 - day: W2D4
   category: Learning           
-  intro: https://www.youtube.com/watch?v=KxldhMR5PxA
+  intro: https://www.youtube.com/watch?v=NluRzvdKNxQ
   intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
   name: Macrolearning                         
   outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
   outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OcWbQ25gZAqsr2cDpbwi_C
 
-  #qa: #insert as many as Q&A video links as needed
-  #- Insert Q&A video link 1 here                            #e.g., https://www.youtube.com/watch?v=FwsKmunwzUA
-  #- Insert Q&A video link 2 here                            #e.g., https://www.youtube.com/watch?v=h63bKG0-h_w
-  #- Insert Q&A video link 3 here                            #e.g., https://www.youtube.com/watch?v=8h0X9lxY8Bs
-
-  slides: #insert as many as slides links and titles as needed
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/vdcr6/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jdumz/?direct%26mode=render%26action=download%26mode=render
-    title: DaySummary
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render
-    title: Outro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render
-    title: Reading
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
-    title: TA
   tutorials: 5
 
 - day: W2D5
