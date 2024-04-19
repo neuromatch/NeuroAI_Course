@@ -17,6 +17,7 @@ numba==0.59.0
 sentencepiece==0.2.0
 ipython
 ipykernel
+torchlens
 nbformat
 rsatoolbox
 seaborn
