@@ -14,6 +14,38 @@
     title: Tutorials
   tutorials: 3
 
+- day: W1D2
+  category: Foundations             
+  intro: https://www.youtube.com/watch?v=IILjiyBd7zs
+  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  name: ComparingTasks                         
+  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
+  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18Po-HKMq_ZMWtVAliQqw6ct
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/fm4ys/?direct%26mode=render%26action=download%26mode=render
+    title: Intro
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/x4pa5/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorials
+  tutorials: 3
+
+- day: W1D3
+  category: Foundations             
+  intro: https://www.youtube.com/watch?v=IILjiyBd7zs
+  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  name: ComparingArtificialAndBiologicalNetworks                         
+  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
+  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18Po-HKMq_ZMWtVAliQqw6ct
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/fm4ys/?direct%26mode=render%26action=download%26mode=render
+    title: Intro
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/x4pa5/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorials
+  tutorials: 3
+
 - day: W2D1
   category: Architectures             
   intro: https://www.youtube.com/watch?v=KxldhMR5PxA
