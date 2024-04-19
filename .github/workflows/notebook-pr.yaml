@@ -66,6 +66,9 @@ jobs:
           sudo apt install -fy
           rm -f $HOME/.matplotlib/fontList.cache
 
+      - name: Install Graphviz
+        uses: tlylt/install-graphviz@v1
+
       - name: Get changed files
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         id: changed-files
