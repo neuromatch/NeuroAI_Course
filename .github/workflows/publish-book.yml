@@ -62,6 +62,9 @@ jobs:
           sudo apt install -fy
           rm -f $HOME/.matplotlib/fontList.cache
 
+      - name: Install Graphviz
+        uses: tlylt/install-graphviz@v1
+
       - name: Copy tutorials from precourse repo
         if: "!contains(env.COMMIT_MESSAGE, 'skip precourse')"
         run: |
