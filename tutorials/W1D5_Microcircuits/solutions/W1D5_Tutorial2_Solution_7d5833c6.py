@@ -5,7 +5,7 @@ class ReLUNet(nn.Module):
   y = Σi(ai * ReLU(θi - x))
   """
   # Define the structure of your network
-  def __init__(self, n_units, alpha=1):
+  def __init__(self, n_units):
     """
     Args:
       n_units (int): Number of hiddent units
@@ -14,8 +14,6 @@ class ReLUNet(nn.Module):
       Nothing
     """
     super(ReLUNet, self).__init__()
-    self.alpha = alpha
-    assert self.alpha>0, f'{self.alpha} should be greater than 0'
     # Create input thresholds
     self.input_threshold_weights = nn.Parameter(torch.abs(torch.randn(n_units)))
     self.non_linearity = nn.ReLU()
@@ -31,7 +29,6 @@ class ReLUNet(nn.Module):
     # Threshold
     op = self.input_threshold_weights - x
     op = self.non_linearity(op)
-    op = torch.pow(op, self.alpha)
     op = self.output_layer(op)
     return op
 
