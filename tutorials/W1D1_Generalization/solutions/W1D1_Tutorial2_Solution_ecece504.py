@@ -10,7 +10,7 @@ def perturb_recurrent_weights(model, mean_strength, perturbation_percentage):
         perturbed_weights = model.J + noise
         return perturbed_weights
 
-def test_perturbed_structure(model, perturbation_percentages, test_loader, criterion, device):
+def test_perturbed_structure(model, perturbation_percentages, test_loader, criterion, device, max_error):
     model.eval()  # Set the model to evaluation mode
     mean_strength = calculate_mean_absolute_strength(model)
     perturbation_results = []  # List to store (mean error, std dev) tuples
@@ -21,37 +21,43 @@ def test_perturbed_structure(model, perturbation_percentages, test_loader, crite
         multiple_perturbations_error = []
         print(f"Testing perturbation percentage {percentage:.4f}")
 
-        for perturbation in range(30):  # Perturb 50 times for each strength
+        for perturbation in tqdm(range(30)):  # Perturb 30 times for each strength
             batch_errors = []
             perturbed_weights = perturb_recurrent_weights(model, mean_strength, percentage)
             model.J.data = perturbed_weights.data
-            print(f" Perturbation {perturbation+1}/50")
 
             for inputs, targets in test_loader:
                 inputs, targets = inputs.to(device), targets.to(device)
                 batch_size = inputs.size(0)
                 h = model.init_hidden(batch_size).to(device)
 
+                outputs = torch.zeros_like(targets).to(device)
                 for t in range(inputs.shape[1]):
-                    model_output = model(inputs[:, t, :], h)
-                    output, h = model_output[:2]
+                    output, h, *rest = model(inputs[:, t, :], h)
+                    outputs[:, t, :] = output
 
-                loss = criterion(output, targets[:, -1, :]).item()
+                loss = criterion(outputs, targets).item()
                 batch_errors.append(loss)
 
-            model.J.data = original_weights.data  # Reset to original weights after each perturbation
+            # Reset to original weights after each perturbation
+            model.J.data = original_weights.data
             multiple_perturbations_error.append(np.mean(batch_errors))
 
         mean_error = np.mean(multiple_perturbations_error)  # Average over the 50 perturbations
         std_dev_error = np.std(multiple_perturbations_error)  # Standard deviation for error bars
-        perturbation_results.append((mean_error, std_dev_error))
+        perturbation_results.append((100 * mean_error / max_error, 100 * std_dev_error / max_error))
+
+        # Normalize the errors
         print(f"Completed testing for perturbation percentage {percentage:.4f}. Mean error: {mean_error:.4f}, Std. dev.: {std_dev_error:.4f}\n")
 
     return perturbation_results
 
-# Define perturbation strengths as percentages
-perturbation_strengths = [0.01, 0.1, 1]
+# Calculate the maximum error for a null model, the error when the output is constant.
+max_error = ((outputs - outputs.mean(axis=[0, 1], keepdims=True)) ** 2).mean()
 
-# Function calls for simple and complex models
-simple_model_errors_2 = test_perturbed_structure(model, perturbation_strengths, simple_train_loader, criterion, device)
-complex_model_errors_2 = test_perturbed_structure(complicated_model, perturbation_strengths, complicated_train_loader, criterion, device)
+# Define perturbation strengths as percentages
+perturbation_strengths = [0.01, .1, .2, .4, .8]
+
+# Function calls for regularized and unregularized models
+results_regularized_weights = test_perturbed_structure(regularized_model, perturbation_strengths, test_loader, criterion, device, max_error)
+results_unregularized_weights = test_perturbed_structure(unregularized_model, perturbation_strengths, test_loader, criterion, device, max_error)
