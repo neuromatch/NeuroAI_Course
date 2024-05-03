@@ -17,7 +17,6 @@ numba==0.59.0
 sentencepiece==0.2.0
 python-dotenv==1.0.1
 gymnasium==0.29.1
-motornet==0.2.0
 pytorch_lightning==2.2.4
 ipython
 ipykernel
