@@ -9,8 +9,8 @@
   sections:
   - file: projects/project-notebooks/Microlearning.ipynb
     title: Microlearning
-  - file: projects/project-notebooks/ComputationalSimilarity.ipynb
-    title: Computational Similarity
+  # - file: projects/project-notebooks/ComputationalSimilarity.ipynb
+  #   title: Computational Similarity
   # You should add your pojects here using the following:
   # - file: point to the file
   #   title: name the project
