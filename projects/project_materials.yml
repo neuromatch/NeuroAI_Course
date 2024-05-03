@@ -7,19 +7,21 @@
 - file: projects/docs/datasets_overview.md
   title: Project materials
   sections:
-  - file: projects/project-notebooks/Example_project.ipynb
-    title: Example Project
+  - file: projects/project-notebooks/Microlearning.ipynb
+    title: Microlearning
+  - file: projects/project-notebooks/ComputationalSimilarity.ipynb
+    title: Computational Similarity
   # You should add your pojects here using the following:
   # - file: point to the file
   #   title: name the project
 
 - file: projects/docs/continuing_your_project_after_the_course.md
   title: Continuing your project after the course
-- file: projects/docs/past_projects_overview.md
-  title: Past projects
-  sections:
-  - file: projects/past-projects/example_past_project.ipynb
-    title: Example Past Project
+# - file: projects/docs/past_projects_overview.md
+#   title: Past projects
+#   sections:
+#   - file: projects/past-projects/example_past_project.ipynb
+#     title: Example Past Project
   # You should add your past pojects here using the following:
   # - file: point to the file
   #   title: name the project
