@@ -18,6 +18,7 @@ sentencepiece==0.2.0
 python-dotenv==1.0.1
 gymnasium==0.29.1
 pytorch_lightning==2.2.4
+motornet
 ipython
 ipykernel
 torchlens
@@ -29,3 +30,5 @@ git+https://github.com/Belval/TextRecognitionDataGenerator#egg=trdg
 git+https://github.com/neuromatch/GNS-Modeling#egg=gns
 git+https://github.com/neuromatch/pyBPL#egg=pybpl
 git+https://github.com/ctn-waterloo/sspspace@neuromatch#egg=sspspace
+git+https://github.com/snel-repo/ComputationThruDynamicsBenchmark#egg=ctd
+git+https://github.com/mitchellostrow/DSA#egg=DSA
