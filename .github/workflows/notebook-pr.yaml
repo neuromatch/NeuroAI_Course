@@ -10,6 +10,7 @@ env:
   ORG: neuromatch
   NMA_REPO: NeuroAI_Course
   NMA_MAIN_BRANCH: main
+  PREREQ_INTRO: NeuroAI
 
 jobs:
 
