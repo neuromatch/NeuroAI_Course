@@ -30,5 +30,3 @@ git+https://github.com/Belval/TextRecognitionDataGenerator#egg=trdg
 git+https://github.com/neuromatch/GNS-Modeling#egg=gns
 git+https://github.com/neuromatch/pyBPL#egg=pybpl
 git+https://github.com/ctn-waterloo/sspspace@neuromatch#egg=sspspace
-git+https://github.com/snel-repo/ComputationThruDynamicsBenchmark#egg=ctd
-git+https://github.com/mitchellostrow/DSA#egg=DSA
