@@ -18,7 +18,6 @@ sentencepiece==0.2.0
 python-dotenv==1.0.1
 gymnasium==0.29.1
 pytorch_lightning==2.2.4
-motornet==0.2.0
 torchlens
 nbformat
 rsatoolbox
@@ -27,4 +26,5 @@ plotly
 git+https://github.com/Belval/TextRecognitionDataGenerator#egg=trdg
 git+https://github.com/neuromatch/GNS-Modeling#egg=gns
 git+https://github.com/neuromatch/pyBPL#egg=pybpl
+git+https://github.com/OlivierCodol/MotorNet.git#egg=motornet
 git+https://github.com/ctn-waterloo/sspspace@neuromatch#egg=sspspace
