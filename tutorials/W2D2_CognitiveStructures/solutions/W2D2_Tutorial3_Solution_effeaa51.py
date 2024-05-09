@@ -10,23 +10,26 @@ transform = np.zeros((1,encoder.ssp_dim))
 for i in range(num_iters):
     loss = 0
     for rule, ant_name, cons_name in zip(rules, ant_names, cons_names):
+
         #perfect similarity
         y_true = np.eye(len(action_names))[action_names.index(ant_name),:] + np.eye(len(action_names))[4+action_names.index(cons_name),:]
 
-        #prediction with current transform
+        #prediction with current transform (a_hat = transform * rule)
         a_hat = sspspace.SSP(transform) * rule
 
         #similarity with current transform
         sim_mat = np.einsum('nd,md->nm', action_space, a_hat)
+
+        #cleanup
         y_hat = softmax(sim_mat)
 
-        #true solution
+        #true solution (a* = ant_name + not * cons_name)
         a_true = (vocab[ant_name] + vocab['not']*vocab[cons_name]).normalize()
 
         #calculate loss
         loss += log_loss(y_true, y_hat)
 
-        #update transform
+        #update transform (T <- T - lr * (A* * (~rule)))
         transform -= (lr) * (transform - np.array(a_true * ~rule))
         transform = transform / np.linalg.norm(transform)
 
