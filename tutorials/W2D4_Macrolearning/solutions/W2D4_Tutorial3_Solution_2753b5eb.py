@@ -1,6 +1,13 @@
 
 def finetune(model, x_finetune, y_finetune, finetune_gradient_steps):
-    """Take a fixed number of gradient steps for the given x_finetune and y_finetune.
+    """
+    Take a fixed number of gradient steps for the given x_finetune and y_finetune.
+
+    Inputs:
+    - model (MetaLearningModel): trained meta learning model.
+    - x_finetune (torch.tensor): features (days) of the specific task.
+    - y_finetune (torch.tensor): outcomes (prices) of the specific task.
+    - finetune_gradient_steps (int): number of gradient steps to perform for this task.
     """
     #apply normalization on days
     x_finetune = (x_finetune - model.mean) / model.std
