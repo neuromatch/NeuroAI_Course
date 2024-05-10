@@ -1,6 +1,8 @@
 
+#features - rules
 X_train = np.array(rules).squeeze()
 
+#output - a* for each rule
 y_train = np.array([
     (vocab[ant_names[0]] + vocab['not']*vocab[cons_names[0]]).normalize(),
     (vocab[ant_names[1]] + vocab['not']*vocab[cons_names[1]]).normalize(),
