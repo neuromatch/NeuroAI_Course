@@ -21,13 +21,13 @@ all_KL_A_no = []
 sem_KL_A_no = []
 all_prob_y = []
 
-for y in gamma:
+for y in tqdm(gamma, desc='Processing gammas'):
     Sigma = np.diag([1./np.sqrt(y)]*2)
     mean_KL_w = np.zeros((Nsubjects, 4))
     mean_KL_A = np.zeros((Nsubjects, 4))
     prob_y = np.zeros(Nsubjects)
 
-    for s in range(Nsubjects):
+    for s in tqdm(range(Nsubjects), desc=f'Subjects for gamma={y}', leave=False):
         KL_w = np.zeros(len(cond))
         KL_A = np.zeros(len(cond))
         posteriorAware = np.zeros(len(cond))
