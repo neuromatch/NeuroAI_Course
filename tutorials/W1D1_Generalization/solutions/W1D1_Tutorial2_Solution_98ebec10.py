@@ -37,19 +37,3 @@ class UnregularizedRNN(nn.Module):
 
     def init_hidden(self, batch_size):
         return torch.zeros(batch_size, self.hidden_size)
-
-input_size = 16
-hidden_size = 10
-output_size = 2
-g = 4
-h_val = 1.0
-
-model = UnregularizedRNN(input_size, hidden_size, output_size, g, h_val)
-model.to(device)
-
-for inputs, targets in unregularized_train_loader:
-    hidden = model.init_hidden(batch_size)
-    output, hidden_after = model(inputs[:, 0, :].to(device), hidden.to(device))
-    assert output.shape == targets[:, 0].shape
-    assert hidden_after.shape == hidden.shape
-    break

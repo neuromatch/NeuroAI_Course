@@ -51,13 +51,3 @@ def test_perturbed_structure(model, perturbation_percentages, test_loader, crite
         print(f"Completed testing for perturbation percentage {percentage:.4f}. Mean error: {mean_error:.4f}, Std. dev.: {std_dev_error:.4f}\n")
 
     return perturbation_results
-
-# Calculate the maximum error for a null model, the error when the output is constant.
-max_error = ((outputs - outputs.mean(axis=[0, 1], keepdims=True)) ** 2).mean()
-
-# Define perturbation strengths as percentages
-perturbation_strengths = [0.01, .1, .2, .4, .8]
-
-# Function calls for regularized and unregularized models
-results_regularized_weights = test_perturbed_structure(regularized_model, perturbation_strengths, test_loader, criterion, device, max_error)
-results_unregularized_weights = test_perturbed_structure(unregularized_model, perturbation_strengths, test_loader, criterion, device, max_error)
