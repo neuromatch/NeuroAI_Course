@@ -1,7 +1,7 @@
 - file: projects/README.md
   title: Introduction
-- file: projects/keynote.ipynb
-  title: Project Day keynote (W2D2)
+# - file: projects/keynote.ipynb
+#   title: Project Day keynote (W2D2)
 - file: projects/docs/project_guidance.md
   title: Daily guide for projects
 - file: projects/docs/datasets_overview.md
@@ -13,13 +13,14 @@
   # - file: point to the file
   #   title: name the project
 
-- file: projects/docs/continuing_your_project_after_the_course.md
-  title: Continuing your project after the course
-- file: projects/docs/past_projects_overview.md
-  title: Past projects
-  sections:
-  - file: projects/past-projects/example_past_project.ipynb
-    title: Example Past Project
+# The below may be used in the future
+# - file: projects/docs/continuing_your_project_after_the_course.md
+#   title: Continuing your project after the course
+# - file: projects/docs/past_projects_overview.md
+#   title: Past projects
+#   sections:
+#   - file: projects/past-projects/example_past_project.ipynb
+#     title: Example Past Project
   # You should add your past pojects here using the following:
   # - file: point to the file
   #   title: name the project
