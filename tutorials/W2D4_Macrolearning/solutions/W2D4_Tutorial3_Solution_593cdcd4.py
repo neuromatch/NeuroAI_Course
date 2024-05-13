@@ -34,6 +34,9 @@ class MetaLearningModel(UtilModel):
         metaloss = 0
         self.optimizer.zero_grad()
 
+        #for visualization purposes
+        model_parameters = [list(p.clone().detach().numpy() for p in self.model.parameters())[0]]
+
         #take inner and outer data from dataset
         x_inner, y_inner, x_outer, y_outer = tasks
 
@@ -45,10 +48,14 @@ class MetaLearningModel(UtilModel):
         for task_idx in range(x_inner.shape[0]):
 
             #find weights (line [6])
-            parameters = self.inner_loop(x_inner[task_idx].type(torch.float32).to(device), y_inner[task_idx].type(torch.float32).to(device))
+            parameters = self.inner_loop(x_inner[task_idx].type(torch.float32), y_inner[task_idx].type(torch.float32))
+
+            #for visualization purposes
+            if task_idx < 10:
+                model_parameters.append(parameters[0].detach().numpy())
 
             #find meta loss w.r.t to found weights in inner loop (line [9])
-            task_metaloss = self.outer_loop(x_outer[task_idx].type(torch.float32).to(device), y_outer[task_idx].type(torch.float32).to(device), parameters)
+            task_metaloss = self.outer_loop(x_outer[task_idx].type(torch.float32), y_outer[task_idx].type(torch.float32), parameters)
 
             #contribute to metaloss
             metaloss += task_metaloss
@@ -57,4 +64,7 @@ class MetaLearningModel(UtilModel):
         metaloss.backward()
         self.optimizer.step()
 
-        return metaloss.item() / x_inner.shape[0]
+        #for visualization purposes
+        model_parameters.append(list(p.clone().detach().numpy() for p in self.model.parameters())[0])
+
+        return metaloss.item() / x_inner.shape[0], model_parameters

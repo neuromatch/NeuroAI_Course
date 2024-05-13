@@ -15,6 +15,7 @@ tqdm==4.66.2
 protobuf==4.25.3
 numba==0.59.0
 sentencepiece==0.2.0
+jupyter_ui_poll==0.2.2
 ipython
 ipykernel
 torchlens
