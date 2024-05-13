@@ -7,12 +7,12 @@
 - file: projects/docs/datasets_overview.md
   title: Project materials
   sections:
-  - file: projects/project-notebooks/Microlearning.ipynb
-    title: Microlearning
+  # - file: projects/project-notebooks/Microlearning.ipynb
+  #   title: Microlearning
   - file: projects/project-notebooks/Macrocircuits.ipynb
     title: Macrocircuits
-  - file: projects/project-notebooks/ComparingNetworks.ipynb
-    title: Comparing Networks
+  # - file: projects/project-notebooks/ComparingNetworks.ipynb
+  #   title: Comparing Networks
 
 
 # The below may be used in the future
