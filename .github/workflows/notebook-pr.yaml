@@ -61,7 +61,9 @@ jobs:
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         run: |
           sudo apt-get update -yq
-          sudo apt-get install -y libglfw3 libglew-dev
+          # required for mujoco in macrocircuits project
+          sudo apt-get install -y libgl1-mesa-glx libosmesa6
+          echo "MUJOCO_GL='osmesa'" >> $GITHUB_ENV
           wget http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-humor-sans/fonts-humor-sans_1.0-4_all.deb
           sudo dpkg -i --force-all fonts-humor-sans_1.0-4_all.deb <<< 'yes'
           sudo apt install -fy
