@@ -19,7 +19,7 @@ python-dotenv==1.0.1
 gymnasium==0.29.1
 pytorch_lightning==2.2.4
 jupyter_ui_poll==0.2.2
-tensorflow
+tensorflow==2.9
 torchlens
 rsatoolbox
 seaborn
