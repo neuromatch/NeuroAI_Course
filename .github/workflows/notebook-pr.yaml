@@ -72,6 +72,13 @@ jobs:
           # required for mujoco in macrocircuits project
           sudo apt-get install -y libgl1-mesa-glx libosmesa6
           echo "MUJOCO_GL=osmesa" >> $GITHUB_ENV
+          mkdir -p ${HOME}/.mujoco
+          cd ${HOME}/.mujoco
+          wget https://www.roboti.us/download/mujoco200_linux.zip
+          unzip -o mujoco200_linux.zip
+          rm mujoco200_linux.zip
+          echo "MUJOCO_PY_MUJOCO_PATH=${HOME}/.mujoco/mujoco200_linux" >> $GITHUB_ENV
+          echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco200_linux/bin" >> $GITHUB_ENV
           pip install mujoco-py
 
       - name: Install Graphviz
