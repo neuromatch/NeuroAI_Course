@@ -80,7 +80,7 @@ jobs:
           # # for acme
           # pip install tensorflow
           # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/runner/.local/lib/python3.9/site-packages/tensorflow" >> $GITHUB_ENV
-          sudo apt-get install -y libglfw3 libglew 
+          sudo apt-get install -y libglfw3 libglew-dev 
           echo "MUJOCO_GL=egl" >> $GITHUB_ENV
           echo "PYOPENGL_PLATFORM=egl" >> $GITHUB_ENV
           mkdir -p ${HOME}/.mujoco
