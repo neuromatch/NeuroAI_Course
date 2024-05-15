@@ -7,11 +7,11 @@
 - file: projects/docs/datasets_overview.md
   title: Project materials
   sections:
-  - file: projects/project-notebooks/Example_project.ipynb
-    title: Example Project
-  # You should add your pojects here using the following:
-  # - file: point to the file
-  #   title: name the project
+  - file: projects/project-notebooks/Microlearning.ipynb
+    title: Microlearning
+  - file: projects/project-notebooks/ComparingNetworks.ipynb
+    title: Comparing Networks
+
 
 # The below may be used in the future
 # - file: projects/docs/continuing_your_project_after_the_course.md
