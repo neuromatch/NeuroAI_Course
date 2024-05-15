@@ -20,7 +20,7 @@ gymnasium==0.29.1
 pytorch_lightning==2.2.4
 jupyter_ui_poll==0.2.2
 tensorflow==2.8
-imageio==2.31
+imageio-ffmpeg
 torchlens
 rsatoolbox
 seaborn
