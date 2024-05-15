@@ -15,10 +15,13 @@ tqdm==4.66.2
 protobuf==4.25.3
 numba==0.59.0
 sentencepiece==0.2.0
-jupyter_ui_poll==0.2.2
 python-dotenv==1.0.1
 gymnasium==0.29.1
 pytorch_lightning==2.2.4
+jupyter_ui_poll==0.2.2
+tensorflow==2.8
+ffmpeg
+imageio-ffmpeg
 torchlens
 rsatoolbox
 seaborn

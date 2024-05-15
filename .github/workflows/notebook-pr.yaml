@@ -1,9 +1,9 @@
 name: notebook-pr
 
-on: 
+on:
   pull_request:
     branches: main
-    paths: '**/*.ipynb'
+    paths: "**/*.ipynb"
 
 env:
   NB_KERNEL: python
@@ -12,12 +12,9 @@ env:
   NMA_MAIN_BRANCH: main
 
 jobs:
-
   process-notebooks:
-
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -66,6 +63,14 @@ jobs:
           sudo apt install -fy
           rm -f $HOME/.matplotlib/fontList.cache
 
+      - name: Install backend libs
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          # required for macrocircuits project
+          sudo apt-get install -y libglew-dev
+          sudo apt-get install -y libglfw3
+          sudo apt install -y ffmpeg
+
       - name: Install Graphviz
         uses: tlylt/install-graphviz@v1
 
@@ -73,7 +78,7 @@ jobs:
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         id: changed-files
         uses: tj-actions/changed-files@v35
-        
+
       - name: List all changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
