@@ -1,9 +1,9 @@
 name: notebook-pr
 
-on: 
+on:
   pull_request:
     branches: main
-    paths: '**/*.ipynb'
+    paths: "**/*.ipynb"
 
 env:
   NB_KERNEL: python
@@ -12,12 +12,9 @@ env:
   NMA_MAIN_BRANCH: main
 
 jobs:
-
   process-notebooks:
-
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -69,20 +66,31 @@ jobs:
       - name: Install mujoco
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         run: |
-          # required for mujoco in macrocircuits project
-          sudo apt-get install -y libgl1-mesa-glx libosmesa6
-          echo "MUJOCO_GL=osmesa" >> $GITHUB_ENV
+          # # required for mujoco in macrocircuits project
+          # sudo apt-get install -y libgl1-mesa-glx libosmesa6
+          # echo "MUJOCO_GL=osmesa" >> $GITHUB_ENV
+          # mkdir -p ${HOME}/.mujoco
+          # cd ${HOME}/.mujoco
+          # wget https://www.roboti.us/download/mujoco200_linux.zip
+          # unzip -o mujoco200_linux.zip
+          # rm mujoco200_linux.zip
+          # echo "MUJOCO_PY_MUJOCO_PATH=${HOME}/.mujoco/mujoco200_linux" >> $GITHUB_ENV
+          # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco200_linux/bin" >> $GITHUB_ENV
+          # pip install mujoco-py
+          # # for acme
+          # pip install tensorflow
+          # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/runner/.local/lib/python3.9/site-packages/tensorflow" >> $GITHUB_ENV
+          sudo apt-get install -y libglfw3 libglew 
+          echo "MUJOCO_GL=egl" >> $GITHUB_ENV
+          echo "PYOPENGL_PLATFORM=egl" >> $GITHUB_ENV
           mkdir -p ${HOME}/.mujoco
           cd ${HOME}/.mujoco
-          wget https://www.roboti.us/download/mujoco200_linux.zip
-          unzip -o mujoco200_linux.zip
-          rm mujoco200_linux.zip
-          echo "MUJOCO_PY_MUJOCO_PATH=${HOME}/.mujoco/mujoco200_linux" >> $GITHUB_ENV
-          echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco200_linux/bin" >> $GITHUB_ENV
-          pip install mujoco-py
-          # for acme
-          pip install tensorflow
-          echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/runner/.local/lib/python3.9/site-packages/tensorflow" >> $GITHUB_ENV
+          wget https://github.com/deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz
+          tar -xf mujoco210-linux-x86_64.tar.gz
+          wget http://roboti.us/file/mjkey.txt
+          echo "MUJOCO_PY_MJPRO_PATH=${HOME}/.mujoco/mujoco210/" >> $GITHUB_ENV
+          echo "MJLIB_PATH=${HOME}/.mujoco/mujoco210/bin/libmujoco210.so" >> $GITHUB_ENV
+          echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco210_linux/bin" >> $GITHUB_ENV
 
       - name: Install Graphviz
         uses: tlylt/install-graphviz@v1
@@ -91,7 +99,7 @@ jobs:
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         id: changed-files
         uses: tj-actions/changed-files@v35
-        
+
       - name: List all changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
