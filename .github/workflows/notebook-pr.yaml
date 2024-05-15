@@ -81,7 +81,8 @@ jobs:
           echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco200_linux/bin" >> $GITHUB_ENV
           pip install mujoco-py
           # for acme
-          pip install tensorflow
+          pip install tensorflow courier
+          echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/runner/.local/lib/python3.9/site-packages/tensorflow" >> $GITHUB_ENV
 
       - name: Install Graphviz
         uses: tlylt/install-graphviz@v1
