@@ -63,34 +63,34 @@ jobs:
           sudo apt install -fy
           rm -f $HOME/.matplotlib/fontList.cache
 
-      - name: Install mujoco
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          # # required for mujoco in macrocircuits project
-          # sudo apt-get install -y libgl1-mesa-glx libosmesa6
-          # echo "MUJOCO_GL=osmesa" >> $GITHUB_ENV
-          # mkdir -p ${HOME}/.mujoco
-          # cd ${HOME}/.mujoco
-          # wget https://www.roboti.us/download/mujoco200_linux.zip
-          # unzip -o mujoco200_linux.zip
-          # rm mujoco200_linux.zip
-          # echo "MUJOCO_PY_MUJOCO_PATH=${HOME}/.mujoco/mujoco200_linux" >> $GITHUB_ENV
-          # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco200_linux/bin" >> $GITHUB_ENV
-          # pip install mujoco-py
-          # # for acme
-          # pip install tensorflow
-          # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/runner/.local/lib/python3.9/site-packages/tensorflow" >> $GITHUB_ENV
-          sudo apt-get install -y libglfw3 libglew-dev 
-          echo "MUJOCO_GL=egl" >> $GITHUB_ENV
-          echo "PYOPENGL_PLATFORM=egl" >> $GITHUB_ENV
-          mkdir -p ${HOME}/.mujoco
-          cd ${HOME}/.mujoco
-          wget https://github.com/deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz
-          tar -xf mujoco210-linux-x86_64.tar.gz
-          wget https://roboti.us/file/mjkey.txt
-          echo "MUJOCO_PY_MJPRO_PATH=${HOME}/.mujoco/mujoco210/" >> $GITHUB_ENV
-          echo "MJLIB_PATH=${HOME}/.mujoco/mujoco210/bin/libmujoco210.so" >> $GITHUB_ENV
-          echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco210_linux/bin" >> $GITHUB_ENV
+      # - name: Install mujoco
+      #   if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+      #   run: |
+      # # required for mujoco in macrocircuits project
+      # sudo apt-get install -y libgl1-mesa-glx libosmesa6
+      # echo "MUJOCO_GL=osmesa" >> $GITHUB_ENV
+      # mkdir -p ${HOME}/.mujoco
+      # cd ${HOME}/.mujoco
+      # wget https://www.roboti.us/download/mujoco200_linux.zip
+      # unzip -o mujoco200_linux.zip
+      # rm mujoco200_linux.zip
+      # echo "MUJOCO_PY_MUJOCO_PATH=${HOME}/.mujoco/mujoco200_linux" >> $GITHUB_ENV
+      # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco200_linux/bin" >> $GITHUB_ENV
+      # pip install mujoco-py
+      # # for acme
+      # pip install tensorflow
+      # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/runner/.local/lib/python3.9/site-packages/tensorflow" >> $GITHUB_ENV
+      # sudo apt-get install -y libglfw3 libglew-dev
+      # echo "MUJOCO_GL=egl" >> $GITHUB_ENV
+      # echo "PYOPENGL_PLATFORM=egl" >> $GITHUB_ENV
+      # mkdir -p ${HOME}/.mujoco
+      # cd ${HOME}/.mujoco
+      # wget https://github.com/deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz
+      # tar -xf mujoco210-linux-x86_64.tar.gz
+      # wget https://roboti.us/file/mjkey.txt
+      # echo "MUJOCO_PY_MJPRO_PATH=${HOME}/.mujoco/mujoco210/" >> $GITHUB_ENV
+      # echo "MJLIB_PATH=${HOME}/.mujoco/mujoco210/bin/libmujoco210.so" >> $GITHUB_ENV
+      # echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco210_linux/bin" >> $GITHUB_ENV
 
       - name: Install Graphviz
         uses: tlylt/install-graphviz@v1
