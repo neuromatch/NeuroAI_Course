@@ -53,10 +53,6 @@ jobs:
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         run: |
           python -m pip install --upgrade pip wheel
-          # required for mujoco in macrocircuits project
-          sudo apt-get install -y libgl1-mesa-glx libosmesa6
-          echo "MUJOCO_GL=osmesa" >> $GITHUB_ENV
-          pip install mujoco-py
           pip install -r requirements.txt
           pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
           pip install jinja2==3.1.2 # to fix pandas dep
@@ -69,6 +65,14 @@ jobs:
           sudo dpkg -i --force-all fonts-humor-sans_1.0-4_all.deb <<< 'yes'
           sudo apt install -fy
           rm -f $HOME/.matplotlib/fontList.cache
+
+      - name: Install mujoco
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          # required for mujoco in macrocircuits project
+          sudo apt-get install -y libgl1-mesa-glx libosmesa6
+          echo "MUJOCO_GL=osmesa" >> $GITHUB_ENV
+          pip install mujoco-py
 
       - name: Install Graphviz
         uses: tlylt/install-graphviz@v1
