@@ -87,7 +87,7 @@ jobs:
           cd ${HOME}/.mujoco
           wget https://github.com/deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz
           tar -xf mujoco210-linux-x86_64.tar.gz
-          wget http://roboti.us/file/mjkey.txt
+          wget https://roboti.us/file/mjkey.txt
           echo "MUJOCO_PY_MJPRO_PATH=${HOME}/.mujoco/mujoco210/" >> $GITHUB_ENV
           echo "MJLIB_PATH=${HOME}/.mujoco/mujoco210/bin/libmujoco210.so" >> $GITHUB_ENV
           echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.mujoco/mujoco210_linux/bin" >> $GITHUB_ENV
