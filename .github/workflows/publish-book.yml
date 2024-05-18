@@ -61,6 +61,15 @@ jobs:
           sudo dpkg -i --force-all fonts-humor-sans_1.0-4_all.deb <<< 'yes'
           sudo apt install -fy
           rm -f $HOME/.matplotlib/fontList.cache
+          
+      - name: Install backend libs
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          # required for macrocircuits project
+          sudo apt-get install -y libglew-dev
+          sudo apt-get install -y libglfw3
+          sudo apt install -y ffmpeg
+          echo "MUJOCO_GL=egl" >> $GITHUB_ENV
 
       - name: Install Graphviz
         uses: tlylt/install-graphviz@v1
