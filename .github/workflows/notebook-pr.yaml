@@ -70,6 +70,7 @@ jobs:
           sudo apt-get install -y libglew-dev
           sudo apt-get install -y libglfw3
           sudo apt install -y ffmpeg
+          echo "MUJOCO_GL=egl" >> $GITHUB_ENV
 
       - name: Install Graphviz
         uses: tlylt/install-graphviz@v1
