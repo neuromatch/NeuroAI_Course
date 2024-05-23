@@ -82,17 +82,17 @@
   category: Architectures             
   intro: https://www.youtube.com/watch?v=zxkHFYCEKaQ
   intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
-  name: Neuro Symbolic Structures                       
+  name: Neuro Symbolic Methods                       
   outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
   outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
   playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18O0Uex2OsJ8IwNGJJ7k1f5M
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/e357f/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/nxzar/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/kj6p3/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2szmk/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/y3zua/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/pxqny/?direct%26mode=render%26action=download%26mode=render
     title: Conclusion
   tutorials: 3
 
@@ -124,7 +124,7 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/vdcr6/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/8hgj5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 5
 
