@@ -101,6 +101,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/nxzar/?direct%
 
 
 
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D2_NeuroSymbolicMethods/further_reading.md)
+
+
 ## W2D3 - Microlearning
 
 [YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18MxDC_0OMdBefQz1fZvrWfu)
