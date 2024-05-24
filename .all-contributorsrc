@@ -74,6 +74,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "furlong-cmu",
+      "name": "Michael Furlong",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1517692?v=4",
+      "profile": "https://github.com/furlong-cmu",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
