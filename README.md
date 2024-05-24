@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -55,6 +55,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/furlong-cmu"><img src="https://avatars.githubusercontent.com/u/1517692?v=4?s=100" width="100px;" alt="Michael Furlong"/><br /><sub><b>Michael Furlong</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=furlong-cmu" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://jiapulidoar.github.io"><img src="https://avatars.githubusercontent.com/u/13878096?v=4?s=100" width="100px;" alt="jiapulidoar"/><br /><sub><b>jiapulidoar</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=jiapulidoar" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/colinbredenberg"><img src="https://avatars.githubusercontent.com/u/32182114?v=4?s=100" width="100px;" alt="colinbredenberg"/><br /><sub><b>colinbredenberg</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=colinbredenberg" title="Code">💻</a> <a href="#content-colinbredenberg" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
