@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -50,6 +50,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://xcorr.dev"><img src="https://avatars.githubusercontent.com/u/3516539?v=4?s=100" width="100px;" alt="Patrick Mineault"/><br /><sub><b>Patrick Mineault</b></sub></a><br /><a href="#content-patrickmineault" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=patrickmineault" title="Code">💻</a> <a href="#design-patrickmineault" title="Design">🎨</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/glibesyck"><img src="https://avatars.githubusercontent.com/u/71762371?v=4?s=100" width="100px;" alt="glibesyck"/><br /><sub><b>glibesyck</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=glibesyck" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://johnmarktaylor.com"><img src="https://avatars.githubusercontent.com/u/16569815?v=4?s=100" width="100px;" alt="JohnMark Taylor"/><br /><sub><b>JohnMark Taylor</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=johnmarktaylor91" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://colleenjg.github.io"><img src="https://avatars.githubusercontent.com/u/26847334?v=4?s=100" width="100px;" alt="Colleen J. Gillon"/><br /><sub><b>Colleen J. Gillon</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=colleenjg" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
