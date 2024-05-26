@@ -1,21 +1,5 @@
 # Daily guide for projects
 
-The daily guide for projects outlines the essential elements to include in project  guidelines for students. For more detailed and course-specific  guidelines, refer to the examples provided by Cliamtematch and  Neuromatch.
-
-Guidelines should contain:
-
-1. Summary
-2. Submission links
-3. Projects templates/materials
-4. Projects Teaching Assistant
-5. Daily breakdown of specific activities and expectations
-6. W*D*: Final Presentations
-7. Schedule
-8. Logistics 
-9. Content 
-10. Questions
-
-
 ## Summary
 
 This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (macrocircuits, microlearning, and comparing networks). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
@@ -32,26 +16,6 @@ Finally, in W3D5 you will meet with other groups in your pod and megapod (organi
 * W3D5 Project Submission [Airtable Link] (http://)
 
 ## Project templates
-
-Clarify what Project templates are, and provide explanations of how project templates should be used and how they are created. Clarify the significance of different colors (GREEN, YELLOW, RED) in indicating difficulty levels. Emphasize that templates are particularly  helpful for beginners or those with limited research experience.
-
-See [Guide to Making Project Templates/Stubs](https://neuromatch.slite.com/app/docs/Dg9q_cuWtzzYgF) for more information.
-
-
-**Example:**
-
-You have been assigned one of seven research projects based on the preferences listed in your application. Each project comes with an introductory video, a template, and a data loading jupyter notebook.
-Student groups will define their own research question. Project templates are maps of research ideas developed by the *[Climatematch Academy]* team. They are composed of GREEN, YELLOW, and RED questions in accordance with their difficulty.
-
-The templates should be used in several ways:
-
-- For starters, you can use the project templates just to get familiarized with some of our datasets or one of the provided models. They can provide keywords for you to use in a literature search, or python libraries you can reuse to answer your own questions.
-
-- You should use the project templates extensively if you are new to *[neuroscience]* and/or you don’t have a lot of research experience. They have been designed to give you enough structure to get started, and enough options to keep you going if you stick with the template. Or you may start with a template, use it the first week and then in the second week diverge from it as your group develops their own new idea or question to test.
-
-- Templates have a natural flow of questions, but don’t hesitate to skip or completely change some of these. They are meant to be used very flexibly!
-
-
 
 Project templates are research ideas developed by the NMA team that can be used in conjunction with the datasets we provided. Project templates can be used in a variety of ways.
 
@@ -77,19 +41,21 @@ They will visit your group on Day 1 to make introductions and will subsequently 
 ##  DAILY BREAKDOWN OF SPECIFIC ACTIVITIES AND EXPECTATIONS
 
 ### Session 1:  
-Explore project templates - go through the project templates and share with  team members
+**Explore project templates - go through the project templates and share with  team members
 
 Split into groups alphabetically. First sort yourselves by the first letter of your name. The first half of the students are in group 1, the second in group 2. If the split is not well-balanced, move one or two people around. (need to see how many students we have)
-Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
+
+* Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
 Listen carefully as others talk about their interests.
-Individual reading time (50 min): browse the project templates with slides and code 
-Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).
-Tips:
+* Individual reading time (50 min): browse the project templates with slides and code 
+* Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).
+
+**Tips:
 No need to have a very concrete project after the first day. You will determine the feasibility of your questions as you start to dig deeper, and you will likely change your question completely. That’s how research works!
 The exploratory work you do in week 1 will culminate in a project proposal on the first project day.
 
 ### Session 2:  
-Literature review - read 1-2 papers for each project, share findings with team members to create a short literature review with key questions and potential areas of investigation
+**Literature review - read 1-2 papers for each project, share findings with team members to create a short literature review with key questions and potential areas of investigation
 
 Split into groups alphabetically.
 Short discussion (30 min): tell your team members what paper(s) you will read with a short description.
