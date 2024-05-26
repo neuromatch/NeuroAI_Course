@@ -67,11 +67,11 @@ The exploratory work you do in week 1 will culminate in a project proposal on th
 
 * Working session (60 min) : You will work on identifying your questions and motivation, and rough plans for your project.
 * Project Proposal presentation : You will present your 3 questions and the workflow diagram to your teammates.
-  ** When you select the questions, think of the following:
-Is the question an extension of the current study? 
-Are there any other follow up papers that explored the question? You may need to do some more literature review!
-Why is this question interesting?
-How will you tackle this question?
+  - When you select the questions, think of the following:
+    - Is the question an extension of the current study?
+    - Are there any other follow up papers that explored the question? You may need to do some more literature review!
+    - Why is this question interesting?
+    - How will you tackle this question?
 
 ### Session 4:  
 Go through the Level 1 questions (green)  
