@@ -4,11 +4,11 @@
 
 This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (macrocircuits, microlearning, and comparing networks). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
 
-Once you’re in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. For the rest of Week 1 you will try preliminary analyses of the datasets with the goal of refining and informing your question. Week 2 day 1 (W2D1) is dedicated to projects and will teach you a general strategy for approaching projects (the “10 steps”). You will apply this strategy to your own question.
+Once you’re in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. During Sessions 1 and 2, you will go through the project templates and read 1-2 papers with the goal of refining and informing your question. By Session 3, you will submit your project proposal with the motivation and questions you are interested in studying.
 
-For the rest of the second week you will continue to analyze data / refine your question, with the goal of writing an abstract on W2D5, which is another project day. Your abstract may or may not include results, but it should at least include a testable hypothesis. You’ll swap abstracts with another group on W2D5. For the rest of the course, you will focus on getting evidence for/against your hypothesis.
+Throughout Sessions 4-6, you will continute to work on the project templates and identity outstanding questions, with the goal of submitting an interim progress report on Session 7. In the following session, you will continue to work on your project, finish the project, and get feedback from your TA.
 
-Finally, in W3D5 you will meet with other groups in your pod and megapod (organized by the lead TAs), and tell them the story of your project. This is a low-key presentation that may include some of the plots you made along the way, but it is not meant as a real research presentation with high “production values”. 
+Finally, on the last day (Session 9) you will meet with other groups in your pod and megapod (organized by the lead TAs), and tell them the story of your project. This is a low-key presentation that may include some of the plots you made along the way, but it is not meant as a real research presentation with high “production values”. 
 
 ## Submission Links
 
