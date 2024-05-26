@@ -4,7 +4,7 @@
 
 This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (macrocircuits, microlearning, and comparing networks). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
 
-Once you’re in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. For the rest of week 1 you will try preliminary analyses of the datasets with the goal of refining and informing your question. Week 2 day 1 (W2D1) is dedicated to projects and will teach you a general strategy for approaching projects (the “10 steps”). You will apply this strategy to your own question.
+Once you’re in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. For the rest of Week 1 you will try preliminary analyses of the datasets with the goal of refining and informing your question. Week 2 day 1 (W2D1) is dedicated to projects and will teach you a general strategy for approaching projects (the “10 steps”). You will apply this strategy to your own question.
 
 For the rest of the second week you will continue to analyze data / refine your question, with the goal of writing an abstract on W2D5, which is another project day. Your abstract may or may not include results, but it should at least include a testable hypothesis. You’ll swap abstracts with another group on W2D5. For the rest of the course, you will focus on getting evidence for/against your hypothesis.
 
@@ -12,8 +12,9 @@ Finally, in W3D5 you will meet with other groups in your pod and megapod (organi
 
 ## Submission Links
 
-* W2D5 Abstract Submission [Airtable Link] (http://)
-* W3D5 Project Submission [Airtable Link] (http://)
+* Session 3 Proposal Submission [Airtable Link] (http://)
+* Session 7 Progress Report Submission [Airtable Link] (http://)
+* Session 7 Final Presentation Submission [Airtable Link] (http://)
 
 ## Project templates
 
@@ -52,7 +53,7 @@ Listen carefully as others talk about their interests.
 
 **Tips:**
 No need to have a very concrete project after the first day. You will determine the feasibility of your questions as you start to dig deeper, and you will likely change your question completely. That’s how research works!
-The exploratory work you do in week 1 will culminate in a project proposal on the first project day.
+The exploratory work you do in Week 1 will culminate in a project proposal on the first project day.
 
 ### Session 2:  
 **Literature review - read 1-2 papers for each project, share findings with team members to create a short literature review with key questions and potential areas of investigation**
@@ -66,7 +67,8 @@ The exploratory work you do in week 1 will culminate in a project proposal on th
 **<ins>Milestone:</ins>  submit your project proposal with the motivation and ~3 questions that you are interested in studying. If possible, create a workflow diagram to show the different lines of inquiry and their connections.**
 
 * Working session (60 min) : You will work on identifying your questions and motivation, and rough plans for your project.
-* Project Proposal presentation : You will present your 3 questions and the workflow diagram to your teammates.
+* Project Proposal presentation :
+  - You will present your 3 questions and the workflow diagram to your teammates.
   - When you select the questions, think of the following:
     - Is the question an extension of the current study?
     - Are there any other follow up papers that explored the question? You may need to do some more literature review!
@@ -74,49 +76,39 @@ The exploratory work you do in week 1 will culminate in a project proposal on th
     - How will you tackle this question?
 
 ### Session 4:  
-Go through the Level 1 questions (green)  
-Work on your own (75 min)
-Discuss with teammates and TA (60 min) – Talk with your TA if there are any difficulties or if you have any questions!
-Spend the rest of the session to complete the Level 1 questions (45 min)
+* Go through the Level 1 questions (green)  
+* Work on your own (75 min)
+* Discuss with teammates and TA (60 min) – Talk with your TA if there are any difficulties or if you have any questions!
+* Spend the rest of the session to complete the Level 1 questions (45 min)
 
 ### Session 5:
-Identify an intermediate or advanced question that you are interested in tackling. 
-Determine the next experiment that you will setup; discuss with your TA to get feedback on how to break down your question into a set of specific tasks, and dive in!
-If you know what analysis you need, but don’t know how to do it, the TAs are there to help you. They can point you to useful toolkits that may be difficult to find otherwise.
-Try not to implement complicated analyses from scratch. Use existing toolkits, and learn how to use them well. This kind of knowledge is very helpful long-term.
-If you find a negative answer to your question, that is absolutely ok! Please do report that. Then go back and think about how this affects your initial hypothesis. Does it rule it out, or could there be limitations in this particular data that lead to the negative result? What other data would you collect that would be better suited for answering this question? Try to design a new experiment in very specific detail and tell us about it. Who knows, somebody might run that experiment someday!
-If you find a positive result (i.e. the data matches your hypothesis), then you should spend the rest of your time validating it to make absolutely sure it is really true. 
+* Identify an intermediate or advanced question that you are interested in tackling. 
+* Determine the next experiment that you will setup; discuss with your TA to get feedback on how to break down your question into a set of specific tasks, and dive in!
+  - If you know what analysis you need, but don’t know how to do it, the TAs are there to help you. They can point you to useful toolkits that may be difficult to find otherwise.
+  - Try not to implement complicated analyses from scratch. Use existing toolkits, and learn how to use them well. This kind of knowledge is very helpful long-term.
+  - If you find a negative answer to your question, that is absolutely ok! Please do report that. Then go back and think about how this affects your initial hypothesis. Does it rule it out, or could there be limitations in this particular data that lead to the negative result? What other data would you collect that would be better suited for answering this question? Try to design a new experiment in very specific detail and tell us about it. Who knows, somebody might run that experiment someday!
+  - If you find a positive result (i.e. the data matches your hypothesis), then you should spend the rest of your time validating it to make absolutely sure it is really true. 
 
 ### Session 6:  
-Identify outstanding questions and challenges - discuss with TA 
+* Identify outstanding questions and challenges - discuss with TA 
 
 ### Session 7: 
-Milestone: progress report - add to your progress to your report, refine your questions and describe your next steps
-You will submit your interim progress which includes your results so far, current problems and difficulties you are dealing with, ideas on how to tackle them, and questions for TA. 
-Discuss this interim progress with your teammates and TA.
+**<ins>Milestone:</ins> progress report - add to your progress to your report, refine your questions and describe your next steps**
+
+* You will submit your interim progress which includes your results so far, current problems and difficulties you are dealing with, ideas on how to tackle them, and questions for TA.
+* Discuss this interim progress with your teammates and TA.
 
 ### Session 8:  
-Finish project, get feedback from your TA  
+* Finish project, get feedback from your TA  
 
 ### Last day:  
-Milestone:  final presentation
-This is the day where you present your project to other groups! Your mentor and your project TAs can be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
-At the end of your last project block, you should also submit your slides.
-Your presentation should be xx minutes in length with xx-xx slides. 
-At the end of each presentation we will have 5 minutes for Q&A.
+**<ins>Milestone:</ins> final presentation**
 
+* This is the day where you present your project to other groups! Your mentor and your project TAs can be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
+* At the end of your last project block, you should also submit your slides.
+* Presentation details are described below.
 
-**Example:**
-
-### W1D1
-Introduction session, where students familiarize themselves with the course structure and their project group. This day may include activities like self-introductions, an overview of the project themes, and initial discussions about research interests and potential project ideas.
-
-
-### W1D2
-Subsequent Days: Detail the typical activities for each day or session, such as brainstorming sessions, research, data analysis workshops, meetings with Project TAs, and progress presentations. Ensure to adapt the content to the specific focus of each day or session (e.g., w1D2 might focus on hypothesis formation, W1D3 on data collection strategies, etc.).
-
-
-## W*D*: Final Presentations
+## Day 9: Final Presentations
 
 This is the day you present your project to other groups in your megapod. You can invite your Project Teaching Assistant too, but they might not make it if they are busy. Groups will take turns to share their screens. You can use figures and other graphics to highlight specific aspects of your research, but your presentation is meant to be told as a story, and everyone from your group should take their turn in telling a part of that story. Tell us about the different hypotheses you have had at different points and how you refined them using some of the tools you learned during the course.   
 
@@ -124,21 +116,19 @@ This is the day you present your project to other groups in your megapod. You ca
 
 * **10 minutes of meet & greet.** Do a round of introductions (one TA calls out names from the zoom list). Everyone says their name, pod name, position, university, and subject of study, as well as one interesting fact about themselves “Hi, I’m Jonny from the wiggly caterpillars and I am a PhD student at University of Notre Dame in Paris. I study X  and in my free time I like to go on long bike rides”.
 
-* **30-40 minutes of presentations**, including questions. Each group should speak for approximately 5 minutes (1 minute per person + 2 minutes of intro/discussion), and then take questions for 1-2 minutes. Try not to waste too much time on logistics: join the zoom link and go to the appropriate breakout room quickly. Then the student groups can start presenting in any order.
+* **30-40 minutes of presentations**, including Q&A. Each group should speak for approximately 5 minutes (1 minute per person + 2 minutes of intro/discussion), and then take questions for 1-2 minutes. Try not to waste too much time on logistics: join the zoom link and go to the appropriate breakout room quickly. Then the student groups can start presenting in any order.
 
 * **10-20 minutes of general discussion.** Here are some ideas for questions you could ask:
     * What was missing in the dataset that you would have really liked to have?
     * Does anyone plan to continue working on this project in the future? Perhaps a few students from the multiple groups would like to continue together?
-    * Based on your experience with the (NMA/CMA) project, what project would you most like to do next? Make up your own, or pick from the (NMA/CMA) projects (a different dataset or project template which you did not use).
+    * Based on your experience with the NMA project, what project would you most like to do next? Make up your own, or pick from the NMA projects (a different dataset or project template which you did not use).
     * What surprised you the most about the process of doing a project? In what way was this project most different from other projects you have done in the past.
-    * What technique did you learn at (NMA/CMA) which you think you can immediately apply to your own project (if you are currently doing research)? 
+    * What technique did you learn at NMA which you think you can immediately apply to your own project (if you are currently doing research)? 
 
 
 ### Logistics: 
 
-**Please exclusively change the text in italic:**
-
-Presentations will take place 1.5 hours after the end of your *[WxDx]* tutorials. *[For groups in timezone slots 1, 3, 4, this will fall outside of their regular course hours.]*
+Presentations will take place 1.5 hours after the end of your *Day 8* tutorials. *[For groups in timezone slots 1, 3, 4, this will fall outside of their regular course hours.]*  **[DOUBLE CHECK]**
 
 * You will present to other groups (3-5 groups per room). An email will be sent with the zoom room of one of the pods and all groups will meet there for one hour. There is a hard cutoff at the one hour mark, and it will be the Teaching Assistants’ responsibility to ensure everyone gets a turn to present.
 
@@ -150,8 +140,6 @@ Presentations will take place 1.5 hours after the end of your *[WxDx]* tutorials
 
 
 ### Content:  
-
-**Please do NOT change the below text:**
 
 * The 1 minute, 1 slide rule might seem like an impossible limit. However, it is one of the most useful formats you can learn, often referred to as a "one minute elevator pitch". If you can become an expert at giving short pitches about your work, it will help you get the interest of a lot of people, for example when presenting posters at scientific conferences. Or when you accidentally find yourself in an elevator with Mark Zuckerberg: this could be your chance to secure a million dollars in research funds!
 
@@ -167,8 +155,6 @@ Presentations will take place 1.5 hours after the end of your *[WxDx]* tutorials
 
 
 ### Questions:
-
-**Please do NOT change the below text:**
 
 * If your presentation was short enough, there is time for questions from the audience. These are a great way to get feedback on your project!
 
