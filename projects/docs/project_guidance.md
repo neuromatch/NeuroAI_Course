@@ -18,27 +18,18 @@ Guidelines should contain:
 
 ## Summary
 
-Provide a brief overview of the project plan, highlighting the iterative nature of research and the approach students will take. Mention how students will be grouped (e.g., by dataset preferences) and give an overview of the main objectives for each week of the course.  If applicable, include links to project presentations from previous years of the course.
-
-From Comp Neuro
-This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (neurons, fMRI, ECoG, theory and behavior). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
+This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (macrocircuits, microlearning, and comparing networks). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
 
 Once you’re in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. For the rest of week 1 you will try preliminary analyses of the datasets with the goal of refining and informing your question. Week 2 day 1 (W2D1) is dedicated to projects and will teach you a general strategy for approaching projects (the “10 steps”). You will apply this strategy to your own question.
 
 For the rest of the second week you will continue to analyze data / refine your question, with the goal of writing an abstract on W2D5, which is another project day. Your abstract may or may not include results, but it should at least include a testable hypothesis. You’ll swap abstracts with another group on W2D5. For the rest of the course, you will focus on getting evidence for/against your hypothesis.
 
-Finally, in W3D5 you will meet with other groups in your pod and megapod (organized by the lead TAs), and tell them the story of your project. This is a low-key presentation that may include some of the plots you made along the way, but it is not meant as a real research presentation with high “production values”. See some of the examples to get a sense of what the presentation will look like.
+Finally, in W3D5 you will meet with other groups in your pod and megapod (organized by the lead TAs), and tell them the story of your project. This is a low-key presentation that may include some of the plots you made along the way, but it is not meant as a real research presentation with high “production values”. 
 
 ## Submission Links
 
-Include Airtable links for the submission of Abstracts or Proposals and Project Presentations Slides. 
-
-2023 Airtable forms:
-
-1. [CMA](https://airtable.com/appLHqbcnAQ1EUO47/tblfAt9zTFIw33gu2/viwYKDAXWlUy6LGJ8?blocks=bipCFgg3RZNywk1Er)
-2. [CN](https://airtable.com/app1MtChyjyKEDzAt/tbl70WppzY5m1v4DO/viwQa6QNCEho4duSU?blocks=bipSKjH82Ivhw3MaN)
-3. [DL](https://airtable.com/appoh6RKyBvxgiJ89/tblSa9P74Gn2Frby4/viwBkjgv7mz4I9BNa?blocks=hide)
-
+* W2D5 Abstract Submission [Airtable Link] (http://)
+* W3D5 Project Submission [Airtable Link] (http://)
 
 ## Project templates
 
@@ -60,6 +51,20 @@ The templates should be used in several ways:
 
 - Templates have a natural flow of questions, but don’t hesitate to skip or completely change some of these. They are meant to be used very flexibly!
 
+
+
+Project templates are research ideas developed by the NMA team that can be used in conjunction with the datasets we provided. Project templates can be used in a variety of ways.
+
+* For starters, you can use the project templates just to get familiarized with provided models and directions in NeuroAI. They can provide keywords for you to use in a literature search, or python libraries you can reuse to answer your own questions.
+
+* You should use the project templates extensively if you are new to neuroAI and/or you don’t have a lot of research experience. They have been designed to give you enough structure to get started, and enough options to keep you going if you stick with the template. Or you may start with a template, use it the first week and then in the second week diverge from it as your group develops their own new idea or question to test.
+
+* Templates have a natural flow of questions, but don’t hesitate to skip or completely change some of these. They are composed of GREEN, YELLOW, and RED questions in accordance with their difficulty. All teams must work through the GREEN questions. Comprehensively answering just one YELLOW or RED question from the template would be an achievement! You can pick the question that interests you the most right away without following the flow suggested by the template. They are meant to be used very flexibly! 
+
+Project templates for each project can be found here: 
+* [Macrocircuits](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/Macrocircuits.ipynb)
+* [Microlearning](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/Microlearning.ipynb)
+* [Macrocircuits](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/ComparingNetworks.ipynb) 
 
 ## Project Teaching Assistant
 
