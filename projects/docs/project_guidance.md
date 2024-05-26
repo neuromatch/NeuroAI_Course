@@ -41,7 +41,7 @@ They will visit your group on Day 1 to make introductions and will subsequently 
 ##  DAILY BREAKDOWN OF SPECIFIC ACTIVITIES AND EXPECTATIONS
 
 ### Session 1:  
-**Explore project templates - go through the project templates and share with  team members
+**Explore project templates - go through the project templates and share with  team members**
 
 Split into groups alphabetically. First sort yourselves by the first letter of your name. The first half of the students are in group 1, the second in group 2. If the split is not well-balanced, move one or two people around. (need to see how many students we have)
 
@@ -50,24 +50,24 @@ Listen carefully as others talk about their interests.
 * Individual reading time (50 min): browse the project templates with slides and code 
 * Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).
 
-**Tips:
+**Tips:**
 No need to have a very concrete project after the first day. You will determine the feasibility of your questions as you start to dig deeper, and you will likely change your question completely. That’s how research works!
 The exploratory work you do in week 1 will culminate in a project proposal on the first project day.
 
 ### Session 2:  
-**Literature review - read 1-2 papers for each project, share findings with team members to create a short literature review with key questions and potential areas of investigation
+**Literature review - read 1-2 papers for each project, share findings with team members to create a short literature review with key questions and potential areas of investigation**
 
-Split into groups alphabetically.
-Short discussion (30 min): tell your team members what paper(s) you will read with a short description.
-Individual reading time (60 min): Pick 1-2 papers 
-Now present within your group (60 min). Tell your group about the paper you read, including: 1) introduction to topic, 2) approaches used in the paper,, 3) main results of the paper, 4) initial ideas on how you will extend the paper in a new direction (can be rough and unpolished!), 5) conclusions.
+* Split into groups alphabetically.
+* Short discussion (30 min): tell your team members what paper(s) you will read with a short description.
+* Individual reading time (60 min): Pick 1-2 papers 
+* Now present within your group (60 min). Tell your group about the paper you read, including: 1) introduction to topic, 2) approaches used in the paper,, 3) main results of the paper, 4) initial ideas on how you will extend the paper in a new direction (can be rough and unpolished!), 5) conclusions.
 
 ### Session 3:  
-Milestone:  submit your project proposal with the motivation and ~3 questions that you are interested in studying. If possible, create a workflow diagram to show the different lines of inquiry and their connections.
-Working session (60 min) : You will work on identifying your questions and motivation, and rough plans for your project.
-Project Proposal presentation
-You will present your 3 questions and the workflow diagram to your teammates.
-When you select the questions, think of the following:
+**Milestone:  submit your project proposal with the motivation and ~3 questions that you are interested in studying. If possible, create a workflow diagram to show the different lines of inquiry and their connections.**
+
+* Working session (60 min) : You will work on identifying your questions and motivation, and rough plans for your project.
+* Project Proposal presentation : You will present your 3 questions and the workflow diagram to your teammates.
+  ** When you select the questions, think of the following:
 Is the question an extension of the current study? 
 Are there any other follow up papers that explored the question? You may need to do some more literature review!
 Why is this question interesting?
