@@ -63,7 +63,7 @@ The exploratory work you do in week 1 will culminate in a project proposal on th
 * Now present within your group (60 min). Tell your group about the paper you read, including: 1) introduction to topic, 2) approaches used in the paper,, 3) main results of the paper, 4) initial ideas on how you will extend the paper in a new direction (can be rough and unpolished!), 5) conclusions.
 
 ### Session 3:  
-**Milestone:  submit your project proposal with the motivation and ~3 questions that you are interested in studying. If possible, create a workflow diagram to show the different lines of inquiry and their connections.**
+**<ins>Milestone:</ins>  submit your project proposal with the motivation and ~3 questions that you are interested in studying. If possible, create a workflow diagram to show the different lines of inquiry and their connections.**
 
 * Working session (60 min) : You will work on identifying your questions and motivation, and rough plans for your project.
 * Project Proposal presentation : You will present your 3 questions and the workflow diagram to your teammates.
