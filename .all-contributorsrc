@@ -154,6 +154,16 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "eivinasbutkus",
+      "name": "Eivinas Butkus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29067932?v=4",
+      "profile": "https://github.com/eivinasbutkus",
+      "contributions": [
+        "code",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
