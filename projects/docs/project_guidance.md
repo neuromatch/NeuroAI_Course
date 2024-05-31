@@ -27,9 +27,9 @@ Project templates are research ideas developed by the NMA team that can be used 
 * Templates have a natural flow of questions, but don’t hesitate to skip or completely change some of these. They are composed of GREEN, YELLOW, and RED questions in accordance with their difficulty. All teams must work through the GREEN questions. Comprehensively answering just one YELLOW or RED question from the template would be an achievement! You can pick the question that interests you the most right away without following the flow suggested by the template. They are meant to be used very flexibly! 
 
 Project templates for each project can be found here: 
-* [Macrocircuits](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/Macrocircuits.ipynb)
-* [Microlearning](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/Microlearning.ipynb)
-* [Comparing Networks](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/ComparingNetworks.ipynb) 
+* [Macrocircuits](https://neuroai.neuromatch.io/projects/project-notebooks/Macrocircuits.html)
+* [Microlearning](https://neuroai.neuromatch.io/projects/project-notebooks/Microlearning.html)
+* [Comparing Networks](https://neuroai.neuromatch.io/projects/project-notebooks/ComparingNetworks.html) 
 
 ## Project Teaching Assistant
 
