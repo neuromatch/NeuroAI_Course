@@ -108,7 +108,7 @@ The exploratory work you do in Week 1 will culminate in a project proposal on th
 * At the end of your last project block, you should also submit your slides.
 * Presentation details are described below.
 
-## Day 9: Final Presentations
+## W2D5 (Session 9): Final Presentations
 
 This is the day you present your project to other groups in your megapod. You can invite your Project Teaching Assistant too, but they might not make it if they are busy. Groups will take turns to share their screens. You can use figures and other graphics to highlight specific aspects of your research, but your presentation is meant to be told as a story, and everyone from your group should take their turn in telling a part of that story. Tell us about the different hypotheses you have had at different points and how you refined them using some of the tools you learned during the course.   
 
