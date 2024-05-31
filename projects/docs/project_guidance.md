@@ -14,7 +14,7 @@ Finally, on the last day (Session 9) you will meet with other groups in your pod
 
 * Session 3 Proposal Submission [Airtable Link] (http://)
 * Session 7 Progress Report Submission [Airtable Link] (http://)
-* Session 7 Final Presentation Submission [Airtable Link] (http://)
+* Session 9 Final Presentation Submission [Airtable Link] (http://)
 
 ## Project templates
 
