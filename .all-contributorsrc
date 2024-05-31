@@ -164,6 +164,15 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "JasperVanDenBosch",
+      "name": "Jasper J.F. van den Bosch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1508492?v=4",
+      "profile": "https://github.com/JasperVanDenBosch",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
