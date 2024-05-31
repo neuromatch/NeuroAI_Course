@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -50,6 +50,16 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://xcorr.dev"><img src="https://avatars.githubusercontent.com/u/3516539?v=4?s=100" width="100px;" alt="Patrick Mineault"/><br /><sub><b>Patrick Mineault</b></sub></a><br /><a href="#content-patrickmineault" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=patrickmineault" title="Code">💻</a> <a href="#design-patrickmineault" title="Design">🎨</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/glibesyck"><img src="https://avatars.githubusercontent.com/u/71762371?v=4?s=100" width="100px;" alt="glibesyck"/><br /><sub><b>glibesyck</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=glibesyck" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://johnmarktaylor.com"><img src="https://avatars.githubusercontent.com/u/16569815?v=4?s=100" width="100px;" alt="JohnMark Taylor"/><br /><sub><b>JohnMark Taylor</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=johnmarktaylor91" title="Code">💻</a> <a href="#content-johnmarktaylor91" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://colleenjg.github.io"><img src="https://avatars.githubusercontent.com/u/26847334?v=4?s=100" width="100px;" alt="Colleen J. Gillon"/><br /><sub><b>Colleen J. Gillon</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=colleenjg" title="Code">💻</a> <a href="#content-colleenjg" title="Content">🖋</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/furlong-cmu"><img src="https://avatars.githubusercontent.com/u/1517692?v=4?s=100" width="100px;" alt="Michael Furlong"/><br /><sub><b>Michael Furlong</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=furlong-cmu" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://jiapulidoar.github.io"><img src="https://avatars.githubusercontent.com/u/13878096?v=4?s=100" width="100px;" alt="jiapulidoar"/><br /><sub><b>jiapulidoar</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=jiapulidoar" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/colinbredenberg"><img src="https://avatars.githubusercontent.com/u/32182114?v=4?s=100" width="100px;" alt="colinbredenberg"/><br /><sub><b>colinbredenberg</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=colinbredenberg" title="Code">💻</a> <a href="#content-colinbredenberg" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://alishdipani.github.io/"><img src="https://avatars.githubusercontent.com/u/21101992?v=4?s=100" width="100px;" alt="Alish Dipani"/><br /><sub><b>Alish Dipani</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=alishdipani" title="Code">💻</a> <a href="#content-alishdipani" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/NogaMudrik"><img src="https://avatars.githubusercontent.com/u/90283200?v=4?s=100" width="100px;" alt="Noga"/><br /><sub><b>Noga</b></sub></a><br /><a href="#content-NogaMudrik" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=NogaMudrik" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://ssnio.github.io/"><img src="https://avatars.githubusercontent.com/u/49148519?v=4?s=100" width="100px;" alt="Saeed Salehi"/><br /><sub><b>Saeed Salehi</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=ssnio" title="Code">💻</a> <a href="#content-ssnio" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://hosseinadeli.github.io"><img src="https://avatars.githubusercontent.com/u/17715264?v=4?s=100" width="100px;" alt="Hossein Adeli"/><br /><sub><b>Hossein Adeli</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=Hosseinadeli" title="Code">💻</a> <a href="#content-Hosseinadeli" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>

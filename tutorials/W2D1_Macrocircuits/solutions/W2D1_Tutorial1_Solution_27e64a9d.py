@@ -12,4 +12,4 @@ N_train, N_test = 4000, 1000
 X_train, y_train = make_data(teacher, n_in, N_train)
 X_test, y_test = make_data(teacher, n_in, N_test)
 
-X_test[0][0]
+np.testing.assert_equal(X_test[0][0].item(), 0.19076240062713623, err_msg = "Expected value of data is different!")

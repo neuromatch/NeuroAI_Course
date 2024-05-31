@@ -81,8 +81,12 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/t89s2/?direct%
 | - | --- | --- | ---- |
 | Intro | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D1_Macrocircuits/W2D1_Intro.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D1_Macrocircuits/W2D1_Intro.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D1_Macrocircuits/W2D1_Intro.ipynb?flush_cache=true) |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial1.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial1.ipynb?flush_cache=true) |
+| Tutorial 2 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial2.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial2.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial2.ipynb?flush_cache=true) |
 
 
+
+
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D1_Macrocircuits/further_reading.md)
 
 
 ## W2D2 - Neuro Symbolic Methods
@@ -99,6 +103,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/nxzar/?direct%
 | Tutorial 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial3.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial3.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial3.ipynb?flush_cache=true) |
 
 
+
+
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D2_NeuroSymbolicMethods/further_reading.md)
 
 
 ## W2D3 - Microlearning

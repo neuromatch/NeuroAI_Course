@@ -66,6 +66,84 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "colleenjg",
+      "name": "Colleen J. Gillon",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26847334?v=4",
+      "profile": "http://colleenjg.github.io",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "furlong-cmu",
+      "name": "Michael Furlong",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1517692?v=4",
+      "profile": "https://github.com/furlong-cmu",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jiapulidoar",
+      "name": "jiapulidoar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13878096?v=4",
+      "profile": "http://jiapulidoar.github.io",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "colinbredenberg",
+      "name": "colinbredenberg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32182114?v=4",
+      "profile": "https://github.com/colinbredenberg",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "alishdipani",
+      "name": "Alish Dipani",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21101992?v=4",
+      "profile": "https://alishdipani.github.io/",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "NogaMudrik",
+      "name": "Noga",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90283200?v=4",
+      "profile": "https://github.com/NogaMudrik",
+      "contributions": [
+        "content",
+        "code"
+      ]
+    },
+    {
+      "login": "ssnio",
+      "name": "Saeed Salehi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49148519?v=4",
+      "profile": "https://ssnio.github.io/",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "Hosseinadeli",
+      "name": "Hossein Adeli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17715264?v=4",
+      "profile": "http://hosseinadeli.github.io",
+      "contributions": [
+        "code",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
