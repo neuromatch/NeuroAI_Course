@@ -29,7 +29,7 @@ Project templates are research ideas developed by the NMA team that can be used 
 Project templates for each project can be found here: 
 * [Macrocircuits](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/Macrocircuits.ipynb)
 * [Microlearning](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/Microlearning.ipynb)
-* [Macrocircuits](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/ComparingNetworks.ipynb) 
+* [Comparing Networks](https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/ComparingNetworks.ipynb) 
 
 ## Project Teaching Assistant
 
