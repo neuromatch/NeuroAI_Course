@@ -15,7 +15,7 @@ class FeedbackAlignmentMLP(MLP):
 
         # calculate the updates
         error = targets - output
-        delta_W_h = np.dot(np.dot(self.V, error * self.act_deriv(output)) * self.act_deriv(hidden),
+        delta_W_h = np.dot(np.dot(self.B, error * self.act_deriv(output)) * self.act_deriv(hidden),
                            add_bias(inputs).transpose())
         delta_W_y = np.dot(error * self.act_deriv(output), add_bias(hidden).transpose())
 
