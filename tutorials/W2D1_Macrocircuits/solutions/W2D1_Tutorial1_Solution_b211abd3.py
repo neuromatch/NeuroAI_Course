@@ -13,4 +13,4 @@ def initialize_layers(net,sigma):
         nn.init.normal_(param, std = sigma/np.sqrt(n_in))
 
 initialize_layers(net, 1)
-next(net.parameters())[0][0]
+np.testing.assert_equal(next(net.parameters())[0][0].item(), 0.6093441247940063, err_msg = "Expected value of parameter is different!")

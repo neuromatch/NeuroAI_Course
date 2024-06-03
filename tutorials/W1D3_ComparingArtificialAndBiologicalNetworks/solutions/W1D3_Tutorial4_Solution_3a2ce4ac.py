@@ -16,3 +16,5 @@ for i, n_neurons in enumerate(n_neurons_list):
         rdm = calc_rdm(transformed_data, method='euclidean', noise=None, normalize_by_channels=False)
         projected_dist[n_neurons].append(rdm.dissimilarities.item())
     projected_dist[n_neurons] = np.array(projected_dist[n_neurons])
+
+plot_distance_after_projection(true_dist, projected_dist, n_neurons_list, d_dims_list)

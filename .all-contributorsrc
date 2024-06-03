@@ -63,7 +63,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/16569815?v=4",
       "profile": "http://johnmarktaylor.com",
       "contributions": [
-        "code"
+        "code",
+        "content"
       ]
     },
     {
@@ -132,6 +133,57 @@
       "contributions": [
         "code",
         "content"
+      ]
+    },
+    {
+      "login": "Hosseinadeli",
+      "name": "Hossein Adeli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17715264?v=4",
+      "profile": "http://hosseinadeli.github.io",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "zfying",
+      "name": "zfying",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43172315?v=4",
+      "profile": "https://github.com/zfying",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "eivinasbutkus",
+      "name": "Eivinas Butkus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29067932?v=4",
+      "profile": "https://github.com/eivinasbutkus",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "JasperVanDenBosch",
+      "name": "Jasper J.F. van den Bosch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1508492?v=4",
+      "profile": "https://github.com/JasperVanDenBosch",
+      "contributions": [
+        "content",
+        "code"
+      ]
+    },
+    {
+      "login": "wenx-guo",
+      "name": "Wenxuan Guo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29089255?v=4",
+      "profile": "https://github.com/wenx-guo",
+      "contributions": [
+        "content",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
