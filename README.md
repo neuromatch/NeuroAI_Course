@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -66,6 +66,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/eivinasbutkus"><img src="https://avatars.githubusercontent.com/u/29067932?v=4?s=100" width="100px;" alt="Eivinas Butkus"/><br /><sub><b>Eivinas Butkus</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=eivinasbutkus" title="Code">💻</a> <a href="#content-eivinasbutkus" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/JasperVanDenBosch"><img src="https://avatars.githubusercontent.com/u/1508492?v=4?s=100" width="100px;" alt="Jasper J.F. van den Bosch"/><br /><sub><b>Jasper J.F. van den Bosch</b></sub></a><br /><a href="#content-JasperVanDenBosch" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=JasperVanDenBosch" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/wenx-guo"><img src="https://avatars.githubusercontent.com/u/29089255?v=4?s=100" width="100px;" alt="Wenxuan Guo"/><br /><sub><b>Wenxuan Guo</b></sub></a><br /><a href="#content-wenx-guo" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=wenx-guo" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/veronicabossio"><img src="https://avatars.githubusercontent.com/u/47635187?v=4?s=100" width="100px;" alt="veronicabossio"/><br /><sub><b>veronicabossio</b></sub></a><br /><a href="#content-veronicabossio" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=veronicabossio" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
