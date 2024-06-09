@@ -38,6 +38,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7r8v2/?direct%
 
 
 
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D2_ComparingTasks/further_reading.md)
+
+
 ## W1D3 - Comparing Artificial And Biological Networks
 
 [YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18Pxoz5iBbgfGjyaY9XHxpBK)
