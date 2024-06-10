@@ -1,4 +1,3 @@
-
 class SharedWorkspace(nn.Module):
 
     def __init__(self, num_specialists, hidden_dim, num_memory_slots, memory_slot_dim):

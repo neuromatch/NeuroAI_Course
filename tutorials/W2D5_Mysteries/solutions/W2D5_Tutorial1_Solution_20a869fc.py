@@ -6,8 +6,8 @@ def HOSS_evaluate(X, mu, Sigma, Aprior, Wprior):
 
     # Initialise variables and conditional prob tables
     p_A = np.array([1 - Aprior, Aprior])  # prior on awareness state A
-    p_W_a1 = np.append(Wprior, 0)  # likelihood of world states W given aware, last entry is absence
-    p_W_a0 = np.append(np.zeros(len(Wprior)), 1)  # likelihood of world states W given unaware, last entry is absence
+    p_W_a1 = np.append(0, Wprior)  # likelihood of world states W given aware, first entry is absence
+    p_W_a0 = np.append(1, np.zeros(len(Wprior)))  # likelihood of world states W given unaware, first entry is absence
     p_W = (p_W_a1 + p_W_a0) / 2  # prior on W marginalising over A (for KL)
 
     # Compute likelihood of observed X for each possible W (P(X|mu_w, Sigma))

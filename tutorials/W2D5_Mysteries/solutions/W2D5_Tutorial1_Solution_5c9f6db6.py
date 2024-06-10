@@ -1,4 +1,3 @@
-
 class SecondOrderNetwork(nn.Module):
     def __init__(self, use_gelu):
         super(SecondOrderNetwork, self).__init__()
@@ -16,8 +15,6 @@ class SecondOrderNetwork(nn.Module):
 
         # Additional activation functions for potential use in network operations
         self.sigmoid = torch.sigmoid
-        self.softmax = torch.nn.Softmax(dim=1)  # Softmax for multi-class classification problems
-        self.tanh = torch.tanh
 
         # Initialize the weights of the network
         self._init_weights()
@@ -32,9 +29,9 @@ class SecondOrderNetwork(nn.Module):
         comparison_matrix = first_order_input - first_order_output
 
         # Pass the difference through the comparison layer and apply the chosen activation function
-        comparison_out = self.comparison_layer(comparison_matrix)
+        comparison_out = self.dropout(self.activation(self.comparison_layer(comparison_matrix)))
 
         # Calculate the wager value, applying dropout and sigmoid activation to the output of the wager layer
-        wager = self.dropout(self.sigmoid(self.wager(comparison_out)))
+        wager = self.sigmoid(self.wager(comparison_out))
 
         return wager
