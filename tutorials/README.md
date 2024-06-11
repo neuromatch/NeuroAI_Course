@@ -94,7 +94,7 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/t89s2/?direct%
 
 ## W2D2 - Neuro Symbolic Methods
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18O0Uex2OsJ8IwNGJJ7k1f5M)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18NJv6RcukzT3wYwKAujQ-RP)
 
 Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/nxzar/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/2szmk/?direct%26mode=render%26action=download%26mode=render) | [Conclusion](https://mfr.ca-1.osf.io/render?url=https://osf.io/pxqny/?direct%26mode=render%26action=download%26mode=render)
 
