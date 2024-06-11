@@ -8,4 +8,4 @@ vocab = {n:discrete_space.encode(n) for n in symbol_names}
 
 noisy_vector = 0.2 * vocab['fire-fighter'] + 0.15 * vocab['math-teacher'] + 0.3 * vocab['sales-manager']
 
-profession_sims = np.array([noisy_vector | vocab[name] for name in symbol_names]).squeeze()
+sims = np.array([noisy_vector | vocab[name] for name in symbol_names]).squeeze()
