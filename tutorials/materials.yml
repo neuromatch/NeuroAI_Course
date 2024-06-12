@@ -114,17 +114,17 @@
  
 - day: W2D4
   category: Learning           
-  intro: https://www.youtube.com/watch?v=NluRzvdKNxQ
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=kzPZOvS_hGE
+  intro_bilibili: https://www.bilibili.com/video/BV1VJ4m137b3/
   name: Macrolearning                         
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OcWbQ25gZAqsr2cDpbwi_C
+  # outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
+  # outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18P2MEbAfGOYieDu4M1xpy5C
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/8hgj5/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/t36w8/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 5
 
