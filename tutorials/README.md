@@ -127,9 +127,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/vrb5p/?direct%
 
 ## W2D4 - Macrolearning
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18OcWbQ25gZAqsr2cDpbwi_C)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18P2MEbAfGOYieDu4M1xpy5C)
 
-Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/8hgj5/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/t36w8/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
