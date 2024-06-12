@@ -60,40 +60,42 @@ for y in tqdm(gamma, desc='Processing gammas'):
     sem_KL_A_no.append(np.std(mean_KL_A[:, :2].flatten()) / np.sqrt(Nsubjects))
     all_prob_y.append(np.mean(prob_y))
 
-# Create figure
-plt.figure(figsize=(16, 4.67))
+with plt.xkcd():
 
-# First subplot: Probability of reporting "seen" for w_1 or w_2
-plt.subplot(1, 3, 1)
-plt.plot(gamma, all_prob_y, linewidth=2)
-plt.xlabel('SOA (precision)')
-plt.ylabel('Prob. report "seen" for w_1 or w_2')
-plt.xticks(fontsize=14)
-plt.yticks(fontsize=14)
-plt.box(False)
+    # Create figure
+    plt.figure(figsize=(16, 4.67))
 
-# Second subplot: K-L divergence, perceptual states
-plt.subplot(1, 3, 2)
-plt.errorbar(gamma, all_KL_w_yes, yerr=sem_KL_w_yes, linewidth=2, label='Seen')
-plt.errorbar(gamma, all_KL_w_no, yerr=sem_KL_w_no, linewidth=2, label='Unseen')
-plt.legend(frameon=False)
-plt.xlabel('SOA (precision)')
-plt.ylabel('K-L divergence, perceptual states')
-plt.xticks(fontsize=14)
-plt.yticks(fontsize=14)
-plt.box(False)
+    # First subplot: Probability of reporting "seen" for w_1 or w_2
+    plt.subplot(1, 3, 1)
+    plt.plot(gamma, all_prob_y, linewidth=2)
+    plt.xlabel('SOA (precision)')
+    plt.ylabel('Prob. report "seen" for w_1 or w_2')
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.box(False)
 
-# Third subplot: K-L divergence, awareness state
-plt.subplot(1, 3, 3)
-plt.errorbar(gamma, all_KL_A_yes, yerr=sem_KL_A_yes, linewidth=2, label='Seen')
-plt.errorbar(gamma, all_KL_A_no, yerr=sem_KL_A_no, linewidth=2, label='Unseen')
-plt.legend(frameon=False)
-plt.xlabel('SOA (precision)')
-plt.ylabel('K-L divergence, awareness state')
-plt.xticks(fontsize=14)
-plt.yticks(fontsize=14)
-plt.box(False)
+    # Second subplot: K-L divergence, perceptual states
+    plt.subplot(1, 3, 2)
+    plt.errorbar(gamma, all_KL_w_yes, yerr=sem_KL_w_yes, linewidth=2, label='Seen')
+    plt.errorbar(gamma, all_KL_w_no, yerr=sem_KL_w_no, linewidth=2, label='Unseen')
+    plt.legend(frameon=False)
+    plt.xlabel('SOA (precision)')
+    plt.ylabel('K-L divergence, perceptual states')
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.box(False)
 
-# Adjust layout and display the figure
-plt.tight_layout()
-plt.show()
+    # Third subplot: K-L divergence, awareness state
+    plt.subplot(1, 3, 3)
+    plt.errorbar(gamma, all_KL_A_yes, yerr=sem_KL_A_yes, linewidth=2, label='Seen')
+    plt.errorbar(gamma, all_KL_A_no, yerr=sem_KL_A_no, linewidth=2, label='Unseen')
+    plt.legend(frameon=False)
+    plt.xlabel('SOA (precision)')
+    plt.ylabel('K-L divergence, awareness state')
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.box(False)
+
+    # Adjust layout and display the figure
+    plt.tight_layout()
+    plt.show()
