@@ -24,6 +24,7 @@ ffmpeg
 imageio-ffmpeg
 torchlens
 rsatoolbox
+vibecheck
 seaborn
 plotly
 git+https://github.com/Belval/TextRecognitionDataGenerator#egg=trdg
