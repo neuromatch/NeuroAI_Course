@@ -22,6 +22,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/fm4ys/?direct%
 
 
 
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D1_Generalization/further_reading.md)
+
+
 ## W1D2 - Comparing Tasks
 
 [YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18PZImpnBbrl6SRGa-XFl3Ep)
