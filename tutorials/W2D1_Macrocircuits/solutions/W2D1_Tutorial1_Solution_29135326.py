@@ -34,4 +34,4 @@ def train_model(net, X, y, n_epochs, lr, progressbar=True):
     return Es
 
 Es = train_model(net, X, y, 10, 1e-3)
-np.testing.assert_equal(Es[0], 0.0, err_msg = "Expected value of loss is different!")
+np.testing.assert_allclose(Es[0], 0.0, err_msg = "Expected value of loss is different!")
