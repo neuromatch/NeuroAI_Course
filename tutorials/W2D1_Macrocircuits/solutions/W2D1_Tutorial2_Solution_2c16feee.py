@@ -37,8 +37,14 @@ def fit_relu(x_train, y_train, x_test, y_test, n_hidden = 10, reg = 0):
 
     # Fit second layer weights with linear regression
     hidden = np.maximum(0, x_train.dot(W1) + b1)  # Hidden layer activations
-    hidden_pinv = np.dot(np.linalg.pinv(np.dot(hidden.T, hidden) + reg*np.eye(n_hidden)), hidden.T)
-    W2 = hidden_pinv.dot(y_train) + (np.eye(n_hidden) - hidden_pinv @ hidden)  @ W2   # Pseudo-inverse solution plus component in data nullspace
+    if reg == 0:
+        # Pseudo-inverse solution
+        hidden_pinv = np.linalg.pinv(hidden)
+        W2 = hidden_pinv.dot(y_train)
+    else:
+        # We use linalg.solve to find the solution to (H'H + reg*I) * W2 = H'y,
+        # equivalent to W2 = (H'H + reg*I)^(-1) * H'y
+        W2 = np.linalg.solve(hidden.T @ hidden + reg * np.eye(n_hidden), hidden.T @ y_train)
 
     # Train Error
     y_pred = forward_prop(x_train)

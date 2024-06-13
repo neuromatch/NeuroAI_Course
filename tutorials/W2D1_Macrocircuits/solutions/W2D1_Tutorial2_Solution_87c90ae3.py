@@ -2,7 +2,7 @@ set_seed(42)
 
 n_hids = np.unique(np.round(np.logspace(0, 3, 20))).astype(int)
 
-def sweep_test(x_train, y_train, x_test, y_test, n_hidden = 10, n_reps = 100, reg = 0):
+def sweep_test(x_train, y_train, x_test, y_test, n_hidden = 10, n_reps = 100, reg = 0.0):
     """
     Calculate mean test error for fitting second layer of network for defined number of repetitions.
     Notice that `init_scale` is always set to be 0 in this case.
@@ -20,7 +20,7 @@ def sweep_test(x_train, y_train, x_test, y_test, n_hidden = 10, n_reps = 100, re
     """
     return np.mean(np.array([fit_relu(x_train, y_train, x_test, y_test, n_hidden=n_hidden, reg = reg)[1] for i in range(n_reps)]))
 
-test_errs = [sweep_test(x_train, y_train, x_test, y_test, n_hidden=n_hid, n_reps=100, reg = 0) for n_hid in n_hids]
+test_errs = [sweep_test(x_train, y_train, x_test, y_test, n_hidden=n_hid, n_reps=100, reg = 0.0) for n_hid in n_hids]
 
 with plt.xkcd():
     plt.loglog(n_hids,test_errs,'o-',label='Test')

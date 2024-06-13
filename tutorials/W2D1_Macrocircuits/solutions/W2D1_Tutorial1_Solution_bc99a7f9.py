@@ -16,4 +16,4 @@ def get_num_params(n_in,W,D):
     output_params = W
     return input_params + hidden_layers_params + output_params
 
-np.testing.assert_equal(get_num_params(10, 3, 2), 33, err_msg = "Expected value of parameters number is different!")
+np.testing.assert_allclose(get_num_params(10, 3, 2), 33, err_msg = "Expected value of parameters number is different!")
