@@ -129,6 +129,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/vrb5p/?direct%
 
 
 
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D3_Microlearning/further_reading.md)
+
+
 ## W2D4 - Macrolearning
 
 [YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18P2MEbAfGOYieDu4M1xpy5C)
