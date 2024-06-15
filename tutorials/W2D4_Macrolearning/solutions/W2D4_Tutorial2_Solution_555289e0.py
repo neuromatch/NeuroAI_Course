@@ -17,15 +17,14 @@ def interspersed_training(K: int, num_epochs: int):
     summer_r_squared = []
     autumn_r_squared = []
 
-    for _ in range(num_epochs):
-
-        #sample random training examples from summer and autumn
-        sampled_summer_indices = np.random.choice(np.arange(summer_days_train_norm.shape[0]), size = K, replace = False)
-        sampled_autumn_indices = np.random.choice(np.arange(autumn_days_train_norm.shape[0]), size = K, replace = False)
+    for _ in tqdm(range(num_epochs), desc="Training Progress"):
+        # Sample random training examples from summer and autumn
+        sampled_summer_indices = np.random.choice(np.arange(summer_days_train_norm.shape[0]), size=K, replace=False)
+        sampled_autumn_indices = np.random.choice(np.arange(autumn_days_train_norm.shape[0]), size=K, replace=False)
 
         mixed_days_train = np.expand_dims(np.append(autumn_days_train_norm[sampled_autumn_indices], summer_days_train_norm[sampled_summer_indices]), 1)
         mixed_prices_train = np.append(autumn_prices_train[sampled_autumn_indices], summer_prices_train[sampled_summer_indices])
-        model.partial_fit(mixed_days_train,mixed_prices_train)
+        model.partial_fit(mixed_days_train, mixed_prices_train)
 
         summer_r_squared.append(model.score(summer_days_test_norm, summer_prices_test))
         autumn_r_squared.append(model.score(autumn_days_test_norm, autumn_prices_test))
