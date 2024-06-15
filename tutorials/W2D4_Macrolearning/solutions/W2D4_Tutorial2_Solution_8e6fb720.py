@@ -14,15 +14,15 @@ def sequential_training(K: int, num_epochs: int):
         - autumn_r_squared (list): A list containing the R-squared values for the autumn season at each epoch.
     """
 
-    model = MLPRegressor(hidden_layer_sizes=(100, 100), max_iter=10000, random_state = 42, solver = "lbfgs")
+    model = MLPRegressor(hidden_layer_sizes=(100, 100), max_iter=10000, random_state=42, solver="lbfgs")
     summer_r_squared = []
     autumn_r_squared = []
 
-    for _ in range(num_epochs // 2):
+    for _ in tqdm(range(num_epochs // 2), desc="Training Progress"):
 
-        #sample random training examples from summer and autumn
-        sampled_summer_indices = np.random.choice(np.arange(summer_days_train_norm.shape[0]), size = K, replace = False)
-        sampled_autumn_indices = np.random.choice(np.arange(autumn_days_train_norm.shape[0]), size = K, replace = False)
+        # Sample random training examples from summer and autumn
+        sampled_summer_indices = np.random.choice(np.arange(summer_days_train_norm.shape[0]), size=K, replace=False)
+        sampled_autumn_indices = np.random.choice(np.arange(autumn_days_train_norm.shape[0]), size=K, replace=False)
 
         model.partial_fit(summer_days_train_norm[sampled_summer_indices], summer_prices_train[sampled_summer_indices])
 
