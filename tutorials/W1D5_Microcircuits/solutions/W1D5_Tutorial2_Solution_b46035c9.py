@@ -8,7 +8,7 @@ class ReLUNet(nn.Module):
   def __init__(self, n_units):
     """
     Args:
-      n_units (int): Number of hiddent units
+      n_units (int): Number of hidden units
 
     Returns:
       Nothing
