@@ -8,4 +8,4 @@ def non_separable(x):
     Outputs:
     - y (np.ndarray of shape (n, 1)): non-separable function value for each of the vectors.
     """
-    return np.sin(np.multiply(x[:,0],x[:,1]))
+    return np.sin(np.multiply(x[:, 0], x[:, 1]))
