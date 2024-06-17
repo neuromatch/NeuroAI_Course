@@ -6,9 +6,9 @@ class Cleanup:
         self.weights = np.array([vocab[k] for k in vocab.keys()]).squeeze()
         self.temp = temperature
     def __call__(self, x):
-        sims = np.einsum('nd,md->nm', self.weights, x)
+        sims = x @ self.weights.T
         max_sim = softmax(sims * self.temp, axis=0)
-        return sspspace.SSP(np.einsum('nd,nm->md', self.weights, max_sim))
+        return sspspace.SSP(max_sim @ self.weights)
 
 
 cleanup = Cleanup(vocab)

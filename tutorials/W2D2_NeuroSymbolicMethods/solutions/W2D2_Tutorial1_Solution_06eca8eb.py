@@ -6,4 +6,4 @@ xs = np.linspace(-4,4,401)[:,None] #we expect the encoded values to be two-dimen
 phis = encoder.encode(xs)
 
 #`0` element is right in the middle of phis array! notice that we have 401 samples inside it
-sims = np.einsum('d,md->m', phis[200, :], phis)
+sims = phis[200, :] @ phis.T
