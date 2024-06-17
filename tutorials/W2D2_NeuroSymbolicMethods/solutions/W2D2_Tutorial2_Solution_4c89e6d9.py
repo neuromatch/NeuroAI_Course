@@ -18,7 +18,7 @@ for i in range(num_iters):
         a_hat = sspspace.SSP(transform) * rule
 
         #similarity with current transform
-        sim_mat = np.einsum('nd,md->nm', action_space, a_hat)
+        sim_mat = action_space @ a_hat.T
 
         #cleanup
         y_hat = softmax(sim_mat)
