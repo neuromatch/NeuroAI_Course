@@ -36,7 +36,7 @@ class SecondOrderNetwork(nn.Module):
         # Pass the difference through the comparison layer and apply the chosen activation function
         comparison_out=self.dropout(self.activation(self.comparison_layer(comparison_matrix)))
 
-        # Calculate the wager value
+        # Calculate the wager value, applying dropout and sigmoid activation to the output of the wager layer
         wager = self.sigmoid(self.wager(comparison_out))
 
         return wager
