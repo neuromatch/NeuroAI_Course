@@ -32,10 +32,10 @@ def LeakyHardTanh(x, leak_slope=0.03):
 
 def InverseLeakyHardTanh(y, leak_slope=0.03):
   """
-  Calculate input into `tanh` funciton with the leaky term for the given output.
+  Calculate input into the `tanh` function with the leaky term for the given output.
 
   Inputs:
-  - y (np.array): output of leaky tanh funciton.
+  - y (np.array): output of leaky tanh function.
   - leak_slope (float, default = 0.03): leaky term.
 
   Outputs:
