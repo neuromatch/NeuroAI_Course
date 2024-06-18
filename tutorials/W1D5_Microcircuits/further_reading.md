@@ -11,4 +11,9 @@
 
 ## Tutorial 3: Attention
 
-- [Inductive biases of neural networks for generalization in spatial navigation](https://www.biorxiv.org/content/10.1101/2022.12.07.519515v1)
+- [Attention and the detection of signals](https://pubmed.ncbi.nlm.nih.gov/7381367/)
+- [Parallel Distributed Processing](https://mitpress.mit.edu/9780262680530/parallel-distributed-processing/)
+- [Attention is all you need](https://papers.nips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html)
+- [Inductive biases and variable creation in self-attention mechanisms](https://proceedings.mlr.press/v162/edelman22a/edelman22a.pdf)
+- [Transformer as a Graph Neural Network](https://docs.dgl.ai/en/0.8.x/tutorials/models/4_old_wines/7_transformer.html)
+- [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/)
