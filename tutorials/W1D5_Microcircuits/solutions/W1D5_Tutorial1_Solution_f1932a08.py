@@ -1,6 +1,6 @@
 def hard_thres(frame, theta):
     """
-    Return hard thresholded array of values based on the parameter value theta.
+    Return a hard thresholded array of values based on the parameter value theta.
 
     Inputs:
     - frame (np.array): 2D signal.
