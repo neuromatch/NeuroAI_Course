@@ -4,8 +4,8 @@ n_hids = np.unique(np.round(np.logspace(0, 3, 20))).astype(int)
 
 def sweep_test(x_train, y_train, x_test, y_test, n_hidden = 10, n_reps = 100, reg = 0.0):
     """
-    Calculate mean test error for fitting second layer of network for defined number of repetitions.
-    Notice that `init_scale` is always set to be 0 in this case.
+    Calculate the mean test error for fitting the second layer of the network for a defined number of repetitions.
+    Notice that `init_scale` is always set to 0 in this case.
     Inputs:
     - x_train (np.ndarray): train input data.
     - y_train (np.ndarray): train target data.

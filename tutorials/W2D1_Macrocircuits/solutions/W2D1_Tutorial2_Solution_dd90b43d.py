@@ -1,14 +1,14 @@
 
 def fit_relu(x_train, y_train, x_test, y_test, n_hidden = 10, reg = 0):
     """
-    Fit second layer of network by solving via linear regression for the given training data and evaluate the performance.
+    Fit the second layer of the network by solving via linear regression for the given training data and evaluate the performance.
 
     Inputs:
     - x_train (np.ndarray): train input data.
     - y_train (np.ndarray): train target data.
     - x_test (np.ndarray): test input data.
     - y_test (np.ndarray): test target data.
-    - n_hidden (int, default = 10): size of hidden layer.
+    - n_hidden (int, default = 10): the size of the hidden layer.
     - reg (float, default = 0): regularization term.
 
     Outputs:

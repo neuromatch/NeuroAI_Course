@@ -6,7 +6,7 @@ n_reps = 10 # Number of networks to train
 
 def plot_predictions(n_hid, n_reps):
     """
-    Generate train and test data for `n_reps` times, fit it for network with hidden size `n_hid` and plot prediction values.
+    Generate train and test data for `n_reps` times, fit it for a network with hidden size `n_hid`, and plot prediction values.
 
     Inputs:
     - n_hid (int): size of hidden layer.
