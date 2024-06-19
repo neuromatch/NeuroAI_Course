@@ -8,6 +8,7 @@
 
 - [Double Descent: A Visual Introduction](https://mlu-explain.github.io/double-descent/)
 - [Double Descent: A Mathematical Explanation](https://mlu-explain.github.io/double-descent2/)
+- [Deep Double Descent: Where Bigger Models and More Data Hurt](https://arxiv.org/abs/1912.02292)
 
 ## Tutorial 3: Modularity
 

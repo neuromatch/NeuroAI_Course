@@ -77,6 +77,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/cp57z/?direct%
 
 
 
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D5_Microcircuits/further_reading.md)
+
+
 ## W2D1 - Macrocircuits
 
 [YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18OmP5qLaOdatjnPvbeOAyZO)
