@@ -1,6 +1,6 @@
 
 # Experiment parameters
-mu = np.array([[3.5, 0.5], [0.5, 3.5], [0.5, 0.5]])
+mu = np.array([[0.5, 0.5], [3.5, 0.5], [0.5, 3.5]])
 Nsubjects = 30
 Ntrials = 600
 cond = np.concatenate((np.ones(Ntrials//3), np.ones(Ntrials//3)*2, np.ones(Ntrials//3)*3))
@@ -42,23 +42,23 @@ for y in tqdm(gamma, desc='Processing gammas'):
 
         binaryAware = posteriorAware > 0.5
         for i in range(4):
-            conditions = [(cond == 3), (cond != 3), (cond != 3), (cond == 3)]
+            conditions = [(cond == 1), (cond != 1), (cond == 1), (cond != 1)]
             aware_conditions = [(binaryAware == 0), (binaryAware == 0), (binaryAware == 1), (binaryAware == 1)]
             mean_KL_w[s, i] = np.mean(KL_w[np.logical_and(aware_conditions[i], conditions[i])])
             mean_KL_A[s, i] = np.mean(KL_A[np.logical_and(aware_conditions[i], conditions[i])])
 
-        prob_y[s] = np.mean(binaryAware[cond != 3])
+        prob_y[s] = np.mean(binaryAware[cond != 1])
 
     # Aggregate results across subjects
-    all_KL_w_yes.append(np.mean(mean_KL_w[:, 2:4].flatten()))
-    sem_KL_w_yes.append(np.std(mean_KL_w[:, 2:4].flatten()) / np.sqrt(Nsubjects))
-    all_KL_w_no.append(np.mean(mean_KL_w[:, :2].flatten()))
-    sem_KL_w_no.append(np.std(mean_KL_w[:, :2].flatten()) / np.sqrt(Nsubjects))
-    all_KL_A_yes.append(np.mean(mean_KL_A[:, 2:4].flatten()))
-    sem_KL_A_yes.append(np.std(mean_KL_A[:, 2:4].flatten()) / np.sqrt(Nsubjects))
-    all_KL_A_no.append(np.mean(mean_KL_A[:, :2].flatten()))
-    sem_KL_A_no.append(np.std(mean_KL_A[:, :2].flatten()) / np.sqrt(Nsubjects))
-    all_prob_y.append(np.mean(prob_y))
+    all_KL_w_yes.append(np.nanmean(mean_KL_w[:, 2:4].flatten()))
+    sem_KL_w_yes.append(np.nanstd(mean_KL_w[:, 2:4].flatten()) / np.sqrt(Nsubjects))
+    all_KL_w_no.append(np.nanmean(mean_KL_w[:, :2].flatten()))
+    sem_KL_w_no.append(np.nanstd(mean_KL_w[:, :2].flatten()) / np.sqrt(Nsubjects))
+    all_KL_A_yes.append(np.nanmean(mean_KL_A[:, 2:4].flatten()))
+    sem_KL_A_yes.append(np.nanstd(mean_KL_A[:, 2:4].flatten()) / np.sqrt(Nsubjects))
+    all_KL_A_no.append(np.nanmean(mean_KL_A[:, :2].flatten()))
+    sem_KL_A_no.append(np.nanstd(mean_KL_A[:, :2].flatten()) / np.sqrt(Nsubjects))
+    all_prob_y.append(np.nanmean(prob_y))
 
 with plt.xkcd():
 
