@@ -16,3 +16,5 @@ cleanup = Cleanup(vocab)
 clean_vector = cleanup(noisy_vector)
 
 clean_sims = np.array([clean_vector | vocab[name] for name in symbol_names]).squeeze()
+
+plot_double_line_similarity_matrix([sims, clean_sims], symbol_names, ['Noisy Similarity', 'Clean Similarity'], title = 'Similarity - post cleanup')
