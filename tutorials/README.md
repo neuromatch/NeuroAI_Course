@@ -46,9 +46,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7r8v2/?direct%
 
 ## W1D3 - Comparing Artificial And Biological Networks
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18Pxoz5iBbgfGjyaY9XHxpBK)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18O2wSDMRLrZNyKBuRwvoE6K)
 
-Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/qmv5r/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/qmv5r/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/g8jzu/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/uwn2g/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
@@ -59,6 +59,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/qmv5r/?direct%
 | Tutorial 4 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.ipynb?flush_cache=true) |
 
 
+
+
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/further_reading.md)
 
 
 ## W1D5 - Microcircuits
