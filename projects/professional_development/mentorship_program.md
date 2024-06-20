@@ -1,6 +1,4 @@
-# Professional developemnt
-
-# Professional Development Mentorship Program
+# Mentorship Program
 
 Our personalized professional development mentorship program pairs mentors and mentees based on their preferences.
 
