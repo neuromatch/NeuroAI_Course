@@ -44,7 +44,7 @@ They will visit your group on Day 1 to make introductions and will subsequently 
 ### Session 1:  
 **Explore project templates - go through the project templates and share with  team members**
 
-Split into groups alphabetically. First sort yourselves by the first letter of your name. The first half of the students are in group 1, the second in group 2. If the split is not well-balanced, move one or two people around. (need to see how many students we have)
+Split into groups. We recommend intentionally creating groups with diverse skillsets. Groups should have students who are very confident in Python and those who are just learning. Through the project, students can work together to strengthen each other’s skills. We want to make sure that all members of each group get a chance to do all parts of the project. We ask that folks who are good with Python share what they know and handoff tasks to peers who are learning so they can improve their skills. Note that once you split into groups, that's your project group for the whole time. 
 
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
 Listen carefully as others talk about their interests.
@@ -56,9 +56,9 @@ No need to have a very concrete project after the first day. You will determine 
 The exploratory work you do in Week 1 will culminate in a project proposal on the first project day.
 
 ### Session 2:  
-**Literature review - read 1-2 papers for each project, share findings with team members to create a short literature review with key questions and potential areas of investigation**
+**Literature review - read 1-2 papers for your project topic, share findings with team members to create a short literature review with key questions and potential areas of investigation**
 
-* Split into groups alphabetically.
+* Split into groups.
 * Short discussion (30 min): tell your team members what paper(s) you will read with a short description.
 * Individual reading time (60 min): Pick 1-2 papers 
 * Now present within your group (60 min). Tell your group about the paper you read, including: 1) introduction to topic, 2) approaches used in the paper,, 3) main results of the paper, 4) initial ideas on how you will extend the paper in a new direction (can be rough and unpolished!), 5) conclusions.
@@ -66,9 +66,9 @@ The exploratory work you do in Week 1 will culminate in a project proposal on th
 ### Session 3:  
 **<ins>Milestone:</ins>  submit your project proposal with the motivation and ~3 questions that you are interested in studying. If possible, create a workflow diagram to show the different lines of inquiry and their connections.**
 
-* Working session (60 min) : You will work on identifying your questions and motivation, and rough plans for your project.
+* Working session (60 min) : You will work on identifying your questions and motivation, and rough plans for your project with your group.
 * Project Proposal presentation :
-  - You will present your 3 questions and the workflow diagram to your teammates.
+  - Each project group will present the selected 3 questions and the workflow diagram to the other project group within the pod.
   - When you select the questions, think of the following:
     - Is the question an extension of the current study?
     - Are there any other follow up papers that explored the question? You may need to do some more literature review!
