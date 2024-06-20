@@ -32,17 +32,15 @@
 
 - day: W1D3
   category: Foundations             
-  intro: https://www.youtube.com/watch?v=XrP9a_4l8s4
+  intro: https://www.youtube.com/watch?v=RGOB0LRnLME
   intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
   name: Comparing Artificial And Biological Networks                         
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18Pxoz5iBbgfGjyaY9XHxpBK
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18O2wSDMRLrZNyKBuRwvoE6K
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/qmv5r/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/g8jzu/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/qmv5r/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/uwn2g/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 4
   
