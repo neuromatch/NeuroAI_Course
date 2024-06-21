@@ -194,6 +194,15 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "myhannahchoi",
+      "name": "Hannah Choi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22950769?v=4",
+      "profile": "https://github.com/myhannahchoi",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
