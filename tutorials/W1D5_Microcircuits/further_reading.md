@@ -8,6 +8,12 @@
 
 ## Tutorial 2: Normalization
 
+- [Layer Normalization](https://arxiv.org/abs/1607.06450)
+- [Probabilistic Models of the Brain: Perception and Neural Function. Natural Image Statistics and Divisive Normalization](https://direct.mit.edu/books/edited-volume/2733/chapter-abstract/73923/Natural-Image-Statistics-and-Divisive?redirectedFrom=fulltext)
+- [Normalizing the Normalizers: Comparing and Extending Network Normalization Schemes](https://arxiv.org/abs/1611.04520)
+- [Flexible gating of contextual influences in natural vision](https://pubmed.ncbi.nlm.nih.gov/26436902/)
+- [Normalization as a canonical neural computation](https://www.nature.com/articles/nrn3136)
+- [Attention-related changes in correlated neuronal activity arise from normalization mechanisms](https://www.nature.com/articles/nn.4572)
 
 ## Tutorial 3: Attention
 

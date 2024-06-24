@@ -43,17 +43,15 @@
   
 - day: W1D5
   category: Architectures             
-  intro: https://www.youtube.com/watch?v=43FIazELi6U
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=43FIazELi6U #TO CHANGE
+  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/ #TO CHANGE
   name: Microcircuits                       
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OCRsDNqxyTNKMpw9ulSzqQ
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OCRsDNqxyTNKMpw9ulSzqQ #TO CHANGE
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/cp57z/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/7yde9/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/cp57z/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9m5f7/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 3
 
