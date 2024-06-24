@@ -1,16 +1,13 @@
 - day: W1D1
   category: Foundations             
-  intro: https://www.youtube.com/watch?v=IILjiyBd7zs
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=EN89LVVnLbs
+  intro_bilibili: https://www.bilibili.com/video/BV1Ns421u75v/
   name: Generalization                         
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18Po-HKMq_ZMWtVAliQqw6ct
-  
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18PvdhW6dFz1lDRFvXiyGyDC
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/fm4ys/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mrhny/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/x4pa5/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/79523/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 3
 
