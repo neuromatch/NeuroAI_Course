@@ -2,7 +2,7 @@
 
 ## Summary
 
-This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (macrocircuits, microlearning, and comparing networks). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
+This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (macrocircuits, microlearning, and comparing networks). Each pod will split into two groups, with the goal of making well-balanced groups. There is more guidance on this below. 
 
 Once you’re in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. During Sessions 1 and 2, you will go through the project templates and read 1-2 papers with the goal of refining and informing your question. By Session 3, you will submit your project proposal with the motivation and questions you are interested in studying.
 
@@ -12,9 +12,9 @@ Finally, on the last day (Session 9), you will meet with other groups in your po
 
 ## Submission Links
 
-* Session 3 Proposal Submission [Airtable Link] (http://)
-* Session 7 Progress Report Submission [Airtable Link] (http://)
-* Session 9 Final Presentation Submission [Airtable Link] (http://)
+* Session 3 Proposal Submission [Airtable Link](https://airtable.com/app1MtChyjyKEDzAt/shrXFpDJ2SSWJoeRc)
+* Session 7 Progress Report Submission [Airtable Link](https://airtable.com/app1MtChyjyKEDzAt/shrZs0QSq1LuRRP81)
+* Session 9 Final Presentation Submission [Airtable Link](https://airtable.com/app1MtChyjyKEDzAt/shrgUDhwaZQCcPuA3)
 
 ## Project templates
 
@@ -32,11 +32,14 @@ Project templates for each project can be found here:
 * [Microlearning](https://neuroai.neuromatch.io/projects/project-notebooks/Microlearning.html)
 * [Comparing Networks](https://neuroai.neuromatch.io/projects/project-notebooks/ComparingNetworks.html) 
 
+## Project Day 
+W1D4 will be your Project Day! That means you will have all of Tutorials and Project time that day to work on your project. Follow the sessions as outlined below, and use this extra long day to make progress as a group on the question you are working on.
+
 ## Project Teaching Assistant
 
 Project Teaching Assistants are your friendly project experts to consult with on all issues related to your project topics and datasets. They can help with brainstorming project ideas, literature searches, and coding. You will meet with them on a regular basis.
 
-They will visit your group on Day 1 to make introductions and will subsequently meet with you, on average, for 45-60 minutes every day or 1.5-2 hours every other day. As projects progress, Project Teaching Assistants might need to prioritize junior groups, but they can also be summoned to senior groups for meetings when needed. Since they can arrive unannounced at any time (busy schedules!), please stop what you were doing to have the meeting and then resume your work when the Project Teaching Assistant leaves. Please also post questions on discord in the project-specific channels. All project Teaching Assistants have time set aside specifically to answer discord questions and to provide additional meetings when necessary.
+They will visit your group on Session 1 to make introductions and will subsequently meet with you, on average, for 45-60 minutes every day or 1.5-2 hours every other day. As projects progress, Project Teaching Assistants might need to prioritize junior groups, but they can also be summoned to senior groups for meetings when needed. Since they can arrive unannounced at any time (busy schedules!), please stop what you were doing to have the meeting and then resume your work when the Project Teaching Assistant leaves. Please also post questions on discord in the project-specific channels. All project Teaching Assistants have time set aside specifically to answer discord questions and to provide additional meetings when necessary.
 
 ## Daily Breakdown of Specific Activities and Expectations
 
@@ -81,7 +84,7 @@ The exploratory work you do in Week 1 will culminate in a project proposal on th
 ### Session 4:  
 
 * Go through the Level 1 questions (green)  
-* Work on your own (75 min)
+* Work on your own (75 min). If you are newer to research, feel free to work as a group! 
 * Discuss with teammates and TA (60 min) – Talk with your TA if there are any difficulties or if you have any questions!
 * Spend the rest of the session to complete the Level 1 questions (45 min)
 
@@ -113,7 +116,7 @@ The exploratory work you do in Week 1 will culminate in a project proposal on th
 
 **<ins>Milestone:</ins> final presentation**
 
-* This is the day when you present your project to other groups! Your mentor and your project TAs can be invited too, but they are busy, so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
+* This is the day when you present your project to other groups! Your project TAs can be invited too, but they are busy, so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
 * At the end of your last project block, you should also submit your slides.
 * Presentation details are described below. 
 
@@ -133,7 +136,7 @@ The exploratory work you do in Week 1 will culminate in a project proposal on th
 
 #### Logistics: 
 
-Presentations will take place 1.5 hours after the end of your *Day 9* tutorials. *[For groups in timezone slots 1, 3, 4, this will fall outside of their regular course hours.]*  **[DOUBLE CHECK]**
+Please reference the [Schedule Page](https://neuroai.neuromatch.io/tutorials/Schedule/daily_schedules.html) for specifics on when your presentaitons will take place. 
 
 * You will present to other groups (3-5 groups per room). An email will be sent with the Zoom room of one of the pods, and all groups will meet there for one hour. There is a hard cutoff at the one-hour mark, and it will be the Teaching Assistants’ responsibility to ensure everyone gets a turn to present.
 
@@ -148,7 +151,7 @@ Presentations will take place 1.5 hours after the end of your *Day 9* tutorials.
 
 * The 1 minute, 1 slide rule might seem like an impossible limit. However, it is one of the most useful formats you can learn, often referred to as a "one minute elevator pitch". If you can become an expert at giving short pitches about your work, it will help you get the interest of a lot of people, for example, when presenting posters at scientific conferences. Or when you accidentally find yourself in an elevator with Mark Zuckerberg: this could be your chance to secure a million dollars in research funds!
 
-* The key to a good presentation is to practice it by yourself many times. It is not so different from other performing arts (acting, playing a musical instrument etc), where rehearsals are so crucial to a good performance.
+* The key to a good presentation is to practice it by yourself many times. It is not so different from other performing arts (acting, playing a musical instrument, etc), where rehearsals are so crucial to a good performance.
 
 * If something in your presentation doesn't sound good or doesn't make sense, you WILL get annoyed by it when you say it the tenth time, and that will make you want to change it. (Secret: this is how professors prepare all of their presentations, and it's why they always sound like they know what they are talking about)
 
