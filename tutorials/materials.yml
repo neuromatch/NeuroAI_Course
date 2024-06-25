@@ -57,15 +57,13 @@
 
 - day: W2D1
   category: Architectures             
-  intro: https://www.youtube.com/watch?v=sL31G4uim_o
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=b4ZG_XEpa9g
+  intro_bilibili: https://www.bilibili.com/video/BV12z421B7Hu/
   name: Macrocircuits                       
-  # outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  # outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OmP5qLaOdatjnPvbeOAyZO
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OKbW-1h6to_zuciXciyQuR
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/t89s2/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/zdchu/?direct%26mode=render%26action=download%26mode=render
     title: Intro
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9n4fj/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
