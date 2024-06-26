@@ -331,6 +331,15 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "evadyer",
+      "name": "Eva Dyer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8904134?v=4",
+      "profile": "http://dyerlab.gatech.edu",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
