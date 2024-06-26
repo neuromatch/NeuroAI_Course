@@ -72,6 +72,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://heikoschuett.github.io"><img src="https://avatars.githubusercontent.com/u/13691026?v=4?s=100" width="100px;" alt="Heiko Schütt"/><br /><sub><b>Heiko Schütt</b></sub></a><br /><a href="#content-HeikoSchuett" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://saakethm.github.io"><img src="https://avatars.githubusercontent.com/u/76604611?v=4?s=100" width="100px;" alt="Saaketh Medepalli"/><br /><sub><b>Saaketh Medepalli</b></sub></a><br /><a href="#content-saakethmm" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=saakethmm" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
