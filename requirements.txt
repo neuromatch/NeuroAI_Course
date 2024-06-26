@@ -27,7 +27,7 @@ rsatoolbox
 vibecheck
 seaborn
 plotly
-git+https://github.com/glibesyck/TextRecognitionDataGenerator#egg=trdg
+git+https://github.com/neuromatch/TextRecognitionDataGenerator#egg=trdg
 git+https://github.com/neuromatch/GNS-Modeling#egg=gns
 git+https://github.com/neuromatch/pyBPL#egg=pybpl
 git+https://github.com/neuromatch/MotorNet#egg=motornet
