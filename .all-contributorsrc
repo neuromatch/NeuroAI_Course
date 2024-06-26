@@ -350,6 +350,16 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "adityasingh1",
+      "name": "Aditya Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13717547?v=4",
+      "profile": "https://github.com/adityasingh1",
+      "contributions": [
+        "content",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

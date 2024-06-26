@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -87,6 +87,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kseniashilova"><img src="https://avatars.githubusercontent.com/u/59960559?v=4?s=100" width="100px;" alt="Kseniia Shilova"/><br /><sub><b>Kseniia Shilova</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=kseniashilova" title="Code">💻</a> <a href="#content-kseniashilova" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://dyerlab.gatech.edu"><img src="https://avatars.githubusercontent.com/u/8904134?v=4?s=100" width="100px;" alt="Eva Dyer"/><br /><sub><b>Eva Dyer</b></sub></a><br /><a href="#content-evadyer" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vidyamuthukumar1"><img src="https://avatars.githubusercontent.com/u/10782687?v=4?s=100" width="100px;" alt="vidyamuthukumar1"/><br /><sub><b>vidyamuthukumar1</b></sub></a><br /><a href="#content-vidyamuthukumar1" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=vidyamuthukumar1" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/adityasingh1"><img src="https://avatars.githubusercontent.com/u/13717547?v=4?s=100" width="100px;" alt="Aditya Singh"/><br /><sub><b>Aditya Singh</b></sub></a><br /><a href="#content-adityasingh1" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=adityasingh1" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
