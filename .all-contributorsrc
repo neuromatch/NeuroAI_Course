@@ -340,6 +340,16 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "vidyamuthukumar1",
+      "name": "vidyamuthukumar1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10782687?v=4",
+      "profile": "https://github.com/vidyamuthukumar1",
+      "contributions": [
+        "content",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
