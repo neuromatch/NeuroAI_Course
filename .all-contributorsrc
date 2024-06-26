@@ -213,6 +213,24 @@
         "content",
         "code"
       ]
+},
+{
+      "login": "nkriegeskorte",
+      "name": "nkriegeskorte",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49072992?v=4",
+      "profile": "https://github.com/nkriegeskorte",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "HeikoSchuett",
+      "name": "Heiko Schütt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13691026?v=4",
+      "profile": "http://heikoschuett.github.io",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
