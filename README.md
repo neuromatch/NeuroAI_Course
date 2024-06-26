@@ -53,7 +53,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://colleenjg.github.io"><img src="https://avatars.githubusercontent.com/u/26847334?v=4?s=100" width="100px;" alt="Colleen J. Gillon"/><br /><sub><b>Colleen J. Gillon</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=colleenjg" title="Code">💻</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/furlong-cmu"><img src="https://avatars.githubusercontent.com/u/1517692?v=4?s=100" width="100px;" alt="Michael Furlong"/><br /><sub><b>Michael Furlong</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=furlong-cmu" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/furlong-cmu"><img src="https://avatars.githubusercontent.com/u/1517692?v=4?s=100" width="100px;" alt="Michael Furlong"/><br /><sub><b>Michael Furlong</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=furlong-cmu" title="Code">💻</a> <a href="#content-furlong-cmu" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
