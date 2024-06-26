@@ -311,6 +311,15 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "klarakaleb",
+      "name": "Klara Kaleb",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19540403?v=4",
+      "profile": "https://github.com/klarakaleb",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
