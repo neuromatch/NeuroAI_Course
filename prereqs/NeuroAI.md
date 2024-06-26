@@ -1,10 +1,10 @@
 # Prerequisites and preparatory materials for NeuroAI course
 Welcome to the [Neuromatch Academy](https://academy.neuromatch.io/)! We're really excited to bring the field of NeuroAI to such a wide and varied audience. We're preparing an amazing set of lectures and tutorials for you!
 ## Preparing yourself for the course
-This is a more advanced course than other Neuromatch courses so far. We will be relating principles of neuroscience and principles of artificial intelligence, so you should already know the fundamentals in both disciplines. We as that all students: 
-Have taken Neuromatch courses in [computational neuroscience](https://compneuro.neuromatch.io/tutorials/intro.html) and [deep learning](https://deeplearning.neuromatch.io/), or the equivalent 
-Have intermediate proficiency in Python
-Some core math concepts
+This is a more advanced course than other Neuromatch courses so far. We will be relating principles of neuroscience and principles of artificial intelligence, so you should already know the fundamentals in both disciplines. We ask that all students: 
+  * Have taken Neuromatch courses in [computational neuroscience](https://compneuro.neuromatch.io/tutorials/intro.html) and [deep learning](https://deeplearning.neuromatch.io/), or the equivalent
+  * Have intermediate proficiency in Python
+  * Some core math concepts
 Below are more details on the prerequisites. 
 ### Neuroscience
 You should have some exposure to computational neuroscience, such as through our Neuromatch course. A rudimentary familiarity with neurobiology is fine.

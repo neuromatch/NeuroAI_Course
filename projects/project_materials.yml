@@ -23,6 +23,6 @@
 #   sections:
 #   - file: projects/past-projects/example_past_project.ipynb
 #     title: Example Past Project
-  # You should add your past pojects here using the following:
+  # You should add your past projects here using the following:
   # - file: point to the file
   #   title: name the project

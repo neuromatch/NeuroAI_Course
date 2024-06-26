@@ -1,16 +1,13 @@
 - day: W1D1
   category: Foundations             
-  intro: https://www.youtube.com/watch?v=IILjiyBd7zs
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=EN89LVVnLbs
+  intro_bilibili: https://www.bilibili.com/video/BV1Ns421u75v/
   name: Generalization                         
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18Po-HKMq_ZMWtVAliQqw6ct
-  
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18PvdhW6dFz1lDRFvXiyGyDC
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/fm4ys/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mrhny/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/x4pa5/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/79523/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 3
 
@@ -32,60 +29,52 @@
 
 - day: W1D3
   category: Foundations             
-  intro: https://www.youtube.com/watch?v=XrP9a_4l8s4
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=RGOB0LRnLME
+  intro_bilibili: https://www.bilibili.com/video/BV1Kb421p77j/
   name: Comparing Artificial And Biological Networks                         
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18Pxoz5iBbgfGjyaY9XHxpBK
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18O2wSDMRLrZNyKBuRwvoE6K
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/qmv5r/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/g8jzu/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/qmv5r/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/uwn2g/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 4
   
 - day: W1D5
   category: Architectures             
-  intro: https://www.youtube.com/watch?v=43FIazELi6U
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=43FIazELi6U #TO CHANGE
+  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/ #TO CHANGE
   name: Microcircuits                       
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OCRsDNqxyTNKMpw9ulSzqQ
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OCRsDNqxyTNKMpw9ulSzqQ #TO CHANGE
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/cp57z/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/7yde9/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/cp57z/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9m5f7/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 3
 
 - day: W2D1
   category: Architectures             
-  intro: https://www.youtube.com/watch?v=sL31G4uim_o
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=b4ZG_XEpa9g
+  intro_bilibili: https://www.bilibili.com/video/BV12z421B7Hu/
   name: Macrocircuits                       
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OmP5qLaOdatjnPvbeOAyZO
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OKbW-1h6to_zuciXciyQuR
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/t89s2/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/zdchu/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/utbe7/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9n4fj/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  tutorials: 1
+  tutorials: 3
 
 - day: W2D2
   category: Architectures             
-  intro: https://www.youtube.com/watch?v=zxkHFYCEKaQ
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=RKKUfo0dVnY
+  intro_bilibili: https://www.bilibili.com/video/BV11D421M7Hy/
   name: Neuro Symbolic Methods                       
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18O0Uex2OsJ8IwNGJJ7k1f5M
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18NJv6RcukzT3wYwKAujQ-RP
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/nxzar/?direct%26mode=render%26action=download%26mode=render
@@ -114,17 +103,15 @@
  
 - day: W2D4
   category: Learning           
-  intro: https://www.youtube.com/watch?v=NluRzvdKNxQ
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=kzPZOvS_hGE
+  intro_bilibili: https://www.bilibili.com/video/BV1VJ4m137b3/
   name: Macrolearning                         
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OcWbQ25gZAqsr2cDpbwi_C
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18P2MEbAfGOYieDu4M1xpy5C
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/8hgj5/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/t36w8/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 5
 
