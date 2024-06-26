@@ -81,7 +81,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://jcornford.github.io/"><img src="https://avatars.githubusercontent.com/u/8012514?v=4?s=100" width="100px;" alt="Jonathan Cornford"/><br /><sub><b>Jonathan Cornford</b></sub></a><br /><a href="#content-jcornford" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=jcornford" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/divyansha1115"><img src="https://avatars.githubusercontent.com/u/31177245?v=4?s=100" width="100px;" alt="Divyansha"/><br /><sub><b>Divyansha</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=divyansha1115" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/divyansha1115"><img src="https://avatars.githubusercontent.com/u/31177245?v=4?s=100" width="100px;" alt="Divyansha"/><br /><sub><b>Divyansha</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=divyansha1115" title="Code">💻</a> <a href="#content-divyansha1115" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
