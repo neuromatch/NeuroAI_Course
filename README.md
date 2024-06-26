@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-28-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -78,6 +78,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mkanwal"><img src="https://avatars.githubusercontent.com/u/5432199?v=4?s=100" width="100px;" alt="Max Kanwal"/><br /><sub><b>Max Kanwal</b></sub></a><br /><a href="#content-mkanwal" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=mkanwal" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/celiasmith"><img src="https://avatars.githubusercontent.com/u/1984851?v=4?s=100" width="100px;" alt="Chris Eliasmith"/><br /><sub><b>Chris Eliasmith</b></sub></a><br /><a href="#content-celiasmith" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://roman-pogodin.com/"><img src="https://avatars.githubusercontent.com/u/11966916?v=4?s=100" width="100px;" alt="Roman Pogodin"/><br /><sub><b>Roman Pogodin</b></sub></a><br /><a href="#content-romanpogodin" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=romanpogodin" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://jcornford.github.io/"><img src="https://avatars.githubusercontent.com/u/8012514?v=4?s=100" width="100px;" alt="Jonathan Cornford"/><br /><sub><b>Jonathan Cornford</b></sub></a><br /><a href="#content-jcornford" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
