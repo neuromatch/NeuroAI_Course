@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-31-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-32-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -83,6 +83,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://jcornford.github.io/"><img src="https://avatars.githubusercontent.com/u/8012514?v=4?s=100" width="100px;" alt="Jonathan Cornford"/><br /><sub><b>Jonathan Cornford</b></sub></a><br /><a href="#content-jcornford" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=jcornford" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/divyansha1115"><img src="https://avatars.githubusercontent.com/u/31177245?v=4?s=100" width="100px;" alt="Divyansha"/><br /><sub><b>Divyansha</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=divyansha1115" title="Code">💻</a> <a href="#content-divyansha1115" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cversteeg"><img src="https://avatars.githubusercontent.com/u/15896921?v=4?s=100" width="100px;" alt="cversteeg"/><br /><sub><b>cversteeg</b></sub></a><br /><a href="#content-cversteeg" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=cversteeg" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/klarakaleb"><img src="https://avatars.githubusercontent.com/u/19540403?v=4?s=100" width="100px;" alt="Klara Kaleb"/><br /><sub><b>Klara Kaleb</b></sub></a><br /><a href="#content-klarakaleb" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
