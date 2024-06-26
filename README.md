@@ -70,6 +70,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/myhannahchoi"><img src="https://avatars.githubusercontent.com/u/22950769?v=4?s=100" width="100px;" alt="Hannah Choi"/><br /><sub><b>Hannah Choi</b></sub></a><br /><a href="#content-myhannahchoi" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nkriegeskorte"><img src="https://avatars.githubusercontent.com/u/49072992?v=4?s=100" width="100px;" alt="nkriegeskorte"/><br /><sub><b>nkriegeskorte</b></sub></a><br /><a href="#content-nkriegeskorte" title="Content">🖋</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://heikoschuett.github.io"><img src="https://avatars.githubusercontent.com/u/13691026?v=4?s=100" width="100px;" alt="Heiko Schütt"/><br /><sub><b>Heiko Schütt</b></sub></a><br /><a href="#content-HeikoSchuett" title="Content">🖋</a></td>
+    </tr>
   </tbody>
 </table>
 
