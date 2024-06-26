@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-24-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-25-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -74,6 +74,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nkriegeskorte"><img src="https://avatars.githubusercontent.com/u/49072992?v=4?s=100" width="100px;" alt="nkriegeskorte"/><br /><sub><b>nkriegeskorte</b></sub></a><br /><a href="#content-nkriegeskorte" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://heikoschuett.github.io"><img src="https://avatars.githubusercontent.com/u/13691026?v=4?s=100" width="100px;" alt="Heiko Schütt"/><br /><sub><b>Heiko Schütt</b></sub></a><br /><a href="#content-HeikoSchuett" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/meldefon"><img src="https://avatars.githubusercontent.com/u/3287534?v=4?s=100" width="100px;" alt="Gabriel Mel de Fontenay"/><br /><sub><b>Gabriel Mel de Fontenay</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=meldefon" title="Code">💻</a> <a href="#content-meldefon" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://saxelab.org"><img src="https://avatars.githubusercontent.com/u/4165949?v=4?s=100" width="100px;" alt="Andrew Saxe"/><br /><sub><b>Andrew Saxe</b></sub></a><br /><a href="#content-asaxe" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=asaxe" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
