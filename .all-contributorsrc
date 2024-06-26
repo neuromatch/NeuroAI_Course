@@ -321,6 +321,15 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "kseniashilova",
+      "name": "Kseniia Shilova",
+      "avatar_url": "https://avatars.githubusercontent.com/u/59960559?v=4",
+      "profile": "https://github.com/kseniashilova",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
