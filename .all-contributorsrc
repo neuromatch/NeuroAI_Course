@@ -281,6 +281,16 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "jcornford",
+      "name": "Jonathan Cornford",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8012514?v=4",
+      "profile": "https://jcornford.github.io/",
+      "contributions": [
+        "content",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
