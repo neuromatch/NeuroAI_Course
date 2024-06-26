@@ -69,7 +69,7 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/g8jzu/?direct%
 
 ## W1D5 - Microcircuits
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18OCRsDNqxyTNKMpw9ulSzqQ)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18PnKkY7xi_XNgOvjNIeiTCZ)
 
 Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7yde9/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/9m5f7/?direct%26mode=render%26action=download%26mode=render)
 
