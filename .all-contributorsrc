@@ -291,6 +291,16 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "divyansha1115",
+      "name": "Divyansha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31177245?v=4",
+      "profile": "https://github.com/divyansha1115",
+      "contributions": [
+        "code",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
