@@ -360,6 +360,16 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "ryzhang1",
+      "name": "Ruiyi Zhang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61520306?v=4",
+      "profile": "https://github.com/ryzhang1",
+      "contributions": [
+        "code",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
