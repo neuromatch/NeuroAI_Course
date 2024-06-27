@@ -389,6 +389,15 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "smfleming",
+      "name": "Steve Fleming",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8042197?v=4",
+      "profile": "http://www.metacoglab.org",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
