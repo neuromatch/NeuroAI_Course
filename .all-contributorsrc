@@ -399,6 +399,16 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "deep-introspection",
+      "name": "Guillaume Dumas",
+      "avatar_url": "https://avatars.githubusercontent.com/u/208779?v=4",
+      "profile": "http://www.extrospection.eu",
+      "contributions": [
+        "content",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
