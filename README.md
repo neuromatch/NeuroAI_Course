@@ -98,7 +98,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/juandavidvargas19"><img src="https://avatars.githubusercontent.com/u/114268705?v=4?s=100" width="100px;" alt="juandavidvargas19"/><br /><sub><b>juandavidvargas19</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=juandavidvargas19" title="Code">💻</a> <a href="#content-juandavidvargas19" title="Content">🖋</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lwehbe"><img src="https://avatars.githubusercontent.com/u/8173821?v=4?s=100" width="100px;" alt="lwehbe"/><br /><sub><b>lwehbe</b></sub></a><br /><a href="#content-lwehbe" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lwehbe"><img src="https://avatars.githubusercontent.com/u/8173821?v=4?s=100" width="100px;" alt="lwehbe"/><br /><sub><b>lwehbe</b></sub></a><br /><a href="#content-lwehbe" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=lwehbe" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
