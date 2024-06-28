@@ -28,9 +28,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/mrhny/?direct%
 
 ## W1D2 - Comparing Tasks
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18PZImpnBbrl6SRGa-XFl3Ep)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18NKMY17dMBh10vDfmbHcGlJ)
 
-Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7r8v2/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/d4r6g/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/gsuhq/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/x4y79/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
