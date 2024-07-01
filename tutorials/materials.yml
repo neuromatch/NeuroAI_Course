@@ -37,7 +37,9 @@
     title: Intro
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/uwn2g/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  tutorials: 4
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/8fx23/?direct%26mode=render%26action=download%26mode=render
+    title: Bonus
+  tutorials: 5
   
 - day: W1D5
   category: Architectures             
