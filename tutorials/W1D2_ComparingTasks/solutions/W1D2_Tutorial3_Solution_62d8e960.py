@@ -1,5 +1,5 @@
 t = np.arange(1,101) # Array representing trials from 1 to 100
-p_L = 0.2
+p_L = 0.25
 p_R = 0.75
 
 # In the best case scenario, the agent chooses the best arm every trial,
