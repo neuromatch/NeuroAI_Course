@@ -439,6 +439,15 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "deyingsong",
+      "name": "Deying Song",
+      "avatar_url": "https://avatars.githubusercontent.com/u/174072755?v=4",
+      "profile": "https://github.com/deyingsong",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
