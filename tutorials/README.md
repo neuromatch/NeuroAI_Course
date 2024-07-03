@@ -170,7 +170,7 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%
 
 ## W2D5 - Mysteries
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18OTyAW4eH1CyCGezU1MyDaG)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18NRcW-7qrR8_8kOeJnepQwZ)
 
 Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/v7ber/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/s3py5/?direct%26mode=render%26action=download%26mode=render) | [Outro](https://mfr.ca-1.osf.io/render?url=https://osf.io/98qfs/?direct%26mode=render%26action=download%26mode=render)
 
