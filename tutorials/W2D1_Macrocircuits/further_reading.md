@@ -9,6 +9,7 @@
 - [Double Descent: A Visual Introduction](https://mlu-explain.github.io/double-descent/)
 - [Double Descent: A Mathematical Explanation](https://mlu-explain.github.io/double-descent2/)
 - [Deep Double Descent: Where Bigger Models and More Data Hurt](https://arxiv.org/abs/1912.02292)
+- [A Farewell to the Bias-Variance Tradeoff? An Overview of the Theory of Overparameterized Machine Learning](https://arxiv.org/abs/2109.02355)
 
 ## Tutorial 3: Modularity
 
