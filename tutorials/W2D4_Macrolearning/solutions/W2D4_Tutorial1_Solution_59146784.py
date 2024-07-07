@@ -13,6 +13,6 @@ prices = A * days**2 + B * np.sin(np.pi * days + phi) + C
 #plot relation between days and prices
 with plt.xkcd():
   plt.plot(days, prices)
-  plt.xlabel('Day')
+  plt.xlabel('Week')
   plt.ylabel('Price')
   plt.show()

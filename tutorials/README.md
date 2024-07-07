@@ -183,3 +183,6 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/v7ber/?direct%
 
 
 
+
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D5_Mysteries/further_reading.md)
+
