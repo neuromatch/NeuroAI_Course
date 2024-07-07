@@ -28,9 +28,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/mrhny/?direct%
 
 ## W1D2 - Comparing Tasks
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18PZImpnBbrl6SRGa-XFl3Ep)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18NKMY17dMBh10vDfmbHcGlJ)
 
-Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7r8v2/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/d4r6g/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/gsuhq/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/x4y79/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
@@ -50,7 +50,7 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7r8v2/?direct%
 
 [YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18O2wSDMRLrZNyKBuRwvoE6K)
 
-Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/g8jzu/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/uwn2g/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/g8jzu/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/uwn2g/?direct%26mode=render%26action=download%26mode=render) | [Bonus](https://mfr.ca-1.osf.io/render?url=https://osf.io/8fx23/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
@@ -59,6 +59,7 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/g8jzu/?direct%
 | Tutorial 2 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial2.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial2.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial2.ipynb?flush_cache=true) |
 | Tutorial 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial3.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial3.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial3.ipynb?flush_cache=true) |
 | Tutorial 4 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.ipynb?flush_cache=true) |
+| Tutorial 5 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial5.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial5.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial5.ipynb?flush_cache=true) |
 | Outro | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/W1D3_Outro.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/W1D3_Outro.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/W1D3_Outro.ipynb?flush_cache=true) |
 
 
@@ -131,7 +132,7 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/nxzar/?direct%
 
 [YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18MxDC_0OMdBefQz1fZvrWfu)
 
-Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/vrb5p/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/mze3x/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/3ejzs/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/rx89q/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
@@ -169,9 +170,9 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/7k4pv/?direct%
 
 ## W2D5 - Mysteries
 
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18OTyAW4eH1CyCGezU1MyDaG)
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLkBQOLLbi18NRcW-7qrR8_8kOeJnepQwZ)
 
-Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%26mode=render%26action=download%26mode=render) | [Outro](https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/v7ber/?direct%26mode=render%26action=download%26mode=render) | [Tutorials](https://mfr.ca-1.osf.io/render?url=https://osf.io/s3py5/?direct%26mode=render%26action=download%26mode=render) | [Outro](https://mfr.ca-1.osf.io/render?url=https://osf.io/98qfs/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
@@ -181,4 +182,7 @@ Slides: [Intro](https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%
 | Outro | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D5_Mysteries/W2D5_Outro.ipynb) | [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D5_Mysteries/W2D5_Outro.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D5_Mysteries/W2D5_Outro.ipynb?flush_cache=true) |
 
 
+
+
+[Further Reading](https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D5_Mysteries/further_reading.md)
 

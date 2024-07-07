@@ -63,7 +63,7 @@ for y in tqdm(gamma, desc='Processing gammas'):
 with plt.xkcd():
 
     # Create figure
-    plt.figure(figsize=(16, 4.67))
+    plt.figure(figsize=(10, 5))
 
     # First subplot: Probability of reporting "seen" for w_1 or w_2
     plt.subplot(1, 3, 1)
@@ -80,7 +80,7 @@ with plt.xkcd():
     plt.errorbar(gamma, all_KL_w_no, yerr=sem_KL_w_no, linewidth=2, label='Unseen')
     plt.legend(frameon=False)
     plt.xlabel('Stimulus strength')
-    plt.ylabel('K-L divergence, perceptual states')
+    plt.ylabel('KL-divergence, perceptual states')
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
     plt.box(False)
@@ -91,7 +91,7 @@ with plt.xkcd():
     plt.errorbar(gamma, all_KL_A_no, yerr=sem_KL_A_no, linewidth=2, label='Unseen')
     plt.legend(frameon=False)
     plt.xlabel('Stimulus strength')
-    plt.ylabel('K-L divergence, awareness state')
+    plt.ylabel('KL-divergence, awareness state')
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
     plt.box(False)

@@ -13,17 +13,15 @@
 
 - day: W1D2
   category: Foundations             
-  intro: https://www.youtube.com/watch?v=lNd_8lAZmSg
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=rqogrpeaxyo
+  intro_bilibili: https://www.bilibili.com/video/BV1jn4y1X7ga/
   name: Comparing Tasks                         
-  outro:  https://www.youtube.com/watch?v=KZQXfQL1SH4
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18PZImpnBbrl6SRGa-XFl3Ep
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18NKMY17dMBh10vDfmbHcGlJ
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/7r8v2/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/gsuhq/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/d4r6g/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/x4y79/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 3
 
@@ -39,7 +37,9 @@
     title: Intro
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/uwn2g/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  tutorials: 4
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/8fx23/?direct%26mode=render%26action=download%26mode=render
+    title: Bonus
+  tutorials: 5
   
 - day: W1D5
   category: Architectures             
@@ -95,9 +95,9 @@
   playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18MxDC_0OMdBefQz1fZvrWfu
 
   slides: 
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/vrb5p/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3ejzs/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mze3x/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rx89q/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
   tutorials: 1
  
@@ -117,18 +117,18 @@
 
 - day: W2D5
   category: Mysteries
-  intro: https://www.youtube.com/watch?v=MTDhzJxVjRo
-  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  intro: https://www.youtube.com/watch?v=8fOh_fzOX0s
+  intro_bilibili: https://www.bilibili.com/video/BV12s421M7eH/
   name: Mysteries
-  outro:  https://www.youtube.com/watch?v=zPejpU6LuvU
-  outro_bilibili: https://www.bilibili.com/video/BV1vv411i7SG/
-  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18OTyAW4eH1CyCGezU1MyDaG
+  outro:  https://www.youtube.com/watch?v=yZqXLWapS7c
+  outro_bilibili: https://www.bilibili.com/video/BV17w4m1i7eZ/
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18NRcW-7qrR8_8kOeJnepQwZ
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/v7ber/?direct%26mode=render%26action=download%26mode=render
     title: Intro
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s3py5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorials
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/98qfs/?direct%26mode=render%26action=download%26mode=render
     title: Outro
   tutorials: 2
