@@ -26,7 +26,7 @@
 These schedules refer to the coursework time.
 
 ### General schedule
-All days except W2D1 and W2D5 will follow this schedule for course time:
+All days except W1D4 and W2D5 will follow this schedule for course time:
  
 |    Time (Hour)   |    Component                          |
 |------------------|---------------------------------------|
@@ -122,6 +122,11 @@ During project time:
 
 \** : Timing of this mentor meeting may need to vary based on mentor availability
 -->
+#### W1D4: Project Day 
+You'll have all of tutorials time and project time to dedicate to your project during this day. Regular TAs will still be there during the normal tutorials block to support you. 
+
+Reference your Daily Guide to Projects for more information. 
+
 #### W2D5: Final Day of Course
 
 **Slots 1/2/4/5:**
@@ -181,4 +186,4 @@ Closing Ceremony/Graduation: We will do this all together on crowdcast.
 
 ### Professional Development Panels
 
-Course live events: TBD — will update
+See the shared Google Calendars for details! 
