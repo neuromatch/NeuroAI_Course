@@ -32,4 +32,4 @@ dict_learner = DictionaryLearning(
 video_v = np.vstack(video_file_ar)
 
 # Fit and transform `video_v`
-X_transformed = dict_learner.fit(video_v).transform(video_v)
+D_transformed = dict_learner.fit(video_v).transform(video_v)
