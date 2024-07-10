@@ -29,7 +29,7 @@ for i in range(num_iters):
         #calculate loss
         loss += log_loss(y_true, y_hat)
 
-        #update transform (T <- T - lr * (A* * (~rule)))
+        #update transform (T <- T - lr * (T - A* * (~rule)))
         transform -= (lr) * (transform - np.array(a_true * ~rule))
         transform = transform / np.linalg.norm(transform)
 
