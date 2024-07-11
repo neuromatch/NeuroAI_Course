@@ -113,7 +113,7 @@ You might want to just surf the Internet to find any relevant papers that match 
 ### W2D4
 
 * Finalize the project and get feedback from your TA.
-* Draft the presentation for the final day. You can find the suggestions and tips on that below, in "Logistics", "Content" & "Questions" sections (if you are in slot 2 or 5, you should prepare the final version of the presentation for this day as you won't have project time next day; for slots 1, 3 and 4, you will have around 2 hours in the next day to master the presentation).
+* Draft (and finish for particular time slots) the presentation for the final day. You can find the suggestions and tips on that below, in "Logistics", "Content" & "Questions" sections (if you are in slot 2 or 5, you should prepare the final version of the presentation by the end of this day as you won't have project time next day; for slots 1, 3 and 4, you will have around 2 hours in the next day to master the presentation).
 
 ### W2D5  
 
