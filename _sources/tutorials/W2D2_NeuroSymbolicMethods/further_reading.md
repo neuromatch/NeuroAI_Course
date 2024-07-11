@@ -31,4 +31,3 @@ Another excellent introductory work is from Pentti Kanerva, which is where the "
 There is also a 2-part survey about VSAs more generally that is good for those new to the field:
 
 > Kleyko, Denis, et al. ["A survey on hyperdimensional computing aka vector symbolic architectures, part i: Models and data transformations."](https://arxiv.org/abs/2111.06077) ACM Computing Surveys 55.6 (2022): 1-40.
-> Kleyko, Denis, et al. ["A survey on hyperdimensional computing aka vector symbolic architectures, part ii: Applications, cognitive models, and challenges."](https://arxiv.org/abs/2112.15424) ACM Computing Surveys 55.9 (2023): 1-52.
