@@ -52,7 +52,7 @@ Split into groups. We recommend intentionally creating groups with diverse skill
 
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about that you might explore in your NMA project?
 Listen carefully as others talk about their interests.
-* Individual reading time (50 min): browse the project templates with slides and code 
+* Individual reading time (50 min): browse the project templates, videos, slides and code.
 * Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e., project templates).
 
 **Tips:**
@@ -62,13 +62,12 @@ The exploratory work you do in Week 1 will culminate in a project proposal on W1
 
 If you feel you lack research structure and scientific approach to make your experience smooth and organized, we welcome you to review the Modeling Practice guideline prepared for CN & DL courses by this [link](https://compneuro.neuromatch.io/tutorials/W2D1_ModelingPractice/student/W2D1_Intro.html) (you might want to watch an intro lecture and go together through the tutorial).
 
-You might want to just surf the Internet to find any relevant papers that match the project direction and your ideas to prepare for the next day's discussion.
+You might want to just surf the Internet to find any relevant papers that match the project direction and your ideas to prepare for the next day's discussion. You can also start going through green questions from the template.
 
 ### W1D3
 
 **Literature review - read 1-2 papers for your project topic, share findings with team members to create a short literature review with key questions and potential areas of investigation**
 
-* Split into groups.
 * Short discussion (30 min): tell your team members what paper(s) you will read with a short description.
 * Individual reading time (60 min): Pick 1-2 papers 
 * Now present within your group (60 min). Tell your group about the paper you read, including: 1) introduction to a topic, 2) approaches used in the paper, 3) main results of the paper, 4) initial ideas on how you will extend the paper in a new direction (can be rough and unpolished!), 5) conclusions.
