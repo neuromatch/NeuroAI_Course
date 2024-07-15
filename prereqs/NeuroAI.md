@@ -5,6 +5,7 @@ This is a more advanced course than other Neuromatch courses so far. We will be 
   * Have taken Neuromatch courses in [computational neuroscience](https://compneuro.neuromatch.io/tutorials/intro.html) and [deep learning](https://deeplearning.neuromatch.io/), or the equivalent
   * Have intermediate proficiency in Python
   * Some core math concepts
+
 Below are more details on the prerequisites. 
 ### Neuroscience
 You should have some exposure to computational neuroscience, such as through our Neuromatch course. A rudimentary familiarity with neurobiology is fine.
