@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-46-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-47-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -102,6 +102,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://www.cs.cmu.edu/~afluo/"><img src="https://avatars.githubusercontent.com/u/15619682?v=4?s=100" width="100px;" alt="Andrew Luo"/><br /><sub><b>Andrew Luo</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=aluo-x" title="Code">💻</a> <a href="#content-aluo-x" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/deyingsong"><img src="https://avatars.githubusercontent.com/u/174072755?v=4?s=100" width="100px;" alt="Deying Song"/><br /><sub><b>Deying Song</b></sub></a><br /><a href="#content-deyingsong" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=deyingsong" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/hallurr"><img src="https://avatars.githubusercontent.com/u/27732626?v=4?s=100" width="100px;" alt="Hallur Reynisson"/><br /><sub><b>Hallur Reynisson</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/issues?q=author%3Ahallurr" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.ikuz.eu"><img src="https://avatars.githubusercontent.com/u/1081145?v=4?s=100" width="100px;" alt="Ilya Kuzovkin"/><br /><sub><b>Ilya Kuzovkin</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/issues?q=author%3Akuz" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
