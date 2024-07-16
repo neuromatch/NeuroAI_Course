@@ -1,6 +1,6 @@
 # Neuromatch Academy NeuroAI Course Syllabus
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-45-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-46-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -101,6 +101,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/lwehbe"><img src="https://avatars.githubusercontent.com/u/8173821?v=4?s=100" width="100px;" alt="lwehbe"/><br /><sub><b>lwehbe</b></sub></a><br /><a href="#content-lwehbe" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=lwehbe" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.cs.cmu.edu/~afluo/"><img src="https://avatars.githubusercontent.com/u/15619682?v=4?s=100" width="100px;" alt="Andrew Luo"/><br /><sub><b>Andrew Luo</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=aluo-x" title="Code">💻</a> <a href="#content-aluo-x" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/deyingsong"><img src="https://avatars.githubusercontent.com/u/174072755?v=4?s=100" width="100px;" alt="Deying Song"/><br /><sub><b>Deying Song</b></sub></a><br /><a href="#content-deyingsong" title="Content">🖋</a> <a href="https://github.com/neuromatch/NeuroAI_Course/commits?author=deyingsong" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/hallurr"><img src="https://avatars.githubusercontent.com/u/27732626?v=4?s=100" width="100px;" alt="Hallur Reynisson"/><br /><sub><b>Hallur Reynisson</b></sub></a><br /><a href="https://github.com/neuromatch/NeuroAI_Course/issues?q=author%3Ahallurr" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
