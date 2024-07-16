@@ -449,6 +449,15 @@
         "content",
         "code"
       ]
+    },
+    {
+      "login": "hallurr",
+      "name": "Hallur Reynisson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27732626?v=4",
+      "profile": "https://github.com/hallurr",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
