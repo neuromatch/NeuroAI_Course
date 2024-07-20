@@ -38,8 +38,5 @@ I’m a student, how can I make the most out of my mentoring experience?
 
 **Keep a respectful conversation**: mentoring is a social interaction. You may construct a long-lasting relationship with your mentor and your peers. Thus, be kind and have fun, as you’ll be discussing your dreams and career goals, as well as the efforts you’ve made so far to follow them.
 
----
 
-# Find additional Professional Development resources through our website
-
-https://neuromatch.io/resources/
+**Find additional Professional Development resources through [our website](https://neuromatch.io/resources/)**
