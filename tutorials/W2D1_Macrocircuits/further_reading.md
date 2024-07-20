@@ -13,4 +13,4 @@
 
 ## Tutorial 3: Modularity
 
-- [Inductive biases of neural networks for generalization in spatial navigation](https://www.science.org/doi/10.1126/sciadv.adk1256)
+- [Inductive biases of neural network modularity in spatial navigation](https://www.science.org/doi/10.1126/sciadv.adk1256)
