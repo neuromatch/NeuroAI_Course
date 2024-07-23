@@ -7,7 +7,7 @@ class Cleanup:
         self.temp = temperature
     def __call__(self, x):
         sims = x @ self.weights.T
-        max_sim = softmax(sims * self.temp, axis=0)
+        max_sim = softmax(sims * self.temp, axis=1)
         return sspspace.SSP(max_sim @ self.weights)
 
 
