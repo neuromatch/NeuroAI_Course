@@ -14,6 +14,8 @@
 - [Flexible gating of contextual influences in natural vision](https://pubmed.ncbi.nlm.nih.gov/26436902/)
 - [Normalization as a canonical neural computation](https://www.nature.com/articles/nrn3136)
 - [Attention-related changes in correlated neuronal activity arise from normalization mechanisms](https://www.nature.com/articles/nn.4572)
+- [Spatially tuned normalization explains attention modulation variance within neurons](https://journals.physiology.org/doi/full/10.1152/jn.00218.2017)
+- [Attention-related changes in correlated neuronal activity arise from normalization mechanisms](https://www.nature.com/articles/nn.4572)
 
 ## Tutorial 3: Attention
 
