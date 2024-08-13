@@ -8,7 +8,7 @@ class Cleanup:
     def __call__(self, x):
         sims = x @ self.weights.T
         max_sim = softmax(sims * self.temp, axis=1)
-        return sspspace.SSP(max_sim @ self.weights)
+        return sspspace.SSP(max_sim @ self.weights) #sspspace.SSP() wrapper is necessary for further bitwise comparison, it doesn't change the result vector
 
 
 cleanup = Cleanup(vocab)
