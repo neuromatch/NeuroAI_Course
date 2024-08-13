@@ -13,3 +13,5 @@ regr = MLPRegressor(random_state=1, hidden_layer_sizes=(1024,1024), max_iter=100
 a_mlp = regr.predict(new_rule)
 
 mlp_sims = action_space @ a_mlp.T
+
+plot_choice([mlp_sims], ["red"], ["prime"], action_names)
