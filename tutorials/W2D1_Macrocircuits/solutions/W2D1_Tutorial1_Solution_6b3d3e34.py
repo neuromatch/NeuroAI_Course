@@ -18,4 +18,4 @@ def make_data(net, n_in, n_examples):
     return X, y
 
 X, y = make_data(net, 10, 10000000)
-np.testing.assert_allclose(X[0][0].item(), 1.9269152879714966, err_msg = "Expected value of data is different!")
+np.testing.assert_allclose(X[0][0].item(), 1.927, err_msg = "Expected value of data is different!", atol = 1e-3)

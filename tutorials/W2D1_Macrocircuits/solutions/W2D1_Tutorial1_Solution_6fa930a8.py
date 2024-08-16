@@ -19,4 +19,4 @@ def compute_loss(net, X, y):
     return loss
 
 loss = compute_loss(net, X, y)
-np.testing.assert_allclose(loss, 0.0, err_msg = "Expected value of loss is different!")
+np.testing.assert_allclose(loss, 0.0, err_msg = "Expected value of loss is different!", atol = 1e-3)

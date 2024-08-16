@@ -6,3 +6,5 @@ a_hat = sspspace.SSP(transform) * new_rule
 
 new_sims = action_space @ a_hat.T
 y_hat = softmax(new_sims)
+
+plot_choice([new_sims], ["red"], ["prime"], action_names)
