@@ -1,0 +1,2493 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Comparing networks &#8212; Neuromatch Academy: NeuroAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/project-notebooks/ComparingNetworks';</script>
+    <link rel="shortcut icon" href="../../_static/ai-logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Professional Development" href="../professional_development/README.html" />
+    <link rel="prev" title="Microlearning" href="Microlearning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../tutorials/intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../prereqs/NeuroAI.html">
+                        Prerequisites and preparatory materials for NeuroAI course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../docs/datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../prereqs/NeuroAI.html">
+                        Prerequisites and preparatory materials for NeuroAI course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../docs/datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../tutorials/intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../tutorials/intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">General schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">Shared calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">Timezone widget</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">Technical Help</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">Using jupyterbook</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">Using Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">Using Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">Using discord</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">Quick links and policies</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs/NeuroAI.html">Prerequisites and preparatory materials for NeuroAI course</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D1_Generalization/chapter_title.html">Generalization (W1D1)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Intro.html">Intro</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Tutorial1.html">Tutorial 1: Generalization in AI</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Tutorial2.html">Tutorial 2: Generalization in Neuroscience</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Tutorial3.html">Tutorial 3: Generalization in Cognitive Science</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/chapter_title.html">Comparing Tasks (W1D2)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Tutorial1.html">Tutorial 1: Task definition, application, relations and impacts on generalization</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Tutorial2.html">Tutorial 2: Contrastive learning for object recognition</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Tutorial3.html">Tutorial 3: Reinforcement learning across temporal scales</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">Comparing Artificial And Biological Networks (W1D3)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial1.html">Tutorial 1: Generalization and representational geometry</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial2.html">Tutorial 2: Computation as transformation of representational geometries</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial3.html">Tutorial 3: Statistical inference on representational geometries</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.html">Tutorial 4: Representational geometry &amp; noise</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial5.html">Bonus Material: Dynamical similarity analysis (DSA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Architectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/chapter_title.html">Microcircuits (W1D5)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Tutorial1.html">Tutorial 1: Sparsity and Sparse Coding</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Tutorial2.html">Tutorial 2: Normalization</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Tutorial3.html">Tutorial 3: Attention</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/chapter_title.html">Macrocircuits (W2D1)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial1.html">Tutorial 1: Depth vs width</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial2.html">Tutorial 2: Double descent</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial3.html">Tutorial 3: Neural network modularity</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/chapter_title.html">Neuro Symbolic Methods (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial1.html">Tutorial 1: Basic operations of vector symbolic algebra</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial2.html">Tutorial 2: Learning with structure</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial3.html">Tutorial 3: Representations in continuous space</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/chapter_title.html">Microlearning (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/student/W2D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/student/W2D3_Tutorial1.html">Tutorial 1: Microlearning</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/student/W2D3_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/chapter_title.html">Macrolearning (W2D4)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial1.html">Tutorial 1: The problem of changing data distributions</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial2.html">Tutorial 2: Continual learning</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial3.html">Tutorial 3: Meta-learning</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial4.html">Tutorial 4: Biological meta reinforcement learning</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial5.html">Tutorial 5: Replay</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mysteries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/chapter_title.html">Mysteries (W2D5)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Tutorial1.html">Tutorial 1: Consciousness</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Tutorial2.html">Tutorial 2: Ethics</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Outro.html">Outro &amp; Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Booklet</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../docs/datasets_overview.html">Project materials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Macrocircuits.html">Macrocircuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Microlearning.html">Microlearning</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Comparing Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Professional Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../professional_development/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../professional_development/mentorship_program.html">Mentorship Program</a></li>
+
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
+    </div>
+    <div class="header-article__right">
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+  </ul>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/neuromatch/NeuroAI_Course" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">repository</span>
+</a>
+</a>
+      
+      <li><a href="https://github.com/neuromatch/NeuroAI_Course/issues/new?title=Issue%20on%20page%20%2Fprojects/project-notebooks/ComparingNetworks.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">open issue</span>
+</a>
+</a>
+      
+  </ul>
+</div>
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="../../_sources/projects/project-notebooks/ComparingNetworks.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</a>
+      
+      <li>
+<button onclick="printPdf(this)"
+  class="btn btn-sm dropdown-item"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</a>
+      
+  </ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Comparing networks</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-import-feedback-gadget">
+     Install and import feedback gadget
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-background">
+     Project Background
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submit-your-feedback">
+     Submit your feedback
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-slides">
+     Project slides
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-template">
+     Project Template
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-1-preparing-the-environment">
+   Section 1: Preparing the environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-2-overview-of-the-available-tasks">
+   Section 2: Overview of the available tasks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-3-understanding-the-three-bit-flip-flop-task-3bff">
+   Section 3: Understanding the Three-Bit Flip-Flop task (3BFF)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-4-training-a-model-to-perform-3bff">
+   Section 4: Training a model to perform 3BFF
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-5-inspecting-the-performance-of-trained-models">
+   Section 5: Inspecting the performance of trained models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1-visualizing-latent-activity">
+     Part 1: Visualizing latent activity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Submit your feedback
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-2-using-affine-transformations-to-compare-latent-activity">
+     Part 2: Using affine transformations to compare latent activity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Submit your feedback
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-3-fixed-point-finding">
+     Part 3: Fixed-point finding
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Submit your feedback
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-6-introducing-the-random-target-task">
+   Section 6: Introducing the Random Target task
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
+  <p><a href="https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/ComparingNetworks.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/projects/project-notebooks/ComparingNetworks.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="comparing-networks">
+<h1>Comparing networks<a class="headerlink" href="#comparing-networks" title="Permalink to this heading">#</a></h1>
+<p><em><strong>Comparing networks: Characterizing computational similarity in task-trained recurrent neural networks</strong></em></p>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Chris Versteeg</p>
+<p><strong>Content reviewers:</strong> Chris Versteeg, Hannah Choi, Eva Dyer</p>
+<p><strong>Production editors:</strong> Konstantine Tsafatinos, Ella Batty, Spiros Chavlis, Samuele Bolotta, Hlib Solodzhuk</p>
+<hr class="docutils" />
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>Researchers training artificial networks to perform tasks (e.g., image classification, motor control) have found that the activity in the artificial networks can resemble the activity of biological neurons from brain areas thought to perform similar tasks. Unfortunately, it is unclear whether a superficial similarity in neural activation necessarily translates to a conserved computational strategy. We need ways to assess how well different models are able to capture the computational principles, which will require datasets where the ground-truth computations are known, and we can analyze the similarity between artificial and natural systems. The aim of this project is to explore ways to measure alignment in dynamical systems, and to study different approaches to quantify the changes in representations across different tasks and across different architectures.</p>
+<section id="install-and-import-feedback-gadget">
+<h3>Install and import feedback gadget<a class="headerlink" href="#install-and-import-feedback-gadget" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install and import feedback gadget</span>
+
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>vibecheck<span class="w"> </span>datatops<span class="w"> </span>--quiet
+
+<span class="kn">from</span> <span class="nn">vibecheck</span> <span class="kn">import</span> <span class="n">DatatopsContentReviewContainer</span>
+<span class="k">def</span> <span class="nf">content_review</span><span class="p">(</span><span class="n">notebook_section</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">DatatopsContentReviewContainer</span><span class="p">(</span>
+        <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># No text prompt</span>
+        <span class="n">notebook_section</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://pmyvdlilci.execute-api.us-east-1.amazonaws.com/klab&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;neuromatch_neuroai&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;user_key&quot;</span><span class="p">:</span> <span class="s2">&quot;wb2cxze8&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+
+<span class="n">feedback_prefix</span> <span class="o">=</span> <span class="s2">&quot;Project_ComparingNetworks&quot;</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="project-background">
+<h3>Project Background<a class="headerlink" href="#project-background" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8246c5c4a4b84f29814f3fb594fd9e3a"}</script></div>
+</div>
+</section>
+<section id="submit-your-feedback">
+<h3>Submit your feedback<a class="headerlink" href="#submit-your-feedback" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_project_background&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "891acc7764af4ad2bd2b9d41b1bb3dd6"}</script></div>
+</div>
+</section>
+<section id="project-slides">
+<h3>Project slides<a class="headerlink" href="#project-slides" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>If you want to download the slides: https://osf.io/download/vb3tw/
+</pre></div>
+</div>
+<div class="output text_html">
+        <iframe
+            width="854"
+            height="480"
+            src="https://mfr.ca-1.osf.io/render?url=https://osf.io/download/vb3tw/?direct%26mode=render"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+<section id="project-template">
+<h3>Project Template<a class="headerlink" href="#project-template" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Project Template</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/ComputationalSimilarityTemplate.png?raw=true&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/ComputationalSimilarityTemplate.png?raw=true"/></div></div>
+</div>
+</section>
+<section id="id1">
+<h3>Submit your feedback<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_project_template&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d8f81b793af94732a7a0bae33b972b58"}</script></div>
+</div>
+<p>In this notebook, we are going to provide code to get you started on Q1-Q3 of this project!</p>
+<p>The basic outline looks like this:</p>
+<ul class="simple">
+<li><p>Section 1: Preparing the environment.</p></li>
+<li><p>Section 2: Overview of the available tasks.</p></li>
+<li><p>Section 3: Understanding the Three-Bit Flip-Flop task (3BFF).</p></li>
+<li><p>Section 4: Training a model to perform 3BFF.</p></li>
+<li><p>Section 5: Inspecting the performance of trained models.</p>
+<ul>
+<li><p>Part 1: Visualizing latent activity</p></li>
+<li><p>Part 2: Quantifying latent similarity with State R2.</p></li>
+<li><p>Part 3: Visualizing Fixed-Point architectures.</p></li>
+</ul>
+</li>
+<li><p>Section 6: Introduction to Random Target task.</p></li>
+</ul>
+<p><strong>Importantly, we’ve put landmarks in the notebook to indicate</strong>:</p>
+<p><em>Interactive exercises</em></p>
+<p>❓❓❓</p>
+<p><em>Cells that will a decent amount of time to run (&gt;5 mins)</em></p>
+<p>⏳⏳⏳</p>
+<p><strong>Tutorial links</strong></p>
+<p>This project is mostly associated with the materials presented in <a class="reference external" href="https://neuroai.neuromatch.io/tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Intro.html"><strong>W1D3</strong></a>, on comparing activities of artificial and biological networks. One of the main techniques here, DSA, completes and empowers your toolbox by enabling dynamic analysis of activity patterns. You will find the <a class="reference external" href="https://neuroai.neuromatch.io/tutorials/W1D1_Generalization/student/W1D1_Tutorial2.html">Tutorial 2</a> from the <strong>W1D1</strong> the most similar by the model’s architecture and the idea of goal-oriented networks.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="section-1-preparing-the-environment">
+<h2>Section 1: Preparing the environment<a class="headerlink" href="#section-1-preparing-the-environment" title="Permalink to this heading">#</a></h2>
+<p><strong>IF USING COLAB // KAGGLE</strong>:</p>
+<p>Uncomment the lines of code below and run them in order. The top, the second, and the last cells only need to be run once, but <strong>the third cells (envStr) need to be re-run if the Colab // Kaggle notebook crashes</strong>. These blocks install the needed dependencies and set up your environment. Notice that the first and third cell contents depend on whether you use Colab or Kaggle.</p>
+<p>⏳⏳⏳</p>
+<p>Colab // Kaggle installation (Part 1)</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Colab // Kaggle installation (Part 1)</span>
+
+<span class="c1"># ! git clone https://github.com/neuromatch/ComputationThruDynamicsBenchmark</span>
+<span class="c1"># %cd ComputationThruDynamicsBenchmark</span>
+<span class="c1"># ! pip install -e .</span>
+
+<span class="c1">## RUN THIS CELL, THEN RESTART SESSION AS PROMPTED (BUTTON AT BOTTOM OF THIS CELL&#39;S FINISHED OUTPUT). DO NOT NEED TO RUN AGAIN</span>
+<span class="c1">## PLEASE RESTART THE ENVIRONMENT FOR KAGGLE MANUALLY (Run &gt; Restart &amp; clear cell outputs)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Colab // Kaggle installation (Part 2)</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Colab // Kaggle installation (Part 2)</span>
+
+<span class="c1"># !pip uninstall -y torchaudio torchvision</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Colab // Kaggle installation (Part 3)</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Colab // Kaggle installation (Part 3)</span>
+
+<span class="c1">## GET BACK TO THE DIRECTORY AND CONFIGURE .env</span>
+
+<span class="c1">################ COLAB #####################</span>
+
+<span class="c1"># %cd /content/ComputationThruDynamicsBenchmark/</span>
+<span class="c1"># envStr = &quot;&quot;&quot;HOME_DIR=/content/ComputationThruDynamicsBenchmark/</span>
+<span class="c1"># #Don&#39;t change these</span>
+<span class="c1"># TRAIN_INPUT_FILE=train_input.h5\nEVAL_INPUT_FILE=eval_input.h5</span>
+<span class="c1"># EVAL_TARGET_FILE=eval_target.h5</span>
+<span class="c1"># &quot;&quot;&quot;</span>
+
+<span class="c1">#############################################</span>
+
+<span class="c1">################ KAGGLE #####################</span>
+
+<span class="c1"># %cd /kaggle/working/ComputationThruDynamicsBenchmark/</span>
+<span class="c1"># envStr = &quot;&quot;&quot;HOME_DIR=/kaggle/working/ComputationThruDynamicsBenchmark/</span>
+<span class="c1"># #Don&#39;t change these</span>
+<span class="c1"># TRAIN_INPUT_FILE=train_input.h5\nEVAL_INPUT_FILE=eval_input.h5</span>
+<span class="c1"># EVAL_TARGET_FILE=eval_target.h5</span>
+<span class="c1"># &quot;&quot;&quot;</span>
+
+<span class="c1">##############################################</span>
+
+<span class="c1">################ COLAB // KAGGLE #####################</span>
+
+<span class="c1"># with open(&#39;.env&#39;,&#39;w&#39;) as f:</span>
+<span class="c1">#   f.write(envStr)</span>
+
+<span class="c1">##############################################</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Colab // Kaggle installation (Part 4)</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Colab // Kaggle installation (Part 4)</span>
+
+<span class="c1"># !git clone https://github.com/mitchellostrow/DSA</span>
+<span class="c1"># %cd DSA/</span>
+<span class="c1"># !pip install -e .</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><strong>IF RUNNING LOCALLY</strong>:</p>
+<p>Follow the instructions <a class="reference external" href="https://github.com/snel-repo/ComputationThruDynamicsBenchmark">here</a> to setup the separate environment for this project, or you can run the cell below for general installment.</p>
+<p>Local installation</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Local installation</span>
+
+<span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="s2">&quot;ComputationThruDynamicsBenchmark&quot;</span>
+
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()):</span> <span class="c1">#to suppress output</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
+        <span class="o">!</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/neuromatch/ComputationThruDynamicsBenchmark
+        <span class="o">%</span><span class="k">cd</span> ComputationThruDynamicsBenchmark
+        <span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+
+<span class="n">envStr</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;HOME_DIR=ComputationThruDynamicsBenchmark/</span>
+
+
+<span class="s2">#Don&#39;t change these</span>
+<span class="s2">TRAIN_INPUT_FILE=train_input.h5</span><span class="se">\n</span><span class="s2">EVAL_INPUT_FILE=eval_input.h5</span>
+<span class="s2">EVAL_TARGET_FILE=eval_target.h5</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;.env&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">envStr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+</div>
+</div>
+<section id="id2">
+<h3>Submit your feedback<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_preparing_environment&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "558bac9fdedc4174b4cc57e3a7130833"}</script></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="section-2-overview-of-the-available-tasks">
+<h2>Section 2: Overview of the available tasks<a class="headerlink" href="#section-2-overview-of-the-available-tasks" title="Permalink to this heading">#</a></h2>
+<p>First, let’s take a high-level look at the tasks that we are going to use to understand computation in artificial networks!</p>
+<p>We’ll start by loading in some packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the random seed for reproducibility</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">dotenv</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># comment the next three lines if you want to see all training logs</span>
+<span class="n">pl_loggers</span> <span class="o">=</span> <span class="p">[</span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">logging</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">loggerDict</span> <span class="k">if</span> <span class="s1">&#39;pytorch_lightning&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">pl_log</span> <span class="ow">in</span> <span class="n">pl_loggers</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">pl_log</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
+
+<span class="n">dotenv</span><span class="o">.</span><span class="n">load_dotenv</span><span class="p">(</span><span class="n">override</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">HOME_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;HOME_DIR&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">HOME_DIR</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">HOME_DIR</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HOME_DIR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ComputationThruDynamicsBenchmark/
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Computation-Thru-Dynamics Benchmark has three distinct behavioral tasks.</p>
+<p>These tasks are called:</p>
+<ol class="arabic simple">
+<li><p>Three-Bit Flip-Flop (3BFF) (see <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/23272922/">Sussillo &amp; Barak 2013</a>)</p></li>
+<li><p>MultiTask (See <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2022.08.15.503870v1.full.pdf">Driscoll et al. 2023</a>)</p></li>
+<li><p>RandomTarget (See <a class="reference external" href="https://elifesciences.org/reviewed-preprints/88591v2/reviews">Codol et al. 2023</a>)</p></li>
+</ol>
+<p>We chose these tasks because they represent a variety of task complexities. We have a pretty good understanding of how the simpler tasks operate (3BFF), but really are only starting to scratch the surface of more complex tasks (RandomTarget).</p>
+<p>Specificially, in the Random Target task, the actions that the model takes can affect the future inputs, making it an important test case for being able to understand the dynamics of interacting systems!</p>
+<a class="reference internal image-reference" href="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/TaskComplexity-01.png?raw=true"><img alt="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/TaskComplexity-01.png?raw=true" src="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/TaskComplexity-01.png?raw=true" style="width: 600px;" /></a>
+<p>Each task (which we call a “task environment”) follows a standardized format that allows alternative task environments to be incorporated without any changes to the training pipeline.</p>
+<p>Here, we’ll take a walk through the two tasks in the project template (TBFF and RandomTarget) and inspect the behavior of networks trained in these environments.</p>
+<section id="id3">
+<h3>Submit your feedback<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_overview_of_the_available_tasks&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1863c15bba434e55ba7d9480c0c1f957"}</script></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="section-3-understanding-the-three-bit-flip-flop-task-3bff">
+<h2>Section 3: Understanding the Three-Bit Flip-Flop task (3BFF)<a class="headerlink" href="#section-3-understanding-the-three-bit-flip-flop-task-3bff" title="Permalink to this heading">#</a></h2>
+<p>We’re going to start out with the task that launched a thousand Nature papers, the 3-Bit Flip-Flop. <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/23272922/">Sussillo &amp; Barak 2013</a> used the three-bit flip-flop in their seminal attempts to understand how dynamics can give rise to computation!</p>
+<p>The code snippet below instantiates a “TaskEnv” object, which contains the logic for the NBFF task.</p>
+<p>❓❓❓</p>
+<p>The default parameters are shown in <code class="docutils literal notranslate"><span class="pre">./interpretability/task_modeling/configs/env_task/NBFF.yaml</span></code>, but try changing the parameters below to see how that affects trials generated from the environment. Note that this task is modular in the number of bits as well, so it provides an easy way to scale the dimensionality of a very simple dynamical system.</p>
+<p>❓❓❓</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.task_env.task_env</span> <span class="kn">import</span> <span class="n">NBitFlipFlop</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># The number of bits in the flip-flop (default: 3)</span>
+<span class="n">trial_length</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># The number of time steps in each trial (default: 500)</span>
+<span class="n">switch_prob</span> <span class="o">=</span> <span class="mf">0.015</span> <span class="c1"># The probability of an input pulse (default: 0.015 pulses/channel / time step)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="mf">0.15</span> <span class="c1"># The standard deviation of the Gaussian noise added to the input (default: 0.15)</span>
+
+<span class="c1"># This line creates the NBitFlipFlop environment. See ctd.task_modeling.task_env.task_env.NBitFlipFlop for more information.</span>
+<span class="n">env_3bff</span> <span class="o">=</span> <span class="n">NBitFlipFlop</span><span class="p">(</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">n_timesteps</span><span class="o">=</span><span class="n">trial_length</span><span class="p">,</span>
+    <span class="n">switch_prob</span><span class="o">=</span><span class="n">switch_prob</span><span class="p">,</span>
+    <span class="n">noise</span><span class="o">=</span><span class="n">noise</span>
+    <span class="p">)</span>
+
+<span class="c1"># Renders a random trial from the environment</span>
+<span class="n">env_3bff</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/53aafa7615ce88bbaf2bc2e3400d18f9032b22ba50d1f4c7ec29c913a5e4d3ac.png" src="../../_images/53aafa7615ce88bbaf2bc2e3400d18f9032b22ba50d1f4c7ec29c913a5e4d3ac.png" />
+</div>
+</div>
+<p>Above, we are plotting the inputs and outputs of the 3BFF task. One trial is 500 time steps, each with a 1% probability of getting an “up” or “down” pulse on each of its 3 input channels. When the task receives an “up” pulse, the state corresponding to that input channel moves from zero to one (if possible), and if a state at one receives a “down” pulse, it goes to zero. In this way, this system acts as 3 bits of memory, encoding 8 potential system states (2^3 states). We add noise to the inputs of the system so that it better reflects realistic computations that a neural circuit might perform.</p>
+<p><strong>Try changing the parameters of your 3BFF environment to see how the behavior changes!</strong></p>
+<p>Another way to visualize this is to view the three states in 3D. Below, you can see that the 8 potential states appear as the vertices of a cube. Each trial is plotted as a column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env_3bff</span><span class="o">.</span><span class="n">render_3d</span><span class="p">(</span><span class="n">n_trials</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ba76ad9eb0d7531bb71720edf781e44c564cfcddb5e2516c0f6d3fe066fab6b7.png" src="../../_images/ba76ad9eb0d7531bb71720edf781e44c564cfcddb5e2516c0f6d3fe066fab6b7.png" />
+</div>
+</div>
+<p>Now that we can see the basic logic of the task, let’s do a basic overview of what task training is!</p>
+<a class="reference internal image-reference" href="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/TTModelExample-01.png?raw=true"><img alt="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/TTModelExample-01.png?raw=true" src="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/TTModelExample-01.png?raw=true" style="width: 600px;" /></a>
+<p>For task-training, we are simply training a model (e.g., an RNN) to produce a set of outputs given a set of inputs. This input/output relationship defines the task that the model is performing. In the case of 3BFF, an input pulse should cause the model’s output to change in a way that reflects the switching of a bit.</p>
+<p><strong>3BFF Training Objective:</strong></p>
+<p>3BFF models are trained to minimize the MSE between the desired output and the output of the model, with some other components that pressure the solution to be smooth. If you’re interested in the specifics, the implementation of the loss function can be found as the NBFFLoss object in <code class="docutils literal notranslate"><span class="pre">ctd/task_modeling/task_env/loss_func.py</span></code>.</p>
+<section id="id4">
+<h3>Submit your feedback<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_understanding_3bff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5f6f57c795b84fb1947e9d4ef46cfe10"}</script></div>
+</div>
+</section>
+</section>
+<section id="section-4-training-a-model-to-perform-3bff">
+<h2>Section 4: Training a model to perform 3BFF<a class="headerlink" href="#section-4-training-a-model-to-perform-3bff" title="Permalink to this heading">#</a></h2>
+<p>For this tutorial, we are using PyTorch Lightning to abstract much of the engineering away, allowing you to focus your full attention on the scientific questions you want to tackle!</p>
+<p>This segment takes around 8 minutes to train, so I’d recommend planning your runs accordingly!</p>
+<p>⏳⏳⏳</p>
+<p>The cell below will create a recurrent neural network (RNN) model and use the 3BFF environment to generate samples on which the model will be trained!</p>
+<p>Unfortunately, it generates a lot of output, so if you don’t care to see the model progress, set <code class="docutils literal notranslate"><span class="pre">enable_progress_bar</span></code> to False below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.model.rnn</span> <span class="kn">import</span> <span class="n">GRU_RNN</span>
+<span class="kn">from</span> <span class="nn">ctd.task_modeling.datamodule.task_datamodule</span> <span class="kn">import</span> <span class="n">TaskDataModule</span>
+<span class="kn">from</span> <span class="nn">ctd.task_modeling.task_wrapper.task_wrapper</span> <span class="kn">import</span> <span class="n">TaskTrainedWrapper</span>
+<span class="kn">from</span> <span class="nn">pytorch_lightning</span> <span class="kn">import</span> <span class="n">Trainer</span>
+
+<span class="n">enable_progress_bar</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Step 1: Instantiate the model</span>
+<span class="n">rnn</span> <span class="o">=</span> <span class="n">GRU_RNN</span><span class="p">(</span><span class="n">latent_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span> <span class="c1"># Look in ctd/task_modeling/models for alternative choices!</span>
+
+<span class="c1"># Step 2: Instantiate the task environment</span>
+<span class="n">task_env</span> <span class="o">=</span> <span class="n">env_3bff</span>
+
+<span class="c1"># Step 3: Instantiate the task datamodule</span>
+<span class="n">task_datamodule</span> <span class="o">=</span> <span class="n">TaskDataModule</span><span class="p">(</span><span class="n">task_env</span><span class="p">,</span> <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Instantiate the task wrapper</span>
+<span class="n">task_wrapper</span> <span class="o">=</span> <span class="n">TaskTrainedWrapper</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Initialize the model with the input and output sizes (3 inputs, 3 outputs, in this case)</span>
+<span class="n">rnn</span><span class="o">.</span><span class="n">init_model</span><span class="p">(</span>
+    <span class="n">input_size</span> <span class="o">=</span> <span class="n">task_env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">output_size</span> <span class="o">=</span> <span class="n">task_env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="c1"># Step 6:  Set the environment and model in the task wrapper</span>
+<span class="n">task_wrapper</span><span class="o">.</span><span class="n">set_environment</span><span class="p">(</span><span class="n">task_env</span><span class="p">)</span>
+<span class="n">task_wrapper</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">rnn</span><span class="p">)</span>
+
+<span class="c1"># Step 7: Define the PyTorch Lightning Trainer object</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">max_epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">enable_progress_bar</span><span class="o">=</span><span class="n">enable_progress_bar</span><span class="p">)</span>
+
+<span class="c1"># Step 8: Fit the model</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">task_wrapper</span><span class="p">,</span> <span class="n">task_datamodule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Now, we use <code class="docutils literal notranslate"><span class="pre">pickle</span></code> to save the trained model and datamodule for future analyses!</p>
+<p>❓❓❓</p>
+<p><strong>Once you get this model trained, feel free to try changing the hyperparameters to see if you can get the model to train faster!</strong></p>
+<p>❓❓❓</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="c1"># save model as .pkl</span>
+<span class="n">save_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">HOME_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;models_GRU_128&quot;</span>
+<span class="n">save_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">&quot;model.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">task_wrapper</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># save datamodule as .pkl</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">&quot;datamodule_sim.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">task_datamodule</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So that we can start comparing our models, we’re going to train a second GRU_RNN to perform the 3BFF task, except this time, we’ll use an alternative model called a Neural ODE!</p>
+<p>Notice that we’re using the same datamodule as for the first model, meaning that we can directly compare the two models trial-by-trial.</p>
+<p>Again, this will take around 10 minutes to train!</p>
+<p>⏳⏳⏳</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.model.node</span> <span class="kn">import</span> <span class="n">NODE</span>
+<span class="n">enable_progress_bar</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">rnn</span> <span class="o">=</span> <span class="n">NODE</span><span class="p">(</span><span class="n">latent_size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num_layers</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">layer_hidden_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span> <span class="c1"># Look in ctd/task_modeling/models for alternative choices!</span>
+<span class="n">task_wrapper</span> <span class="o">=</span> <span class="n">TaskTrainedWrapper</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">rnn</span><span class="o">.</span><span class="n">init_model</span><span class="p">(</span>
+    <span class="n">input_size</span> <span class="o">=</span> <span class="n">task_env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">output_size</span> <span class="o">=</span> <span class="n">task_env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">)</span>
+<span class="n">task_wrapper</span><span class="o">.</span><span class="n">set_environment</span><span class="p">(</span><span class="n">task_env</span><span class="p">)</span>
+<span class="n">task_wrapper</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">rnn</span><span class="p">)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">max_epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">enable_progress_bar</span><span class="o">=</span><span class="n">enable_progress_bar</span><span class="p">)</span>
+
+<span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">task_wrapper</span><span class="p">,</span> <span class="n">task_datamodule</span><span class="p">)</span>
+
+<span class="n">save_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">HOME_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;models_NODE_3&quot;</span>
+<span class="n">save_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">&quot;model.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">task_wrapper</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># save datamodule as .pkl</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">&quot;datamodule_sim.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">task_datamodule</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<section id="id5">
+<h3>Submit your feedback<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_training_a_model_to_perform_3bff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "64be44e91da74d9aa50ab145c4a711b4", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+<section id="section-5-inspecting-the-performance-of-trained-models">
+<h2>Section 5: Inspecting the performance of trained models<a class="headerlink" href="#section-5-inspecting-the-performance-of-trained-models" title="Permalink to this heading">#</a></h2>
+<p>Now that the models have been trained, let’s see if we can determine how similar their computational strategies are to each other!</p>
+<p>To make your life easier, we’ve provided an “analysis” object that abstracts away much of the data handling, allowing you to work more easily with the data from the models.</p>
+<p>The analysis object also offers visualization tools that can help to see how well the trained model learned to perform the task!</p>
+<p>For example, plot_trial_io is a function that plots (for a specified number of trials):</p>
+<ul class="simple">
+<li><p>Latent activity</p></li>
+<li><p>Controlled output</p></li>
+<li><p>Target output</p></li>
+<li><p>Noisy inputs to model</p></li>
+</ul>
+<p>❓❓❓</p>
+<p><strong>Try changing trials that are plotted. Do the models capture all of the states equally well?</strong></p>
+<p>❓❓❓</p>
+<section id="part-1-visualizing-latent-activity">
+<h3>Part 1: Visualizing latent activity<a class="headerlink" href="#part-1-visualizing-latent-activity" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.comparison.analysis.tt.tt</span> <span class="kn">import</span> <span class="n">Analysis_TT</span>
+
+<span class="n">fpath_GRU_128</span> <span class="o">=</span> <span class="n">HOME_DIR</span> <span class="o">+</span> <span class="s2">&quot;models_GRU_128/&quot;</span>
+<span class="c1"># Create the analysis object:</span>
+<span class="n">analysis_GRU_128</span> <span class="o">=</span> <span class="n">Analysis_TT</span><span class="p">(</span>
+    <span class="n">run_name</span> <span class="o">=</span> <span class="s2">&quot;GRU_128_3bff&quot;</span><span class="p">,</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">fpath_GRU_128</span><span class="p">)</span>
+
+<span class="n">analysis_GRU_128</span><span class="o">.</span><span class="n">plot_trial_io</span><span class="p">(</span><span class="n">num_trials</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f53d9f96511408459499d1eb88d6a7b01dac545184c7977aa2838eb7e5626511.png" src="../../_images/f53d9f96511408459499d1eb88d6a7b01dac545184c7977aa2838eb7e5626511.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpath_NODE</span> <span class="o">=</span> <span class="n">HOME_DIR</span> <span class="o">+</span> <span class="s2">&quot;models_NODE_3/&quot;</span>
+<span class="c1"># Create the analysis object:</span>
+<span class="n">analysis_NODE</span> <span class="o">=</span> <span class="n">Analysis_TT</span><span class="p">(</span>
+    <span class="n">run_name</span> <span class="o">=</span> <span class="s2">&quot;NODE_3_3bff&quot;</span><span class="p">,</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">fpath_NODE</span><span class="p">)</span>
+
+<span class="n">analysis_NODE</span><span class="o">.</span><span class="n">plot_trial_io</span><span class="p">(</span><span class="n">num_trials</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0167c4d30f249ea938da64814fcddaafb8ca6c5c2bbc0bd77561337d17e3a0e4.png" src="../../_images/0167c4d30f249ea938da64814fcddaafb8ca6c5c2bbc0bd77561337d17e3a0e4.png" />
+</div>
+</div>
+<p>There are also useful data visualization functions, such as visualizing a scree plot of the latent activity.</p>
+<p>A scree plot shows the % of variance in the highest principle component dimensions. From this plot, we can see that the GRU has the majority of its variance in the first 3 PCs, but significant variance remains in the lower PCs!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_GRU_128</span><span class="o">.</span><span class="n">plot_scree</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.32841057, 0.27514544, 0.26159662, 0.02224682, 0.01923219,
+       0.01717032, 0.00614414, 0.00561094, 0.00498556, 0.00466619])
+</pre></div>
+</div>
+<img alt="../../_images/4bccc9231401df140b0e33764d4fc4b79a20d497ab35e211e15ba3a6a0e655a8.png" src="../../_images/4bccc9231401df140b0e33764d4fc4b79a20d497ab35e211e15ba3a6a0e655a8.png" />
+</div>
+</div>
+<p>Importantly, the analysis object also provides functions that give access to the raw latent activity, predicted outputs, etc. of the trained models! All of these functions accept a “phase” variable that designates whether to return the training and/or validation datasets.
+These functions are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_latents()</span></code>: Returns latent activity of the trained model</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_inputs()</span></code>: Returns the inputs to the model (for 3BFF, the input pulses)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_model_output()</span></code>: Returns a dict that contains all model outputs:</p>
+<ul>
+<li><p>controlled - the variable that the model is controlling</p></li>
+<li><p>latents - the latent activity</p></li>
+<li><p>actions - the output from the model (for RandomTarget only)</p></li>
+<li><p>states - the state of the environment (for RandomTarget only)</p></li>
+<li><p>joints - Joint angles (for RandomTarget only)</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All data shape: </span><span class="si">{</span><span class="n">analysis_GRU_128</span><span class="o">.</span><span class="n">get_latents</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Train data shape: </span><span class="si">{</span><span class="n">analysis_GRU_128</span><span class="o">.</span><span class="n">get_latents</span><span class="p">(</span><span class="n">phase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;train&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation data shape: </span><span class="si">{</span><span class="n">analysis_GRU_128</span><span class="o">.</span><span class="n">get_latents</span><span class="p">(</span><span class="n">phase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;val&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All data shape: torch.Size([1000, 500, 128])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train data shape: torch.Size([800, 500, 128])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Validation data shape: torch.Size([200, 500, 128])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>Submit your feedback<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_visualizing_latent_activity&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "aebfa13cdb68409f8a4e067af203c004", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+<section id="part-2-using-affine-transformations-to-compare-latent-activity">
+<h3>Part 2: Using affine transformations to compare latent activity<a class="headerlink" href="#part-2-using-affine-transformations-to-compare-latent-activity" title="Permalink to this heading">#</a></h3>
+<p>Now that we have the latent activity for the 64D and the 128D GRU models trained on 3BFf, we can investigate how similar their latent activity is.</p>
+<p>One problem: The models may be arbitrarily rotated, scaled, and translated relative to each other!</p>
+<p>This means that we need to find the best “fit” between the two models that doesn’t fail when they are equivalent under an “affine” transformation (meaning a linear transformation and/or translation).</p>
+<p>Luckily, we have a tool that can solve this problem for us! Linear regression.</p>
+<p>In this code, we are:</p>
+<ol class="arabic simple">
+<li><p>Getting the latent activity from each model</p></li>
+<li><p>Performing PCA on the latent activity (to get the dimensions ordered by their variance)</p></li>
+<li><p>Fit a linear regression from one set of latent activity to the other.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">analysis_GRU_128</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">analysis_NODE</span>
+
+<span class="c1"># Get the latent activity from the validation phase for each model:</span>
+<span class="n">latents_source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">get_latents</span><span class="p">(</span><span class="n">phase</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">latents_targ</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">get_latents</span><span class="p">(</span><span class="n">phase</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">latents_source_val</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">get_latents</span><span class="p">(</span><span class="n">phase</span><span class="o">=</span><span class="s1">&#39;val&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">latents_targ_val</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">get_latents</span><span class="p">(</span><span class="n">phase</span><span class="o">=</span><span class="s1">&#39;val&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">n_trials</span><span class="p">,</span> <span class="n">n_timesteps</span><span class="p">,</span> <span class="n">n_latent_source</span> <span class="o">=</span> <span class="n">latents_source</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">n_trials</span><span class="p">,</span> <span class="n">n_timesteps</span><span class="p">,</span> <span class="n">n_latent_targ</span> <span class="o">=</span> <span class="n">latents_targ</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="n">n_trials_val</span><span class="p">,</span> <span class="n">n_timesteps_val</span><span class="p">,</span> <span class="n">n_latent_source_val</span> <span class="o">=</span> <span class="n">latents_source_val</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">n_trials_val</span><span class="p">,</span> <span class="n">n_timesteps_val</span><span class="p">,</span> <span class="n">n_latent_targ_val</span> <span class="o">=</span> <span class="n">latents_targ_val</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latent shape for source model: </span><span class="si">{</span><span class="n">latents_source</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Latent shape for target model: </span><span class="si">{</span><span class="n">latents_targ</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Latent shape for source model: (800, 500, 128)
+Latent shape for target model: (800, 500, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA on both latent spaces to find axes of highest variance</span>
+<span class="n">pca_source</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+<span class="n">pca_targ</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+<span class="n">lats_source_pca</span> <span class="o">=</span> <span class="n">pca_source</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">latents_source</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_source</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="n">n_timesteps</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">lats_source_pca_val</span> <span class="o">=</span> <span class="n">pca_source</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">latents_source_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_source</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="n">n_timesteps</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">lats_targ_pca</span> <span class="o">=</span> <span class="n">pca_targ</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">latents_targ</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_targ</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="n">n_timesteps</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">lats_targ_pca_val</span> <span class="o">=</span> <span class="n">pca_targ</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">latents_targ_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_targ_val</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_trials_val</span><span class="p">,</span> <span class="n">n_timesteps_val</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Fit a linear regression model to predict the target latents from the source latents</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">lats_source_pca</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_source</span><span class="p">),</span> <span class="n">lats_targ_pca</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_targ</span><span class="p">))</span>
+<span class="c1"># Get the R2 of the fit</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">lats_source_pca_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_source_val</span><span class="p">))</span>
+<span class="n">r2s</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">lats_targ_pca_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_targ_val</span><span class="p">)),</span> <span class="n">preds</span><span class="p">,</span>  <span class="n">multioutput</span> <span class="o">=</span> <span class="s2">&quot;raw_values&quot;</span><span class="p">)</span>
+<span class="n">r2_var</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">lats_targ_pca_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latent_targ_val</span><span class="p">)),</span> <span class="n">preds</span><span class="p">,</span> <span class="n">multioutput</span> <span class="o">=</span> <span class="s2">&quot;variance_weighted&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R2 of linear regression fit: </span><span class="si">{</span><span class="n">r2s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Variance-weighted R2 of linear regression fit: </span><span class="si">{</span><span class="n">r2_var</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 of linear regression fit: [0.68010143 0.42213313 0.27201338]
+Variance-weighted R2 of linear regression fit: 0.6624338067445769
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, the variance weighted R2 from the source to the target is ~0.93.</p>
+<p>Importantly, we had to pick a “direction” to compute this R2 value. What happens if we switch the source and targets?</p>
+<p>❓❓❓</p>
+<p><strong>Try reversing the direction (the source and targets) and see how well the model fits!</strong></p>
+<p>❓❓❓</p>
+<p>One final tool that is provided to you is the comparison object, which makes many of these direct comparisons within the object itself. Here is one example visualization that shows how similar the latent activities of two example trials are for these two models!</p>
+<p>This function has the affine transformation “built-in,” so you don’t need this to show what your R2 value above looks like in the first 3 PCs!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.comparison.comparison</span> <span class="kn">import</span> <span class="n">Comparison</span>
+<span class="n">comp</span> <span class="o">=</span> <span class="n">Comparison</span><span class="p">()</span>
+<span class="n">comp</span><span class="o">.</span><span class="n">load_analysis</span><span class="p">(</span><span class="n">analysis_GRU_128</span><span class="p">,</span> <span class="n">reference_analysis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">comp</span><span class="o">.</span><span class="n">load_analysis</span><span class="p">(</span><span class="n">analysis_NODE</span><span class="p">)</span>
+<span class="n">comp</span><span class="o">.</span><span class="n">plot_trials_3d_reference</span><span class="p">(</span><span class="n">num_trials</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6894b3a00d06a1b67b1fae12e1de62122da2cc25abfcaea8da0e2f65157a9d06.png" src="../../_images/6894b3a00d06a1b67b1fae12e1de62122da2cc25abfcaea8da0e2f65157a9d06.png" />
+</div>
+</div>
+<section id="id7">
+<h4>Submit your feedback<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_using_affine_transformations_to_compare_latent_activity&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5f73cfffe88343df83fd1ab5e3939e9a", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+<section id="part-3-fixed-point-finding">
+<h3>Part 3: Fixed-point finding<a class="headerlink" href="#part-3-fixed-point-finding" title="Permalink to this heading">#</a></h3>
+<p>Finally, we can use fixed-point finding to inspect the linearized dynamics of the trained model.</p>
+<p><strong>What are fixed-points?</strong></p>
+<p>Fixed points are points in the dynamics for which the flow field is zero, meaning that points at that location do not move.</p>
+<p>The fixed point structure for the 3BFF task was first shown in the original <a class="reference external" href="https://ccn.johndmurray.org/ccn_2013/materials/pdf/mante/sussillo_2013.pdf">Sussillo and Barack paper</a>.</p>
+<a class="reference internal image-reference" href="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/SussilloBarack.png?raw=true"><img alt="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/SussilloBarack.png?raw=true" src="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/SussilloBarack.png?raw=true" style="width: 400px;" /></a>
+<p>We can see that the fixed-points are at the vertices of the cube above, drawing the activity towards them and keeping it there until an input pushes it out!</p>
+<p>We use a modified version of a fixed point finder released by <a class="reference external" href="https://github.com/mattgolub/fixed-point-finder">Golub et al. 2018</a> to search the flow field for these zero points.</p>
+<p>❓❓❓</p>
+<p><strong>Try changing some of these parameters:</strong></p>
+<ul class="simple">
+<li><p>How quickly are the fixed-points found in the model?</p></li>
+<li><p>How many initializations are needed to find the fixed points?</p></li>
+<li><p>Do the stability properties tell us anything about the underlying computation?</p></li>
+</ul>
+<p>❓❓❓</p>
+<p>Importantly from <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2022.08.15.503870v1.full.pdf">Driscol et al. 2022</a>, we know that changes in the inputs can have large effects on the fixed point architecture, so we’re going to set the inputs to zero in this optimization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()):</span> <span class="c1">#to suppress output</span>
+    <span class="n">fps</span> <span class="o">=</span> <span class="n">analysis_GRU_128</span><span class="o">.</span><span class="n">plot_fps</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+        <span class="n">n_inits</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+        <span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">max_iters</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">compute_jacobians</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">q_thresh</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d99a1f733c454387bf295ba587aab7c9c5f5b4a5529236580bc09885d7bdffcb.png" src="../../_images/d99a1f733c454387bf295ba587aab7c9c5f5b4a5529236580bc09885d7bdffcb.png" />
+<img alt="../../_images/5ba0ae8e7aa0f26ea262fabac36679ef8a3399388483a8b68333804236c0cbe0.png" src="../../_images/5ba0ae8e7aa0f26ea262fabac36679ef8a3399388483a8b68333804236c0cbe0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">q_thesh</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="n">q_vals</span> <span class="o">=</span> <span class="n">fps</span><span class="o">.</span><span class="n">qstar</span>
+<span class="n">x_star</span> <span class="o">=</span> <span class="n">fps</span><span class="o">.</span><span class="n">xstar</span><span class="p">[</span><span class="n">q_vals</span> <span class="o">&lt;</span> <span class="n">q_thesh</span><span class="p">]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_star</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_star</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">x_star</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01e98be7a94ce53a771dba120202f3ed8431ff981022f5d7fc0e3c870d68b37d.png" src="../../_images/01e98be7a94ce53a771dba120202f3ed8431ff981022f5d7fc0e3c870d68b37d.png" />
+</div>
+</div>
+<p>❓❓❓</p>
+<p>What can you find out about the FPs of the trained models? Can you modify the FP finding to get more interpretable results?</p>
+<p>What can we learn about the computational solution built in this 3BFF network from these fixed-point architectures?</p>
+<p>❓❓❓</p>
+<section id="id8">
+<h4>Submit your feedback<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_fixed_point_finding&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c240311a11524bcfbcccd4ee747dfa41", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+</section>
+<section id="section-6-introducing-the-random-target-task">
+<h2>Section 6: Introducing the Random Target task<a class="headerlink" href="#section-6-introducing-the-random-target-task" title="Permalink to this heading">#</a></h2>
+<p>Now that we’ve developed intuition on a simple, well-understood task, let’s move up the ladder of complexity!</p>
+<p>The second task is a random-target reaching task performed by an RNN controlling a 2-joint musculoskeletal model of an arm actuated by 6 Mujoco muscles. This environment was built using MotorNet, a package developed by <a class="reference external" href="https://github.com/OlivierCodol/MotorNet">Oli Codol et al.</a> that provides environments for training RNNs to control biomechanical models!</p>
+<p>Here is a short clip of what this task looks like when performed by a well-trained model:</p>
+<a class="reference internal image-reference" href="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/FinalGif.gif?raw=true"><img alt="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/FinalGif.gif?raw=true" src="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/FinalGif.gif?raw=true" style="width: 300px;" /></a>
+<p>Behaviorally, the task has the following structure:</p>
+<ol class="arabic simple">
+<li><p>A random initial hand position is sampled from a range of reachable locations; the model is instructed to maintain that hand position.</p></li>
+<li><p>A random target position is chosen from the range of reachable locations and fed to the model.</p></li>
+<li><p>After a random delay period, a go-cue is fed to the model, which prompts the model to generate muscle activations that drive the hand to the target location.</p></li>
+<li><p>On 20% of trials, the go-cue is never supplied (“catch” trials)</p></li>
+<li><p>On 50% of trials, a randomly directed bump perturbation (5-10 N, 150-300 ms duration) is applied to the hand.</p>
+<ul class="simple">
+<li><p>50% of these bumps occur in a small window after the go-cue</p></li>
+<li><p>50% of these bumps occur at a random time in the trial</p></li>
+</ul>
+</li>
+</ol>
+<p>The model is trained to:</p>
+<ol class="arabic simple">
+<li><p>Minimize the MSE between the hand position and the desired hand position</p></li>
+<li><p>Minimize the squared muscle activation</p></li>
+</ol>
+<p>with each loss term being weighted by a scalar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.task_env.task_env</span> <span class="kn">import</span> <span class="n">RandomTarget</span>
+<span class="kn">from</span> <span class="nn">motornet.effector</span> <span class="kn">import</span> <span class="n">RigidTendonArm26</span>
+<span class="kn">from</span> <span class="nn">motornet.muscle</span> <span class="kn">import</span> <span class="n">MujocoHillMuscle</span>
+<span class="c1"># Create the analysis object:</span>
+<span class="n">rt_task_env</span> <span class="o">=</span> <span class="n">RandomTarget</span><span class="p">(</span><span class="n">effector</span> <span class="o">=</span> <span class="n">RigidTendonArm26</span><span class="p">(</span><span class="n">muscle</span> <span class="o">=</span> <span class="n">MujocoHillMuscle</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>⏳⏳⏳</p>
+<p>Now, to train the model! We use the same procedure as the 3BFF above; however, this model will take a bit longer to train, as of the serial nature of this task, the parallelization allowed by GPUs doesn’t help speed up our training!</p>
+<p>⏳⏳⏳</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.model.rnn</span> <span class="kn">import</span> <span class="n">GRU_RNN</span>
+<span class="kn">from</span> <span class="nn">ctd.task_modeling.datamodule.task_datamodule</span> <span class="kn">import</span> <span class="n">TaskDataModule</span>
+<span class="kn">from</span> <span class="nn">ctd.task_modeling.task_wrapper.task_wrapper</span> <span class="kn">import</span> <span class="n">TaskTrainedWrapper</span>
+<span class="kn">from</span> <span class="nn">pytorch_lightning</span> <span class="kn">import</span> <span class="n">Trainer</span>
+
+<span class="c1"># Step 1: Instantiate the model</span>
+<span class="n">rnn</span> <span class="o">=</span> <span class="n">GRU_RNN</span><span class="p">(</span><span class="n">latent_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span> <span class="c1"># Look in ctd/task_modeling/models for alternative choices!</span>
+
+<span class="c1"># Step 2: Instantiate the task environment</span>
+<span class="n">task_env</span> <span class="o">=</span> <span class="n">rt_task_env</span>
+
+<span class="c1"># Step 3: Instantiate the task datamodule</span>
+<span class="n">task_datamodule</span> <span class="o">=</span> <span class="n">TaskDataModule</span><span class="p">(</span><span class="n">task_env</span><span class="p">,</span> <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">256</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Instantiate the task wrapper</span>
+<span class="n">task_wrapper</span> <span class="o">=</span> <span class="n">TaskTrainedWrapper</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Initialize the model with the input and output sizes</span>
+<span class="n">rnn</span><span class="o">.</span><span class="n">init_model</span><span class="p">(</span>
+    <span class="n">input_size</span> <span class="o">=</span> <span class="n">task_env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">task_env</span><span class="o">.</span><span class="n">context_inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">output_size</span> <span class="o">=</span> <span class="n">task_env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="c1"># Step 6:  Set the environment and model in the task wrapper</span>
+<span class="n">task_wrapper</span><span class="o">.</span><span class="n">set_environment</span><span class="p">(</span><span class="n">task_env</span><span class="p">)</span>
+<span class="n">task_wrapper</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">rnn</span><span class="p">)</span>
+
+<span class="c1"># Step 7: Define the PyTorch Lightning Trainer object (put `enable_progress_bar=True` to observe training progress)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">accelerator</span><span class="o">=</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span><span class="n">max_epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">enable_progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Step 8: Fit the model</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">task_wrapper</span><span class="p">,</span> <span class="n">task_datamodule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Importantly, this task is distinct from the previous two tasks because the outputs of the model affect the subsequent inputs!</p>
+<a class="reference internal image-reference" href="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/MotorNetIllustration-01.png?raw=true"><img alt="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/MotorNetIllustration-01.png?raw=true" src="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/MotorNetIllustration-01.png?raw=true" style="width: 400px;" /></a>
+<p>Visualizing the latent dynamics of models trained on MotorNet tasks, we can see that there are complex features in the state space, but we’ll leave that to you to figure out what they mean!</p>
+<a class="reference internal image-reference" href="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/MotorNetGif.gif?raw=true"><img alt="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/MotorNetGif.gif?raw=true" src="https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/MotorNetGif.gif?raw=true" style="width: 300px;" /></a>
+<p>In the later questions, we will ask you to modify the environments in MotorNet to test how well your models can generalize to new tasks!</p>
+<section id="id9">
+<h3>Submit your feedback<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_introducing_the_random_target_task&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4e1d7da8e6d466cab82a7ab316b37dc", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>That’s it!</p>
+<p>To recap, in this tutorial, we learned:</p>
+<ol class="arabic simple">
+<li><p>The basics of two tasks, the Three-Bit Flip-Flop and the Random Target task.</p></li>
+<li><p>How to train recurrent neural network models on these tasks</p></li>
+<li><p>Methods of visualizing and quantifying differences between these task-trained models.</p></li>
+</ol>
+<p>As you begin to extend beyond this tutorial, you will likely need to make your own environments, or modify existing environments to test the ability of models to generalize. We’ve tried to document the code-base to make this as easy as possible, but feel free to reach out if you have any questions!</p>
+<section id="id10">
+<h3>Submit your feedback<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="n">content_review</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feedback_prefix</span><span class="si">}</span><span class="s2">_conclusion&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9317d125508a45d39bd82e58fdbb17d5", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./projects/project-notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="Microlearning.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Microlearning</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="../professional_development/README.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Professional Development</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-import-feedback-gadget">
+     Install and import feedback gadget
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-background">
+     Project Background
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submit-your-feedback">
+     Submit your feedback
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-slides">
+     Project slides
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-template">
+     Project Template
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-1-preparing-the-environment">
+   Section 1: Preparing the environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-2-overview-of-the-available-tasks">
+   Section 2: Overview of the available tasks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-3-understanding-the-three-bit-flip-flop-task-3bff">
+   Section 3: Understanding the Three-Bit Flip-Flop task (3BFF)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-4-training-a-model-to-perform-3bff">
+   Section 4: Training a model to perform 3BFF
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-5-inspecting-the-performance-of-trained-models">
+   Section 5: Inspecting the performance of trained models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1-visualizing-latent-activity">
+     Part 1: Visualizing latent activity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Submit your feedback
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-2-using-affine-transformations-to-compare-latent-activity">
+     Part 2: Using affine transformations to compare latent activity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Submit your feedback
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-3-fixed-point-finding">
+     Part 3: Fixed-point finding
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Submit your feedback
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-6-introducing-the-random-target-task">
+   Section 6: Introducing the Random Target task
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Submit your feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Neuromatch
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  </body>
+</html>

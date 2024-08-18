@@ -1,0 +1,1508 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Daily guide for projects &#8212; Neuromatch Academy: NeuroAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/docs/project_guidance';</script>
+    <link rel="shortcut icon" href="../../_static/ai-logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Datasets" href="datasets_overview.html" />
+    <link rel="prev" title="Projects" href="../README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../tutorials/intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../prereqs/NeuroAI.html">
+                        Prerequisites and preparatory materials for NeuroAI course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../prereqs/NeuroAI.html">
+                        Prerequisites and preparatory materials for NeuroAI course
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../tutorials/intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../tutorials/intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">General schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">Shared calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">Timezone widget</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">Technical Help</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">Using jupyterbook</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">Using Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">Using Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">Using discord</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">Quick links and policies</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs/NeuroAI.html">Prerequisites and preparatory materials for NeuroAI course</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D1_Generalization/chapter_title.html">Generalization (W1D1)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Intro.html">Intro</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Tutorial1.html">Tutorial 1: Generalization in AI</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Tutorial2.html">Tutorial 2: Generalization in Neuroscience</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Tutorial3.html">Tutorial 3: Generalization in Cognitive Science</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/student/W1D1_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_Generalization/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/chapter_title.html">Comparing Tasks (W1D2)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Tutorial1.html">Tutorial 1: Task definition, application, relations and impacts on generalization</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Tutorial2.html">Tutorial 2: Contrastive learning for object recognition</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Tutorial3.html">Tutorial 3: Reinforcement learning across temporal scales</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/student/W1D2_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_ComparingTasks/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">Comparing Artificial And Biological Networks (W1D3)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial1.html">Tutorial 1: Generalization and representational geometry</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial2.html">Tutorial 2: Computation as transformation of representational geometries</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial3.html">Tutorial 3: Statistical inference on representational geometries</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial4.html">Tutorial 4: Representational geometry &amp; noise</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Tutorial5.html">Bonus Material: Dynamical similarity analysis (DSA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/student/W1D3_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_ComparingArtificialAndBiologicalNetworks/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Architectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/chapter_title.html">Microcircuits (W1D5)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Tutorial1.html">Tutorial 1: Sparsity and Sparse Coding</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Tutorial2.html">Tutorial 2: Normalization</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Tutorial3.html">Tutorial 3: Attention</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/student/W1D5_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Microcircuits/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/chapter_title.html">Macrocircuits (W2D1)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial1.html">Tutorial 1: Depth vs width</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial2.html">Tutorial 2: Double descent</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Tutorial3.html">Tutorial 3: Neural network modularity</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/student/W2D1_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Macrocircuits/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/chapter_title.html">Neuro Symbolic Methods (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial1.html">Tutorial 1: Basic operations of vector symbolic algebra</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial2.html">Tutorial 2: Learning with structure</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Tutorial3.html">Tutorial 3: Representations in continuous space</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/student/W2D2_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_NeuroSymbolicMethods/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/chapter_title.html">Microlearning (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/student/W2D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/student/W2D3_Tutorial1.html">Tutorial 1: Microlearning</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/student/W2D3_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_Microlearning/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/chapter_title.html">Macrolearning (W2D4)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial1.html">Tutorial 1: The problem of changing data distributions</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial2.html">Tutorial 2: Continual learning</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial3.html">Tutorial 3: Meta-learning</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial4.html">Tutorial 4: Biological meta reinforcement learning</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Tutorial5.html">Tutorial 5: Replay</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/student/W2D4_Outro.html">Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_Macrolearning/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mysteries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/chapter_title.html">Mysteries (W2D5)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Tutorial1.html">Tutorial 1: Consciousness</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Tutorial2.html">Tutorial 2: Ethics</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/student/W2D5_Outro.html">Outro &amp; Daily survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_Mysteries/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Booklet</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Daily guide for projects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="datasets_overview.html">Project materials</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../project-notebooks/Macrocircuits.html">Macrocircuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project-notebooks/Microlearning.html">Microlearning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project-notebooks/ComparingNetworks.html">Comparing Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Professional Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../professional_development/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../professional_development/mentorship_program.html">Mentorship Program</a></li>
+
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/neuromatch/NeuroAI_Course" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">repository</span>
+</a>
+</a>
+      
+      <li><a href="https://github.com/neuromatch/NeuroAI_Course/issues/new?title=Issue%20on%20page%20%2Fprojects/docs/project_guidance.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">open issue</span>
+</a>
+</a>
+      
+  </ul>
+</div>
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="../../_sources/projects/docs/project_guidance.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</a>
+      
+      <li>
+<button onclick="printPdf(this)"
+  class="btn btn-sm dropdown-item"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</a>
+      
+  </ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Daily guide for projects</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission-links">
+   Submission Links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-templates">
+   Project templates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-day">
+   Project Day
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-teaching-assistant">
+   Project Teaching Assistant
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daily-breakdown-of-specific-activities-and-expectations">
+   Daily Breakdown of Specific Activities and Expectations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d1-w1d2">
+     W1D1 - W1D2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d3">
+     W1D3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d4">
+     W1D4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d5">
+     W1D5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d1-w2d2">
+     W2D1 - W2D2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d3">
+     W2D3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d4">
+     W2D4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d5">
+     W2D5
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#schedule">
+       Schedule
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistics">
+       Logistics:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#content">
+       Content:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#questions">
+       Questions:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
+  <section class="tex2jax_ignore mathjax_ignore" id="daily-guide-for-projects">
+<h1>Daily guide for projects<a class="headerlink" href="#daily-guide-for-projects" title="Permalink to this heading">#</a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad interests (macrocircuits, microlearning, and comparing networks). Each pod will split into two groups, with the goal of making well-balanced groups. There is more guidance on this below.</p>
+<p>Once you’re in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. During W1D1-W1D3, you will go through the project templates and read 1-2 papers with the goal of refining and informing your question. When ready, you can start your project proposal with the motivation and questions you are interested in studying, which you should submit by the end of the project day, that is, W1D4.</p>
+<p>Then, during W1D5-W2D2, you will continue to work on the project templates and identify outstanding questions, with the goal of submitting an interim progress report on W2D3. In the following session, you will continue to work on your project, finish the project, and get feedback from your TA.</p>
+<p>Finally, on the last day (W2D5), you will meet with other groups in your pod and megapod (organized by the lead TAs) and tell them the story of your project. This is a low-key presentation that may include some of the plots you made along the way, but it is not meant as a real research presentation with high “production values”.</p>
+</section>
+<section id="submission-links">
+<h2>Submission Links<a class="headerlink" href="#submission-links" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>W1D4 Proposal Submission <a class="reference external" href="https://airtable.com/app1MtChyjyKEDzAt/shrXFpDJ2SSWJoeRc">Airtable Link</a></p></li>
+<li><p>W2D3 Progress Report Submission <a class="reference external" href="https://airtable.com/app1MtChyjyKEDzAt/shrZs0QSq1LuRRP81">Airtable Link</a></p></li>
+<li><p>W2D5 Final Presentation Submission <a class="reference external" href="https://airtable.com/app1MtChyjyKEDzAt/shrgUDhwaZQCcPuA3">Airtable Link</a></p></li>
+</ul>
+</section>
+<section id="project-templates">
+<h2>Project templates<a class="headerlink" href="#project-templates" title="Permalink to this heading">#</a></h2>
+<p>Project templates are research ideas developed by the NMA team that can be used in conjunction with the datasets we provided. Project templates can be used in a variety of ways.</p>
+<ul class="simple">
+<li><p>For starters, you can use the project templates just to familiarize yourself with the provided models and directions in NeuroAI. They can provide keywords for you to use in a literature search or Python libraries you can reuse to answer your own questions.</p></li>
+<li><p>You should use the project templates extensively if you are new to NeuroAI and/or you don’t have a lot of research experience. They have been designed to give you enough structure to get started and enough options to keep you going if you stick with the template. Or you may start with a template, use it the first week, and then, in the second week, diverge from it as your group develops their own new idea or question to test.</p></li>
+<li><p>Templates have a natural flow of questions but don’t hesitate to skip or completely change some of them. They are composed of GREEN, YELLOW, and RED questions in accordance with their difficulty. All teams must work through the GREEN questions. Comprehensively answering just one YELLOW or RED question from the template would be an achievement! You can pick the question that interests you the most right away without following the flow suggested by the template. They are meant to be used very flexibly!</p></li>
+</ul>
+<p>Project templates for each project can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://neuroai.neuromatch.io/projects/project-notebooks/Macrocircuits.html">Macrocircuits</a></p></li>
+<li><p><a class="reference external" href="https://neuroai.neuromatch.io/projects/project-notebooks/Microlearning.html">Microlearning</a></p></li>
+<li><p><a class="reference external" href="https://neuroai.neuromatch.io/projects/project-notebooks/ComparingNetworks.html">Comparing Networks</a></p></li>
+</ul>
+</section>
+<section id="project-day">
+<h2>Project Day<a class="headerlink" href="#project-day" title="Permalink to this heading">#</a></h2>
+<p>W1D4 will be your Project Day! That means you will have all of the Tutorials and Project time that day to work on your project. Follow the sessions as outlined below, and use this extra long day to make progress as a group on the question you are working on.</p>
+</section>
+<section id="project-teaching-assistant">
+<h2>Project Teaching Assistant<a class="headerlink" href="#project-teaching-assistant" title="Permalink to this heading">#</a></h2>
+<p>Project Teaching Assistants are your friendly project experts to consult with on all issues related to your project topics and datasets. They can help with brainstorming project ideas, literature searches, and coding. You will meet with them on a regular basis.</p>
+<p>They will visit your group on the first project meeting to make introductions and will subsequently meet with you, on average, for 45-60 minutes every day or 1.5-2 hours every other day. As projects progress, Project Teaching Assistants might need to prioritize junior groups, but they can also be summoned to senior groups for meetings when needed. Since they can arrive unannounced at any time (busy schedules!), please stop what you were doing to have the meeting and then resume your work when the Project Teaching Assistant leaves. Please also post questions on Discord in the project-specific channels. All project Teaching Assistants have time set aside specifically to answer discord questions and to provide additional meetings when necessary.</p>
+</section>
+<section id="daily-breakdown-of-specific-activities-and-expectations">
+<h2>Daily Breakdown of Specific Activities and Expectations<a class="headerlink" href="#daily-breakdown-of-specific-activities-and-expectations" title="Permalink to this heading">#</a></h2>
+<section id="w1d1-w1d2">
+<h3>W1D1 - W1D2<a class="headerlink" href="#w1d1-w1d2" title="Permalink to this heading">#</a></h3>
+<p><strong>Explore project templates - go through the project templates and share ideas and thoughts with team members</strong></p>
+<p>Split into groups. We recommend intentionally creating groups with diverse skillsets (for example, by balancing the research experience and familiarity with the project topic). Groups should have students who are very confident in Python and those who are just learning. Through the project, students can work together to strengthen each other’s skills. We want to make sure that all members of each group get a chance to do all parts of the project. We ask that folks who are good with Python share what they know and handoff tasks to peers who are learning so they can improve their skills. Note that once you split into groups, that’s your project group for the whole time.</p>
+<ul class="simple">
+<li><p>Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about that you might explore in your NMA project?
+Listen carefully as others talk about their interests.</p></li>
+<li><p>Individual reading time (50 min): browse the project templates, videos, slides and code.</p></li>
+<li><p>Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e., project templates).</p></li>
+</ul>
+<p><strong>Tips:</strong></p>
+<p>No need to have a very concrete project after the first meeting. You will determine the feasibility of your questions as you start to dig deeper, and you will likely change your question completely. That’s how research works!
+The exploratory work you do in Week 1 will culminate in a project proposal on W1D4.</p>
+<p>If you feel you lack research structure and scientific approach to make your experience smooth and organized, we welcome you to review the Modeling Practice guideline prepared for CN &amp; DL courses by this <a class="reference external" href="https://compneuro.neuromatch.io/tutorials/W2D1_ModelingPractice/student/W2D1_Intro.html">link</a> (you might want to watch an intro lecture and go together through the tutorial).</p>
+<p>You might want to just surf the Internet to find any relevant papers that match the project direction and your ideas to prepare for the next day’s discussion. You can also start going through green questions from the template.</p>
+</section>
+<section id="w1d3">
+<h3>W1D3<a class="headerlink" href="#w1d3" title="Permalink to this heading">#</a></h3>
+<p><strong>Literature review - read 1-2 papers for your project topic, share findings with team members to create a short literature review with key questions and potential areas of investigation</strong></p>
+<ul class="simple">
+<li><p>Short discussion (30 min): tell your team members what paper(s) you will read with a short description.</p></li>
+<li><p>Individual reading time (60 min): Pick 1-2 papers</p></li>
+<li><p>Now present within your group (60 min). Tell your group about the paper you read, including: 1) introduction to a topic, 2) approaches used in the paper, 3) main results of the paper, 4) initial ideas on how you will extend the paper in a new direction (can be rough and unpolished!), 5) conclusions.</p></li>
+</ul>
+</section>
+<section id="w1d4">
+<h3>W1D4<a class="headerlink" href="#w1d4" title="Permalink to this heading">#</a></h3>
+<p><strong><ins>Milestone:</ins>  submit your project proposal with the motivation and ~3 questions that you are interested in studying. If possible, create a workflow diagram to show the different lines of inquiry and their connections.</strong></p>
+<ul class="simple">
+<li><p>Go through the Level 1 questions (green).</p></li>
+<li><p>Working session (60 min): You will work on identifying your questions and motivation, and rough plans for your project with your group.</p></li>
+<li><p>Project Proposal presentation :</p>
+<ul>
+<li><p>Each project group will present the selected 3 questions and the workflow diagram to the other project group within the pod.</p></li>
+<li><p>When you select the questions, think of the following:</p>
+<ul>
+<li><p>Is the question an extension of the current study?</p></li>
+<li><p>Are there any other follow-up papers that explored the question? You may need to do some more literature review!</p></li>
+<li><p>Why is this question interesting?</p></li>
+<li><p>How will you tackle this question?</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="w1d5">
+<h3>W1D5<a class="headerlink" href="#w1d5" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Work on your own by exploring the question from the project proposal (75 min). If you are new to research, feel free to work as a group!</p></li>
+<li><p>Think about the specific experiments you can set up to answer the questions in the project proposal and outline them clearly for the following days to execute.</p></li>
+<li><p>Discuss with teammates and TA (60 min) – Talk with your TA if there are any difficulties or if you have any questions!</p></li>
+</ul>
+</section>
+<section id="w2d1-w2d2">
+<h3>W2D1 - W2D2<a class="headerlink" href="#w2d1-w2d2" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Identify an intermediate or advanced question that you are interested in tackling.</p></li>
+<li><p>Determine the next experiment that you will setup; discuss with your TA to get feedback on how to break down your question into a set of specific tasks, and dive in!</p>
+<ul>
+<li><p>If you know what analysis you need but don’t know how to do it, the TAs are there to help you. They can point you to useful toolkits that may be difficult to find otherwise.</p></li>
+<li><p>Try not to implement complicated analyses from scratch. Use existing toolkits and learn how to use them well. This kind of knowledge is very helpful long-term.</p></li>
+<li><p>If you find a negative answer to your question, that is absolutely ok! Please do report that. Then go back and think about how this affects your initial hypothesis. Does it rule it out, or could there be limitations in this particular data that lead to the negative result? What other data would you collect that would be better suited for answering this question? Try to design a new experiment in very specific detail and tell us about it. Who knows, somebody might run that experiment someday!</p></li>
+<li><p>If you find a positive result (i.e. the data matches your hypothesis), then you should spend the rest of your time validating it to make absolutely sure it is really true.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="w2d3">
+<h3>W2D3<a class="headerlink" href="#w2d3" title="Permalink to this heading">#</a></h3>
+<p><strong><ins>Milestone:</ins> progress report - add your progress to your report, refine your questions, and describe your next steps</strong></p>
+<ul class="simple">
+<li><p>You will submit your interim progress, which includes your results so far, current problems and difficulties you are dealing with, ideas on how to tackle them, and questions for TA.</p></li>
+<li><p>Discuss this interim progress with your teammates and TA.</p></li>
+</ul>
+</section>
+<section id="w2d4">
+<h3>W2D4<a class="headerlink" href="#w2d4" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Finalize the project and get feedback from your TA.</p></li>
+<li><p>Draft (and finish for particular time slots) the presentation for the final day. You can find the suggestions and tips on that below, in “Logistics”, “Content” &amp; “Questions” sections (if you are in slot 2 or 5, you should prepare the final version of the presentation by the end of this day as you won’t have project time next day; for slots 1, 3 and 4, you will have around 2 hours in the next day to master the presentation).</p></li>
+</ul>
+</section>
+<section id="w2d5">
+<h3>W2D5<a class="headerlink" href="#w2d5" title="Permalink to this heading">#</a></h3>
+<p><strong><ins>Milestone:</ins> final presentation</strong></p>
+<ul class="simple">
+<li><p>This is the day when you present your project to other groups! Your project TAs can be invited too, but they are busy, so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.</p></li>
+<li><p>At the end of your last project block, you should also submit your slides.</p></li>
+<li><p>Presentation details are described below.</p></li>
+</ul>
+<section id="schedule">
+<h4>Schedule<a class="headerlink" href="#schedule" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>10 minutes of meet &amp; greet.</strong> Do a round of introductions (one TA calls out names from the Zoom list). Everyone says their name, pod name, position, university, and subject of study, as well as one interesting fact about themselves “Hi, I’m Jonny from the Wiggly Caterpillars, and I am a PhD student at the University of Notre Dame in Paris. I study X  and in my free time I like to go on long bike rides”.</p></li>
+<li><p><strong>30-40 minutes of presentations</strong>, including Q&amp;A. Each group should speak for approximately 5 minutes (1 minute per person + 2 minutes of intro/discussion) and then take questions for 1-2 minutes. Try not to waste too much time on logistics: join the Zoom link and go to the appropriate breakout room quickly. Then, the student groups can start presenting in any order.</p></li>
+<li><p><strong>10-20 minutes of general discussion.</strong> Here are some ideas for questions you could ask:</p>
+<ul>
+<li><p>What was missing in the dataset that you would have really liked to have?</p></li>
+<li><p>Does anyone plan to continue working on this project in the future? Perhaps a few students from the multiple groups would like to continue together?</p></li>
+<li><p>Based on your experience with the NMA project, what project would you most like to do next? Make up your own, or pick from the NMA projects (a different dataset or project template that you did not use).</p></li>
+<li><p>What surprised you the most about the process of doing a project? In what way was this project most different from other projects you have done in the past?</p></li>
+<li><p>What technique did you learn at NMA that you think you can immediately apply to your own project (if you are currently doing research)?</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="logistics">
+<h4>Logistics:<a class="headerlink" href="#logistics" title="Permalink to this heading">#</a></h4>
+<p>Please reference the <a class="reference external" href="https://neuroai.neuromatch.io/tutorials/Schedule/daily_schedules.html">Schedule Page</a> for specifics on when your presentations will take place.</p>
+<ul class="simple">
+<li><p>You will present to other groups (3-5 groups per room). An email will be sent with the Zoom room of one of the pods, and all groups will meet there for one hour. There is a hard cutoff at the one-hour mark, and it will be the Teaching Assistants’ responsibility to ensure everyone gets a turn to present.</p></li>
+<li><p>One minute per person and one slide per person only! This is primarily to ensure that everyone in your megapod gets to present before the hard cutoff at the one-hour mark.</p></li>
+<li><p>Do not introduce yourselves again, just present the material directly.</p></li>
+<li><p>When you are done presenting, leave the last slide up (with conclusions), and open the floor for questions.</p></li>
+</ul>
+</section>
+<section id="content">
+<h4>Content:<a class="headerlink" href="#content" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The 1 minute, 1 slide rule might seem like an impossible limit. However, it is one of the most useful formats you can learn, often referred to as a “one-minute elevator pitch”. If you can become an expert at giving short pitches about your work, it will help you get the interest of a lot of people, for example, when presenting posters at scientific conferences. Or when you accidentally find yourself in an elevator with Mark Zuckerberg: this could be your chance to secure a million dollars in research funds!</p></li>
+<li><p>The key to a good presentation is to practice it by yourself many times. It is not so different from other performing arts (acting, playing a musical instrument, etc), where rehearsals are crucial to a good performance.</p></li>
+<li><p>If something in your presentation doesn’t sound good or doesn’t make sense, you WILL get annoyed by it when you say it the tenth time, and that will make you want to change it. (Secret: this is how professors prepare all of their presentations, and it’s why they always sound like they know what they are talking about)</p></li>
+<li><p>Always have an introduction slide and a conclusion slide. If your group is relatively large (&gt;=5 people), then someone should be assigned to each of the intro and conclusion slides. If your group is small, then the same person can give an intro + next slide or conclusion slide + previous slide.</p></li>
+<li><p>Short anecdotes can work like magic to engage your audience. As a general rule, most listeners are passive, bored, and not paying attention. You have to grab their attention with that smart elevator pitch or with a short anecdote about something that happened to your group while working on projects.</p></li>
+<li><p>Most groups won’t have a result, and this is absolutely normal. However, the main goal anyway is to communicate the logic of your project proposal. Did you design a smart way to test the neural binding hypothesis but then didn’t find the data to get answers? That can also be very interesting for others to hear about! Furthermore, it will make it clear that research never stops. It continues as a series of questions and answers, not just within your own project, but at the level of the entire research field. Tell us what got you excited about this particular project, and try to dream big. One day, what could models like yours be used to do?</p></li>
+</ul>
+</section>
+<section id="questions">
+<h4>Questions:<a class="headerlink" href="#questions" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>If your presentation was short enough, there is time for questions from the audience. These are a great way to get feedback on your project!</p></li>
+<li><p>Before you ask a question, consider whether others might be interested in that topic too. This usually means asking big-picture questions as opposed to detailed, technical questions, but there are exceptions.</p></li>
+<li><p>If you are answering the question, try to be short and concise. Your audience will notice if you start rambling, and it can seem as if you are avoiding the question. Answering concisely is another very useful skill in “real life”. It also means that you can take more questions, given our time constraints.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./projects/docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="../README.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Projects</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="datasets_overview.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Datasets</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission-links">
+   Submission Links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-templates">
+   Project templates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-day">
+   Project Day
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-teaching-assistant">
+   Project Teaching Assistant
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daily-breakdown-of-specific-activities-and-expectations">
+   Daily Breakdown of Specific Activities and Expectations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d1-w1d2">
+     W1D1 - W1D2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d3">
+     W1D3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d4">
+     W1D4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w1d5">
+     W1D5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d1-w2d2">
+     W2D1 - W2D2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d3">
+     W2D3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d4">
+     W2D4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#w2d5">
+     W2D5
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#schedule">
+       Schedule
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistics">
+       Logistics:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#content">
+       Content:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#questions">
+       Questions:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Neuromatch
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  </body>
+</html>
