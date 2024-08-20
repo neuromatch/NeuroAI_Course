@@ -35,3 +35,17 @@ def sequential_training(K: int, num_epochs: int):
         autumn_r_squared.append(model.score(autumn_days_test_norm, autumn_prices_test))
 
     return model, summer_r_squared, autumn_r_squared
+
+set_seed(42)
+num_epochs = 100
+K = 30
+
+sequential_training_model, summer_r_squared, autumn_r_squared = sequential_training(K, num_epochs)
+
+plot_performance(num_epochs, summer_r_squared, autumn_r_squared)
+
+#predict for test sets
+summer_prices_predictions = sequential_training_model.predict(summer_days_test_norm)
+autumn_prices_predictions = sequential_training_model.predict(autumn_days_test_norm)
+
+plot_summer_autumn_predictions(summer_prices_predictions, autumn_prices_predictions)
