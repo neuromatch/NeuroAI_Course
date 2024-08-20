@@ -39,3 +39,6 @@ for i in range(num_iters):
 
     #save loss
     losses.append(np.copy(loss))
+
+plt.figure(figsize=(15,5))
+plot_training_and_choice(losses, sims, ant_names, cons_names, action_names)

@@ -9,3 +9,5 @@ for pos_idx, pos in enumerate(test_positions):
     #unbind positions from the map
     query_map = ssp_map * ~position_ssp
     sims.append(query_objs @ query_map.flatten())
+
+plot_unbinding_positions_map(sims, test_positions, obj_names)
