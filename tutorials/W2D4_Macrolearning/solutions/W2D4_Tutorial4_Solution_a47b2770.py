@@ -22,3 +22,17 @@ def evaluate_individual(env, agent, optimizer_func, num_tasks = 10, num_gradient
       score = train_evaluate_agent(env, agent_copy, optimizer_func, num_gradient_steps, num_trials, num_evaluation_trials)
       scores.append(score)
     return np.sum(scores), scores
+
+set_seed(42)
+
+#define environment
+env = HarlowExperimentEnv()
+
+#define agent and optimizer
+agent = ActorCritic(hidden_size = 20)
+optimizer_func = optim.RMSprop
+
+#calculate score
+total_score, scores = evaluate_individual(env, agent, optimizer_func)
+print(f"Total score is {total_score}.")
+plot_boxplot_scores(scores)

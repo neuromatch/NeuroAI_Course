@@ -12,3 +12,12 @@ for _ in tqdm(range(num_epochs - 1), desc="Training Progress"):
     # Calculate r-squared values on test sets
     summer_r_squared.append(base_model.score(summer_days_test_norm, summer_prices_test))
     autumn_r_squared.append(base_model.score(autumn_days_test_norm, autumn_prices_test))
+
+model = base_model
+plot_performance(num_epochs, summer_r_squared, autumn_r_squared)
+
+#predict for test sets
+summer_prices_predictions = model.predict(summer_days_test_norm)
+autumn_prices_predictions = model.predict(autumn_days_test_norm)
+
+plot_summer_autumn_predictions(summer_prices_predictions, autumn_prices_predictions)
