@@ -23,7 +23,7 @@ tensorflow==2.8
 ffmpeg
 imageio-ffmpeg
 torchlens
-rsatoolbox
+rsatoolbox==0.1.5
 vibecheck
 seaborn
 plotly
