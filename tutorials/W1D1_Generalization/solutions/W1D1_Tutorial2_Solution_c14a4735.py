@@ -1,7 +1,7 @@
 def generate_trajectory(model, inputs, device):
     inputs = inputs.to(device)
     batch_size = inputs.size(0)
-    h = model.init_hidden(batch_size).to(device)
+    h = model.init_hidden(batch_size).to(device) #note that `UnregularizedRNN` has a specific method for that
 
     loss = 0
     outputs = []

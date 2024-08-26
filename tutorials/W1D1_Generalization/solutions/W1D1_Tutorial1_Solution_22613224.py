@@ -1,7 +1,7 @@
 
-def inspect_decoder(model):
+def inspect_encoder(model):
     """
-    Inspect decoder to verify that it processes inputs in the expected way.
+    Inspect encoder to verify that it processes inputs in the expected way.
 
     Args:
         model: the TrOCR model
