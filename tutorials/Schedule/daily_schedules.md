@@ -1,29 +1,11 @@
 # General schedule
 
 ## Course overview
-
-* Sun, July 7: Opening Ceremonies
-    * 8:30 am UTC
-    * 5:30 pm UTC
-    
-* Week 1
-    * Mon, July 15: 
-    * Tue, July 16: 
-    * Wed, July 17: 
-    * Thu, July 18: 
-    * Fri, July 19: 
-     
-* Week 2
-    * Mon, July 22: 
-    * Tue, July 23: 
-    * Wed, July 24: 
-    * Thu, July 25: 
-    * Fri, July 26: & Graduation 
-    
+### 2025 Course Dates: July 14 - 25 
 ----
 
 ## Daily coursework schedule
-These schedules refer to the coursework time.
+### 2025 course schedule updates coming soon! Below is the 2024 course schedule. 
 
 ### General schedule
 All days except W1D4 and W2D5 will follow this schedule for course time:
