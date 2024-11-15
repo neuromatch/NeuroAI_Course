@@ -4,14 +4,14 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
-*July 15-26, 2024*
+*July 14-25, 2025*
 
 
 Please check out [expected prerequisites here](https://github.com/neuromatch/NeuroAI_Course/blob/main/prereqs/NeuroAI.md)!
 
 **The content should primarily be accessed from our ebook: https://neuroai.neuromatch.io/ [under continuous development]**
 
-**Schedule for 2024: E.g., https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/Schedule/daily_schedules.md**
+**Schedule: E.g., https://github.com/neuromatch/NeuroAI_Course/blob/main/tutorials/Schedule/daily_schedules.md**
 
 ---
 
