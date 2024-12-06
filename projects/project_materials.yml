@@ -4,6 +4,8 @@
 #   title: Project Day keynote (W2D2)
 - file: projects/docs/project_guidance.md
   title: Daily guide for projects
+- file: projects/docs/continuing_your_project_after_the_course.md
+  title: Continuing your project after the course
 - file: projects/docs/datasets_overview.md
   title: Project materials
   sections:
@@ -16,8 +18,6 @@
 
 
 # The below may be used in the future
-# - file: projects/docs/continuing_your_project_after_the_course.md
-#   title: Continuing your project after the course
 # - file: projects/docs/past_projects_overview.md
 #   title: Past projects
 #   sections:
