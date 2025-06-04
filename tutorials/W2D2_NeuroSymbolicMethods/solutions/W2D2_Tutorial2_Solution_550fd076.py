@@ -3,10 +3,11 @@ num_iters = 500
 losses = []
 sims = []
 lr = 1e-1
-ant_names = ["blue", "odd"]
-cons_names = ["even", "green"]
+ant_names = ["BLUE", "ODD"]
+cons_names = ["EVEN", "GREEN"]
+vector_length = 1024
 
-transform = np.zeros((1,encoder.ssp_dim))
+transform = np.zeros((vector_length))
 for i in range(num_iters):
     loss = 0
     for rule, ant_name, cons_name in zip(rules, ant_names, cons_names):
@@ -15,22 +16,22 @@ for i in range(num_iters):
         y_true = np.eye(len(action_names))[action_names.index(ant_name),:] + np.eye(len(action_names))[4+action_names.index(cons_name),:]
 
         #prediction with current transform (a_hat = transform * rule)
-        a_hat = sspspace.SSP(transform) * rule
+        a_hat = spa.SemanticPointer(transform) * rule
 
         #similarity with current transform
-        sim_mat = action_space @ a_hat.T
+        sim_mat = np.einsum('nd,d->n', action_space, a_hat.v)
 
         #cleanup
         y_hat = softmax(sim_mat)
 
         #true solution (a* = ant_name + not * cons_name)
-        a_true = (vocab[ant_name] + vocab['not']*vocab[cons_name]).normalize()
+        a_true = (vocab[ant_name] + vocab['NOT']*vocab[cons_name]).normalized()
 
         #calculate loss
         loss += log_loss(y_true, y_hat)
 
-        #update transform (T <- T - lr * (T - A* * (~rule)))
-        transform -= (lr) * (transform - np.array(a_true * ~rule))
+        #update transform (T <- T - lr * (A* * (~rule)))
+        transform -= (lr) * (transform - (a_true * ~rule).v)
         transform = transform / np.linalg.norm(transform)
 
         #save predicted similarities if it is last iteration
@@ -39,5 +40,3 @@ for i in range(num_iters):
 
     #save loss
     losses.append(np.copy(loss))
-
-plot_training_and_choice(losses, sims, ant_names, cons_names, action_names)
