@@ -26,7 +26,7 @@ torchlens
 rsatoolbox==0.1.5
 vibecheck
 seaborn
-plotly==5.24.1
+plotly==5.19.0
 git+https://github.com/neuromatch/TextRecognitionDataGenerator#egg=trdg
 git+https://github.com/neuromatch/GNS-Modeling#egg=gns
 git+https://github.com/neuromatch/pyBPL#egg=pybpl
