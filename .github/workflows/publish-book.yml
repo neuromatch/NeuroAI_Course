@@ -29,50 +29,20 @@ jobs:
           readonly local msg=$(git log -1 --pretty=format:"%s")
           echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
+
+      - name: Install Jupyter Book
+        run: pip install jupyter-book==0.14.0 ghp-import
+
+      - name: Setup CI tools
+        uses: ./.github/actions/setup-ci-tools
         with:
-          python-version: 3.9
+          commit-message: ${{ env.COMMIT_MESSAGE }}
 
-      - name: Install CI tools
-        run: |
-          BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
-          # NOTE: might enventually change this back if we integrate changes
-          wget https://github.com/$ORG/nmaci/archive/refs/heads/$BRANCH.tar.gz
-          tar -xzf $BRANCH.tar.gz
-          pip install --upgrade pip
-          pip install -r nmaci-$BRANCH/requirements.txt
-          mv nmaci-$BRANCH/scripts/ ci/
-          rm -r nmaci-$BRANCH
-          rm -r $BRANCH.tar.gz
-          echo ci/ >> .gitignore
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install jupyter-book==0.14.0 ghp-import
-          # pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
-
-      - name: Install XKCD fonts
+      - name: Setup rendering dependencies
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          sudo apt-get update -yq
-          wget http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-humor-sans/fonts-humor-sans_1.0-4_all.deb
-          sudo dpkg -i --force-all fonts-humor-sans_1.0-4_all.deb <<< 'yes'
-          sudo apt install -fy
-          rm -f $HOME/.matplotlib/fontList.cache
-          
-      - name: Install backend libs
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          # required for macrocircuits project
-          sudo apt-get install -y libglew-dev
-          sudo apt-get install -y libglfw3
-          sudo apt install -y ffmpeg
-          echo "MUJOCO_GL=egl" >> $GITHUB_ENV
-
-      - name: Install Graphviz
-        uses: tlylt/install-graphviz@v1
+        uses: ./.github/actions/setup-rendering-deps
 
       # - name: Copy tutorials from precourse repo
       #   if: "!contains(env.COMMIT_MESSAGE, 'skip precourse')"
@@ -86,6 +56,19 @@ jobs:
       #     mv precourse-$BRANCH/prereqs .
       #     rm -r precourse-$BRANCH
       #     rm -r $BRANCH.tar.gz
+
+      - name: Get date for cache rotation
+        id: cache-date
+        run: echo "date=$(date +'%Y-%m')" >> $GITHUB_OUTPUT
+
+      - name: Cache Jupyter execution
+        uses: actions/cache@v3
+        with:
+          path: book/.jupyter-cache
+          key: jupyter-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
+          restore-keys: |
+            jupyter-exec-${{ steps.cache-date.outputs.date }}-
+            jupyter-exec-
 
       - name: Build student book
         run: |
