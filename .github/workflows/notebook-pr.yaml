@@ -27,53 +27,25 @@ jobs:
           readonly local msg=$(git log -1 --pretty=format:"%s")
           echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
 
-      - name: Set up Python
+      - name: Setup Python environment
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        uses: actions/setup-python@v4
+        uses: ./.github/actions/setup-python-env
+
+      - name: Install additional dependencies
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          pip install jupyter_client==7.3.5
+          pip install jinja2==3.1.2
+
+      - name: Setup CI tools
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        uses: ./.github/actions/setup-ci-tools
         with:
-          python-version: '3.10'
+          commit-message: ${{ env.COMMIT_MESSAGE }}
 
-      - name: Install CI tools
+      - name: Setup rendering dependencies
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
-          # NOTE: might enventually change this back if we integrate changes
-          wget https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
-          tar -xzf $BRANCH.tar.gz
-          pip install --upgrade pip
-          pip install -r nmaci-$BRANCH/requirements.txt
-          mv nmaci-$BRANCH/scripts/ ci/
-          rm -r nmaci-$BRANCH
-          echo ci/ >> .gitignore
-
-      - name: Install dependencies
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          python -m pip install --upgrade pip wheel
-          pip install -r requirements.txt
-          pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
-          pip install jinja2==3.1.2 # to fix pandas dep
-
-      - name: Install XKCD fonts
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          sudo apt-get update -yq
-          wget http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-humor-sans/fonts-humor-sans_1.0-4_all.deb
-          sudo dpkg -i --force-all fonts-humor-sans_1.0-4_all.deb <<< 'yes'
-          sudo apt install -fy
-          rm -f $HOME/.matplotlib/fontList.cache
-
-      - name: Install backend libs
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          # required for macrocircuits project
-          sudo apt-get install -y libglew-dev
-          sudo apt-get install -y libglfw3
-          sudo apt install -y ffmpeg
-          echo "MUJOCO_GL=egl" >> $GITHUB_ENV
-
-      - name: Install Graphviz
-        uses: tlylt/install-graphviz@v1
+        uses: ./.github/actions/setup-rendering-deps
 
       - name: Get changed files
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
@@ -86,8 +58,20 @@ jobs:
             echo "$file was changed."
           done
 
-      - name: Process notebooks
+      - name: Check for notebook changes
+        id: notebook-check
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          CHANGED="${{ steps.changed-files.outputs.all_changed_files }}"
+          if [[ ! "$CHANGED" =~ \.ipynb ]]; then
+            echo "has_notebooks=false" >> $GITHUB_OUTPUT
+            echo "No notebooks changed, skipping processing"
+          else
+            echo "has_notebooks=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Process notebooks
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && steps.notebook-check.outputs.has_notebooks == 'true'"
         id: process_notebooks
         run: |
           branch=${{ github.event.pull_request.head.ref }}
@@ -109,8 +93,18 @@ jobs:
       #   with:
       #     path: comment.txt
 
-      - name: Update READMEs
+      - name: Check if materials.yml changed
+        id: materials-check
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          if [[ "${{ steps.changed-files.outputs.all_changed_files }}" =~ materials\.yml ]]; then
+            echo "materials_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "materials_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update READMEs
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && steps.materials-check.outputs.materials_changed == 'true'"
         run: python ci/generate_tutorial_readmes.py
 
       - name: Remove unreferenced derivatives
