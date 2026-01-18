@@ -1,0 +1,58 @@
+name: 'Setup nmaci CI Tools'
+description: 'Download and install Neuromatch CI tools'
+
+inputs:
+  branch:
+    description: 'nmaci branch to use'
+    required: false
+    default: 'main'
+  commit-message:
+    description: 'Commit message to parse for branch override'
+    required: false
+    default: ''
+
+outputs:
+  nmaci-branch:
+    description: 'nmaci branch used'
+    value: ${{ steps.detect-branch.outputs.branch }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Detect nmaci branch
+      id: detect-branch
+      shell: bash
+      run: |
+        BRANCH="${{ inputs.branch }}"
+        if [ -n "${{ inputs.commit-message }}" ]; then
+          OVERRIDE=$(python3 -c "import os, re; m = re.search(r'nmaci:([\w-]+)', '${{ inputs.commit-message }}'); print(m.group(1) if m else '')")
+          if [ -n "$OVERRIDE" ]; then
+            BRANCH="$OVERRIDE"
+          fi
+        fi
+        echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+        echo "Using nmaci branch: $BRANCH"
+
+    - name: Cache nmaci tools
+      id: cache-nmaci
+      uses: actions/cache@v3
+      with:
+        path: ci/
+        key: nmaci-${{ steps.detect-branch.outputs.branch }}-${{ hashFiles('.github/workflows/*.yml', '.github/workflows/*.yaml') }}
+        restore-keys: nmaci-${{ steps.detect-branch.outputs.branch }}-
+
+    - name: Download nmaci tools
+      if: steps.cache-nmaci.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        BRANCH=${{ steps.detect-branch.outputs.branch }}
+        wget -q https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
+        tar -xzf $BRANCH.tar.gz
+        pip install --upgrade pip
+        pip install -r nmaci-$BRANCH/requirements.txt
+        mv nmaci-$BRANCH/scripts/ ci/
+        rm -r nmaci-$BRANCH $BRANCH.tar.gz
+
+    - name: Ignore ci directory
+      shell: bash
+      run: echo "ci/" >> .gitignore
