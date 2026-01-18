@@ -22,10 +22,12 @@ runs:
     - name: Detect nmaci branch
       id: detect-branch
       shell: bash
+      env:
+        COMMIT_MESSAGE: ${{ inputs.commit-message }}
       run: |
         BRANCH="${{ inputs.branch }}"
-        if [ -n "${{ inputs.commit-message }}" ]; then
-          OVERRIDE=$(python3 -c "import os, re; m = re.search(r'nmaci:([\w-]+)', '${{ inputs.commit-message }}'); print(m.group(1) if m else '')")
+        if [ -n "$COMMIT_MESSAGE" ]; then
+          OVERRIDE=$(python3 -c "import os, re; m = re.search(r'nmaci:([\w-]+)', os.environ.get('COMMIT_MESSAGE', '')); print(m.group(1) if m else '')")
           if [ -n "$OVERRIDE" ]; then
             BRANCH="$OVERRIDE"
           fi
