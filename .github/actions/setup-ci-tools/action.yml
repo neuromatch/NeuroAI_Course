@@ -40,7 +40,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: ci/
-        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v1
+        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v2
         restore-keys: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
 
     - name: Download nmaci tools
@@ -59,6 +59,11 @@ runs:
       shell: bash
       run: |
         pip install --upgrade pip
+        # Fallback: download requirements.txt if not in cache
+        if [ ! -f ci/requirements.txt ]; then
+          BRANCH=${{ steps.detect-branch.outputs.branch }}
+          wget -q -O ci/requirements.txt https://raw.githubusercontent.com/neuromatch/nmaci/$BRANCH/requirements.txt
+        fi
         pip install -r ci/requirements.txt
 
     - name: Ignore ci directory

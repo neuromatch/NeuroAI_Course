@@ -45,17 +45,25 @@ jobs:
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Setup Python
+      - name: Setup Python environment
         if: steps.check-skip.outputs.skip != 'true'
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
+        uses: ./.github/actions/setup-python-env
+
+      - name: Install additional dependencies
+        if: steps.check-skip.outputs.skip != 'true'
+        run: |
+          pip install jupyter_client==7.3.5
+          pip install jinja2==3.1.2
 
       - name: Setup CI tools
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-ci-tools
         with:
           commit-message: ${{ steps.get-commit.outputs.message }}
+
+      - name: Setup rendering dependencies
+        if: steps.check-skip.outputs.skip != 'true'
+        uses: ./.github/actions/setup-rendering-deps
 
       - name: Get changed files
         if: steps.check-skip.outputs.skip != 'true'
