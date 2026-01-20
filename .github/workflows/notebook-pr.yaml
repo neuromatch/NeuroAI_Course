@@ -12,8 +12,14 @@ env:
   NMA_MAIN_BRANCH: main
 
 jobs:
-  process-notebooks:
+  setup:
     runs-on: ubuntu-latest
+    outputs:
+      notebooks: ${{ steps.set-matrix.outputs.notebooks }}
+      has_notebooks: ${{ steps.set-matrix.outputs.has_notebooks }}
+      commit_message: ${{ steps.get-commit.outputs.message }}
+      materials_changed: ${{ steps.materials-check.outputs.materials_changed }}
+      skip_ci: ${{ steps.check-skip.outputs.skip }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,79 +29,50 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Get commit message
+        id: get-commit
         run: |
-          readonly local msg=$(git log -1 --pretty=format:"%s")
-          echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
+          msg=$(git log -1 --pretty=format:"%s")
+          echo "message=$msg" >> $GITHUB_OUTPUT
+
+      - name: Check skip ci
+        id: check-skip
+        env:
+          COMMIT_MESSAGE: ${{ steps.get-commit.outputs.message }}
+        run: |
+          if [[ "$COMMIT_MESSAGE" == *"skip ci"* ]]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Setup Python environment
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-python-env
 
       - name: Install additional dependencies
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        if: steps.check-skip.outputs.skip != 'true'
         run: |
           pip install jupyter_client==7.3.5
           pip install jinja2==3.1.2
 
       - name: Setup CI tools
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-ci-tools
         with:
-          commit-message: ${{ env.COMMIT_MESSAGE }}
+          commit-message: ${{ steps.get-commit.outputs.message }}
 
       - name: Setup rendering dependencies
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-rendering-deps
 
       - name: Get changed files
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        if: steps.check-skip.outputs.skip != 'true'
         id: changed-files
         uses: tj-actions/changed-files@v35
 
-      - name: List all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed."
-          done
-
-      - name: Check for notebook changes
-        id: notebook-check
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        run: |
-          CHANGED="${{ steps.changed-files.outputs.all_changed_files }}"
-          if [[ ! "$CHANGED" =~ \.ipynb ]]; then
-            echo "has_notebooks=false" >> $GITHUB_OUTPUT
-            echo "No notebooks changed, skipping processing"
-          else
-            echo "has_notebooks=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Process notebooks
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && steps.notebook-check.outputs.has_notebooks == 'true'"
-        id: process_notebooks
-        run: |
-          branch=${{ github.event.pull_request.head.ref }}
-          nbs=`python ci/select_notebooks.py ${{ steps.changed-files.outputs.all_changed_files }}`
-          if ${{ contains(env.COMMIT_MESSAGE, 'ci:check') }}; then
-            execflag="--check-execution";
-          else
-            execflag="--execute";
-          fi
-          python ci/process_notebooks.py $nbs $execflag
-          python ci/verify_exercises.py $nbs --c "$COMMIT_MESSAGE"
-          python ci/make_pr_comment.py $nbs --branch $branch --o comment.txt
-
-      # - name: Add PR comment
-      #   if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-      #   uses: machine-learning-apps/pr-comment@1.0.0
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     path: comment.txt
-
       - name: Check if materials.yml changed
         id: materials-check
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        if: steps.check-skip.outputs.skip != 'true'
         run: |
           if [[ "${{ steps.changed-files.outputs.all_changed_files }}" =~ materials\.yml ]]; then
             echo "materials_changed=true" >> $GITHUB_OUTPUT
@@ -103,18 +80,212 @@ jobs:
             echo "materials_changed=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Set notebook matrix
+        id: set-matrix
+        if: steps.check-skip.outputs.skip != 'true'
+        run: |
+          # Get filtered notebook list
+          nbs=$(python ci/select_notebooks.py ${{ steps.changed-files.outputs.all_changed_files }})
+
+          if [ -z "$nbs" ]; then
+            echo "No notebooks to process"
+            echo "has_notebooks=false" >> $GITHUB_OUTPUT
+            echo "notebooks=[]" >> $GITHUB_OUTPUT
+          else
+            echo "Notebooks to process: $nbs"
+            echo "has_notebooks=true" >> $GITHUB_OUTPUT
+            # Convert space-separated list to JSON array
+            json_array=$(echo "$nbs" | tr ' ' '\n' | jq -R . | jq -s -c .)
+            echo "notebooks=$json_array" >> $GITHUB_OUTPUT
+          fi
+
+  process:
+    needs: setup
+    if: needs.setup.outputs.skip_ci != 'true' && needs.setup.outputs.has_notebooks == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        notebook: ${{ fromJson(needs.setup.outputs.notebooks) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
+
+      - name: Install additional dependencies
+        run: |
+          pip install jupyter_client==7.3.5
+          pip install jinja2==3.1.2
+
+      - name: Setup CI tools
+        uses: ./.github/actions/setup-ci-tools
+        with:
+          commit-message: ${{ needs.setup.outputs.commit_message }}
+
+      - name: Setup rendering dependencies
+        uses: ./.github/actions/setup-rendering-deps
+
+      - name: Process notebook
+        env:
+          COMMIT_MESSAGE: ${{ needs.setup.outputs.commit_message }}
+        run: |
+          echo "Processing: ${{ matrix.notebook }}"
+          if [[ "$COMMIT_MESSAGE" == *"ci:check"* ]]; then
+            execflag="--check-execution"
+          else
+            execflag="--execute"
+          fi
+          python ci/process_notebooks.py "${{ matrix.notebook }}" $execflag
+
+      - name: Get tutorial directory
+        id: get-dir
+        run: |
+          nb="${{ matrix.notebook }}"
+          dir=$(dirname "$nb")
+          echo "dir=$dir" >> $GITHUB_OUTPUT
+          # Create a safe artifact name from the notebook path
+          safe_name=$(echo "$nb" | tr '/' '_' | tr ' ' '_')
+          echo "artifact_name=$safe_name" >> $GITHUB_OUTPUT
+
+      - name: Upload processed notebook
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-${{ steps.get-dir.outputs.artifact_name }}
+          path: ${{ matrix.notebook }}
+          retention-days: 1
+
+      - name: Upload static files
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: static-${{ steps.get-dir.outputs.artifact_name }}
+          path: ${{ steps.get-dir.outputs.dir }}/static/
+          if-no-files-found: ignore
+          retention-days: 1
+
+      - name: Upload solutions
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: solutions-${{ steps.get-dir.outputs.artifact_name }}
+          path: ${{ steps.get-dir.outputs.dir }}/solutions/
+          if-no-files-found: ignore
+          retention-days: 1
+
+  finalize:
+    needs: [setup, process]
+    if: always() && needs.setup.outputs.skip_ci != 'true' && needs.setup.outputs.has_notebooks == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
+
+      - name: Install additional dependencies
+        run: |
+          pip install jupyter_client==7.3.5
+          pip install jinja2==3.1.2
+
+      - name: Setup CI tools
+        uses: ./.github/actions/setup-ci-tools
+        with:
+          commit-message: ${{ needs.setup.outputs.commit_message }}
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+
+      - name: Restore processed files
+        run: |
+          echo "Restoring processed files from artifacts..."
+
+          # Process notebook artifacts
+          for dir in artifacts/notebook-*; do
+            if [ -d "$dir" ]; then
+              echo "Processing $dir"
+              cp -v "$dir"/*.ipynb tutorials/ 2>/dev/null || true
+              # Find the actual notebook and copy to correct location
+              find "$dir" -name "*.ipynb" -exec sh -c '
+                for f; do
+                  # Extract original path from artifact structure
+                  rel_path=$(basename "$f")
+                  # Find where this notebook should go based on its name
+                  original=$(find tutorials -name "$rel_path" -type f 2>/dev/null | head -1)
+                  if [ -n "$original" ]; then
+                    cp -v "$f" "$original"
+                  fi
+                done
+              ' sh {} +
+            fi
+          done
+
+          # Process static artifacts
+          for dir in artifacts/static-*; do
+            if [ -d "$dir" ]; then
+              echo "Processing static: $dir"
+              # Extract tutorial path from artifact name
+              artifact_name=$(basename "$dir" | sed 's/^static-//')
+              # Convert back: tutorials_W1D1_xxx.ipynb -> tutorials/W1D1_xxx
+              tutorial_dir=$(echo "$artifact_name" | sed 's/_/\//g' | sed 's/\.ipynb$//' | xargs dirname)
+              if [ -d "$tutorial_dir" ]; then
+                mkdir -p "$tutorial_dir/static"
+                cp -rv "$dir"/* "$tutorial_dir/static/" 2>/dev/null || true
+              fi
+            fi
+          done
+
+          # Process solutions artifacts
+          for dir in artifacts/solutions-*; do
+            if [ -d "$dir" ]; then
+              echo "Processing solutions: $dir"
+              artifact_name=$(basename "$dir" | sed 's/^solutions-//')
+              tutorial_dir=$(echo "$artifact_name" | sed 's/_/\//g' | sed 's/\.ipynb$//' | xargs dirname)
+              if [ -d "$tutorial_dir" ]; then
+                mkdir -p "$tutorial_dir/solutions"
+                cp -rv "$dir"/* "$tutorial_dir/solutions/" 2>/dev/null || true
+              fi
+            fi
+          done
+
+      - name: Verify exercises
+        env:
+          COMMIT_MESSAGE: ${{ needs.setup.outputs.commit_message }}
+        run: |
+          nbs='${{ needs.setup.outputs.notebooks }}'
+          # Convert JSON array to space-separated list
+          nb_list=$(echo "$nbs" | jq -r '.[]' | tr '\n' ' ')
+          python ci/verify_exercises.py $nb_list --c "$COMMIT_MESSAGE"
+
+      - name: Make PR comment
+        run: |
+          nbs='${{ needs.setup.outputs.notebooks }}'
+          nb_list=$(echo "$nbs" | jq -r '.[]' | tr '\n' ' ')
+          branch=${{ github.event.pull_request.head.ref }}
+          python ci/make_pr_comment.py $nb_list --branch $branch --o comment.txt
+
       - name: Update READMEs
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && steps.materials-check.outputs.materials_changed == 'true'"
+        if: needs.setup.outputs.materials_changed == 'true'
         run: python ci/generate_tutorial_readmes.py
 
       - name: Remove unreferenced derivatives
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && success()"
         run: |
           python ci/find_unreferenced_content.py > to_remove.txt
           if [ -s to_remove.txt ]; then git rm --pathspec-from-file=to_remove.txt; fi
 
       - name: Commit post-processed files
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && success()"
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -125,7 +296,6 @@ jobs:
           git diff-index --quiet HEAD || git commit -m "Process tutorial notebooks"
 
       - name: Push post-processed files
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && success()"
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

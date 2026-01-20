@@ -22,10 +22,12 @@ runs:
     - name: Detect nmaci branch
       id: detect-branch
       shell: bash
+      env:
+        COMMIT_MESSAGE: ${{ inputs.commit-message }}
       run: |
         BRANCH="${{ inputs.branch }}"
-        if [ -n "${{ inputs.commit-message }}" ]; then
-          OVERRIDE=$(python3 -c "import os, re; m = re.search(r'nmaci:([\w-]+)', '${{ inputs.commit-message }}'); print(m.group(1) if m else '')")
+        if [ -n "$COMMIT_MESSAGE" ]; then
+          OVERRIDE=$(python3 -c "import os, re; m = re.search(r'nmaci:([\w-]+)', os.environ.get('COMMIT_MESSAGE', '')); print(m.group(1) if m else '')")
           if [ -n "$OVERRIDE" ]; then
             BRANCH="$OVERRIDE"
           fi
@@ -38,8 +40,8 @@ runs:
       uses: actions/cache@v3
       with:
         path: ci/
-        key: nmaci-${{ steps.detect-branch.outputs.branch }}-${{ hashFiles('.github/workflows/*.yml', '.github/workflows/*.yaml') }}
-        restore-keys: nmaci-${{ steps.detect-branch.outputs.branch }}-
+        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v2
+        restore-keys: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
 
     - name: Download nmaci tools
       if: steps.cache-nmaci.outputs.cache-hit != 'true'
@@ -48,10 +50,30 @@ runs:
         BRANCH=${{ steps.detect-branch.outputs.branch }}
         wget -q https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
         tar -xzf $BRANCH.tar.gz
-        pip install --upgrade pip
-        pip install -r nmaci-$BRANCH/requirements.txt
         mv nmaci-$BRANCH/scripts/ ci/
+        # Preserve requirements for caching
+        mv nmaci-$BRANCH/requirements.txt ci/requirements.txt
         rm -r nmaci-$BRANCH $BRANCH.tar.gz
+
+    - name: Install nmaci dependencies
+      shell: bash
+      run: |
+        set -e
+        pip install --upgrade pip
+
+        # Fallback: download requirements.txt if not in cache
+        if [ ! -f ci/requirements.txt ]; then
+          echo "ci/requirements.txt not found, downloading..."
+          BRANCH=${{ steps.detect-branch.outputs.branch }}
+          wget -O ci/requirements.txt https://raw.githubusercontent.com/neuromatch/nmaci/$BRANCH/requirements.txt
+        fi
+
+        echo "Installing from ci/requirements.txt:"
+        cat ci/requirements.txt
+        pip install -r ci/requirements.txt
+
+        # Verify nbformat is installed
+        python -c "import nbformat; print(f'nbformat version: {nbformat.__version__}')"
 
     - name: Ignore ci directory
       shell: bash

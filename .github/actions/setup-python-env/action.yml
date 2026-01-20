@@ -21,7 +21,7 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
         cache: 'pip'
-        cache-dependency-path: 'requirements.txt'
+        cache-dependency-path: requirements.txt
 
     - name: Upgrade pip
       shell: bash
