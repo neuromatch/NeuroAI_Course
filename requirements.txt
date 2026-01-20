@@ -27,7 +27,6 @@ rsatoolbox==0.1.5
 vibecheck
 seaborn
 plotly
-# git packages
 git+https://github.com/neuromatch/TextRecognitionDataGenerator#egg=trdg
 git+https://github.com/neuromatch/GNS-Modeling#egg=gns
 git+https://github.com/neuromatch/pyBPL#egg=pybpl
