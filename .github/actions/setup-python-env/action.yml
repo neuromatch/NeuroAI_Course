@@ -9,8 +9,8 @@ inputs:
 
 outputs:
   cache-hit:
-    description: 'Whether pip cache was hit'
-    value: ${{ steps.setup-python.outputs.cache-hit }}
+    description: 'Whether venv cache was hit'
+    value: ${{ steps.cache-venv.outputs.cache-hit }}
 
 runs:
   using: 'composite'
@@ -20,13 +20,33 @@ runs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python-version }}
-        cache: 'pip'
-        cache-dependency-path: 'requirements.txt'
+
+    - name: Get pip cache dir
+      id: pip-cache
+      shell: bash
+      run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+
+    - name: Cache pip downloads
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.pip-cache.outputs.dir }}
+        key: pip-${{ runner.os }}-${{ inputs.python-version }}-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          pip-${{ runner.os }}-${{ inputs.python-version }}-
+
+    - name: Cache installed packages
+      id: cache-venv
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.pythonLocation }}
+        key: venv-${{ runner.os }}-${{ inputs.python-version }}-${{ hashFiles('requirements.txt') }}
 
     - name: Upgrade pip
+      if: steps.cache-venv.outputs.cache-hit != 'true'
       shell: bash
       run: pip install --upgrade pip wheel
 
     - name: Install requirements
+      if: steps.cache-venv.outputs.cache-hit != 'true'
       shell: bash
       run: pip install -r requirements.txt

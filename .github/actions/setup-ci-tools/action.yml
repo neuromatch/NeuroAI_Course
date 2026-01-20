@@ -40,8 +40,8 @@ runs:
       uses: actions/cache@v3
       with:
         path: ci/
-        key: nmaci-${{ steps.detect-branch.outputs.branch }}-${{ hashFiles('.github/workflows/*.yml', '.github/workflows/*.yaml') }}
-        restore-keys: nmaci-${{ steps.detect-branch.outputs.branch }}-
+        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v1
+        restore-keys: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
 
     - name: Download nmaci tools
       if: steps.cache-nmaci.outputs.cache-hit != 'true'
@@ -50,10 +50,16 @@ runs:
         BRANCH=${{ steps.detect-branch.outputs.branch }}
         wget -q https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
         tar -xzf $BRANCH.tar.gz
-        pip install --upgrade pip
-        pip install -r nmaci-$BRANCH/requirements.txt
         mv nmaci-$BRANCH/scripts/ ci/
+        # Preserve requirements for caching
+        mv nmaci-$BRANCH/requirements.txt ci/requirements.txt
         rm -r nmaci-$BRANCH $BRANCH.tar.gz
+
+    - name: Install nmaci dependencies
+      shell: bash
+      run: |
+        pip install --upgrade pip
+        pip install -r ci/requirements.txt
 
     - name: Ignore ci directory
       shell: bash
