@@ -18,15 +18,12 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Cache APT packages
-      id: cache-apt
+    - name: Cache fonts
+      id: cache-fonts
       uses: actions/cache@v3
       with:
-        path: |
-          /var/cache/apt/archives
-          /usr/share/fonts/truetype/humor-sans
-        key: apt-packages-${{ runner.os }}-fonts-backend-graphviz-v2
-        restore-keys: apt-packages-${{ runner.os }}-
+        path: /usr/share/fonts/truetype/humor-sans
+        key: fonts-${{ runner.os }}-humor-sans-v1
 
     - name: Install XKCD fonts
       if: ${{ inputs.skip-fonts != 'true' }}
