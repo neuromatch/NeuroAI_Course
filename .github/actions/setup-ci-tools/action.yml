@@ -58,13 +58,22 @@ runs:
     - name: Install nmaci dependencies
       shell: bash
       run: |
+        set -e
         pip install --upgrade pip
+
         # Fallback: download requirements.txt if not in cache
         if [ ! -f ci/requirements.txt ]; then
+          echo "ci/requirements.txt not found, downloading..."
           BRANCH=${{ steps.detect-branch.outputs.branch }}
-          wget -q -O ci/requirements.txt https://raw.githubusercontent.com/neuromatch/nmaci/$BRANCH/requirements.txt
+          wget -O ci/requirements.txt https://raw.githubusercontent.com/neuromatch/nmaci/$BRANCH/requirements.txt
         fi
+
+        echo "Installing from ci/requirements.txt:"
+        cat ci/requirements.txt
         pip install -r ci/requirements.txt
+
+        # Verify nbformat is installed
+        python -c "import nbformat; print(f'nbformat version: {nbformat.__version__}')"
 
     - name: Ignore ci directory
       shell: bash
