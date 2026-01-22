@@ -149,32 +149,20 @@ jobs:
           nb="${{ matrix.notebook }}"
           dir=$(dirname "$nb")
           echo "dir=$dir" >> $GITHUB_OUTPUT
-          # Create a safe artifact name from the notebook path
-          safe_name=$(echo "$nb" | tr '/' '_' | tr ' ' '_')
-          echo "artifact_name=$safe_name" >> $GITHUB_OUTPUT
+          # Use ___ as delimiter (won't appear in paths) so we can restore later
+          safe_dir=$(echo "$dir" | sed 's|/|___|g')
+          echo "artifact_name=$safe_dir" >> $GITHUB_OUTPUT
 
-      - name: Upload processed notebook
+      - name: Upload processed tutorial directory
         uses: actions/upload-artifact@v4
         with:
-          name: notebook-${{ steps.get-dir.outputs.artifact_name }}
-          path: ${{ matrix.notebook }}
-          retention-days: 1
-
-      - name: Upload static files
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: static-${{ steps.get-dir.outputs.artifact_name }}
-          path: ${{ steps.get-dir.outputs.dir }}/static/
-          if-no-files-found: ignore
-          retention-days: 1
-
-      - name: Upload solutions
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: solutions-${{ steps.get-dir.outputs.artifact_name }}
-          path: ${{ steps.get-dir.outputs.dir }}/solutions/
+          name: tutorial-${{ steps.get-dir.outputs.artifact_name }}
+          path: |
+            ${{ steps.get-dir.outputs.dir }}/*.ipynb
+            ${{ steps.get-dir.outputs.dir }}/static/
+            ${{ steps.get-dir.outputs.dir }}/solutions/
+            ${{ steps.get-dir.outputs.dir }}/student/
+            ${{ steps.get-dir.outputs.dir }}/instructor/
           if-no-files-found: ignore
           retention-days: 1
 
@@ -212,50 +200,41 @@ jobs:
         run: |
           echo "Restoring processed files from artifacts..."
 
-          # Process notebook artifacts
-          for dir in artifacts/notebook-*; do
+          # Process tutorial artifacts (contains notebooks, static, solutions, student, instructor)
+          for dir in artifacts/tutorial-*; do
             if [ -d "$dir" ]; then
-              echo "Processing $dir"
-              cp -v "$dir"/*.ipynb tutorials/ 2>/dev/null || true
-              # Find the actual notebook and copy to correct location
-              find "$dir" -name "*.ipynb" -exec sh -c '
-                for f; do
-                  # Extract original path from artifact structure
-                  rel_path=$(basename "$f")
-                  # Find where this notebook should go based on its name
-                  original=$(find tutorials -name "$rel_path" -type f 2>/dev/null | head -1)
-                  if [ -n "$original" ]; then
-                    cp -v "$f" "$original"
-                  fi
-                done
-              ' sh {} +
-            fi
-          done
+              # Extract original tutorial directory path (convert ___ back to /)
+              artifact_name=$(basename "$dir" | sed 's/^tutorial-//')
+              tutorial_dir=$(echo "$artifact_name" | sed 's|___|/|g')
+              echo "Restoring tutorial directory: $tutorial_dir"
 
-          # Process static artifacts
-          for dir in artifacts/static-*; do
-            if [ -d "$dir" ]; then
-              echo "Processing static: $dir"
-              # Extract tutorial path from artifact name
-              artifact_name=$(basename "$dir" | sed 's/^static-//')
-              # Convert back: tutorials_W1D1_xxx.ipynb -> tutorials/W1D1_xxx
-              tutorial_dir=$(echo "$artifact_name" | sed 's/_/\//g' | sed 's/\.ipynb$//' | xargs dirname)
-              if [ -d "$tutorial_dir" ]; then
-                mkdir -p "$tutorial_dir/static"
-                cp -rv "$dir"/* "$tutorial_dir/static/" 2>/dev/null || true
+              # Copy notebooks to tutorial directory
+              if ls "$dir"/*.ipynb 1>/dev/null 2>&1; then
+                cp -v "$dir"/*.ipynb "$tutorial_dir/"
               fi
-            fi
-          done
 
-          # Process solutions artifacts
-          for dir in artifacts/solutions-*; do
-            if [ -d "$dir" ]; then
-              echo "Processing solutions: $dir"
-              artifact_name=$(basename "$dir" | sed 's/^solutions-//')
-              tutorial_dir=$(echo "$artifact_name" | sed 's/_/\//g' | sed 's/\.ipynb$//' | xargs dirname)
-              if [ -d "$tutorial_dir" ]; then
+              # Copy static files
+              if [ -d "$dir/static" ]; then
+                mkdir -p "$tutorial_dir/static"
+                cp -rv "$dir/static"/* "$tutorial_dir/static/" 2>/dev/null || true
+              fi
+
+              # Copy solutions
+              if [ -d "$dir/solutions" ]; then
                 mkdir -p "$tutorial_dir/solutions"
-                cp -rv "$dir"/* "$tutorial_dir/solutions/" 2>/dev/null || true
+                cp -rv "$dir/solutions"/* "$tutorial_dir/solutions/" 2>/dev/null || true
+              fi
+
+              # Copy student versions
+              if [ -d "$dir/student" ]; then
+                mkdir -p "$tutorial_dir/student"
+                cp -rv "$dir/student"/* "$tutorial_dir/student/" 2>/dev/null || true
+              fi
+
+              # Copy instructor versions
+              if [ -d "$dir/instructor" ]; then
+                mkdir -p "$tutorial_dir/instructor"
+                cp -rv "$dir/instructor"/* "$tutorial_dir/instructor/" 2>/dev/null || true
               fi
             fi
           done
@@ -285,6 +264,9 @@ jobs:
           python ci/find_unreferenced_content.py > to_remove.txt
           if [ -s to_remove.txt ]; then git rm --pathspec-from-file=to_remove.txt; fi
 
+      - name: Clean up artifacts directory
+        run: rm -rf artifacts/
+
       - name: Commit post-processed files
         run: |
           git config --local user.email "action@github.com"
@@ -292,6 +274,8 @@ jobs:
           git add '**/*.ipynb'
           git add '**/static/*.png'
           git add '**/solutions/*.py'
+          git add '**/student/*.ipynb'
+          git add '**/instructor/*.ipynb'
           git add '**/README.md'
           git diff-index --quiet HEAD || git commit -m "Process tutorial notebooks"
 
