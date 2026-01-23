@@ -202,19 +202,26 @@ jobs:
         run: |
           echo "Restoring processed files from artifacts..."
 
-          # Each artifact preserves the full path structure (e.g., tutorials/W2D4_Macrolearning/...)
-          # We just need to copy everything from each artifact to the repo root
+          # Artifact name format: tutorial-tutorials___W1D5_Microcircuits___W1D5_Tutorial2
+          # The path is encoded with ___ as delimiter. Last segment is notebook name, rest is directory.
+          # upload-artifact strips common path prefixes, so we need to reconstruct the target directory.
           for dir in artifacts/tutorial-*; do
             if [ -d "$dir" ]; then
-              echo "Restoring from artifact: $(basename "$dir")"
-              # Copy all contents preserving directory structure
-              # The artifact contains files at their original paths (e.g., tutorials/W2D4_Macrolearning/solutions/...)
-              cp -rv "$dir"/* . 2>/dev/null || true
+              # Extract artifact name and parse it to get target directory
+              artifact_name=$(basename "$dir" | sed 's/^tutorial-//')
+              # Convert ___ to / to get full path, then extract directory
+              full_path=$(echo "$artifact_name" | sed 's|___|/|g')
+              tutorial_dir=$(dirname "$full_path")
+              echo "Restoring from artifact $(basename "$dir") to: $tutorial_dir"
+
+              # Copy all files to the correct tutorial directory
+              # The artifact contains files with stripped prefixes (e.g., W1D5_Tutorial2.ipynb, student/, solutions/)
+              mkdir -p "$tutorial_dir"
+              cp -rv "$dir"/* "$tutorial_dir/" 2>/dev/null || true
             fi
           done
 
-          echo "Restore complete. Listing processed tutorials:"
-          find tutorials -name "*.ipynb" -newer .git/index 2>/dev/null | head -20 || true
+          echo "Restore complete."
 
       - name: Verify exercises
         env:
