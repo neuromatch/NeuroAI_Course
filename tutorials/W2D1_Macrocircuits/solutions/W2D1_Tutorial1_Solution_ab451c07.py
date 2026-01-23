@@ -6,7 +6,7 @@ def get_num_params(n_in,W,D):
     Inputs:
     - n_in (int): input dimension.
     - W (int): width of the network.
-    - D (int): depth if the network.
+    - D (int): depth of the network.
 
     Outputs:
     - num_params (int): number of parameters in the network.
