@@ -161,10 +161,10 @@ jobs:
           name: tutorial-${{ steps.get-dir.outputs.artifact_name }}
           path: |
             ${{ matrix.notebook }}
-            ${{ steps.get-dir.outputs.dir }}/static/
-            ${{ steps.get-dir.outputs.dir }}/solutions/
-            ${{ steps.get-dir.outputs.dir }}/student/
-            ${{ steps.get-dir.outputs.dir }}/instructor/
+            ${{ steps.get-dir.outputs.dir }}/static/${{ steps.get-dir.outputs.nb_name }}*
+            ${{ steps.get-dir.outputs.dir }}/solutions/${{ steps.get-dir.outputs.nb_name }}*
+            ${{ steps.get-dir.outputs.dir }}/student/${{ steps.get-dir.outputs.nb_name }}*
+            ${{ steps.get-dir.outputs.dir }}/instructor/${{ steps.get-dir.outputs.nb_name }}*
           if-no-files-found: ignore
           retention-days: 1
 
@@ -202,46 +202,19 @@ jobs:
         run: |
           echo "Restoring processed files from artifacts..."
 
-          # Process tutorial artifacts (contains notebooks, static, solutions, student, instructor)
-          # Artifact name format: tutorial-tutorials___W1D5_Microcircuits___W1D5_Tutorial2
-          # Last ___ segment is notebook name, rest is directory path
+          # Each artifact preserves the full path structure (e.g., tutorials/W2D4_Macrolearning/...)
+          # We just need to copy everything from each artifact to the repo root
           for dir in artifacts/tutorial-*; do
             if [ -d "$dir" ]; then
-              # Extract artifact name and parse it
-              artifact_name=$(basename "$dir" | sed 's/^tutorial-//')
-              # Convert ___ to / to get full path, then extract directory
-              full_path=$(echo "$artifact_name" | sed 's|___|/|g')
-              tutorial_dir=$(dirname "$full_path")
-              echo "Restoring to tutorial directory: $tutorial_dir"
-
-              # Copy notebooks (merge, don't overwrite existing from other artifacts)
-              find "$dir" -maxdepth 1 -name "*.ipynb" -exec cp -v {} "$tutorial_dir/" \;
-
-              # Copy static files (merge)
-              if [ -d "$dir/static" ]; then
-                mkdir -p "$tutorial_dir/static"
-                cp -rv "$dir/static"/* "$tutorial_dir/static/" 2>/dev/null || true
-              fi
-
-              # Copy solutions (merge)
-              if [ -d "$dir/solutions" ]; then
-                mkdir -p "$tutorial_dir/solutions"
-                cp -rv "$dir/solutions"/* "$tutorial_dir/solutions/" 2>/dev/null || true
-              fi
-
-              # Copy student versions (merge)
-              if [ -d "$dir/student" ]; then
-                mkdir -p "$tutorial_dir/student"
-                cp -rv "$dir/student"/* "$tutorial_dir/student/" 2>/dev/null || true
-              fi
-
-              # Copy instructor versions (merge)
-              if [ -d "$dir/instructor" ]; then
-                mkdir -p "$tutorial_dir/instructor"
-                cp -rv "$dir/instructor"/* "$tutorial_dir/instructor/" 2>/dev/null || true
-              fi
+              echo "Restoring from artifact: $(basename "$dir")"
+              # Copy all contents preserving directory structure
+              # The artifact contains files at their original paths (e.g., tutorials/W2D4_Macrolearning/solutions/...)
+              cp -rv "$dir"/* . 2>/dev/null || true
             fi
           done
+
+          echo "Restore complete. Listing processed tutorials:"
+          find tutorials -name "*.ipynb" -newer .git/index 2>/dev/null | head -20 || true
 
       - name: Verify exercises
         env:
