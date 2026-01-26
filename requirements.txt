@@ -32,4 +32,4 @@ git+https://github.com/neuromatch/GNS-Modeling#egg=gns
 git+https://github.com/neuromatch/pyBPL#egg=pybpl
 git+https://github.com/neuromatch/MotorNet#egg=motornet
 git+https://github.com/ctn-waterloo/sspspace@neuromatch#egg=sspspace
-git+https://github.com/mitchellostrow/DSA#egg=DSA
+git+https://github.com/mitchellostrow/DSA#egg=dsa-metric

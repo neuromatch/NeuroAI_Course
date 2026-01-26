@@ -12,7 +12,7 @@ summer_days_train_norm = (summer_days_train - summer_days_mean) / summer_days_st
 summer_days_test_norm = (summer_days_test - summer_days_mean) / summer_days_std
 
 #define MLP
-model = MLPRegressor(hidden_layer_sizes=(100, 100), max_iter=10000, random_state = 42, solver = "lbfgs") # LBFGS is better to use when there is small amount of data
+model = MLPRegressor(hidden_layer_sizes=(100, 100), max_iter=10000, random_state = 42, solver = "lbfgs") # LBFGS is better to use when there is a small amount of data
 
 #train MLP
 model.fit(summer_days_train_norm, summer_prices_train)

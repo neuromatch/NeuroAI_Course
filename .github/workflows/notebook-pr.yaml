@@ -148,33 +148,23 @@ jobs:
         run: |
           nb="${{ matrix.notebook }}"
           dir=$(dirname "$nb")
+          nb_name=$(basename "$nb" .ipynb)
           echo "dir=$dir" >> $GITHUB_OUTPUT
-          # Create a safe artifact name from the notebook path
-          safe_name=$(echo "$nb" | tr '/' '_' | tr ' ' '_')
-          echo "artifact_name=$safe_name" >> $GITHUB_OUTPUT
+          echo "nb_name=$nb_name" >> $GITHUB_OUTPUT
+          # Use ___ as delimiter (won't appear in paths) so we can restore later
+          safe_dir=$(echo "$dir" | sed 's|/|___|g')
+          echo "artifact_name=${safe_dir}___${nb_name}" >> $GITHUB_OUTPUT
 
-      - name: Upload processed notebook
+      - name: Upload processed tutorial directory
         uses: actions/upload-artifact@v4
         with:
-          name: notebook-${{ steps.get-dir.outputs.artifact_name }}
-          path: ${{ matrix.notebook }}
-          retention-days: 1
-
-      - name: Upload static files
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: static-${{ steps.get-dir.outputs.artifact_name }}
-          path: ${{ steps.get-dir.outputs.dir }}/static/
-          if-no-files-found: ignore
-          retention-days: 1
-
-      - name: Upload solutions
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: solutions-${{ steps.get-dir.outputs.artifact_name }}
-          path: ${{ steps.get-dir.outputs.dir }}/solutions/
+          name: tutorial-${{ steps.get-dir.outputs.artifact_name }}
+          path: |
+            ${{ matrix.notebook }}
+            ${{ steps.get-dir.outputs.dir }}/static/${{ steps.get-dir.outputs.nb_name }}*
+            ${{ steps.get-dir.outputs.dir }}/solutions/${{ steps.get-dir.outputs.nb_name }}*
+            ${{ steps.get-dir.outputs.dir }}/student/${{ steps.get-dir.outputs.nb_name }}*
+            ${{ steps.get-dir.outputs.dir }}/instructor/${{ steps.get-dir.outputs.nb_name }}*
           if-no-files-found: ignore
           retention-days: 1
 
@@ -212,53 +202,26 @@ jobs:
         run: |
           echo "Restoring processed files from artifacts..."
 
-          # Process notebook artifacts
-          for dir in artifacts/notebook-*; do
+          # Artifact name format: tutorial-tutorials___W1D5_Microcircuits___W1D5_Tutorial2
+          # The path is encoded with ___ as delimiter. Last segment is notebook name, rest is directory.
+          # upload-artifact strips common path prefixes, so we need to reconstruct the target directory.
+          for dir in artifacts/tutorial-*; do
             if [ -d "$dir" ]; then
-              echo "Processing $dir"
-              cp -v "$dir"/*.ipynb tutorials/ 2>/dev/null || true
-              # Find the actual notebook and copy to correct location
-              find "$dir" -name "*.ipynb" -exec sh -c '
-                for f; do
-                  # Extract original path from artifact structure
-                  rel_path=$(basename "$f")
-                  # Find where this notebook should go based on its name
-                  original=$(find tutorials -name "$rel_path" -type f 2>/dev/null | head -1)
-                  if [ -n "$original" ]; then
-                    cp -v "$f" "$original"
-                  fi
-                done
-              ' sh {} +
+              # Extract artifact name and parse it to get target directory
+              artifact_name=$(basename "$dir" | sed 's/^tutorial-//')
+              # Convert ___ to / to get full path, then extract directory
+              full_path=$(echo "$artifact_name" | sed 's|___|/|g')
+              tutorial_dir=$(dirname "$full_path")
+              echo "Restoring from artifact $(basename "$dir") to: $tutorial_dir"
+
+              # Copy all files to the correct tutorial directory
+              # The artifact contains files with stripped prefixes (e.g., W1D5_Tutorial2.ipynb, student/, solutions/)
+              mkdir -p "$tutorial_dir"
+              cp -rv "$dir"/* "$tutorial_dir/" 2>/dev/null || true
             fi
           done
 
-          # Process static artifacts
-          for dir in artifacts/static-*; do
-            if [ -d "$dir" ]; then
-              echo "Processing static: $dir"
-              # Extract tutorial path from artifact name
-              artifact_name=$(basename "$dir" | sed 's/^static-//')
-              # Convert back: tutorials_W1D1_xxx.ipynb -> tutorials/W1D1_xxx
-              tutorial_dir=$(echo "$artifact_name" | sed 's/_/\//g' | sed 's/\.ipynb$//' | xargs dirname)
-              if [ -d "$tutorial_dir" ]; then
-                mkdir -p "$tutorial_dir/static"
-                cp -rv "$dir"/* "$tutorial_dir/static/" 2>/dev/null || true
-              fi
-            fi
-          done
-
-          # Process solutions artifacts
-          for dir in artifacts/solutions-*; do
-            if [ -d "$dir" ]; then
-              echo "Processing solutions: $dir"
-              artifact_name=$(basename "$dir" | sed 's/^solutions-//')
-              tutorial_dir=$(echo "$artifact_name" | sed 's/_/\//g' | sed 's/\.ipynb$//' | xargs dirname)
-              if [ -d "$tutorial_dir" ]; then
-                mkdir -p "$tutorial_dir/solutions"
-                cp -rv "$dir"/* "$tutorial_dir/solutions/" 2>/dev/null || true
-              fi
-            fi
-          done
+          echo "Restore complete."
 
       - name: Verify exercises
         env:
@@ -285,6 +248,9 @@ jobs:
           python ci/find_unreferenced_content.py > to_remove.txt
           if [ -s to_remove.txt ]; then git rm --pathspec-from-file=to_remove.txt; fi
 
+      - name: Clean up artifacts directory
+        run: rm -rf artifacts/
+
       - name: Commit post-processed files
         run: |
           git config --local user.email "action@github.com"
@@ -292,6 +258,8 @@ jobs:
           git add '**/*.ipynb'
           git add '**/static/*.png'
           git add '**/solutions/*.py'
+          git add '**/student/*.ipynb'
+          git add '**/instructor/*.ipynb'
           git add '**/README.md'
           git diff-index --quiet HEAD || git commit -m "Process tutorial notebooks"
 
