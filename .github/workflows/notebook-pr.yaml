@@ -103,6 +103,7 @@ jobs:
     needs: setup
     if: needs.setup.outputs.skip_ci != 'true' && needs.setup.outputs.has_notebooks == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       matrix:
@@ -233,6 +234,36 @@ jobs:
             echo "has_failures=false" >> $GITHUB_OUTPUT
             echo ""
             echo "✅ All notebooks processed successfully"
+          fi
+
+      - name: Collect failure context
+        if: steps.detect-failures.outputs.has_failures == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          run_id=${{ github.run_id }}
+          echo "## Notebook Processing Failure Context" > failure_context.md
+          echo "" >> failure_context.md
+          jobs_json=$(gh api repos/${{ github.repository }}/actions/runs/${run_id}/jobs)
+          for nb in ${{ steps.detect-failures.outputs.failed_notebooks }}; do
+            nb_name=$(basename "$nb" .ipynb)
+            echo "### $nb" >> failure_context.md
+            job_id=$(echo "$jobs_json" | jq -r --arg nb "$nb" '.jobs[] | select(.name | contains($nb)) | .id')
+            if [ -n "$job_id" ]; then
+              gh api repos/${{ github.repository }}/actions/jobs/${job_id}/logs 2>/dev/null | tail -50 >> failure_context.md || echo "Could not retrieve logs" >> failure_context.md
+            else
+              echo "Job not found" >> failure_context.md
+            fi
+            echo "" >> failure_context.md
+          done
+
+      - name: Post failure context comment
+        if: steps.detect-failures.outputs.has_failures == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f failure_context.md ]; then
+            gh pr comment ${{ github.event.pull_request.number }} --body-file failure_context.md
           fi
 
       - name: Restore processed files
