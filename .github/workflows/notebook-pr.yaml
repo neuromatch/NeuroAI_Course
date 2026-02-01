@@ -357,10 +357,14 @@ jobs:
 
           echo "Creating follow-up PR for failed notebooks: $failed_nbs"
 
-          # Create new branch from current HEAD (has reverted notebooks = main's version)
-          git checkout -b "$new_branch"
+          # Stash all local changes to keep new branch clean
+          git stash --include-untracked
 
-          # Copy failed notebooks from origin (has original unprocessed version)
+          # Create new branch from origin/main (has main's version of notebooks)
+          git fetch origin main
+          git checkout -b "$new_branch" origin/main
+
+          # Copy failed notebooks from the original PR branch (unprocessed version)
           for nb in $failed_nbs; do
             git checkout "origin/$original_branch" -- "$nb" 2>/dev/null || echo "Note: $nb may be new in this PR"
           done
@@ -403,8 +407,9 @@ jobs:
           The failed notebooks have been reverted to their \`main\` branch versions in this PR.
           Once this PR is merged, the follow-up PR can be used to reprocess the failed notebooks independently."
 
-          # Return to original branch
+          # Return to original branch and restore state
           git checkout "$original_branch"
+          git stash pop || true
 
       - name: Commit post-processed files
         if: steps.detect-failures.outputs.success_notebooks != ''
