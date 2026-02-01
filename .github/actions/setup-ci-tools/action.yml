@@ -48,7 +48,7 @@ runs:
       shell: bash
       run: |
         BRANCH=${{ steps.detect-branch.outputs.branch }}
-        wget -q https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
+        wget -q https://github.com/OleBialas/nmaci/archive/refs/heads/$BRANCH.tar.gz
         tar -xzf $BRANCH.tar.gz
         mv nmaci-$BRANCH/scripts/ ci/
         # Preserve requirements for caching
@@ -65,7 +65,7 @@ runs:
         if [ ! -f ci/requirements.txt ]; then
           echo "ci/requirements.txt not found, downloading..."
           BRANCH=${{ steps.detect-branch.outputs.branch }}
-          wget -O ci/requirements.txt https://raw.githubusercontent.com/neuromatch/nmaci/$BRANCH/requirements.txt
+          wget -O ci/requirements.txt https://raw.githubusercontent.com/OleBialas/nmaci/$BRANCH/requirements.txt
         fi
 
         echo "Installing from ci/requirements.txt:"
