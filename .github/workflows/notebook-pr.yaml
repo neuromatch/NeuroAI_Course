@@ -251,9 +251,15 @@ jobs:
             echo '```' >> failure_context.md
             job_id=$(echo "$jobs_json" | jq -r --arg nb "$nb" '.jobs[] | select(.name | contains($nb)) | .id')
             if [ -n "$job_id" ] && [ "$job_id" != "null" ]; then
-              # Get logs and extract the "Process notebook" step section, take last 100 lines
+              # Get logs and extract actual output from the "Process notebook" step
+              # The output comes AFTER ##[endgroup] and before the next ##[group]
               gh api repos/${{ github.repository }}/actions/jobs/${job_id}/logs 2>/dev/null | \
-                sed -n '/##\[group\]Run echo "Processing:/,/##\[endgroup\]/p' | \
+                awk '
+                  /##\[group\]Run echo "Processing:/{in_step=1}
+                  in_step && /##\[endgroup\]/{capturing=1; next}
+                  capturing && /##\[group\]/{exit}
+                  capturing{print}
+                ' | \
                 tail -100 >> failure_context.md || echo "Could not retrieve logs" >> failure_context.md
             else
               echo "Job not found for $nb" >> failure_context.md
@@ -375,6 +381,9 @@ jobs:
 
           These notebooks failed to process in the original PR and need reprocessing:
           $(echo "$failed_nbs" | tr ' ' '\n' | sed 's/^/- /')"
+
+          # Configure git to use GITHUB_TOKEN for authentication
+          gh auth setup-git
 
           # Push the new branch
           git push origin "$new_branch"
