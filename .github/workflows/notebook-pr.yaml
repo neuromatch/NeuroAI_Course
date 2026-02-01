@@ -248,12 +248,17 @@ jobs:
           for nb in ${{ steps.detect-failures.outputs.failed_notebooks }}; do
             nb_name=$(basename "$nb" .ipynb)
             echo "### $nb" >> failure_context.md
+            echo '```' >> failure_context.md
             job_id=$(echo "$jobs_json" | jq -r --arg nb "$nb" '.jobs[] | select(.name | contains($nb)) | .id')
-            if [ -n "$job_id" ]; then
-              gh api repos/${{ github.repository }}/actions/jobs/${job_id}/logs 2>/dev/null | tail -50 >> failure_context.md || echo "Could not retrieve logs" >> failure_context.md
+            if [ -n "$job_id" ] && [ "$job_id" != "null" ]; then
+              # Get logs and extract the "Process notebook" step section, take last 100 lines
+              gh api repos/${{ github.repository }}/actions/jobs/${job_id}/logs 2>/dev/null | \
+                sed -n '/##\[group\]Run echo "Processing:/,/##\[endgroup\]/p' | \
+                tail -100 >> failure_context.md || echo "Could not retrieve logs" >> failure_context.md
             else
-              echo "Job not found" >> failure_context.md
+              echo "Job not found for $nb" >> failure_context.md
             fi
+            echo '```' >> failure_context.md
             echo "" >> failure_context.md
           done
 
@@ -324,6 +329,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
           failed_nbs="${{ steps.detect-failures.outputs.failed_notebooks }}"
           pr_number=${{ github.event.pull_request.number }}
           original_branch=${{ github.head_ref }}
@@ -334,9 +342,9 @@ jobs:
           # Save current state
           git stash --include-untracked
 
-          # Create new branch from main
-          git fetch origin main
-          git checkout -b "$new_branch" origin/main
+          # Create new branch from staging
+          git fetch origin staging
+          git checkout -b "$new_branch" origin/staging
 
           # Copy failed notebooks from the original PR branch (unprocessed version)
           for nb in $failed_nbs; do
@@ -365,7 +373,7 @@ jobs:
           This PR was automatically created to allow these notebooks to be processed independently.
 
           Original PR: #${pr_number}" \
-            --base main \
+            --base staging \
             --head "$new_branch"
 
           # Return to original branch and restore state
