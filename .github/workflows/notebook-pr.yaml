@@ -324,62 +324,6 @@ jobs:
       - name: Clean up artifacts directory
         run: rm -rf artifacts/
 
-      - name: Create follow-up PR for failed notebooks
-        if: steps.detect-failures.outputs.has_failures == 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-          failed_nbs="${{ steps.detect-failures.outputs.failed_notebooks }}"
-          pr_number=${{ github.event.pull_request.number }}
-          original_branch=${{ github.head_ref }}
-          new_branch="reprocess-pr${pr_number}-$(date +%Y%m%d%H%M%S)"
-
-          echo "Creating follow-up PR for failed notebooks: $failed_nbs"
-
-          # Save current state
-          git stash --include-untracked
-
-          # Create new branch from staging
-          git fetch origin staging
-          git checkout -b "$new_branch" origin/staging
-
-          # Copy failed notebooks from the original PR branch (unprocessed version)
-          for nb in $failed_nbs; do
-            git checkout "origin/$original_branch" -- "$nb" 2>/dev/null || echo "Note: $nb may be new in this PR"
-          done
-
-          # Commit the notebooks
-          git add $failed_nbs
-          git commit -m "Reprocess notebooks from PR #${pr_number}
-
-          These notebooks failed to process in the original PR and need reprocessing:
-          $(echo "$failed_nbs" | tr ' ' '\n' | sed 's/^/- /')"
-
-          # Push the new branch
-          git push origin "$new_branch"
-
-          # Create the PR
-          gh pr create \
-            --title "Reprocess: Failed notebooks from PR #${pr_number}" \
-            --body "## Auto-generated PR
-
-          The following notebooks failed to process in PR #${pr_number} and need reprocessing:
-
-          $(echo "$failed_nbs" | tr ' ' '\n' | sed 's/^/- /')
-
-          This PR was automatically created to allow these notebooks to be processed independently.
-
-          Original PR: #${pr_number}" \
-            --base staging \
-            --head "$new_branch"
-
-          # Return to original branch and restore state
-          git checkout "$original_branch"
-          git stash pop || true
-
       - name: Revert failed notebooks to main
         if: steps.detect-failures.outputs.has_failures == 'true' && steps.detect-failures.outputs.success_notebooks != ''
         run: |
@@ -397,6 +341,70 @@ jobs:
               echo "  Removed (new file): $nb"
             fi
           done
+
+      - name: Create follow-up PR for failed notebooks
+        if: steps.detect-failures.outputs.has_failures == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          failed_nbs="${{ steps.detect-failures.outputs.failed_notebooks }}"
+          pr_number=${{ github.event.pull_request.number }}
+          original_branch=${{ github.head_ref }}
+          new_branch="reprocess-pr${pr_number}-$(date +%Y%m%d%H%M%S)"
+
+          echo "Creating follow-up PR for failed notebooks: $failed_nbs"
+
+          # Create new branch from current HEAD (has reverted notebooks = main's version)
+          git checkout -b "$new_branch"
+
+          # Copy failed notebooks from origin (has original unprocessed version)
+          for nb in $failed_nbs; do
+            git checkout "origin/$original_branch" -- "$nb" 2>/dev/null || echo "Note: $nb may be new in this PR"
+          done
+
+          # Commit the notebooks
+          git add $failed_nbs
+          git commit -m "Reprocess notebooks from PR #${pr_number}
+
+          These notebooks failed to process in the original PR and need reprocessing:
+          $(echo "$failed_nbs" | tr ' ' '\n' | sed 's/^/- /')"
+
+          # Push the new branch
+          git push origin "$new_branch"
+
+          # Create the PR targeting the original branch and capture the URL
+          new_pr_url=$(gh pr create \
+            --title "Reprocess: Failed notebooks from PR #${pr_number}" \
+            --body "## Auto-generated PR
+
+          The following notebooks failed to process in PR #${pr_number} and need reprocessing:
+
+          $(echo "$failed_nbs" | tr ' ' '\n' | sed 's/^/- /')
+
+          This PR was automatically created to allow these notebooks to be processed independently.
+
+          Original PR: #${pr_number}" \
+            --base "$original_branch" \
+            --head "$new_branch")
+
+          echo "Created follow-up PR: $new_pr_url"
+
+          # Add comment to original PR referencing the follow-up PR
+          gh pr comment "$pr_number" --body "## Follow-up PR Created
+
+          A follow-up PR has been created for the notebooks that failed to process:
+
+          **Follow-up PR:** $new_pr_url
+          **Branch:** \`$new_branch\`
+
+          The failed notebooks have been reverted to their \`main\` branch versions in this PR.
+          Once this PR is merged, the follow-up PR can be used to reprocess the failed notebooks independently."
+
+          # Return to original branch
+          git checkout "$original_branch"
 
       - name: Commit post-processed files
         if: steps.detect-failures.outputs.success_notebooks != ''
