@@ -265,13 +265,11 @@ jobs:
             echo '```' >> failure_context.md
             job_id=$(echo "$jobs_json" | jq -r --arg nb "$nb" '.jobs[] | select(.name | contains($nb)) | .id')
             if [ -n "$job_id" ] && [ "$job_id" != "null" ]; then
-              # Get logs and extract actual output from the "Process notebook" step
-              # The output comes AFTER ##[endgroup] and before the next ##[group]
+              # Get logs from the "Notebook execution output" group
               gh api repos/${{ github.repository }}/actions/jobs/${job_id}/logs 2>/dev/null | \
                 awk '
-                  /##\[group\]Run echo "Processing:/{in_step=1}
-                  in_step && /##\[endgroup\]/{capturing=1; next}
-                  capturing && /##\[group\]/{exit}
+                  /##\[group\]Notebook execution output/{capturing=1; next}
+                  capturing && /##\[endgroup\]/{exit}
                   capturing{print}
                 ' | \
                 tail -100 >> failure_context.md || echo "Could not retrieve logs" >> failure_context.md
