@@ -135,14 +135,28 @@ jobs:
       - name: Process notebook
         env:
           COMMIT_MESSAGE: ${{ needs.setup.outputs.commit_message }}
+          PYTHONUNBUFFERED: "1"
         run: |
-          echo "Processing: ${{ matrix.notebook }}"
+          echo "::group::Processing ${{ matrix.notebook }}"
+          echo "Started at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "Job timeout: 20 minutes"
+
           if [[ "$COMMIT_MESSAGE" == *"ci:check"* ]]; then
             execflag="--check-execution"
+            echo "Mode: Check execution (no changes)"
           else
             execflag="--execute"
+            echo "Mode: Execute and process"
           fi
+          echo "::endgroup::"
+
+          echo "::group::Notebook execution output"
           python ci/process_notebooks.py "${{ matrix.notebook }}" $execflag
+          exit_code=$?
+          echo "::endgroup::"
+
+          echo "Completed at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          exit $exit_code
 
       - name: Get tutorial directory
         id: get-dir
@@ -349,7 +363,7 @@ jobs:
           done
 
       - name: Create follow-up PR for failed notebooks
-        if: steps.detect-failures.outputs.has_failures == 'true'
+        if: steps.detect-failures.outputs.has_failures == 'true' && steps.detect-failures.outputs.success_notebooks != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
