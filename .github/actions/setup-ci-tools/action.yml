@@ -40,7 +40,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: ci/
-        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v2
+        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v3
         restore-keys: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
 
     - name: Download nmaci tools
