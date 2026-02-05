@@ -270,6 +270,9 @@ jobs:
                 awk '
                   /##\[group\]Notebook execution output/{capturing=1; next}
                   capturing && /##\[endgroup\]/{exit}
+                  capturing && /##\[error\]/{print; exit}
+                  capturing && /##\[group\]/{exit}
+                  capturing && /Post job cleanup/{exit}
                   capturing{print}
                 ' | \
                 tail -100 >> failure_context.md || echo "Could not retrieve logs" >> failure_context.md
