@@ -35,12 +35,21 @@ runs:
         echo "branch=$BRANCH" >> $GITHUB_OUTPUT
         echo "Using nmaci branch: $BRANCH"
 
+    - name: Get nmaci latest commit
+      id: nmaci-sha
+      shell: bash
+      run: |
+        BRANCH=${{ steps.detect-branch.outputs.branch }}
+        SHA=$(git ls-remote https://github.com/neuromatch/nmaci.git refs/heads/$BRANCH | cut -c1-8)
+        echo "sha=$SHA" >> $GITHUB_OUTPUT
+        echo "nmaci $BRANCH is at commit $SHA"
+
     - name: Cache nmaci tools
       id: cache-nmaci
       uses: actions/cache@v3
       with:
         path: ci/
-        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v3
+        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-${{ steps.nmaci-sha.outputs.sha }}
         restore-keys: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
 
     - name: Download nmaci tools
