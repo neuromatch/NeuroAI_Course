@@ -49,8 +49,8 @@ runs:
       uses: actions/cache@v4
       with:
         path: ci/
-        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-${{ steps.nmaci-sha.outputs.sha }}
-        restore-keys: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
+        key: nmaci-v2-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-${{ steps.nmaci-sha.outputs.sha }}
+        restore-keys: nmaci-v2-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
 
     - name: Download nmaci tools
       if: steps.cache-nmaci.outputs.cache-hit != 'true'
