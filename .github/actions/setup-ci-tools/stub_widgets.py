@@ -28,14 +28,9 @@ class _NoOpWidget:
     def __setattr__(self, name, value):
         object.__setattr__(self, name, value)
 
-    def set_title(self, *args, **kwargs):
-        pass
-
-    def on_click(self, *args, **kwargs):
-        pass
-
-    def observe(self, *args, **kwargs):
-        pass
+    def __getattr__(self, name):
+        # Return a no-op callable for any unknown method/attribute
+        return lambda *args, **kwargs: None
 
 
 class _Interact:
