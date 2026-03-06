@@ -75,25 +75,21 @@ class _Interact:
         return f
 
 
-stub = types.ModuleType("ipywidgets")
-for _name in [
-    "Output",
-    "Tab",
-    "HBox",
-    "VBox",
-    "GridBox",
-    "Button",
-    "Label",
-    "HTML",
-    "Image",
-    "IntSlider",
-    "FloatSlider",
-    "Dropdown",
-    "Layout",
-]:
-    setattr(stub, _name, _NoOpWidget)
-stub.interact = _Interact()
-stub.interactive = _Interact()
+class _StubModule(types.ModuleType):
+    """ipywidgets stub module.
+
+    Any attribute access returns _NoOpWidget so that
+    'from ipywidgets import AnythingAtAll' always succeeds.
+    """
+
+    interact = _Interact()
+    interactive = _Interact()
+
+    def __getattr__(self, name):
+        return _NoOpWidget
+
+
+stub = _StubModule("ipywidgets")
 stub.widgets = stub  # support: from ipywidgets import widgets
 sys.modules["ipywidgets"] = stub
 sys.modules["ipywidgets.widgets"] = stub
