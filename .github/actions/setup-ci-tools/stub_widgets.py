@@ -86,6 +86,8 @@ class _StubModule(types.ModuleType):
     interactive = _Interact()
 
     def __getattr__(self, name):
+        if name.startswith("__"):
+            raise AttributeError(name)
         return _NoOpWidget
 
 
