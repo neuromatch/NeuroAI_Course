@@ -35,13 +35,22 @@ runs:
         echo "branch=$BRANCH" >> $GITHUB_OUTPUT
         echo "Using nmaci branch: $BRANCH"
 
+    - name: Get nmaci latest commit
+      id: nmaci-sha
+      shell: bash
+      run: |
+        BRANCH=${{ steps.detect-branch.outputs.branch }}
+        SHA=$(git ls-remote https://github.com/neuromatch/nmaci.git refs/heads/$BRANCH | cut -c1-8)
+        echo "sha=$SHA" >> $GITHUB_OUTPUT
+        echo "nmaci $BRANCH is at commit $SHA"
+
     - name: Cache nmaci tools
       id: cache-nmaci
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ci/
-        key: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-v2
-        restore-keys: nmaci-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
+        key: nmaci-v2-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-${{ steps.nmaci-sha.outputs.sha }}
+        restore-keys: nmaci-v2-${{ runner.os }}-${{ steps.detect-branch.outputs.branch }}-
 
     - name: Download nmaci tools
       if: steps.cache-nmaci.outputs.cache-hit != 'true'
@@ -50,6 +59,7 @@ runs:
         BRANCH=${{ steps.detect-branch.outputs.branch }}
         wget -q https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
         tar -xzf $BRANCH.tar.gz
+        rm -rf ci/scripts
         mv nmaci-$BRANCH/scripts/ ci/
         # Preserve requirements for caching
         mv nmaci-$BRANCH/requirements.txt ci/requirements.txt
