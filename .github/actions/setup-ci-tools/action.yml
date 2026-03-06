@@ -88,3 +88,10 @@ runs:
     - name: Ignore ci directory
       shell: bash
       run: echo "ci/" >> .gitignore
+
+    - name: Stub ipywidgets for headless kernel execution
+      shell: bash
+      run: |
+        mkdir -p ~/.ipython/profile_default/startup
+        cp ${{ github.action_path }}/stub_widgets.py ~/.ipython/profile_default/startup/00-stub-widgets.py
+        echo "Installed ipywidgets stub to IPython startup"
