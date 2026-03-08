@@ -39,6 +39,7 @@ jobs:
         uses: ./.github/actions/setup-ci-tools
         with:
           commit-message: ${{ env.COMMIT_MESSAGE }}
+          stub-widgets: 'false'
 
       - name: Setup rendering dependencies
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"

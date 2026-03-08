@@ -10,6 +10,10 @@ inputs:
     description: 'Commit message to parse for branch override'
     required: false
     default: ''
+  stub-widgets:
+    description: 'Install ipywidgets stub for headless execution (disable for book builds)'
+    required: false
+    default: 'true'
 
 outputs:
   nmaci-branch:
@@ -90,6 +94,7 @@ runs:
       run: echo "ci/" >> .gitignore
 
     - name: Stub ipywidgets for headless kernel execution
+      if: inputs.stub-widgets == 'true'
       shell: bash
       run: |
         mkdir -p ~/.ipython/profile_default/startup
