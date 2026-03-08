@@ -22,7 +22,6 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
 
       - name: Get commit message
         run: |
