@@ -20,7 +20,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          persist-credentials: false
           fetch-depth: 0
 
       - name: Get commit message
@@ -80,15 +79,8 @@ jobs:
           jupyter-book build book
           python ci/parse_html_for_errors.py student
 
-      - name: Commit book
+      - name: Publish to gh-pages
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          ghp-import -n -c "neuroai.neuromatch.io" -m "Update course book" book/_build/html
-
-      - name: Publish to gh-pages
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          force: true
+          ghp-import -n -p -f -c "neuroai.neuromatch.io" -m "Update course book" book/_build/html
