@@ -1,1 +1,0 @@
-temporal_diff = np.abs(np.diff(sig))
