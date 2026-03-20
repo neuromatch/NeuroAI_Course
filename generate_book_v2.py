@@ -235,12 +235,12 @@ def pre_process_notebook(file_path):
     content = open_in_colab_new_tab(content)
     content = change_video_widths(content)
     content = link_hidden_cells(content)
-    content = tag_stub_cells(content)
+    content = tag_cells_allow_errors(content)
     with open(file_path, "w", encoding="utf-8") as fh:
         json.dump(content, fh, indent=1, ensure_ascii=False)
 
 
-def tag_stub_cells(content):
+def tag_cells_allow_errors(content):
     """Add raises-exception tag to every code cell.
 
     JB1 used allow_errors:true globally so execution continued past any error
