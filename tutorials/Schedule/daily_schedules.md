@@ -42,8 +42,6 @@ All days except W1D4 and W2D5 will follow this schedule for course time:
 ### Project time
 In addition to course time, each day will have 3 hours of project time after tutorials time. 
 
-#### **Schedule Change for 2025:** For all time slots, projects will come *after* course work.
-
 ### Schedule of specific days
 <!--
 #### W2D1: Modeling Practice & Half Project Day (Project Proposals)
