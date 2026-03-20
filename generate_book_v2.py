@@ -222,7 +222,7 @@ def open_in_colab_new_tab(content):
     if not cells or not cells[0].get("source"):
         return content
     parsed_html = BeautifulSoup(cells[0]["source"][0], "html.parser")
-    for anchor in parsed_html.findAll("a"):
+    for anchor in parsed_html.find_all("a"):
         anchor["target"] = "_blank"
     cells[0]["source"][0] = str(parsed_html)
     return content
