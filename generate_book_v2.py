@@ -10,7 +10,9 @@ multiple tools. This script translates it into the myst.yml build artifact.
 Run as: python ci/generate_book_v2.py student
 """
 
+import ast
 import os
+import re
 import sys
 import json
 import yaml
@@ -42,6 +44,7 @@ def main():
             "children": [
                 {
                     "file": "tutorials/Schedule/schedule_intro.md",
+                    "short_title": "Overview",
                     "children": [
                         {"file": "tutorials/Schedule/daily_schedules.md"},
                         {"file": "tutorials/Schedule/shared_calendars.md"},
@@ -59,9 +62,11 @@ def main():
             "children": [
                 {
                     "file": "tutorials/TechnicalHelp/tech_intro.md",
+                    "short_title": "Overview",
                     "children": [
                         {
                             "file": "tutorials/TechnicalHelp/Jupyterbook.md",
+                            "short_title": "Using Jupyterbook",
                             "children": [
                                 {"file": "tutorials/TechnicalHelp/Tutorial_colab.md"},
                                 {"file": "tutorials/TechnicalHelp/Tutorial_kaggle.md"},
@@ -188,6 +193,9 @@ def main():
         "site": {
             "template": "book-theme",
             "domains": ["neuroai.neuromatch.io"],
+            "logo": "tutorials/static/ai-logo.png",
+            "favicon": "tutorials/static/ai-logo.png",
+            "options": {"logo_text": "Neuromatch Academy: NeuroAI"},
             "nav": [],
             "actions": [{"title": "GitHub", "url": f"https://github.com/{ORG}/{REPO}"}],
         },
@@ -233,12 +241,130 @@ def pre_process_notebook(file_path):
     with open(file_path, encoding="utf-8") as fh:
         content = json.load(fh)
     content = open_in_colab_new_tab(content)
-    content = change_video_widths(content)
+    content = replace_widgets(content)
     content = link_hidden_cells(content)
     if ARG == "student":
         content = tag_cells_allow_errors(content)
     with open(file_path, "w", encoding="utf-8") as fh:
         json.dump(content, fh, indent=1, ensure_ascii=False)
+
+
+def replace_widgets(content):
+    """Replace or remove ipywidget-based cells that don't render in static HTML.
+
+    JB2/MyST does not embed widget state, so widget cells render as "Loading..."
+    placeholders. This function handles three patterns:
+
+    Video cells — detected by ``display_videos(`` + ``video_ids = [``:
+      Replaced with a markdown cell containing YouTube and Bilibili iframes
+      stacked with bold platform labels.
+
+    Slide cells — detected by ``# @title <slides title>`` + ``link_id``:
+      Replaced with a markdown cell containing the OSF iframe and a download
+      link. Titles matched: "Tutorial slides", "Slides", "Intro Video Slides",
+      "Outro Video Slides", "Load Slides", "Conclusion slides".
+
+    Feedback cells — detected by ``# @title Submit your feedback``:
+      Removed entirely (pure UI widget, no static equivalent).
+    """
+    WIDGET_W = 730
+    WIDGET_H = 410
+
+    def make_iframe(src):
+        return (
+            f'<iframe width="{WIDGET_W}" height="{WIDGET_H}" '
+            f'src="{src}" '
+            f'allowfullscreen="" frameborder="0" '
+            f'allow="autoplay; encrypted-media"></iframe>'
+        )
+
+    new_cells = []
+    for cell in content["cells"]:
+        src = "".join(cell.get("source", []))
+
+        if cell["cell_type"] != "code":
+            new_cells.append(cell)
+            continue
+
+        # --- Feedback cells: remove ---
+        if "# @title Submit your feedback" in src:
+            continue
+
+        # --- Video cells: replace with iframes ---
+        if "display_videos(" in src and "video_ids = [" in src:
+            title_match = re.search(r"#\s*@title\s+(.*)", src)
+            title = title_match.group(1).strip() if title_match else "Video"
+
+            ids_match = re.search(r"video_ids\s*=\s*(\[.*?\])", src)
+            video_ids = []
+            if ids_match:
+                try:
+                    video_ids = ast.literal_eval(ids_match.group(1))
+                except (ValueError, SyntaxError):
+                    pass
+
+            if not video_ids:
+                new_cells.append(cell)
+                continue
+
+            html_parts = [f"<h3>{title}</h3>"]
+            for platform, vid_id in video_ids:
+                if platform == "Youtube":
+                    iframe_src = f"https://www.youtube.com/embed/{vid_id}?fs=1&rel=0"
+                elif platform == "Bilibili":
+                    iframe_src = (
+                        f"https://player.bilibili.com/player.html?bvid={vid_id}&page=1"
+                    )
+                else:
+                    print(
+                        f"  Warning: unknown video platform '{platform}' (id={vid_id}), skipping"
+                    )
+                    continue
+                html_parts.append(f"<p><b>{platform}</b></p>")
+                html_parts.append(make_iframe(iframe_src))
+
+            new_cells.append(
+                {
+                    "cell_type": "markdown",
+                    "metadata": {},
+                    "source": ["\n".join(html_parts)],
+                }
+            )
+            continue
+
+        # --- Slide cells: replace with OSF iframe + download link ---
+        if "link_id" in src and "osf.io" in src:
+            link_id_match = re.search(r'link_id\s*=\s*["\']([^"\']+)["\']', src)
+            if not link_id_match:
+                new_cells.append(cell)
+                continue
+
+            link_id = link_id_match.group(1)
+            download_url = f"https://osf.io/download/{link_id}/"
+            render_url = (
+                f"https://mfr.ca-1.osf.io/render?url=https://osf.io/{link_id}/"
+                f"?direct%26mode=render%26action=download%26mode=render"
+            )
+            new_cells.append(
+                {
+                    "cell_type": "markdown",
+                    "metadata": {},
+                    "source": [
+                        "\n".join(
+                            [
+                                f'<p>If you want to download the slides: <a href="{download_url}">{download_url}</a></p>',
+                                make_iframe(render_url),
+                            ]
+                        )
+                    ],
+                }
+            )
+            continue
+
+        new_cells.append(cell)
+
+    content["cells"] = new_cells
+    return content
 
 
 def tag_cells_allow_errors(content):
@@ -331,39 +457,6 @@ def link_hidden_cells(content):
                     i_updated_cell += 1
         i_updated_cell += 1
     content["cells"] = updated_cells
-    return content
-
-
-def change_video_widths(content):
-    for cell in content["cells"]:
-        if "YouTubeVideo" in "".join(cell["source"]):
-            for ind in range(len(cell["source"])):
-                cell["source"][ind] = cell["source"][ind].replace("854", "730")
-                cell["source"][ind] = cell["source"][ind].replace("480", "410")
-        if (
-            "# @title Tutorial slides\n" in cell["source"]
-            or "# @title Slides\n" in cell["source"]
-        ):
-            slide_link = ""
-            for line in cell["source"]:
-                if line.startswith("link_id"):
-                    slide_link = line.split('"')[1]
-                    break
-            download_link = f"https://osf.io/download/{slide_link}/"
-            render_link = (
-                f"https://mfr.ca-1.osf.io/render?url=https://osf.io/{slide_link}/"
-                f"?direct%26mode=render%26action=download%26mode=render"
-            )
-            cell["source"] = [
-                "# @markdown\n",
-                "from IPython.display import IFrame\n",
-                "from ipywidgets import widgets\n",
-                "out = widgets.Output()\n",
-                "with out:\n",
-                f'    print(f"If you want to download the slides: {download_link}")\n',
-                f'    display(IFrame(src=f"{render_link}", width=730, height=410))\n',
-                "display(out)",
-            ]
     return content
 
 

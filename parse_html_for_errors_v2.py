@@ -3,13 +3,16 @@
 Post-process JB2-built HTML to strip error output divs.
 
 JB1 equivalent: nmaci/scripts/parse_html_for_errors.py
-JB2 difference: MyST uses different CSS classes for cell output containers.
+JB2 difference: MyST wraps error output in:
+  <div data-name="outputs-container">
+    <div data-name="safe-output-error">
+      <pre class="myst-jp-error-output">...</pre>
+    </div>
+  </div>
 
-JB1 class:  "cell_output docutils container"
-JB2 classes tried (in order):
-  - "cell_output"           (MyST book-theme)
-  - "output"                (fallback)
-  - any <div> containing the error text (last resort)
+We target the inner div[data-name="safe-output-error"] to detect which
+outputs-container holds an error, then decompose the parent
+div[data-name="outputs-container"] so nothing is left behind.
 
 Run as: python parse_html_for_errors_v2.py student
 """
@@ -80,27 +83,30 @@ def main():
 def strip_error_divs(parsed_html):
     """Remove output divs that contain NotImplementedError or NameError text.
 
-    Tries JB1's class first, then JB2/MyST class names, then a broad sweep.
-    Returns the number of divs removed.
+    JB2/MyST error output structure:
+      <div data-name="outputs-container">
+        <div data-name="safe-output-error">
+          <pre class="myst-jp-error-output">...</pre>
+        </div>
+      </div>
+
+    We find the inner error div, check it contains a known error string, then
+    decompose the parent outputs-container (so no empty wrapper is left).
+    Returns the number of containers removed.
     """
     removed = 0
 
-    # JB1 class (sphinx/docutils)
-    candidates = parsed_html.find_all(
-        "div", {"class": "cell_output docutils container"}
-    )
-
-    # JB2/MyST book-theme output wrapper
-    if not candidates:
-        candidates = parsed_html.find_all("div", {"class": "cell_output"})
-
-    # Broader fallback: any <div> that directly wraps an error traceback
-    if not candidates:
-        candidates = parsed_html.find_all("div", class_=lambda c: c and "output" in c)
-
-    for div in candidates:
-        if any(err in str(div) for err in ERROR_STRINGS):
-            div.decompose()
+    error_divs = parsed_html.find_all("div", attrs={"data-name": "safe-output-error"})
+    for error_div in error_divs:
+        if any(err in str(error_div) for err in ERROR_STRINGS):
+            # Walk up to the outputs-container wrapper and remove the whole thing
+            parent = error_div.find_parent(
+                "div", attrs={"data-name": "outputs-container"}
+            )
+            if parent:
+                parent.decompose()
+            else:
+                error_div.decompose()
             removed += 1
 
     return removed
