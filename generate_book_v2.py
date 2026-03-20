@@ -158,18 +158,22 @@ def main():
 
     # Professional Development
     with open("projects/professional_development/prof_dev_materials.yml") as fh:
-        prof_dev_materials = yaml.load(fh, Loader=yaml.FullLoader)
+        prof_dev_materials = convert_sections_to_children(
+            yaml.load(fh, Loader=yaml.FullLoader)
+        )
     toc.append({"title": "Professional Development", "children": prof_dev_materials})
 
     # Project Booklet
     with open("projects/project_materials.yml") as fh:
-        project_materials = yaml.load(fh, Loader=yaml.FullLoader)
+        project_materials = convert_sections_to_children(
+            yaml.load(fh, Loader=yaml.FullLoader)
+        )
     toc.append({"title": "Project Booklet", "children": project_materials})
 
     # Pre-process project notebooks
     for m in project_materials:
         if m.get("title") == "Project materials":
-            for project in m.get("sections", []):
+            for project in m.get("children", []):
                 pre_process_notebook(project["file"])
 
     # Write myst.yml (build artifact — not committed to git)
@@ -199,6 +203,24 @@ def main():
         )
 
     print("Generated book/myst.yml")
+
+
+# ---- TOC helpers ----
+
+
+def convert_sections_to_children(entries):
+    """Recursively rename JB1 'sections' keys to JB2 'children'."""
+    if not entries:
+        return entries
+    result = []
+    for entry in entries:
+        entry = dict(entry)
+        if "sections" in entry:
+            entry["children"] = convert_sections_to_children(entry.pop("sections"))
+        elif "children" in entry:
+            entry["children"] = convert_sections_to_children(entry["children"])
+        result.append(entry)
+    return result
 
 
 # ---- Pre-processing helpers (ported verbatim from nmaci generate_book.py) ----

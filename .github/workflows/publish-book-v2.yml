@@ -78,6 +78,12 @@ jobs:
           path: book/_build/templates
           key: jb2-templates-v1
 
+      - name: Create symlinks so book/ can resolve repo-root paths
+        run: |
+          ln -s ${{ github.workspace }}/tutorials book/tutorials
+          ln -s ${{ github.workspace }}/projects book/projects
+          ln -s ${{ github.workspace }}/prereqs book/prereqs
+
       - name: Generate myst.yml from materials.yml
         run: python generate_book_v2.py student
 
