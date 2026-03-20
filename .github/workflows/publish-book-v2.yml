@@ -87,6 +87,9 @@ jobs:
         env:
           BASE_URL: ${{ env.BASE_URL }}
 
+      - name: Copy CNAME for custom domain
+        run: cp CNAME book/_build/html/CNAME
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
