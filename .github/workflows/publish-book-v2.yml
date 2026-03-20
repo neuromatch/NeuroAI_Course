@@ -93,6 +93,9 @@ jobs:
         env:
           BASE_URL: ${{ env.BASE_URL }}
 
+      - name: Strip error output divs from built HTML
+        run: python parse_html_for_errors_v2.py student
+
       - name: Copy CNAME for custom domain
         run: cp CNAME book/_build/html/CNAME
 

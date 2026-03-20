@@ -241,22 +241,27 @@ def pre_process_notebook(file_path):
 
 
 def tag_stub_cells(content):
-    """Add skip-execution tag to cells containing raise NotImplementedError.
+    """Add raises-exception tag to every code cell.
 
-    JB1 used allow_errors:true to silently swallow errors from these stub cells.
-    JB2 has no global equivalent, so we skip execution instead — the source is
-    still rendered (students see the stub), but no error traceback is produced.
+    JB1 used allow_errors:true globally so execution continued past any error
+    (NotImplementedError stubs, downstream NameErrors, etc.) and error output
+    divs were stripped from the HTML by parse_html_for_errors.py.
+
+    JB2 has no global allow_errors equivalent, but raises-exception on a cell
+    tells MyST to continue executing subsequent cells after an error. We apply
+    it to all code cells so that the behaviour matches JB1 exactly. A companion
+    post-processing script (parse_html_for_errors_v2.py) then strips the error
+    output divs from the built HTML before deployment.
     """
     for cell in content["cells"]:
         if cell["cell_type"] != "code":
             continue
-        if any("NotImplementedError" in s for s in cell.get("source", [])):
-            if "metadata" not in cell:
-                cell["metadata"] = {}
-            if "tags" not in cell["metadata"]:
-                cell["metadata"]["tags"] = []
-            if "skip-execution" not in cell["metadata"]["tags"]:
-                cell["metadata"]["tags"].append("skip-execution")
+        if "metadata" not in cell:
+            cell["metadata"] = {}
+        if "tags" not in cell["metadata"]:
+            cell["metadata"]["tags"] = []
+        if "raises-exception" not in cell["metadata"]["tags"]:
+            cell["metadata"]["tags"].append("raises-exception")
     return content
 
 
