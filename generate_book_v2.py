@@ -304,9 +304,7 @@ def replace_widgets(content):
                 if platform == "Youtube":
                     iframe_url = f"https://www.youtube.com/embed/{vid_id}?fs=1&rel=0"
                 elif platform == "Bilibili":
-                    iframe_url = (
-                        f"https://player.bilibili.com/player.html?bvid={vid_id}&page=1"
-                    )
+                    iframe_url = f"https://player.bilibili.com/player.html?bvid={vid_id}&page=1&autoplay=0"
                 else:
                     print(
                         f"  Warning: unknown video platform '{platform}' (id={vid_id}), skipping"
