@@ -193,11 +193,13 @@ def main():
         "site": {
             "template": "book-theme",
             "domains": ["neuroai.neuromatch.io"],
-            "logo": "tutorials/static/ai-logo.png",
-            "favicon": "tutorials/static/ai-logo.png",
-            "options": {"logo_text": "Neuromatch Academy: NeuroAI"},
             "nav": [],
             "actions": [{"title": "GitHub", "url": f"https://github.com/{ORG}/{REPO}"}],
+            "options": {
+                "logo": "tutorials/static/ai-logo.png",
+                "favicon": "tutorials/static/ai-logo.png",
+                "logo_text": "Neuromatch Academy: NeuroAI",
+            },
         },
     }
 
