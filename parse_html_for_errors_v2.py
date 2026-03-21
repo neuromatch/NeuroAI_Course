@@ -36,6 +36,19 @@ def main():
     total_removed = 0
     files_touched = 0
 
+    if not os.path.isdir(HTML_ROOT):
+        print(
+            f"ERROR: HTML output directory not found: {HTML_ROOT!r} (cwd={os.getcwd()!r})"
+        )
+        sys.exit(1)
+
+    all_index_files = []
+    for dirpath, _dirnames, filenames in os.walk(HTML_ROOT):
+        for fname in filenames:
+            if fname == "index.html":
+                all_index_files.append(os.path.join(dirpath, fname))
+    print(f"Found {len(all_index_files)} index.html files under {HTML_ROOT}")
+
     for dirpath, _dirnames, filenames in os.walk(HTML_ROOT):
         for fname in filenames:
             if fname != "index.html":
