@@ -14,54 +14,39 @@ We target the inner div[data-name="safe-output-error"] to detect which
 outputs-container holds an error, then decompose the parent
 div[data-name="outputs-container"] so nothing is left behind.
 
+JB2/MyST flattens output into slug-based directories rather than mirroring
+the input path structure.  We therefore scan every index.html under the
+build output tree instead of constructing paths from materials.yml.
+
 Run as: python parse_html_for_errors_v2.py student
 """
 
 import os
 import sys
-import yaml
 from bs4 import BeautifulSoup
 
-ARG = sys.argv[1]  # "student" or "instructor"
+sys.argv[1]  # "student" or "instructor" — accepted but not used (kept for compat)
 
 ERROR_STRINGS = ["NotImplementedError", "NameError"]
 
+HTML_ROOT = "book/_build/html"
+
 
 def main():
-    with open("tutorials/materials.yml") as fh:
-        materials = yaml.load(fh, Loader=yaml.FullLoader)
-
-    html_directory = "book/_build/html/"
     total_removed = 0
+    files_touched = 0
 
-    for m in materials:
-        name = f"{m['day']}_{''.join(m['name'].split())}"
-
-        notebook_paths = []
-        if os.path.exists(f"tutorials/{name}/{m['day']}_Intro.ipynb"):
-            notebook_paths.append(
-                f"{html_directory}/tutorials/{name}/{ARG}/{m['day']}_Intro.html"
-            )
-        notebook_paths += [
-            f"{html_directory}/tutorials/{name}/{ARG}/{m['day']}_Tutorial{i + 1}.html"
-            for i in range(m["tutorials"])
-        ]
-        if os.path.exists(f"tutorials/{name}/{m['day']}_Outro.ipynb"):
-            notebook_paths.append(
-                f"{html_directory}/tutorials/{name}/{ARG}/{m['day']}_Outro.html"
-            )
-
-        for html_path in notebook_paths:
-            if not os.path.exists(html_path):
-                print(f"  Warning: {html_path} not found, skipping")
+    for dirpath, _dirnames, filenames in os.walk(HTML_ROOT):
+        for fname in filenames:
+            if fname != "index.html":
                 continue
+            html_path = os.path.join(dirpath, fname)
 
             with open(html_path, encoding="utf-8") as f:
                 contents = f.read()
 
             parsed_html = BeautifulSoup(contents, features="html.parser")
             removed = strip_error_divs(parsed_html)
-            total_removed += removed
 
             # Put solution figures in center (matches JB1 behaviour)
             for img in parsed_html.find_all("img", alt=True):
@@ -69,15 +54,16 @@ def main():
                     img["align"] = "center"
                     img["class"] = "align-center"
 
-            with open(html_path, "w", encoding="utf-8") as f:
-                f.write(str(parsed_html))
-
             if removed:
-                print(
-                    f"  Stripped {removed} error div(s) from {os.path.basename(html_path)}"
-                )
+                total_removed += removed
+                files_touched += 1
+                with open(html_path, "w", encoding="utf-8") as f:
+                    f.write(str(parsed_html))
+                print(f"  Stripped {removed} error div(s) from {html_path}")
 
-    print(f"Done. Removed {total_removed} error output div(s) total.")
+    print(
+        f"Done. Removed {total_removed} error output div(s) from {files_touched} file(s)."
+    )
 
 
 def strip_error_divs(parsed_html):
