@@ -380,7 +380,7 @@ def tag_cells_allow_errors(content):
     JB2 has no global allow_errors equivalent, but raises-exception on a cell
     tells MyST to continue executing subsequent cells after an error. We apply
     it to all code cells so that the behaviour matches JB1 exactly. A companion
-    post-processing script (parse_html_for_errors_v2.py) then strips the error
+    post-processing script (parse_build_for_errors_v2.py) then strips the error
     output divs from the built HTML before deployment.
     """
     for cell in content["cells"]:
