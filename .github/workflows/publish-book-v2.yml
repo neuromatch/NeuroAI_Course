@@ -67,10 +67,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: book/_build/execute
-          key: jb2-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
+          key: jb2-exec-v2-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
           restore-keys: |
-            jb2-exec-${{ steps.cache-date.outputs.date }}-
-            jb2-exec-
+            jb2-exec-v2-${{ steps.cache-date.outputs.date }}-
+            jb2-exec-v2-
 
       - name: Cache MyST theme (avoids re-download on every run)
         uses: actions/cache@v4
