@@ -188,6 +188,7 @@ def main():
             "title": "Neuromatch Academy: NeuroAI",
             "github": f"https://github.com/{ORG}/{REPO}",
             "license": "CC-BY-4.0",
+            "edit_url": None,  # disable: auto-computed URL gets book/ prefix from symlink
             "toc": toc,
         },
         "site": {
@@ -199,6 +200,7 @@ def main():
                 "logo": "tutorials/static/ai-logo.png",
                 "favicon": "tutorials/static/ai-logo.png",
                 "logo_text": "Neuromatch Academy: NeuroAI",
+                "hide_title_block": True,  # notebook H1 stays in body; suppress duplicate
             },
         },
     }
