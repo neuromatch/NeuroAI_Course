@@ -1,114 +1,141 @@
 #!/usr/bin/env python3
 """
-Post-process JB2-built HTML to strip error output divs.
+Post-process JB2-built output to strip student exercise error outputs.
 
 JB1 equivalent: nmaci/scripts/parse_html_for_errors.py
-JB2 difference: MyST wraps error output in:
-  <div data-name="outputs-container">
-    <div data-name="safe-output-error">
-      <pre class="myst-jp-error-output">...</pre>
-    </div>
-  </div>
 
-We target the inner div[data-name="safe-output-error"] to detect which
-outputs-container holds an error, then decompose the parent
-div[data-name="outputs-container"] so nothing is left behind.
+JB2/MyST renders pages as a React SPA. The browser ignores the static HTML and
+re-renders everything from window.__remixContext, which is populated from the
+per-page .json files in book/_build/html/.  Stripping the static HTML alone has
+no effect — we must strip the error outputs from the .json mdast trees.
 
-JB2/MyST flattens output into slug-based directories rather than mirroring
-the input path structure.  We therefore scan every index.html under the
-build output tree instead of constructing paths from materials.yml.
+Error output structure in the page JSON (e.g. w1d2-tutorial2.json):
+  mdast.children[N].children[M]  (type='outputs')
+    └── children[K]               (type='output')
+          jupyter_data: {output_type: 'error', ename: 'NotImplementedError', ...}
+
+We walk every .json file, find 'output' nodes whose jupyter_data.ename matches
+our error list, remove them from their parent 'outputs' node, and also remove
+the 'outputs' node entirely if it becomes empty.
 
 Run as: python parse_html_for_errors_v2.py student
 """
 
+import json
 import os
 import sys
-from bs4 import BeautifulSoup
 
 sys.argv[1]  # "student" or "instructor" — accepted but not used (kept for compat)
 
-ERROR_STRINGS = ["NotImplementedError", "NameError"]
+ERROR_NAMES = {"NotImplementedError", "NameError"}
 
 HTML_ROOT = "book/_build/html"
 
 
 def main():
-    total_removed = 0
-    files_touched = 0
-
     if not os.path.isdir(HTML_ROOT):
         print(
             f"ERROR: HTML output directory not found: {HTML_ROOT!r} (cwd={os.getcwd()!r})"
         )
         sys.exit(1)
 
-    all_index_files = []
+    json_files = []
     for dirpath, _dirnames, filenames in os.walk(HTML_ROOT):
         for fname in filenames:
-            if fname == "index.html":
-                all_index_files.append(os.path.join(dirpath, fname))
-    print(f"Found {len(all_index_files)} index.html files under {HTML_ROOT}")
+            # page data files: slug.json (not index.html)
+            if fname.endswith(".json") and fname != "myst.xref.json":
+                json_files.append(os.path.join(dirpath, fname))
 
-    for dirpath, _dirnames, filenames in os.walk(HTML_ROOT):
-        for fname in filenames:
-            if fname != "index.html":
+    print(f"Found {len(json_files)} page JSON files under {HTML_ROOT}")
+
+    total_removed = 0
+    files_touched = 0
+
+    for json_path in json_files:
+        with open(json_path, encoding="utf-8") as f:
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
                 continue
-            html_path = os.path.join(dirpath, fname)
 
-            with open(html_path, encoding="utf-8") as f:
-                contents = f.read()
+        mdast = data.get("mdast")
+        if not mdast:
+            continue
 
-            parsed_html = BeautifulSoup(contents, features="html.parser")
-            removed = strip_error_divs(parsed_html)
+        removed = strip_error_outputs(mdast)
 
-            # Put solution figures in center (matches JB1 behaviour)
-            for img in parsed_html.find_all("img", alt=True):
-                if img["alt"] == "Solution hint":
-                    img["align"] = "center"
-                    img["class"] = "align-center"
-
-            if removed:
-                total_removed += removed
-                files_touched += 1
-                with open(html_path, "w", encoding="utf-8") as f:
-                    f.write(str(parsed_html))
-                print(f"  Stripped {removed} error div(s) from {html_path}")
+        if removed:
+            total_removed += removed
+            files_touched += 1
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, separators=(",", ":"))
+            print(f"  Stripped {removed} error output(s) from {json_path}")
 
     print(
-        f"Done. Removed {total_removed} error output div(s) from {files_touched} file(s)."
+        f"Done. Removed {total_removed} error output(s) from {files_touched} file(s)."
     )
 
 
-def strip_error_divs(parsed_html):
-    """Remove output divs that contain NotImplementedError or NameError text.
+def strip_error_outputs(node):
+    """Recursively walk the mdast tree and remove error output nodes.
 
-    JB2/MyST error output structure:
-      <div data-name="outputs-container">
-        <div data-name="safe-output-error">
-          <pre class="myst-jp-error-output">...</pre>
-        </div>
-      </div>
+    Targets 'outputs' nodes (type='outputs') that contain one or more
+    'output' children with jupyter_data.ename in ERROR_NAMES.
 
-    We find the inner error div, check it contains a known error string, then
-    decompose the parent outputs-container (so no empty wrapper is left).
-    Returns the number of containers removed.
+    Returns count of individual error output nodes removed.
     """
     removed = 0
 
-    error_divs = parsed_html.find_all("div", attrs={"data-name": "safe-output-error"})
-    for error_div in error_divs:
-        if any(err in str(error_div) for err in ERROR_STRINGS):
-            # Walk up to the outputs-container wrapper and remove the whole thing
-            parent = error_div.find_parent(
-                "div", attrs={"data-name": "outputs-container"}
-            )
-            if parent:
-                parent.decompose()
+    if not isinstance(node, dict):
+        return 0
+
+    children = node.get("children")
+    if isinstance(children, list):
+        new_children = []
+        for child in children:
+            if isinstance(child, dict) and child.get("type") == "outputs":
+                # Filter out error outputs from this outputs node
+                kept, n = filter_error_outputs(child)
+                removed += n
+                if kept:  # only keep the outputs node if it still has children
+                    new_children.append(child)
+                # else: drop the now-empty outputs node entirely
             else:
-                error_div.decompose()
-            removed += 1
+                removed += strip_error_outputs(child)
+                new_children.append(child)
+        node["children"] = new_children
 
     return removed
+
+
+def filter_error_outputs(outputs_node):
+    """Remove error output children from an 'outputs' node in-place.
+
+    Returns (has_remaining_children, count_removed).
+    """
+    removed = 0
+    children = outputs_node.get("children", [])
+    new_children = []
+
+    for child in children:
+        if not isinstance(child, dict):
+            new_children.append(child)
+            continue
+        if child.get("type") != "output":
+            new_children.append(child)
+            continue
+        jd = child.get("jupyter_data", {})
+        if (
+            isinstance(jd, dict)
+            and jd.get("output_type") == "error"
+            and jd.get("ename") in ERROR_NAMES
+        ):
+            removed += 1
+        else:
+            new_children.append(child)
+
+    outputs_node["children"] = new_children
+    return bool(new_children), removed
 
 
 if __name__ == "__main__":
