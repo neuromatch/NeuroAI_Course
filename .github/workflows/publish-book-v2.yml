@@ -1,0 +1,112 @@
+name: publish-book-v2
+
+on:
+  workflow_dispatch:
+
+env:
+  NB_KERNEL: python
+  ORG: neuromatch
+  NMA_REPO: NeuroAI_Course
+  NMA_MAIN_BRANCH: main
+  # Empty string = serve from domain root (correct for custom domain neuroai.neuromatch.io)
+  BASE_URL: ''
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy-book-v2:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get commit message
+        run: |
+          readonly local msg=$(git log -1 --pretty=format:"%s")
+          echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
+
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
+
+      - name: Setup Node.js (required by MyST theme engine)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Jupyter Book 2
+        run: pip install "jupyter-book>=2.1"
+
+      - name: Setup CI tools
+        uses: ./.github/actions/setup-ci-tools
+        with:
+          commit-message: ${{ env.COMMIT_MESSAGE }}
+          stub-widgets: 'false'
+
+      - name: Setup rendering dependencies
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        uses: ./.github/actions/setup-rendering-deps
+
+      - name: Get date for cache rotation
+        id: cache-date
+        run: echo "date=$(date +'%Y-%m')" >> $GITHUB_OUTPUT
+
+      - name: Cache JB2 execution outputs
+        uses: actions/cache@v4
+        with:
+          path: book/_build/execute
+          key: jb2-exec-v2-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
+          restore-keys: |
+            jb2-exec-v2-${{ steps.cache-date.outputs.date }}-
+            jb2-exec-v2-
+
+      - name: Cache MyST theme (avoids re-download on every run)
+        uses: actions/cache@v4
+        with:
+          path: book/_build/templates
+          key: jb2-templates-v1
+
+      - name: Create symlinks so book/ can resolve repo-root paths
+        run: |
+          ln -s ${{ github.workspace }}/tutorials book/tutorials
+          ln -s ${{ github.workspace }}/projects book/projects
+          ln -s ${{ github.workspace }}/prereqs book/prereqs
+
+      - name: Generate myst.yml from materials.yml
+        run: python generate_book_v2.py student
+
+      - name: Build book with Jupyter Book 2
+        working-directory: book
+        run: jupyter book build --html --execute
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+
+      - name: Strip error output divs from built HTML
+        run: python parse_build_for_errors_v2.py student
+
+      - name: Copy CNAME for custom domain
+        run: cp CNAME book/_build/html/CNAME
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload HTML artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: book/_build/html
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
