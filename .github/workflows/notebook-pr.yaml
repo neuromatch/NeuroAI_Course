@@ -5,6 +5,10 @@ on:
     branches: main
     paths: "**/*.ipynb"
 
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   NB_KERNEL: python
   ORG: neuromatch
