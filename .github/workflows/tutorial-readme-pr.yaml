@@ -1,9 +1,9 @@
 name: tutorial-readme-pr
-on: 
+on:
   pull_request:
     branches: main
     paths:
-      - tutorials/materials.yaml
+      - tutorials/materials.yml
 
 jobs:
 
@@ -19,22 +19,25 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-
-      - name: Install CI tools
+      - name: Get commit message
+        id: get-commit
         run: |
-          BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
-          wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/$BRANCH.tar.gz
-          tar -xzf $BRANCH.tar.gz
-          mv nmaci-$BRANCH/scripts/ ci/
-          rm -r nmaci-$BRANCH
-          echo ci/ >> .gitignore
+          msg=$(git log -1 --pretty=format:"%s")
+          echo "message=$msg" >> $GITHUB_OUTPUT
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Setup CI tools
+        uses: ./.github/actions/setup-ci-tools
+        with:
+          commit-message: ${{ steps.get-commit.outputs.message }}
 
       - name: Update READMEs
-        run: python ci/generate_tutorial_readmes.py
+        run: nmaci generate-readmes
 
       - name: Commit post-processed files
         if: ${{ success() }}
