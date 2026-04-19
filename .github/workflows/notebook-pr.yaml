@@ -45,19 +45,18 @@ jobs:
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Setup Python environment
+      - name: Set up Python
         if: steps.check-skip.outputs.skip != 'true'
-        uses: ./.github/actions/setup-python-env
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
 
       - name: Setup CI tools
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-ci-tools
         with:
           commit-message: ${{ steps.get-commit.outputs.message }}
-
-      - name: Setup rendering dependencies
-        if: steps.check-skip.outputs.skip != 'true'
-        uses: ./.github/actions/setup-rendering-deps
 
       - name: Get changed files
         if: steps.check-skip.outputs.skip != 'true'
@@ -184,8 +183,11 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      - name: Setup Python environment
-        uses: ./.github/actions/setup-python-env
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
