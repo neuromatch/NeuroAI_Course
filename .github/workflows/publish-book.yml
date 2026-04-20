@@ -3,6 +3,9 @@ name: publish-book
 on: 
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   NB_KERNEL: python
   ORG: neuromatch
