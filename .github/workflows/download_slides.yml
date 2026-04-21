@@ -22,13 +22,20 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
-          cache: 'pip'
+          python-version: 3.9
 
-      - name: Setup CI tools
-        uses: ./.github/actions/setup-ci-tools
+      - name: Install CI tools
+        run: |
+          BRANCH=$NMA_MAIN_BRANCH
+          wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/$BRANCH.tar.gz
+          tar -xzf $BRANCH.tar.gz
+          pip install -r nmaci-$BRANCH/requirements.txt
+          mv nmaci-$BRANCH/scripts/ ci/
+          rm -r nmaci-$BRANCH
+          rm -r $BRANCH.tar.gz
+          echo ci/ >> .gitignore
 
       - name: Copy tutorials from precourse repo
         run: |
@@ -47,7 +54,7 @@ jobs:
           ln -s ../tutorials book/tutorials
           ln -s ../projects book/projects
           ln -s ../prereqs book/prereqs
-          nmaci extract-links --noyoutube $(find -L book -name '*.ipynb') > links.json
+          python ci/extract_links.py --noyoutube $(find -L book -name '*.ipynb') > links.json
 
       - name: Install tools
         run: |
@@ -66,7 +73,7 @@ jobs:
           for day in book/tutorials/W?D?*; do
             slide_dir="slides_by_day/NMA CN-$(basename $day)-Slides"
             mkdir "$slide_dir"
-            nmaci extract-links $(find -L $day -name '*.ipynb') > links.json
+            python ci/extract_links.py $(find -L $day -name '*.ipynb') > links.json
             jq -r "def output: .value; .slides | to_entries | map(output) | .[]" links.json > slide_fnames.txt
             for fname in $(cat slide_fnames.txt); do
               counter=$(ls -1 "$slide_dir"|wc -l)
@@ -86,13 +93,13 @@ jobs:
           echo "last_update=$last_update" >> $GITHUB_OUTPUT
 
       - name: Upload full set of slides
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: NMA-compneuro-slides-${{steps.last_update.outputs.last_update}}
           path: slides
 
       - name: Upload slides for each day
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: NMA-compneuro-slides-by-day-${{steps.last_update.outputs.last_update}}
           path: slides_by_day
