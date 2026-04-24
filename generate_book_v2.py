@@ -189,6 +189,36 @@ def main():
             "github": f"https://github.com/{ORG}/{REPO}",
             "license": "CC-BY-4.0",
             "edit_url": None,  # disable: auto-computed URL gets book/ prefix from symlink
+            # Global LaTeX macros for KaTeX — prevents "Undefined control sequence"
+            # errors when \newcommand definitions in one cell are not visible to
+            # math environments in other cells/sections during MyST rendering.
+            # Key is "math" (the valid myst-frontmatter project key); values are
+            # plain macro strings — KaTeX infers argument count from #1, #2, etc.
+            # Single-char names (h, y, T, f) are intentionally excluded: they
+            # conflict with the same letters used as plain variables throughout
+            # other notebooks, causing KaTeX stack overflows in text mode.
+            "math": {
+                "stim": r"\mathbf{x}",
+                "noisew": r"\boldsymbol{\Psi}",
+                "noiser": r"\boldsymbol{\xi}",
+                "targetdim": r"\mathbf{y}",
+                "identity": r"\mathbf{I}",
+                "weight": r"\mathbf{W}",
+                "loss": r"\mathcal{L}",
+                "derivative": r"\frac{d#1}{d#2}",
+                "pderivative": r"\frac{\partial #1}{\partial #2}",
+                "rate": r"\mathbf{r}",
+                "RR": r"\mathbb{R}",
+                "EE": r"\mathbb{E}",
+                "brackets": r"\left(#1\right)",
+                "sqbrackets": r"\left[#1\right]",
+                "var": r"\mathbb{V}\mathrm{ar}\left(#1\right)",
+                "pred": r"\mathbf{\hat{y}}",
+                "weightout": r"\mathbf{W}^{\textrm{out}}",
+                "error": r"\boldsymbol{\delta}",
+                "losserror": r"\mathbf{e}",
+                "backweight": r"\mathbf{B}",
+            },
             "toc": toc,
         },
         "site": {
@@ -238,6 +268,238 @@ def convert_sections_to_children(entries):
 # ---- Pre-processing helpers (ported verbatim from nmaci generate_book.py) ----
 
 
+def expand_latex_macros(content):
+    r"""Expand custom \newcommand macros in markdown cells.
+
+    MyST/KaTeX build-time rendering does not pick up \newcommand definitions
+    from inline $...$ blocks in other cells.  This function:
+
+    1. Removes cells that contain only \newcommand definitions.
+    2. Expands all macro usages in remaining markdown cells to their LaTeX
+       equivalents, so every cell is self-contained.
+    3. Fixes $N%$ patterns where % is treated as a LaTeX comment inside math.
+
+    Only macros actually defined via \newcommand in the notebook are expanded,
+    so this is safe to run on any notebook.
+    """
+
+    def _parse_newcommands(src):
+        """Return {macro_name: (expansion, n_args)} from \newcommand blocks.
+
+        Uses a brace-balanced scanner to handle arbitrarily nested expansions.
+        """
+
+        def _extract_brace_group(s, pos):
+            """Return (content, end_pos) for the brace group starting at pos."""
+            if pos >= len(s) or s[pos] != "{":
+                return "", pos
+            depth, start = 0, pos
+            while pos < len(s):
+                if s[pos] == "{":
+                    depth += 1
+                elif s[pos] == "}":
+                    depth -= 1
+                    if depth == 0:
+                        return s[start + 1 : pos], pos + 1
+                pos += 1
+            return s[start + 1 :], pos
+
+        macros = {}
+        i = 0
+        while i < len(src):
+            idx = src.find("\\newcommand", i)
+            if idx < 0:
+                break
+            pos = idx + len("\\newcommand")
+            name, pos = _extract_brace_group(src, pos)
+            if not name.startswith("\\"):
+                i = idx + 1
+                continue
+            # Optional [n_args]
+            n_args = 0
+            if pos < len(src) and src[pos] == "[":
+                end = src.index("]", pos)
+                n_args = int(src[pos + 1 : end])
+                pos = end + 1
+            expansion, pos = _extract_brace_group(src, pos)
+            macros[name] = (expansion, n_args)
+            i = pos
+        return macros
+
+    def _expand_arg_macro(text, name, template, n_args):
+        """Replace \name{a1}{a2} with template (#1->a1, #2->a2)."""
+        result = []
+        i = 0
+        while i < len(text):
+            if text[i:].startswith(name):
+                after = text[i + len(name):]
+                # Not a match if this is a prefix of a longer macro name
+                if after and after[0].isalpha():
+                    result.append(text[i])
+                    i += 1
+                    continue
+                pos = i + len(name)
+                while pos < len(text) and text[pos] in " \t\n":
+                    pos += 1
+                args = []
+                ok = True
+                for _ in range(n_args):
+                    if pos >= len(text) or text[pos] != "{":
+                        ok = False
+                        break
+                    depth, start = 0, pos
+                    while pos < len(text):
+                        if text[pos] == "{":
+                            depth += 1
+                        elif text[pos] == "}":
+                            depth -= 1
+                            if depth == 0:
+                                args.append(text[start + 1 : pos])
+                                pos += 1
+                                break
+                        pos += 1
+                    else:
+                        ok = False
+                        break
+                if ok and len(args) == n_args:
+                    expanded = template
+                    for j, arg in enumerate(args):
+                        expanded = expanded.replace(f"#{j + 1}", arg)
+                    result.append(expanded)
+                    i = pos
+                else:
+                    result.append(text[i])
+                    i += 1
+            else:
+                result.append(text[i])
+                i += 1
+        return "".join(result)
+
+    def _expand_simple_macro(text, name, expansion):
+        """Replace \name not followed by a letter (str.join avoids re escape issues)."""
+        # Only exclude letters — subscripts like \weight_{ij} SHOULD expand \weight
+        parts = re.split(re.escape(name) + r"(?![a-zA-Z])", text)
+        return expansion.join(parts)
+
+    def _strip_newcommands(src):
+        """Remove all \newcommand{...}{...} definitions from a string.
+
+        Uses a brace-balanced scanner to handle arbitrarily nested expansions.
+        Also removes surrounding $ delimiters and collapses blank lines.
+        """
+
+        def _skip_brace_group(s, pos):
+            """Return end position after the balanced brace group starting at pos."""
+            if pos >= len(s) or s[pos] != "{":
+                return pos
+            depth = 0
+            while pos < len(s):
+                if s[pos] == "{":
+                    depth += 1
+                elif s[pos] == "}":
+                    depth -= 1
+                    if depth == 0:
+                        return pos + 1
+                pos += 1
+            return pos
+
+        result = []
+        i = 0
+        while i < len(src):
+            # Look for optional leading $ then \newcommand
+            if src[i] == "$" and src[i + 1 :].lstrip().startswith("\\newcommand"):
+                # Consume optional $, whitespace, \newcommand
+                j = i + 1
+                while j < len(src) and src[j] in " \t":
+                    j += 1
+                if src[j:].startswith("\\newcommand"):
+                    j += len("\\newcommand")
+                    j = _skip_brace_group(src, j)   # {name}
+                    if j < len(src) and src[j] == "[":  # optional [n]
+                        j = src.index("]", j) + 1
+                    j = _skip_brace_group(src, j)   # {expansion}
+                    # Consume trailing $
+                    while j < len(src) and src[j] in " \t":
+                        j += 1
+                    if j < len(src) and src[j] == "$":
+                        j += 1
+                    i = j
+                    continue
+            elif src[i:].startswith("\\newcommand"):
+                j = i + len("\\newcommand")
+                j = _skip_brace_group(src, j)
+                if j < len(src) and src[j] == "[":
+                    j = src.index("]", j) + 1
+                j = _skip_brace_group(src, j)
+                i = j
+                continue
+            result.append(src[i])
+            i += 1
+
+        cleaned = "".join(result)
+        # Remove bare $ that only wrapped newcommand blocks
+        cleaned = re.sub(r"^\s*\$\s*\n", "", cleaned, flags=re.MULTILINE)
+        cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+        return cleaned.strip()
+
+    # Collect all macros defined anywhere in the notebook
+    all_macros = {}
+    for cell in content["cells"]:
+        if cell["cell_type"] == "markdown":
+            src = "".join(cell.get("source", []))
+            if "newcommand" in src:
+                all_macros.update(_parse_newcommands(src))
+
+    new_cells = []
+    for cell in content["cells"]:
+        if cell["cell_type"] != "markdown":
+            new_cells.append(cell)
+            continue
+
+        src = "".join(cell.get("source", []))
+
+        # Strip \newcommand definitions from the source (they don't render in MyST)
+        if all_macros and "newcommand" in src:
+            src = _strip_newcommands(src)
+            # If the cell is now empty, drop it entirely
+            if not src.strip():
+                continue
+
+        if all_macros:
+            # Two passes: the second catches macros introduced by first-pass expansions
+            # (e.g. \var expands to \brackets{...} which then needs expanding)
+            for _ in range(2):
+                # Arg macros first, longest name first to avoid prefix conflicts
+                for name, (template, n_args) in sorted(
+                    ((n, v) for n, v in all_macros.items() if v[1] > 0),
+                    key=lambda x: len(x[0]),
+                    reverse=True,
+                ):
+                    src = _expand_arg_macro(src, name, template, n_args)
+                # Simple (0-arg) macros, longest first
+                for name, (expansion, _) in sorted(
+                    ((n, v) for n, v in all_macros.items() if v[1] == 0),
+                    key=lambda x: len(x[0]),
+                    reverse=True,
+                ):
+                    src = _expand_simple_macro(src, name, expansion)
+
+        # Fix bare % inside $...$ math (e.g. $80%$ -> $80\%$) — % is a LaTeX comment
+        src = re.sub(
+            r"\$([^$]*\d)%([^$]*)\$",
+            lambda m: f"${m.group(1)}\\%{m.group(2)}$",
+            src,
+        )
+
+        cell = dict(cell)
+        cell["source"] = [src]
+        new_cells.append(cell)
+
+    content = dict(content)
+    content["cells"] = new_cells
+    return content
+
+
 def pre_process_notebook(file_path):
     if not os.path.exists(file_path):
         print(f"  Warning: {file_path} not found, skipping")
@@ -246,6 +508,7 @@ def pre_process_notebook(file_path):
         content = json.load(fh)
     content = open_in_colab_new_tab(content)
     content = replace_widgets(content)
+    content = expand_latex_macros(content)
     content = link_hidden_cells(content)
     if ARG == "student":
         content = tag_cells_allow_errors(content)
