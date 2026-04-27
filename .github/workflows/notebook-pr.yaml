@@ -49,12 +49,9 @@ jobs:
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Set up Python
+      - name: Setup Python environment
         if: steps.check-skip.outputs.skip != 'true'
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-          cache: 'pip'
+        uses: ./.github/actions/setup-python-env
 
       - name: Setup CI tools
         if: steps.check-skip.outputs.skip != 'true'
