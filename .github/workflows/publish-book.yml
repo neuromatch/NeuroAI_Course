@@ -3,6 +3,9 @@ name: publish-book
 on: 
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   NB_KERNEL: python
   ORG: neuromatch
@@ -71,13 +74,13 @@ jobs:
 
       - name: Build student book
         run: |
-          python ci/generate_book.py student
+          nmaci generate-book student
           jupyter-book toc migrate /home/runner/work/NeuroAI_Course/NeuroAI_Course/book/_toc.yml -o /home/runner/work/NeuroAI_Course/NeuroAI_Course/book/_toc.yml
           ln -s ../tutorials book/tutorials
           ln -s ../projects book/projects
           ln -s ../prereqs book/prereqs
           jupyter-book build book
-          python ci/parse_html_for_errors.py student
+          nmaci parse-html student
 
       - name: Publish to gh-pages
         run: |

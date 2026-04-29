@@ -5,6 +5,10 @@ on:
     branches: main
     paths: "**/*.ipynb"
 
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   NB_KERNEL: python
   ORG: neuromatch
@@ -49,21 +53,11 @@ jobs:
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-python-env
 
-      - name: Install additional dependencies
-        if: steps.check-skip.outputs.skip != 'true'
-        run: |
-          pip install jupyter_client==7.3.5
-          pip install jinja2==3.1.2
-
       - name: Setup CI tools
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-ci-tools
         with:
           commit-message: ${{ steps.get-commit.outputs.message }}
-
-      - name: Setup rendering dependencies
-        if: steps.check-skip.outputs.skip != 'true'
-        uses: ./.github/actions/setup-rendering-deps
 
       - name: Get changed files
         if: steps.check-skip.outputs.skip != 'true'
@@ -85,7 +79,7 @@ jobs:
         if: steps.check-skip.outputs.skip != 'true'
         run: |
           # Get filtered notebook list
-          nbs=$(python ci/select_notebooks.py ${{ steps.changed-files.outputs.all_changed_files }})
+          nbs=$(nmaci select-notebooks ${{ steps.changed-files.outputs.all_changed_files }})
 
           if [ -z "$nbs" ]; then
             echo "No notebooks to process"
@@ -119,11 +113,6 @@ jobs:
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
 
-      - name: Install additional dependencies
-        run: |
-          pip install jupyter_client==7.3.5
-          pip install jinja2==3.1.2
-
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
         with:
@@ -151,7 +140,7 @@ jobs:
           echo "::endgroup::"
 
           echo "::group::Notebook execution output"
-          python ci/process_notebooks.py "${{ matrix.notebook }}" $execflag
+          nmaci process-notebooks "${{ matrix.notebook }}" $execflag
           exit_code=$?
           echo "::endgroup::"
 
@@ -195,13 +184,11 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      - name: Setup Python environment
-        uses: ./.github/actions/setup-python-env
-
-      - name: Install additional dependencies
-        run: |
-          pip install jupyter_client==7.3.5
-          pip install jinja2==3.1.2
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
@@ -324,22 +311,22 @@ jobs:
           nbs='${{ needs.setup.outputs.notebooks }}'
           # Convert JSON array to space-separated list
           nb_list=$(echo "$nbs" | jq -r '.[]' | tr '\n' ' ')
-          python ci/verify_exercises.py $nb_list --c "$COMMIT_MESSAGE"
+          nmaci verify-exercises $nb_list --c "$COMMIT_MESSAGE"
 
       - name: Make PR comment
         run: |
           nbs='${{ needs.setup.outputs.notebooks }}'
           nb_list=$(echo "$nbs" | jq -r '.[]' | tr '\n' ' ')
           branch=${{ github.event.pull_request.head.ref }}
-          python ci/make_pr_comment.py $nb_list --branch $branch --o comment.txt
+          nmaci make-pr-comment $nb_list --branch $branch --o comment.txt
 
       - name: Update READMEs
         if: needs.setup.outputs.materials_changed == 'true'
-        run: python ci/generate_tutorial_readmes.py
+        run: nmaci generate-readmes
 
       - name: Remove unreferenced derivatives
         run: |
-          python ci/find_unreferenced_content.py > to_remove.txt
+          nmaci find-unreferenced > to_remove.txt
           if [ -s to_remove.txt ]; then git rm --pathspec-from-file=to_remove.txt; fi
 
       - name: Clean up artifacts directory
