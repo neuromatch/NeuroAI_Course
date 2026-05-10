@@ -82,7 +82,7 @@ jobs:
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            files=$(git ls-files '**/*.ipynb')
+            files=$(git ls-files 'tutorials/*.ipynb' 'tutorials/**/*.ipynb')
           else
             files="$CHANGED_FILES"
           fi
