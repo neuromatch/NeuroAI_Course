@@ -59,8 +59,18 @@ jobs:
           chmod +x .github/scripts/nb-clean-cleanup.sh
           .github/scripts/nb-clean-cleanup.sh
 
+      - name: Comment after main repo cleanup
+        if: steps.source.outputs.source == 'main-repo' && steps.check.outputs.dirty == 'true'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Notebooks have been auto-cleaned with a cleanup commit above. For future PRs, run `uvx nb-clean clean tutorials/ projects/` locally before pushing.
+
       - name: Create cleanup PR (fork)
+        id: create-pr
         if: steps.source.outputs.source == 'fork' && steps.check.outputs.dirty == 'true'
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -79,8 +89,17 @@ jobs:
           commit-message: "chore: clean notebooks with nb-clean"
           push-to-fork: ${{ github.event.pull_request.head.repo.full_name }}
 
+      - name: Comment after fork cleanup PR (if created)
+        if: steps.source.outputs.source == 'fork' && steps.check.outputs.dirty == 'true' && steps.create-pr.outputs.pull-request-number != ''
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            A cleanup PR has been created: #${{ steps.create-pr.outputs.pull-request-number }}.
+            Please review and accept the changes, then merge to accept the cleaned notebooks.
+
       - name: Comment with cleanup instructions (fallback)
-        if: steps.source.outputs.source == 'fork' && steps.check.outputs.dirty == 'true' && github.event.pull_request.head.repo.fork == true
+        if: steps.source.outputs.source == 'fork' && steps.check.outputs.dirty == 'true' && steps.create-pr.outcome == 'failure'
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.pull_request.number }}
