@@ -1,0 +1,99 @@
+name: nb-clean
+
+on:
+  pull_request:
+    branches: [staging]
+    paths:
+      - 'tutorials/**/*.ipynb'
+      - 'projects/**/*.ipynb'
+  pull_request_target:
+    branches: [staging]
+    paths:
+      - 'tutorials/**/*.ipynb'
+      - 'projects/**/*.ipynb'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  nb-clean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install nb-clean
+        run: pip install nb-clean
+
+      - name: Detect PR source
+        id: source
+        run: |
+          if [ "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}" ]; then
+            echo "source=main-repo" >> "$GITHUB_OUTPUT"
+          else
+            echo "source=fork" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check if notebooks are clean
+        id: check
+        run: |
+          chmod +x .github/scripts/nb-clean-check.sh
+          .github/scripts/nb-clean-check.sh
+
+      - name: Clean notebooks (main repo)
+        if: steps.source.outputs.source == 'main-repo' && steps.check.outputs.dirty == 'true'
+        run: |
+          chmod +x .github/scripts/nb-clean-cleanup.sh
+          .github/scripts/nb-clean-cleanup.sh
+
+      - name: Create cleanup PR (fork)
+        if: steps.source.outputs.source == 'fork' && steps.check.outputs.dirty == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "chore: clean notebooks with nb-clean"
+          body: |
+            Auto-generated cleanup of Jupyter notebooks using nb-clean.
+
+            This PR applies `nb-clean clean` to all notebooks in this PR's branch.
+            Please review and merge the changes to accept the cleaned notebooks.
+
+            **To apply locally instead:**
+            ```bash
+            pip install nb-clean
+            nb-clean clean tutorials/ projects/
+            ```
+          commit-message: "chore: clean notebooks with nb-clean"
+          push-to-fork: ${{ github.event.pull_request.head.repo.full_name }}
+
+      - name: Comment with cleanup instructions (fallback)
+        if: steps.source.outputs.source == 'fork' && steps.check.outputs.dirty == 'true' && github.event.pull_request.head.repo.fork == true
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            **Notebook Cleanup Required**
+
+            I could not automatically push cleanup changes to your fork. Please clean your notebooks locally:
+
+            ```bash
+            pip install nb-clean
+            nb-clean clean tutorials/ projects/
+            ```
+
+            Then push your cleaned changes to the PR branch.
+
+            Alternatively, enable **"Allow edits from maintainers"** in your fork settings, or check if there's a cleanup PR already created for this PR.
