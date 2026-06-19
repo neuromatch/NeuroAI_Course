@@ -1,0 +1,13 @@
+[workspace]
+authors = ["Neuromatch Academy"]
+channels = ["conda-forge"]
+name = "neuro-ai-course"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "3.10.*"
+pip = ">=26.1,<27"
+
+[tasks]
+install-course = "python -m pip install -r requirements.txt"
