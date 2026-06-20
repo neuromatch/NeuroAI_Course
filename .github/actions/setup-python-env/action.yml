@@ -34,8 +34,10 @@ runs:
 
     - name: Upgrade pip
       shell: bash
-      run: "$GITHUB_WORKSPACE/.pixi/envs/default/bin/python" -m pip install --upgrade pip wheel
+      run: |
+        "$GITHUB_WORKSPACE/.pixi/envs/default/bin/python" -m pip install --upgrade pip wheel
 
     - name: Install requirements
       shell: bash
-      run: "$GITHUB_WORKSPACE/.pixi/envs/default/bin/python" -m pip install -r requirements.txt
+      run: |
+        "$GITHUB_WORKSPACE/.pixi/envs/default/bin/python" -m pip install -r requirements.txt
