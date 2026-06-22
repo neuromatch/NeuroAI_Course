@@ -7,13 +7,14 @@ version = "0.1.0"
 
 [dependencies]
 python = "3.10.*"
+pip = "*"
+setuptools = "80.9.*"
 
 [pypi-dependencies]
 numpy = "==1.26.4"
 scipy = "==1.12.0"
 matplotlib = "==3.8.3"
 pillow = "==10.2.0"
-setuptools = "==80.9.0"
 pandas = "==2.3.3"
 torch = "==2.1.0"
 torchvision = "==0.16.0"
@@ -56,6 +57,7 @@ nengo-gui = "==0.5.0"
 mpl-interactions = "==0.24.2"
 graphviz = "==0.21"
 trdg = { git = "https://github.com/neuromatch/TextRecognitionDataGenerator", rev = "25a49c9944449d3e1039fc1e716ce14cdb74c3e6" }
+nmaci = { git = "https://github.com/neuromatch/nmaci", rev = "bcef66766342558dd09ca9a809452a878dc21e3f" }
 gns = { git = "https://github.com/neuromatch/GNS-Modeling", rev = "5150c63a2d422ba2fb4b461570b6a8be8b10eea8" }
 pybpl = { git = "https://github.com/neuromatch/pyBPL", rev = "62cbb5cf4aa983c42240efd6a5df6b49e519950c" }
 motornet = { git = "https://github.com/neuromatch/MotorNet", rev = "61e9a76089e223f1b31d2d8f221d42f50e0ee6d0" }

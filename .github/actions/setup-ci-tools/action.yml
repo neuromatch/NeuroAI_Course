@@ -43,10 +43,12 @@ runs:
       shell: bash
       run: |
         set -e
-        pip install --upgrade pip
         BRANCH=${{ steps.detect-branch.outputs.branch }}
-        pip install "git+https://github.com/neuromatch/nmaci@$BRANCH"
-        python -c "import nbformat; print(f'nbformat version: {nbformat.__version__}')"
+        if [ "$BRANCH" != "main" ]; then
+          pixi run python -m pip install --no-deps --force-reinstall "git+https://github.com/neuromatch/nmaci@$BRANCH"
+        fi
+        pixi run python -c "import nbformat; print(f'nbformat version: {nbformat.__version__}')"
+        pixi run python -c "import nmaci; print('nmaci import ok')"
 
     - name: Stub ipywidgets for headless kernel execution
       if: inputs.stub-widgets == 'true'
