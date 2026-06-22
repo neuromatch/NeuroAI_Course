@@ -1,5 +1,5 @@
 name: 'Setup Python Environment'
-description: 'Set up the pixi Python environment and install course requirements'
+description: 'Set up the pixi Python environment'
 
 outputs:
   cache-hit:
@@ -24,20 +24,10 @@ runs:
         path: |
           .pixi
           ~/.cache/rattler
-        key: pixi-${{ runner.os }}-${{ hashFiles('pixi.toml', 'pixi.lock', 'requirements.txt') }}
+        key: pixi-${{ runner.os }}-${{ hashFiles('pixi.toml', 'pixi.lock') }}
 
     - name: Install pixi environment
       shell: bash
       run: |
         "$HOME/.pixi/bin/pixi" install --locked
         echo "$GITHUB_WORKSPACE/.pixi/envs/default/bin" >> "$GITHUB_PATH"
-
-    - name: Upgrade pip
-      shell: bash
-      run: |
-        "$GITHUB_WORKSPACE/.pixi/envs/default/bin/python" -m pip install --upgrade pip wheel
-
-    - name: Install requirements
-      shell: bash
-      run: |
-        "$GITHUB_WORKSPACE/.pixi/envs/default/bin/python" -m pip install -r requirements.txt

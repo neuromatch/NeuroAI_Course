@@ -67,7 +67,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: book/.jupyter-cache
-          key: jupyter-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
+          key: jupyter-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'pixi.toml', 'pixi.lock') }}
           restore-keys: |
             jupyter-exec-${{ steps.cache-date.outputs.date }}-
             jupyter-exec-
