@@ -35,4 +35,6 @@ runs:
 
     - name: Configure headless rendering
       shell: bash
-      run: echo "MUJOCO_GL=egl" >> $GITHUB_ENV
+      run: |
+        echo "MUJOCO_GL=egl" >> $GITHUB_ENV
+        echo "LIBGL_DRIVERS_PATH=$GITHUB_WORKSPACE/.pixi/envs/ci/lib/dri" >> $GITHUB_ENV
