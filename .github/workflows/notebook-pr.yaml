@@ -125,8 +125,6 @@ jobs:
 
       - name: Setup rendering dependencies
         uses: ./.github/actions/setup-rendering-deps
-        with:
-          skip-backend: 'true'
 
       - name: Process notebook
         env:

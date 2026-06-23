@@ -29,5 +29,5 @@ runs:
     - name: Install pixi environment
       shell: bash
       run: |
-        "$HOME/.pixi/bin/pixi" install --locked
-        echo "$GITHUB_WORKSPACE/.pixi/envs/default/bin" >> "$GITHUB_PATH"
+        "$HOME/.pixi/bin/pixi" install --locked -e ci
+        echo "$GITHUB_WORKSPACE/.pixi/envs/ci/bin" >> "$GITHUB_PATH"
