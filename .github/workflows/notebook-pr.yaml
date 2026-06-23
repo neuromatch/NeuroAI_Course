@@ -57,8 +57,6 @@ jobs:
       - name: Setup CI tools
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ steps.get-commit.outputs.message }}
 
       - name: Get changed files
         if: steps.check-skip.outputs.skip != 'true' && github.event_name == 'pull_request'
@@ -124,8 +122,6 @@ jobs:
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ needs.setup.outputs.commit_message }}
 
       - name: Setup rendering dependencies
         uses: ./.github/actions/setup-rendering-deps
@@ -200,8 +196,6 @@ jobs:
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ needs.setup.outputs.commit_message }}
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4

@@ -7,7 +7,6 @@ version = "0.1.0"
 
 [dependencies]
 python = "3.10.*"
-pip = "*"
 setuptools = "80.9.*"
 
 [pypi-dependencies]

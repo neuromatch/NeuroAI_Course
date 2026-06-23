@@ -52,7 +52,6 @@ jobs:
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
         with:
-          commit-message: ${{ env.COMMIT_MESSAGE }}
           stub-widgets: 'false'
 
       - name: Setup rendering dependencies
