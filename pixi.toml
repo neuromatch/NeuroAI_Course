@@ -66,16 +66,7 @@ sspspace = { git = "https://github.com/ctn-waterloo/sspspace", rev = "e97043c87c
 dsa-metric = { git = "https://github.com/mitchellostrow/DSA", rev = "fa2596f6dbbbcf42014d3f924bcfccca6232421d" }
 
 [feature.ci.target.linux-64.dependencies]
-ffmpeg = "*"
-glew = "*"
-glfw = "*"
 graphviz = "*"
-libegl = "*"
-libgl = "*"
-mesa-libegl-conda-x86_64 = "*"
-mesa-libgl-conda-x86_64 = "*"
-mesa-dri-drivers-conda-x86_64 = "*"
-mesalib = "*"
 
 [environments]
 default = []

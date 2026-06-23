@@ -1,5 +1,5 @@
 name: 'Setup Rendering Dependencies'
-description: 'Install fonts and configure rendering for notebooks'
+description: 'Install fonts, backend libraries, and configure rendering for notebooks'
 
 inputs:
   skip-fonts:
@@ -36,5 +36,6 @@ runs:
     - name: Configure headless rendering
       shell: bash
       run: |
+        sudo apt-get update -yq || true
+        sudo apt-get install -y libglew-dev libglfw3 ffmpeg
         echo "MUJOCO_GL=egl" >> $GITHUB_ENV
-        echo "LIBGL_DRIVERS_PATH=$GITHUB_WORKSPACE/.pixi/envs/ci/lib/dri" >> $GITHUB_ENV
