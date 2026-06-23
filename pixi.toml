@@ -40,6 +40,8 @@ jupyter-ui-poll = "==0.2.2"
 tensorflow = "==2.8"
 ffmpeg = "==1.4"
 imageio-ffmpeg = "==0.6.0"
+dm-control = ">=1.0.16"
+dm-acme = { version = "*", extras = ["envs"] }
 torchlens = "==0.15.15"
 rsatoolbox = "==0.1.5"
 vibecheck = "==0.0.5"
