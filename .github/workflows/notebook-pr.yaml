@@ -4,6 +4,11 @@ on:
   pull_request:
     branches: main
     paths: "**/*.ipynb"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
 
 env:
   NB_KERNEL: python
@@ -26,7 +31,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Get commit message
         id: get-commit
@@ -39,7 +44,7 @@ jobs:
         env:
           COMMIT_MESSAGE: ${{ steps.get-commit.outputs.message }}
         run: |
-          if [[ "$COMMIT_MESSAGE" == *"skip ci"* ]]; then
+          if [[ "${{ github.event_name }}" == "pull_request" && "$COMMIT_MESSAGE" == *"skip ci"* ]]; then
             echo "skip=true" >> $GITHUB_OUTPUT
           else
             echo "skip=false" >> $GITHUB_OUTPUT
@@ -49,30 +54,18 @@ jobs:
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-python-env
 
-      - name: Install additional dependencies
-        if: steps.check-skip.outputs.skip != 'true'
-        run: |
-          pip install jupyter_client==7.3.5
-          pip install jinja2==3.1.2
-
       - name: Setup CI tools
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ steps.get-commit.outputs.message }}
-
-      - name: Setup rendering dependencies
-        if: steps.check-skip.outputs.skip != 'true'
-        uses: ./.github/actions/setup-rendering-deps
 
       - name: Get changed files
-        if: steps.check-skip.outputs.skip != 'true'
+        if: steps.check-skip.outputs.skip != 'true' && github.event_name == 'pull_request'
         id: changed-files
         uses: tj-actions/changed-files@v35
 
       - name: Check if materials.yml changed
         id: materials-check
-        if: steps.check-skip.outputs.skip != 'true'
+        if: steps.check-skip.outputs.skip != 'true' && github.event_name == 'pull_request'
         run: |
           if [[ "${{ steps.changed-files.outputs.all_changed_files }}" =~ materials\.yml ]]; then
             echo "materials_changed=true" >> $GITHUB_OUTPUT
@@ -83,9 +76,17 @@ jobs:
       - name: Set notebook matrix
         id: set-matrix
         if: steps.check-skip.outputs.skip != 'true'
+        env:
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            files=$(git ls-files 'tutorials/*.ipynb' 'tutorials/**/*.ipynb')
+          else
+            files="$CHANGED_FILES"
+          fi
+
           # Get filtered notebook list
-          nbs=$(python ci/select_notebooks.py ${{ steps.changed-files.outputs.all_changed_files }})
+          nbs=$(nmaci select-notebooks $files)
 
           if [ -z "$nbs" ]; then
             echo "No notebooks to process"
@@ -114,20 +115,13 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
 
-      - name: Install additional dependencies
-        run: |
-          pip install jupyter_client==7.3.5
-          pip install jinja2==3.1.2
-
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ needs.setup.outputs.commit_message }}
 
       - name: Setup rendering dependencies
         uses: ./.github/actions/setup-rendering-deps
@@ -151,7 +145,7 @@ jobs:
           echo "::endgroup::"
 
           echo "::group::Notebook execution output"
-          python ci/process_notebooks.py "${{ matrix.notebook }}" $execflag
+          nmaci process-notebooks "${{ matrix.notebook }}" $execflag
           exit_code=$?
           echo "::endgroup::"
 
@@ -185,7 +179,7 @@ jobs:
 
   finalize:
     needs: [setup, process]
-    if: always() && needs.setup.outputs.skip_ci != 'true' && needs.setup.outputs.has_notebooks == 'true'
+    if: always() && github.event_name == 'pull_request' && needs.setup.outputs.skip_ci != 'true' && needs.setup.outputs.has_notebooks == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -198,15 +192,8 @@ jobs:
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
 
-      - name: Install additional dependencies
-        run: |
-          pip install jupyter_client==7.3.5
-          pip install jinja2==3.1.2
-
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ needs.setup.outputs.commit_message }}
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -324,22 +311,22 @@ jobs:
           nbs='${{ needs.setup.outputs.notebooks }}'
           # Convert JSON array to space-separated list
           nb_list=$(echo "$nbs" | jq -r '.[]' | tr '\n' ' ')
-          python ci/verify_exercises.py $nb_list --c "$COMMIT_MESSAGE"
+          nmaci verify-exercises $nb_list --c "$COMMIT_MESSAGE"
 
       - name: Make PR comment
         run: |
           nbs='${{ needs.setup.outputs.notebooks }}'
           nb_list=$(echo "$nbs" | jq -r '.[]' | tr '\n' ' ')
           branch=${{ github.event.pull_request.head.ref }}
-          python ci/make_pr_comment.py $nb_list --branch $branch --o comment.txt
+          nmaci make-pr-comment $nb_list --branch $branch --o comment.txt
 
       - name: Update READMEs
         if: needs.setup.outputs.materials_changed == 'true'
-        run: python ci/generate_tutorial_readmes.py
+        run: nmaci generate-readmes
 
       - name: Remove unreferenced derivatives
         run: |
-          python ci/find_unreferenced_content.py > to_remove.txt
+          nmaci find-unreferenced > to_remove.txt
           if [ -s to_remove.txt ]; then git rm --pathspec-from-file=to_remove.txt; fi
 
       - name: Clean up artifacts directory

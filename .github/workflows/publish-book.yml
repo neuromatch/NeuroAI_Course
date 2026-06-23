@@ -3,6 +3,9 @@ name: publish-book
 on: 
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   NB_KERNEL: python
   ORG: neuromatch
@@ -36,7 +39,6 @@ jobs:
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
         with:
-          commit-message: ${{ env.COMMIT_MESSAGE }}
           stub-widgets: 'false'
 
       - name: Setup rendering dependencies
@@ -64,20 +66,20 @@ jobs:
         uses: actions/cache@v4
         with:
           path: book/.jupyter-cache
-          key: jupyter-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
+          key: jupyter-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'pixi.toml', 'pixi.lock') }}
           restore-keys: |
             jupyter-exec-${{ steps.cache-date.outputs.date }}-
             jupyter-exec-
 
       - name: Build student book
         run: |
-          python ci/generate_book.py student
+          nmaci generate-book student
           jupyter-book toc migrate /home/runner/work/NeuroAI_Course/NeuroAI_Course/book/_toc.yml -o /home/runner/work/NeuroAI_Course/NeuroAI_Course/book/_toc.yml
           ln -s ../tutorials book/tutorials
           ln -s ../projects book/projects
           ln -s ../prereqs book/prereqs
           jupyter-book build book
-          python ci/parse_html_for_errors.py student
+          nmaci parse-html student
 
       - name: Publish to gh-pages
         run: |

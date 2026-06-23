@@ -44,7 +44,7 @@ def main():
             "children": [
                 {
                     "file": "tutorials/Schedule/schedule_intro.md",
-                    "short_title": "Overview",
+                    "title": "Overview",
                     "children": [
                         {"file": "tutorials/Schedule/daily_schedules.md"},
                         {"file": "tutorials/Schedule/shared_calendars.md"},
@@ -62,11 +62,11 @@ def main():
             "children": [
                 {
                     "file": "tutorials/TechnicalHelp/tech_intro.md",
-                    "short_title": "Overview",
+                    "title": "Overview",
                     "children": [
                         {
                             "file": "tutorials/TechnicalHelp/Jupyterbook.md",
-                            "short_title": "Using Jupyterbook",
+                            "title": "Using Jupyterbook",
                             "children": [
                                 {"file": "tutorials/TechnicalHelp/Tutorial_colab.md"},
                                 {"file": "tutorials/TechnicalHelp/Tutorial_kaggle.md"},
@@ -235,7 +235,7 @@ def convert_sections_to_children(entries):
     return result
 
 
-# ---- Pre-processing helpers (ported verbatim from nmaci generate_book.py) ----
+  # ---- Pre-processing helpers (ported verbatim from nmaci generate_book.py) ----
 
 
 def pre_process_notebook(file_path):

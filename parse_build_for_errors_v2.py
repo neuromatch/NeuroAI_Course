@@ -14,8 +14,8 @@ Error output structure in the page JSON (e.g. w1d2-tutorial2.json):
     └── children[K]               (type='output')
           jupyter_data: {output_type: 'error', ename: 'NotImplementedError', ...}
 
-We walk every .json file, find 'output' nodes whose jupyter_data.ename matches
-our error list, remove them from their parent 'outputs' node, and also remove
+We walk every .json file, find 'output' nodes whose jupyter_data.output_type
+is 'error', remove them from their parent 'outputs' node, and also remove
 the 'outputs' node entirely if it becomes empty.
 
 Run as: python parse_html_for_errors_v2.py student
@@ -26,8 +26,6 @@ import os
 import sys
 
 sys.argv[1]  # "student" or "instructor" — accepted but not used (kept for compat)
-
-ERROR_NAMES = {"NotImplementedError", "NameError"}
 
 HTML_ROOT = "book/_build/html"
 
@@ -80,7 +78,7 @@ def strip_error_outputs(node):
     """Recursively walk the mdast tree and remove error output nodes.
 
     Targets 'outputs' nodes (type='outputs') that contain one or more
-    'output' children with jupyter_data.ename in ERROR_NAMES.
+    'output' children with jupyter_data.output_type == 'error'.
 
     Returns count of individual error output nodes removed.
     """
@@ -125,11 +123,7 @@ def filter_error_outputs(outputs_node):
             new_children.append(child)
             continue
         jd = child.get("jupyter_data", {})
-        if (
-            isinstance(jd, dict)
-            and jd.get("output_type") == "error"
-            and jd.get("ename") in ERROR_NAMES
-        ):
+        if jd.get("output_type") == "error":
             removed += 1
         else:
             new_children.append(child)
