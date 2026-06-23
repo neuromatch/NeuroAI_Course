@@ -2,52 +2,14 @@ name: 'Setup nmaci CI Tools'
 description: 'Install the Neuromatch nmaci package'
 
 inputs:
-  branch:
-    description: 'nmaci branch to use'
-    required: false
-    default: 'main'
-  commit-message:
-    description: 'Commit message to parse for branch override'
-    required: false
-    default: ''
   stub-widgets:
     description: 'Install ipywidgets stub for headless execution (disable for book builds)'
     required: false
     default: 'true'
 
-outputs:
-  nmaci-branch:
-    description: 'nmaci branch used'
-    value: ${{ steps.detect-branch.outputs.branch }}
-
 runs:
   using: 'composite'
   steps:
-    - name: Detect nmaci branch
-      id: detect-branch
-      shell: bash
-      env:
-        COMMIT_MESSAGE: ${{ inputs.commit-message }}
-      run: |
-        BRANCH="${{ inputs.branch }}"
-        if [ -n "$COMMIT_MESSAGE" ]; then
-          OVERRIDE=$(python3 -c "import os, re; m = re.search(r'nmaci:([\w-]+)', os.environ.get('COMMIT_MESSAGE', '')); print(m.group(1) if m else '')")
-          if [ -n "$OVERRIDE" ]; then
-            BRANCH="$OVERRIDE"
-          fi
-        fi
-        echo "branch=$BRANCH" >> $GITHUB_OUTPUT
-        echo "Using nmaci branch: $BRANCH"
-
-    - name: Install nmaci package
-      shell: bash
-      run: |
-        set -e
-        pip install --upgrade pip
-        BRANCH=${{ steps.detect-branch.outputs.branch }}
-        pip install "git+https://github.com/neuromatch/nmaci@$BRANCH"
-        python -c "import nbformat; print(f'nbformat version: {nbformat.__version__}')"
-
     - name: Stub ipywidgets for headless kernel execution
       if: inputs.stub-widgets == 'true'
       shell: bash
