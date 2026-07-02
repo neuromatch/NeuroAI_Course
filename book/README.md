@@ -26,11 +26,17 @@ In order to build the book locally, you will need to do the following:
 
 `cd course-content`
 
-`pip install -r ../nmaci-main/requirements.txt`
+Install pixi by following the [official installation instructions](https://pixi.sh/latest/installation/), or on Linux/macOS run:
 
-`pip install -r requirements.txt`
+`curl -fsSL https://pixi.sh/install.sh | bash`
 
-`pip install jupyter-book==0.10.2`
+Install the locked course environment:
+
+`pixi install --locked`
+
+`pixi run pip install -r ../nmaci-main/requirements.txt`
+
+`pixi run pip install jupyter-book==0.10.2`
 
 **Important:** Do not install jupyter-book 0.11 or later at this point, as there are breaking changes in how it handles the table of contents file we generate.
 
@@ -54,7 +60,7 @@ In order to build the book locally, you will need to do the following:
 
 7. Prepare repo for book building 
 
-`python ../nmaci-main/scripts/generate_book.py arg`
+`pixi run python ../nmaci-main/scripts/generate_book.py arg`
 
 where `arg` can take either `student` or `instructor` as a value.
 
@@ -64,6 +70,6 @@ This will use the modified tutorials/materials.yml to create the `_toc.yml` file
 
 8. Build the book
 
-`jupyter-book build book`
+`pixi run jupyter-book build book`
 
 This will create a `book/_build` directory. You can open the `index.html` in any browser to verify the book.

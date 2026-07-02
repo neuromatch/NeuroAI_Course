@@ -1,32 +1,33 @@
 name: 'Setup Python Environment'
-description: 'Set up Python with caching and install base dependencies'
-
-inputs:
-  python-version:
-    description: 'Python version to install'
-    required: false
-    default: '3.10'
+description: 'Set up the pixi Python environment'
 
 outputs:
   cache-hit:
-    description: 'Whether pip cache was hit'
-    value: ${{ steps.setup-python.outputs.cache-hit }}
+    description: 'Whether the pixi environment cache was hit'
+    value: ${{ steps.cache-pixi.outputs.cache-hit }}
 
 runs:
   using: 'composite'
   steps:
-    - name: Set up Python
-      id: setup-python
-      uses: actions/setup-python@v5
+    - name: Install pixi
+      shell: bash
+      run: |
+        if ! command -v pixi >/dev/null 2>&1; then
+          curl -fsSL https://pixi.sh/install.sh | bash
+        fi
+        echo "$HOME/.pixi/bin" >> "$GITHUB_PATH"
+
+    - name: Cache pixi environment
+      id: cache-pixi
+      uses: actions/cache@v4
       with:
-        python-version: ${{ inputs.python-version }}
-        cache: 'pip'
-        cache-dependency-path: requirements.txt
+        path: |
+          .pixi
+          ~/.cache/rattler
+        key: pixi-${{ runner.os }}-${{ hashFiles('pixi.toml', 'pixi.lock') }}
 
-    - name: Upgrade pip
+    - name: Install pixi environment
       shell: bash
-      run: pip install --upgrade pip wheel
-
-    - name: Install requirements
-      shell: bash
-      run: pip install -r requirements.txt
+      run: |
+        "$HOME/.pixi/bin/pixi" install --locked -e ci
+        echo "$GITHUB_WORKSPACE/.pixi/envs/ci/bin" >> "$GITHUB_PATH"

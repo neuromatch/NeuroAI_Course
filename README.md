@@ -15,6 +15,26 @@ Please check out [expected prerequisites here](https://github.com/neuromatch/Neu
 
 ---
 
+## Development Environment
+
+This repository uses [pixi](https://pixi.sh/) to manage the course environment.
+
+Install pixi by following the [official installation instructions](https://pixi.sh/latest/installation/), or on Linux/macOS run:
+
+```bash
+curl -fsSL https://pixi.sh/install.sh | bash
+```
+
+Then install the locked course environment from the repository root:
+
+```bash
+pixi install --locked
+```
+
+Use plain `pixi install` only when intentionally updating the environment, and commit both `pixi.toml` and `pixi.lock` after changing dependencies.
+
+---
+
 ## Licensing
 
 [![CC BY 4.0][cc-by-image]][cc-by]
