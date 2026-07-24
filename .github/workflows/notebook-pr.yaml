@@ -27,8 +27,9 @@ jobs:
       skip_ci: ${{ steps.check-skip.outputs.skip }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
           persist-credentials: false
           fetch-depth: 0
           ref: ${{ github.head_ref || github.ref_name }}
@@ -57,8 +58,6 @@ jobs:
       - name: Setup CI tools
         if: steps.check-skip.outputs.skip != 'true'
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ steps.get-commit.outputs.message }}
 
       - name: Get changed files
         if: steps.check-skip.outputs.skip != 'true' && github.event_name == 'pull_request'
@@ -113,8 +112,9 @@ jobs:
         notebook: ${{ fromJson(needs.setup.outputs.notebooks) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
           persist-credentials: false
           fetch-depth: 0
           ref: ${{ github.head_ref || github.ref_name }}
@@ -124,13 +124,9 @@ jobs:
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ needs.setup.outputs.commit_message }}
 
       - name: Setup rendering dependencies
         uses: ./.github/actions/setup-rendering-deps
-        with:
-          skip-backend: 'true'
 
       - name: Process notebook
         env:
@@ -189,22 +185,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
           persist-credentials: false
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-          cache: 'pip'
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
-        with:
-          commit-message: ${{ needs.setup.outputs.commit_message }}
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4

@@ -32,14 +32,12 @@ jobs:
 
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
-
-      - name: Install Jupyter Book
-        run: pip install jupyter-book==0.14.0 ghp-import
+        with:
+          environment: book
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
         with:
-          commit-message: ${{ env.COMMIT_MESSAGE }}
           stub-widgets: 'false'
 
       - name: Setup rendering dependencies
@@ -67,7 +65,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: book/.jupyter-cache
-          key: jupyter-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
+          key: jupyter-exec-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'pixi.toml', 'pixi.lock') }}
           restore-keys: |
             jupyter-exec-${{ steps.cache-date.outputs.date }}-
             jupyter-exec-

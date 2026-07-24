@@ -1,0 +1,85 @@
+[workspace]
+authors = ["Neuromatch Academy"]
+channels = ["conda-forge"]
+name = "neuro-ai-course"
+platforms = ["linux-64", "osx-64", "win-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "3.10.*"
+setuptools = "80.9.*"
+
+[pypi-dependencies]
+numpy = "==1.26.4"
+scipy = "==1.12.0"
+matplotlib = "==3.8.3"
+pillow = "==10.2.0"
+pandas = "==2.3.3"
+torch = "==2.1.0"
+torchvision = "==0.16.0"
+transformers = "==4.38.1"
+gradio = "==4.19.2"
+networkx = "==3.2.1"
+ipywidgets = "==8.1.2"
+ipympl = "==0.9.8"
+ipysankeywidget = "==0.4.2"
+ipython = "==8.39.0"
+requests = "==2.31.0"
+scikit-learn = "==1.4.1.post1"
+scikit-image = "==0.19.2"
+tqdm = "==4.66.2"
+protobuf = "==3.20.3"
+numba = "==0.59.0"
+sentencepiece = "==0.2.0"
+python-dotenv = "==1.0.1"
+gymnasium = "==0.29.1"
+pytorch-lightning = "==2.2.4"
+torchmetrics = "==1.9.0"
+torch-optimizer = "==0.3.0"
+jupyter-ui-poll = "==0.2.2"
+tensorflow = "==2.8"
+ffmpeg = "==1.4"
+imageio-ffmpeg = "==0.6.0"
+dm-control = ">=1.0.16"
+dm-acme = { version = "*", extras = ["envs"] }
+torchlens = "==0.15.15"
+rsatoolbox = "==0.1.5"
+vibecheck = "==0.0.5"
+datatops = "==0.3.1"
+seaborn = "==0.13.2"
+plotly = "==6.8.0"
+xarray = "==2025.6.1"
+memory-profiler = "==0.61.0"
+pickleshare = "==0.7.5"
+tabulate = "==0.10.0"
+nengo = "==4.0.0"
+nengo-spa = "==2.0.0"
+nengo-gui = "==0.5.0"
+mpl-interactions = "==0.24.2"
+graphviz = "==0.21"
+trdg = { git = "https://github.com/neuromatch/TextRecognitionDataGenerator", rev = "25a49c9944449d3e1039fc1e716ce14cdb74c3e6" }
+nmaci = { git = "https://github.com/neuromatch/nmaci", rev = "bcef66766342558dd09ca9a809452a878dc21e3f" }
+gns = { git = "https://github.com/neuromatch/GNS-Modeling", rev = "5150c63a2d422ba2fb4b461570b6a8be8b10eea8" }
+pybpl = { git = "https://github.com/neuromatch/pyBPL", rev = "62cbb5cf4aa983c42240efd6a5df6b49e519950c" }
+motornet = { git = "https://github.com/neuromatch/MotorNet", rev = "61e9a76089e223f1b31d2d8f221d42f50e0ee6d0" }
+sspspace = { git = "https://github.com/ctn-waterloo/sspspace", rev = "e97043c87c02a139e1a6bd5972902a43668f4cee" }
+dsa-metric = { git = "https://github.com/mitchellostrow/DSA", rev = "fa2596f6dbbbcf42014d3f924bcfccca6232421d" }
+
+[feature.ci.target.linux-64.dependencies]
+graphviz = "*"
+
+[feature.book.pypi-dependencies]
+jupyter-book = "==0.15.1"
+ghp-import = "*"
+
+[feature.book-v2.pypi-dependencies]
+jupyter-book = ">=2.1"
+
+[environments]
+default = []
+ci = ["ci"]
+book = ["ci", "book"]
+book-v2 = ["ci", "book-v2"]
+
+[tasks]
+check-env = "python -c 'import numpy, scipy, matplotlib, torch, torchvision, transformers, gradio, sklearn, tensorflow; import pkg_resources; print(\"environment ok\")'"

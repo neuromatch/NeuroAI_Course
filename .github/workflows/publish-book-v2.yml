@@ -40,19 +40,17 @@ jobs:
 
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
+        with:
+          environment: book-v2
 
       - name: Setup Node.js (required by MyST theme engine)
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install Jupyter Book 2
-        run: pip install "jupyter-book>=2.1"
-
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools
         with:
-          commit-message: ${{ env.COMMIT_MESSAGE }}
           stub-widgets: 'false'
 
       - name: Setup rendering dependencies
@@ -67,7 +65,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: book/_build/execute
-          key: jb2-exec-v2-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'requirements.txt') }}
+          key: jb2-exec-v2-${{ steps.cache-date.outputs.date }}-${{ hashFiles('tutorials/**/*.ipynb', 'pixi.toml', 'pixi.lock') }}
           restore-keys: |
             jb2-exec-v2-${{ steps.cache-date.outputs.date }}-
             jb2-exec-v2-
