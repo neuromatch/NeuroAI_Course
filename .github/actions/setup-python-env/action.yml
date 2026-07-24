@@ -1,6 +1,12 @@
 name: 'Setup Python Environment'
 description: 'Set up the pixi Python environment'
 
+inputs:
+  environment:
+    description: 'Pixi environment to install and add to PATH'
+    required: false
+    default: 'ci'
+
 outputs:
   cache-hit:
     description: 'Whether the pixi environment cache was hit'
@@ -24,10 +30,10 @@ runs:
         path: |
           .pixi
           ~/.cache/rattler
-        key: pixi-${{ runner.os }}-${{ hashFiles('pixi.toml', 'pixi.lock') }}
+        key: pixi-${{ runner.os }}-${{ inputs.environment }}-${{ hashFiles('pixi.toml', 'pixi.lock') }}
 
     - name: Install pixi environment
       shell: bash
       run: |
-        "$HOME/.pixi/bin/pixi" install --locked -e ci
-        echo "$GITHUB_WORKSPACE/.pixi/envs/ci/bin" >> "$GITHUB_PATH"
+        "$HOME/.pixi/bin/pixi" install --locked -e "${{ inputs.environment }}"
+        echo "$GITHUB_WORKSPACE/.pixi/envs/${{ inputs.environment }}/bin" >> "$GITHUB_PATH"

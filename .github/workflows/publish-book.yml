@@ -32,9 +32,8 @@ jobs:
 
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
-
-      - name: Install Jupyter Book
-        run: pip install jupyter-book==0.14.0 ghp-import
+        with:
+          environment: book
 
       - name: Setup CI tools
         uses: ./.github/actions/setup-ci-tools

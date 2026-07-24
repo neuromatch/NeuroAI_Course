@@ -68,9 +68,18 @@ dsa-metric = { git = "https://github.com/mitchellostrow/DSA", rev = "fa2596f6dbb
 [feature.ci.target.linux-64.dependencies]
 graphviz = "*"
 
+[feature.book.pypi-dependencies]
+jupyter-book = "==0.15.1"
+ghp-import = "*"
+
+[feature.book-v2.pypi-dependencies]
+jupyter-book = ">=2.1"
+
 [environments]
 default = []
 ci = ["ci"]
+book = ["ci", "book"]
+book-v2 = ["ci", "book-v2"]
 
 [tasks]
 check-env = "python -c 'import numpy, scipy, matplotlib, torch, torchvision, transformers, gradio, sklearn, tensorflow; import pkg_resources; print(\"environment ok\")'"

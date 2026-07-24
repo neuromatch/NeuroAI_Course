@@ -30,15 +30,11 @@ Install pixi by following the [official installation instructions](https://pixi.
 
 `curl -fsSL https://pixi.sh/install.sh | bash`
 
-Install the locked course environment:
+Install the locked legacy book environment:
 
-`pixi install --locked`
+`pixi install --locked -e book`
 
-`pixi run pip install -r ../nmaci-main/requirements.txt`
-
-`pixi run pip install jupyter-book==0.10.2`
-
-**Important:** Do not install jupyter-book 0.11 or later at this point, as there are breaking changes in how it handles the table of contents file we generate.
+**Important:** Use the pinned Jupyter Book version from the `book` pixi environment instead of installing a different version manually.
 
 5. Copy files from precourse to `tutorials/`
 
@@ -60,7 +56,7 @@ Install the locked course environment:
 
 7. Prepare repo for book building 
 
-`pixi run python ../nmaci-main/scripts/generate_book.py arg`
+`pixi run -e book python ../nmaci-main/scripts/generate_book.py arg`
 
 where `arg` can take either `student` or `instructor` as a value.
 
@@ -70,6 +66,6 @@ This will use the modified tutorials/materials.yml to create the `_toc.yml` file
 
 8. Build the book
 
-`pixi run jupyter-book build book`
+`pixi run -e book jupyter-book build book`
 
 This will create a `book/_build` directory. You can open the `index.html` in any browser to verify the book.
