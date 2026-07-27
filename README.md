@@ -34,6 +34,23 @@ Derivative works may use the license that is more appropriate to the relevant co
 [bsd-3]: https://opensource.org/licenses/BSD-3-Clause
 [bsd-3-shield]: https://img.shields.io/badge/License-BSD_3--Clause-blue.svg
 
+## Contributing Notebooks
+
+When contributing Jupyter notebooks, please ensure they are clean for version control:
+
+```bash
+pip install nb-clean
+nb-clean clean tutorials/ projects/
+```
+
+Or use the one-liner:
+
+```bash
+uvx nb-clean clean tutorials/ projects/
+```
+
+Notebooks will be automatically cleaned when you open a PR. If the cleanup fails to push to your fork, you'll be asked to run the cleanup locally.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
