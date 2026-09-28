@@ -1,0 +1,17 @@
+name: Submit Content
+
+on:
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check SME
+        run: |
+          echo "You are ${{ github.actor }}"
+
+      - name: Submit
+        run: |
+          echo "Content submitted!"

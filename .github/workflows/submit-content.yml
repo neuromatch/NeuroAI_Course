@@ -1,0 +1,30 @@
+name: Submit Content
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check SME
+        run: |
+          if ! grep -Fxq "${{ github.actor }}" .github/smes.txt; then
+            echo "❌ You are not authorized to submit content."
+            exit 1
+          fi
+
+          echo "✅ ${{ github.actor }} is an approved SME."
+
+      - name: Submit
+        run: |
+          echo "✅ Content submitted."
+          echo "The existing PR will be updated automatically from this branch."
